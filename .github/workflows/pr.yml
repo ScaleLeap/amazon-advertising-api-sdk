@@ -1,4 +1,4 @@
-name: Node CI
+name: Pull Requests
 
 on:
   pull_request:
