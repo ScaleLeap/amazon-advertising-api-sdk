@@ -1,4 +1,4 @@
-module.export = {
+module.exports =  {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2019,
@@ -23,4 +23,4 @@ module.export = {
     'prettier',
     'prettier/@typescript-eslint'
   ]
-}
+};
