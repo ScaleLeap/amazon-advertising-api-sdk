@@ -2,7 +2,8 @@
   "extends": "tsconfigs/node",
   "compilerOptions": {
     "types": [
-      "node"
+      "node",
+      "jest"
     ]
   }
 }
