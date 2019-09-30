@@ -1,9 +1,9 @@
 import { isRight } from 'fp-ts/lib/Either'
-import { Portfolio, PortfolioExtended, PortfolioMutationResponse } from './types'
+import * as t from './types'
 
 describe('Portfolio', () => {
   it('should pass getPortfolio response', () => {
-    const res = Portfolio.decode({
+    const res = t.Portfolio.decode({
       "portfolioId": 1234567890,
       "name": "My Portfolio One",
       "budget": {
@@ -21,7 +21,7 @@ describe('Portfolio', () => {
   })
 
   it('should fail', () => {
-    const res = Portfolio.decode({})
+    const res = t.Portfolio.decode({})
 
     expect(isRight(res)).toBeFalsy()
   })
@@ -29,12 +29,11 @@ describe('Portfolio', () => {
 
 describe('PortfolioExtended', () => {
   it('should pass getPortfolioEx response', () => {
-    const res = PortfolioExtended.decode({
+    const res = t.PortfolioExtended.decode({
       "portfolioId": 1234567890,
       "name": "My Portfolio One",
       "budget": {
           "amount": 100.0,
-          "currencyCode": "USD",
           "policy": "dateRange",
           "startDate": "20190131",
           "endDate": "20190331"
@@ -50,15 +49,15 @@ describe('PortfolioExtended', () => {
   })
 
   it('should fail', () => {
-    const res = PortfolioExtended.decode({})
+    const res = t.PortfolioExtended.decode({})
 
     expect(isRight(res)).toBeFalsy()
   })
 })
 
 describe('PortfolioMutationResponse', () => {
-  it('should pass createPortfolios and updatePortfolios  response', () => {
-    const res = PortfolioMutationResponse.decode({
+  it('should pass createPortfolios and updatePortfolios response', () => {
+    const res = t.PortfolioMutationResponse.decode({
       "code": "SUCCESS",
       "portfolioId": 1234567890
   })
@@ -67,7 +66,68 @@ describe('PortfolioMutationResponse', () => {
   })
 
   it('should fail', () => {
-    const res = PortfolioMutationResponse.decode({})
+    const res = t.PortfolioMutationResponse.decode({})
+
+    expect(isRight(res)).toBeFalsy()
+  })
+})
+
+describe('ListPortfoliosParams', () => {
+  it('should list portfolios params', () => {
+    const res = t.ListPortfoliosParams.decode({
+      "portfolioIdFilter": 1234567890,
+      "portfolioNameFilter": "",
+      "portfolioStateFilter": "enabled"
+  })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+
+  it('should fail', () => {
+    const res = t.ListPortfoliosParams.decode({})
+
+    expect(isRight(res)).toBeFalsy()
+  })
+})
+
+describe('CreatePortfoliosParams', () => {
+  it('should create portfolios params', () => {
+    const res = t.CreatePortfoliosParams.decode({
+      "name": "My Portfolio Two",
+      "budget": {
+          "amount": 50.0,
+          "policy": "dateRange",
+          "startDate": "20181001",
+          "endDate": null
+      },
+      "state": "enabled"
+  })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+
+  it('should fail', () => {
+    const res = t.CreatePortfoliosParams.decode({})
+
+    expect(isRight(res)).toBeFalsy()
+  })
+})
+
+describe('UpdatePortfoliosParams', () => {
+  it('should update portfolios params', () => {
+    const res = t.UpdatePortfoliosParams.decode({
+      "portfolioId": 1234567890,
+      "name": "My Portfolio New Name",
+      "budget": {
+          "amount": 200.0,
+      }
+  })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+
+  it('should fail', () => {
+    const res = t.UpdatePortfoliosParams.decode({})
 
     expect(isRight(res)).toBeFalsy()
   })
