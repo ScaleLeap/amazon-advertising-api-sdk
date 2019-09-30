@@ -6,6 +6,9 @@ export type PortfolioId = t.TypeOf<typeof PortfolioId>
 const PortfolioName = t.string
 type PortfolioName = t.TypeOf<typeof PortfolioName>
 
+/**
+ * The currency code of the budget.
+ */
 const CurrencyCode = t.union([
   t.literal('AUD'),
   t.literal('CAD'),
@@ -16,16 +19,44 @@ const CurrencyCode = t.union([
 ])
 export type CurrencyCode = t.TypeOf<typeof CurrencyCode>
 
-export const PortfolioBudget = t.strict({
+export const PortfolioBudget = t.partial({
+  /**
+   * The budget amount.
+   */
   amount: t.number,
+
+  /**
+   * The currency code of the budget.
+   */
   currencyCode: CurrencyCode,
+
+  /**
+   * The policy of the portfolio.
+   */
   policy: t.literal('dateRange'),
+
+  /**
+   * The start date of the portfolio.
+   */
   startDate: t.string,
+
+  /**
+   * The end date of the portfolio.
+   */
   endDate: t.union([
     t.string,
     t.null
   ])
 })
+
+/**
+ * The state of the portfolio
+ */
+export const PortfolioState = t.union([
+  t.literal('enabled'),
+  t.null
+])
+export type PortfolioState = t.TypeOf<typeof PortfolioState>
 
 export const Portfolio = t.strict({
   /**
@@ -51,10 +82,7 @@ export const Portfolio = t.strict({
   /**
    * The status of the portfolio.
    */
-  state: t.union([
-    t.literal('enabled'),
-    t.null
-  ]),
+  state: PortfolioState
 })
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
@@ -74,7 +102,7 @@ export const PortfolioExtended = t.intersection([
     /**
      * The serving status of the portfolio.
      */
-    servingStatus: t.string,
+    servingStatus: t.string
   })
 ])
 export type PortfolioExtended = t.TypeOf<typeof PortfolioExtended>
@@ -95,3 +123,65 @@ export const PortfolioMutationResponse = t.strict({
   portfolioId: PortfolioId
 })
 export type PortfolioMutationResponse = t.TypeOf<typeof PortfolioMutationResponse>
+
+export const ListPortfoliosParams = t.strict({
+  /**
+   * Retrieve the portfolios with the specified IDs.
+   */
+  portfolioIdFilter: PortfolioId,
+
+  /**
+   * Retrieve the portfolios with the specified names.
+   */
+  portfolioNameFilter: PortfolioName,
+
+  /**
+   * Retrieve the portfolios with the specified state.
+   */
+  portfolioStateFilter: PortfolioState
+})
+export type ListPortfoliosParams = t.TypeOf<typeof ListPortfoliosParams>
+
+export const CreatePortfoliosParams = t.strict({
+  /**
+   * The name of the requested portfolio.
+   */
+  name: PortfolioName,
+
+  /**
+   * The portfolio budget. If budget is specified, then policy and startDate are required fields. Mutable fields are: amount, policy, startDate, and endDate.
+   */
+  budget: PortfolioBudget,
+
+  /**
+   * The state of the requested portfolio.
+   */
+  state: PortfolioState
+})
+export type CreatePortfoliosParams = t.TypeOf<typeof CreatePortfoliosParams>
+
+export const UpdatePortfoliosParams = t.intersection([
+  t.strict({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
+  }),
+  t.partial({
+    /**
+     * The name of the requested portfolio.
+     */
+    name: PortfolioName,
+  
+    /**
+     * The portfolio budget. Mutable fields are: amount, policy, startDate, and endDate.
+     */
+    budget: PortfolioBudget,
+  
+    /**
+     * The state of the requested portfolio.
+     */
+    state: PortfolioState
+  })
+])
+export type UpdatePortfoliosParams = t.TypeOf<typeof UpdatePortfoliosParams>
