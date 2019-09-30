@@ -43,19 +43,13 @@ export const PortfolioBudget = t.partial({
   /**
    * The end date of the portfolio.
    */
-  endDate: t.union([
-    t.string,
-    t.null
-  ])
+  endDate: t.union([t.string, t.null]),
 })
 
 /**
  * The state of the portfolio
  */
-export const PortfolioState = t.union([
-  t.literal('enabled'),
-  t.null
-])
+export const PortfolioState = t.union([t.literal('enabled'), t.null])
 export type PortfolioState = t.TypeOf<typeof PortfolioState>
 
 export const Portfolio = t.strict({
@@ -82,7 +76,7 @@ export const Portfolio = t.strict({
   /**
    * The status of the portfolio.
    */
-  state: PortfolioState
+  state: PortfolioState,
 })
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
@@ -102,8 +96,8 @@ export const PortfolioExtended = t.intersection([
     /**
      * The serving status of the portfolio.
      */
-    servingStatus: t.string
-  })
+    servingStatus: t.string,
+  }),
 ])
 export type PortfolioExtended = t.TypeOf<typeof PortfolioExtended>
 
@@ -111,16 +105,12 @@ export const PortfolioMutationResponse = t.strict({
   /**
    * The mutation status of the portfolio.
    */
-  code: t.union([
-    t.literal('SUCCESS'),
-    t.literal('INVALID_ARGUMENT'),
-    t.literal('NOT_FOUND'),
-  ]),
+  code: t.union([t.literal('SUCCESS'), t.literal('INVALID_ARGUMENT'), t.literal('NOT_FOUND')]),
 
   /**
    * The mutation status of the portfolio.
    */
-  portfolioId: PortfolioId
+  portfolioId: PortfolioId,
 })
 export type PortfolioMutationResponse = t.TypeOf<typeof PortfolioMutationResponse>
 
@@ -138,7 +128,7 @@ export const ListPortfoliosParams = t.strict({
   /**
    * Retrieve the portfolios with the specified state.
    */
-  portfolioStateFilter: PortfolioState
+  portfolioStateFilter: PortfolioState,
 })
 export type ListPortfoliosParams = t.TypeOf<typeof ListPortfoliosParams>
 
@@ -156,7 +146,7 @@ export const CreatePortfoliosParams = t.strict({
   /**
    * The state of the requested portfolio.
    */
-  state: PortfolioState
+  state: PortfolioState,
 })
 export type CreatePortfoliosParams = t.TypeOf<typeof CreatePortfoliosParams>
 
@@ -172,16 +162,16 @@ export const UpdatePortfoliosParams = t.intersection([
      * The name of the requested portfolio.
      */
     name: PortfolioName,
-  
+
     /**
      * The portfolio budget. Mutable fields are: amount, policy, startDate, and endDate.
      */
     budget: PortfolioBudget,
-  
+
     /**
      * The state of the requested portfolio.
      */
-    state: PortfolioState
-  })
+    state: PortfolioState,
+  }),
 ])
 export type UpdatePortfoliosParams = t.TypeOf<typeof UpdatePortfoliosParams>
