@@ -34,7 +34,7 @@ const CountryCode = t.union([
 ])
 export type CountryCode = t.TypeOf<typeof CountryCode>
 
-const CurrencyCode = t.union([
+export const CurrencyCode = t.union([
   t.literal('AUD'),
   t.literal('CAD'),
   t.literal('EUR'),
