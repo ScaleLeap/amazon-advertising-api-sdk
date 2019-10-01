@@ -1,23 +1,11 @@
 import * as t from 'io-ts'
+import { CurrencyCode } from '../profiles/types'
 
 export const PortfolioId = t.number
 export type PortfolioId = t.TypeOf<typeof PortfolioId>
 
 const PortfolioName = t.string
 type PortfolioName = t.TypeOf<typeof PortfolioName>
-
-/**
- * The currency code of the budget.
- */
-const CurrencyCode = t.union([
-  t.literal('AUD'),
-  t.literal('CAD'),
-  t.literal('EUR'),
-  t.literal('GBP'),
-  t.literal('JPY'),
-  t.literal('USD'),
-])
-export type CurrencyCode = t.TypeOf<typeof CurrencyCode>
 
 export const PortfolioBudget = t.partial({
   /**
