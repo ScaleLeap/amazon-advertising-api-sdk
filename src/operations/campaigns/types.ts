@@ -149,7 +149,7 @@ export type SponsoredBrandsCampaignUpdate = t.TypeOf<typeof SponsoredBrandsCampa
 
 export const CampaignExtended = t.intersection([
   Campaign,
-  t.strict({
+  t.partial({
     /**
      * Ad placement. Only returned when segment is set to placement.
      */
@@ -329,22 +329,25 @@ export const SponsoredBrandsCampaign = t.strict({
 })
 export type SponsoredBrandsCampaign = t.TypeOf<typeof SponsoredBrandsCampaign>
 
-export const CampaignResponse = t.strict({
-  /**
-   * The ID of the campaign.
-   */
-  campaignId: CampaignId,
+export const CampaignResponse = t.intersection([
+  t.strict({
+    /**
+     * The ID of the campaign.
+     */
+    campaignId: CampaignId,
 
-  /**
-   * An enumerated success or error code for machine use.
-   */
-  code: t.string,
-
-  /**
-   * A human-readable description of the error, if unsuccessful.
-   */
-  details: t.string,
-})
+    /**
+     * An enumerated success or error code for machine use.
+     */
+    code: t.string,
+  }),
+  t.partial({
+    /**
+     * A human-readable description of the error, if unsuccessful.
+     */
+    details: t.string,
+  }),
+])
 export type CampaignResponse = t.TypeOf<typeof CampaignResponse>
 
 export const SponsoredBrandsCampaignResponse = t.intersection([
