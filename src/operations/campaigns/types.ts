@@ -16,7 +16,7 @@ export type CampaignName = t.TypeOf<typeof CampaignName>
 /**
  * Specifies the advertising product managed by this campaign.
  */
-export const CampaignType = t.union([t.literal('sponsoredProducts'), t.null])
+export const CampaignType = t.literal('sponsoredProducts')
 export type CampaignType = t.TypeOf<typeof CampaignType>
 
 /**
