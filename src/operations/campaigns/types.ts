@@ -1,5 +1,7 @@
 import * as t from 'io-ts'
+
 import { ResponseStatus, ListPagination } from '../commons/types'
+import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { PortfolioId } from '../portfolios/types'
 
 /**
@@ -139,12 +141,12 @@ export const CampaignExtended = t.intersection([
     /**
      * The date the campaign was created as epoch time in milliseconds.
      */
-    creationDate: t.number,
+    creationDate: DateFromNumber,
 
     /**
      * The date the campaign was created as epoch time in milliseconds.
      */
-    lastUpdatedDate: t.number,
+    lastUpdatedDate: DateFromNumber,
 
     /**
      * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
