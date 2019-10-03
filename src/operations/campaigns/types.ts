@@ -1,4 +1,5 @@
 import * as t from 'io-ts'
+import { ResponseStatus, ListPagination } from '../commons/types'
 import { PortfolioId } from '../portfolios/types'
 
 /**
@@ -34,26 +35,6 @@ export const CampaignState = t.union([
   t.literal('archived'),
 ])
 export type CampaignState = t.TypeOf<typeof CampaignState>
-
-// TODO: Seperate ListPagination, ResponseStatus into common data model
-export const ListPagination = t.strict({
-  /**
-   * 0-indexed record offset for the result set. Defaults to 0.
-   */
-  startIndex: t.number,
-
-  /**
-   * Number of records to include in the paged response. Defaults to max page size.
-   */
-  count: t.number,
-})
-export type ListPagination = t.TypeOf<typeof ListPagination>
-
-export const ResponseStatus = t.strict({
-  code: t.number,
-  details: t.string,
-})
-export type ResponseStatus = t.TypeOf<typeof ResponseStatus>
 
 export const Campaign = t.partial({
   /**

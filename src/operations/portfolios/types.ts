@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { CurrencyCode } from '../profiles/types'
+import { CurrencyCode } from '../commons/types'
 
 export const PortfolioId = t.number
 export type PortfolioId = t.TypeOf<typeof PortfolioId>

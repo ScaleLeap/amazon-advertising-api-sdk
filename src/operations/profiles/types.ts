@@ -1,84 +1,61 @@
 import * as t from 'io-ts'
+import { CountryCode, CurrencyCode, TimeZone } from '../commons/types'
 
 export const ProfileId = t.number
 export type ProfileId = t.TypeOf<typeof ProfileId>
 
-export const ProfileResponse = t.strict({
-  /**
-   * The ID of the profile that was updated, if successful.
-   */
-  profileId: ProfileId,
+export const ProfileResponse = t.intersection([
+  t.strict({
+    /**
+     * The ID of the profile that was updated, if successful.
+     */
+    profileId: ProfileId,
 
-  /**
-   * An enumerated success or error code for machine use.
-   */
-  code: t.string,
-
-  /**
-   * A human-readable description of the error, if unsuccessful.
-   */
-  details: t.string,
-})
+    /**
+     * An enumerated success or error code for machine use.
+     */
+    code: t.string,
+  }),
+  t.partial({
+    /**
+     * A human-readable description of the error, if unsuccessful
+     */
+    details: t.string,
+  }),
+])
 export type ProfileResponse = t.TypeOf<typeof ProfileResponse>
 
-const CountryCode = t.union([
-  t.literal('AU'),
-  t.literal('CA'),
-  t.literal('DE'),
-  t.literal('ES'),
-  t.literal('FR'),
-  t.literal('IT'),
-  t.literal('JP'),
-  t.literal('UK'),
-  t.literal('US'),
-])
-export type CountryCode = t.TypeOf<typeof CountryCode>
-
-export const CurrencyCode = t.union([
-  t.literal('AUD'),
-  t.literal('CAD'),
-  t.literal('EUR'),
-  t.literal('GBP'),
-  t.literal('JPY'),
-  t.literal('USD'),
-])
-export type CurrencyCode = t.TypeOf<typeof CurrencyCode>
-
-export const TimeZone = t.union([
-  t.literal('America/Los_Angeles'),
-  t.literal('Asia/Tokyo'),
-  t.literal('Australia/Sydney'),
-  t.literal('Europe/London'),
-  t.literal('Europe/Paris'),
-])
-export type TimeZone = t.TypeOf<typeof TimeZone>
-
+/**
+ * The type of account being called
+ */
 export const AccountInfoType = t.union([t.literal('seller'), t.literal('vendor')])
 export type AccountInfoType = t.TypeOf<typeof AccountInfoType>
 
-export const AccountInfo = t.strict({
-  /**
-   * The string identifier for the marketplace associated with this profile.
-   *
-   * This is the same identifier used by MWS.
-   */
-  description: t.string,
+export const AccountInfo = t.intersection([
+  t.strict({
+    /**
+     * The string identifier for the marketplace associated with this profile.
+     * This is the same identifier used by MWS
+     */
+    marketplaceStringId: t.string,
 
-  /**
-   * The string identifier for the ID associated with this account.
-   */
-  id: t.string,
+    /**
+     * The string identifier for the ID associated with this account.
+     */
+    id: t.string,
 
-  /**
-   * The string identifier for the account name.
-   */
-  name: t.string,
-
-  /**
-   * The type of account being called.
-   */
-  type: AccountInfoType,
-})
+    /**
+     * The type of account being called.
+     */
+    type: AccountInfoType,
+  }),
+  t.partial({
+    /**
+     * The string identifier for the account name.
+     */
+    name: t.string,
+  }),
+])
 export type AccountInfo = t.TypeOf<typeof AccountInfo>
 
 export const Profile = t.strict({
@@ -104,9 +81,10 @@ export const Profile = t.strict({
   dailyBudget: t.number,
 
   /**
+   * TODO: Check in API again. timzone or timeZone?
    * The tz database time zone used for all date-based campaign management and reporting.
    */
-  timeZone: TimeZone,
+  timezone: TimeZone,
 
   /**
    * Account info.
@@ -114,3 +92,31 @@ export const Profile = t.strict({
   accountInfo: AccountInfo,
 })
 export type Profile = t.TypeOf<typeof Profile>
+
+/**
+ * Registers a brand in sandbox. If this call is made to a production endpoint you will receive an error.
+ */
+export const RegisterBrand = t.strict({
+  /**
+   * The country in which you wish to register the profile. Can be one of: US, CA, UK, DE, FR, IT, ES, JP, AU
+   */
+  countryCode: CountryCode,
+
+  /**
+   * REQUIRED. Brand name.
+   */
+  brand: t.string,
+})
+export type RegisterBrand = t.Type<typeof RegisterBrand>
+
+/**
+ * TODO: The docs doesn't mention them. Need check on API
+ */
+export const ProfileRegistrationResponse = t.strict({
+  profileId: ProfileId,
+
+  code: t.string,
+
+  description: t.string,
+})
+export type ProfileRegistrationResponse = t.Type<typeof ProfileRegistrationResponse>
