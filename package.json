@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "fp-ts": "2.0.5",
-    "io-ts": "2.0.1"
+    "io-ts": "2.0.1",
+    "io-ts-types": "0.5.1"
   },
   "devDependencies": {
     "@types/jest": "24.0.18",
