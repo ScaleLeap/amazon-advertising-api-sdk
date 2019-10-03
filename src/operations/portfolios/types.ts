@@ -1,4 +1,5 @@
 import * as t from 'io-ts'
+import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { CurrencyCode } from '../profiles/types'
 
 export const PortfolioId = t.number
@@ -74,12 +75,12 @@ export const PortfolioExtended = t.intersection([
     /**
      * The date the portfolio was created.
      */
-    creationDate: t.number,
+    creationDate: DateFromNumber,
 
     /**
      * The date the portfolio was last updated.
      */
-    lastUpdatedDate: t.number,
+    lastUpdatedDate: DateFromNumber,
 
     /**
      * The serving status of the portfolio.
