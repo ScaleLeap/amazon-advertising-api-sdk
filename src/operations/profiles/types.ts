@@ -81,7 +81,6 @@ export const Profile = t.strict({
   dailyBudget: t.number,
 
   /**
-   * TODO: Check in API again. timzone or timeZone?
    * The tz database time zone used for all date-based campaign management and reporting.
    */
   timezone: TimeZone,
@@ -110,7 +109,7 @@ export const RegisterBrand = t.strict({
 export type RegisterBrand = t.Type<typeof RegisterBrand>
 
 /**
- * TODO: The docs doesn't mention them. Need check on API
+ * TODO: The docs don't mention them. Need check on API
  */
 export const ProfileRegistrationResponse = t.strict({
   profileId: ProfileId,
