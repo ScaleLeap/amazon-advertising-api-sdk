@@ -12,11 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-fetch": "3.0.4",
     "fp-ts": "2.1.0",
     "io-ts": "2.0.1",
     "io-ts-types": "0.5.1"
   },
   "devDependencies": {
+    "@pollyjs/adapter-node-http": "2.6.3",
+    "@pollyjs/core": "2.6.3",
+    "@pollyjs/persister-fs": "2.6.3",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.11",
     "@typescript-eslint/eslint-plugin": "2.3.3",
@@ -27,6 +31,7 @@
     "eslint-plugin-prettier": "3.1.1",
     "jest": "24.9.0",
     "prettier": "1.18.2",
+    "setup-polly-jest": "0.6.0",
     "ts-jest": "24.1.0",
     "tsconfigs": "4.0.1",
     "typescript": "3.6.3"
