@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
+import { CurrencyCode } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
-import { CurrencyCode } from '../profiles/types'
 
 export const PortfolioId = t.number
 export type PortfolioId = t.TypeOf<typeof PortfolioId>
