@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch'
+import fetch from 'cross-fetch';
 import setupPolly from './setup-polly'
 
 describe('httpstat.us/200', () => {
@@ -10,5 +10,5 @@ describe('httpstat.us/200', () => {
     })
 
     expect(response).toEqual('200 OK')
-  })
-})
+  });
+});
