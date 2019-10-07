@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint --ext .js,.ts src",
+    "lint": "eslint --ext .js,.ts src test",
     "test": "jest"
   },
   "keywords": [],
