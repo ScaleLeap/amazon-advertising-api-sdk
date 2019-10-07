@@ -1,9 +1,14 @@
 {
-  "extends": "tsconfigs/node",
+  "extends": "tsconfigs/nodejs-module",
   "compilerOptions": {
+    "outDir": "lib",
     "types": [
       "node",
       "jest"
     ]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ]
 }
