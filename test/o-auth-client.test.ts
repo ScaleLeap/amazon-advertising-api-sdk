@@ -4,7 +4,7 @@ import { config } from './config'
 
 const URI = 'https://example.com'
 
-describe('ClientOAuth2', () => {
+describe(OAuthClient.name, () => {
   let client: OAuthClient
 
   beforeEach(() => {
