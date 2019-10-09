@@ -26,7 +26,7 @@ describe('ClientOAuth2', () => {
     expect(client).toHaveProperty('createToken')
   })
 
-  it('createToken returns a token object', async () => {
+  it('createToken returns a token object', () => {
     const token = client.createToken('x', 'x')
     expect(token).toBeInstanceOf(Token)
   })
@@ -38,7 +38,10 @@ describe('ClientOAuth2', () => {
       redirectUri: URI,
     })
 
-    const token = client.createToken(config.TEST_ACCESS_TOKEN || '', config.TEST_REFRESH_TOKEN || '')
+    const token = client.createToken(
+      config.TEST_ACCESS_TOKEN || '',
+      config.TEST_REFRESH_TOKEN || '',
+    )
 
     const res = await token.refresh()
 
