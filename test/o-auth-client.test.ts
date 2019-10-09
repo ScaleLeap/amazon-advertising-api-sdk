@@ -31,7 +31,7 @@ describe('ClientOAuth2', () => {
     expect(token).toBeInstanceOf(Token)
   })
 
-  it('refresh an existing token', async () => {
+  it.skip('refresh an existing token', async () => {
     client = new OAuthClient({
       clientId: config.TEST_CLIENT_ID,
       clientSecret: config.TEST_CLIENT_SECRET,
