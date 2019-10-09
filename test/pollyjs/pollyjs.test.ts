@@ -8,6 +8,10 @@ const polly = pollyJs.getPollyInstance()
 server
   .post('https://reqres.in/api/register')
   .on('beforeResponse', (req, res) => {
+    req.send({
+      email: 'test@example.com',
+      password: '123456',
+    })
     res.send({
       token: 'yyy',
       id: 1,
@@ -18,16 +22,6 @@ server
     response.token = 'xxx'
     recording.response.content.text = response
   })
-
-describe('httpstat.us/200', () => {
-  it('should return 200 OK', async () => {
-    const response = await fetch('https://httpstat.us/200').then(response => {
-      return response.text()
-    })
-
-    expect(response).toEqual('200 OK')
-  })
-})
 
 describe('https://reqres.in/api/register', () => {
   it('should filter token', async () => {
