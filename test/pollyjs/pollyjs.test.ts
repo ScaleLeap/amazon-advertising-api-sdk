@@ -1,14 +1,23 @@
 import fetch from 'cross-fetch'
 import { PollyJS } from './polly'
 
-const pollyJs = new PollyJS('__recordings__')
+const pollyJs = new PollyJS('Polly Test')
 const server = pollyJs.getPollyServer()
-pollyJs.setup()
+const polly = pollyJs.getPollyInstance()
 
-server.any().on('request', (req, res) => {
-  req.headers['X-Auth-Token'] = 'abc123'
-  req.query.email = 'test@netflix.com'
-})
+server
+  .post('https://reqres.in/api/register')
+  .on('beforeResponse', (req, res) => {
+    res.send({
+      token: 'yyy',
+      id: 1,
+    })
+  })
+  .on('beforePersist', (req, recording) => {
+    const response = JSON.parse(recording.response.content.text)
+    response.token = 'xxx'
+    recording.response.content.text = response
+  })
 
 describe('httpstat.us/200', () => {
   it('should return 200 OK', async () => {
@@ -22,7 +31,7 @@ describe('httpstat.us/200', () => {
 
 describe('https://reqres.in/api/register', () => {
   it('should filter token', async () => {
-    await fetch('https://reqres.in/api/register', {
+    const response = await fetch('https://reqres.in/api/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -35,5 +44,10 @@ describe('https://reqres.in/api/register', () => {
     }).then(response => {
       return response.json()
     })
+
+    expect(response.id).toEqual(1)
+    expect(response.token).toEqual('yyy')
+
+    await polly.stop()
   })
 })

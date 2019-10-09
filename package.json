@@ -34,7 +34,6 @@
     "eslint-plugin-prettier": "3.1.1",
     "jest": "24.9.0",
     "prettier": "1.18.2",
-    "setup-polly-jest": "0.6.0",
     "ts-jest": "24.1.0",
     "tsconfigs": "4.0.1",
     "typescript": "3.6.3"
