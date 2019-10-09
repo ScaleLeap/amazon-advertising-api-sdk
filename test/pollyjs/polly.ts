@@ -1,6 +1,5 @@
 import path from 'path'
 import { Polly, PollyServer } from '@pollyjs/core'
-import { setupPolly } from 'setup-polly-jest'
 import NodeHttpAdapter from '@pollyjs/adapter-node-http'
 import FSPersister from '@pollyjs/persister-fs'
 
@@ -9,19 +8,11 @@ Polly.register(NodeHttpAdapter)
 
 export class PollyJS {
   recordingName: string
+  polly: Polly
 
   constructor(recordingName: string) {
     this.recordingName = recordingName
-  }
-
-  getPollyServer(): PollyServer {
-    const polly = new Polly(this.recordingName)
-    const { server } = polly
-    return server
-  }
-
-  setup(): void {
-    setupPolly({
+    this.polly = new Polly(this.recordingName, {
       adapters: ['node-http'],
       persister: 'fs',
       persisterOptions: {
@@ -30,5 +21,13 @@ export class PollyJS {
         },
       },
     })
+  }
+
+  getPollyInstance(): Polly {
+    return this.polly
+  }
+
+  getPollyServer(): PollyServer {
+    return this.polly.server
   }
 }
