@@ -26,7 +26,7 @@
     "@types/pollyjs__adapter-node-http": "2.0.0",
     "@types/pollyjs__core": "2.6.1",
     "@types/pollyjs__persister-fs": "2.0.0",
-    "@typescript-eslint/eslint-plugin": "2.3.3",
+    "@typescript-eslint/eslint-plugin": "2.4.0",
     "@typescript-eslint/parser": "2.3.3",
     "eslint": "6.5.1",
     "eslint-config-prettier": "6.4.0",
