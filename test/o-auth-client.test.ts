@@ -2,25 +2,29 @@ import { OAuthClient } from '../src/o-auth-client'
 import { Token } from 'client-oauth2'
 import { config } from './config'
 import { PollyJS } from './pollyjs/polly'
+import { parse, stringify } from 'querystring'
 
 const URI = 'https://example.com'
+const PLACEHOLDER = 'x'
 const pollyJs = new PollyJS('RefreshToken')
 const server = pollyJs.getPollyServer()
 const polly = pollyJs.getPollyInstance()
 
 server.post('https://api.amazon.com/auth/o2/token').on('beforeResponse', (req, res) => {
-  req.send({
-    grant_type: 'refresh_token',
-    client_id: 'YOUR_CLIENT_ID',
-    client_secret: 'YOUR_CLIENT_SECRET',
-    refresh_token: 'Atzr|IQEBLzAtAhRPpMJxdwVz2Nn6f2y-tpJX2DeX...',
-  })
-  res.send({
-    access_token: 'Atza|IQEBLjAsAhRmHjNgHpi0U-Dme37rR6CuUpSR...',
-    token_type: 'bearer',
-    expires_in: 3600,
-    refresh_token: 'Atzr|IQEBLzAtAhRPpMJxdwVz2Nn6f2y-tpJX2DeX...',
-  })
+  req.body = stringify(
+    Object.assign(parse(req.body), {
+      refresh_token: PLACEHOLDER
+    })
+  )
+
+  req.setHeader('authorization', `Basic ${PLACEHOLDER}`)
+
+  res.body = JSON.stringify(
+    Object.assign(JSON.parse(res.body), {
+      access_token: PLACEHOLDER,
+      refresh_token: PLACEHOLDER
+    })
+  )
 })
 
 describe(OAuthClient.name, () => {
@@ -46,7 +50,7 @@ describe(OAuthClient.name, () => {
   })
 
   it('createToken returns a token object', () => {
-    const token = client.createToken('x', 'x')
+    const token = client.createToken(PLACEHOLDER, PLACEHOLDER)
     expect(token).toBeInstanceOf(Token)
   })
 
@@ -64,8 +68,8 @@ describe(OAuthClient.name, () => {
 
     const res = await token.refresh()
 
-    expect(res).toHaveProperty('accessToken')
-    expect(res).toHaveProperty('refreshToken')
+    expect(res.accessToken).toBe(PLACEHOLDER)
+    expect(res.refreshToken).toBe(PLACEHOLDER)
     expect(res.tokenType).toBe('bearer')
 
     await polly.stop()
