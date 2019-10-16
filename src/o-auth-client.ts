@@ -2,10 +2,12 @@ import ClientOAuth2 from 'client-oauth2'
 import { Options } from 'client-oauth2'
 import fetch, { Headers } from 'cross-fetch'
 import { defaultsDeep } from 'lodash'
+import { USER_AGENT } from './constants'
 
 const request: ClientOAuth2.Request = async (method, url, body, headerRecord): ReturnType<ClientOAuth2.Request> => {
   const headers = new Headers()
   headers.append('Accept-Encoding', 'application/json') // disable compression
+  headers.append('User-Agent', USER_AGENT)
   Object.keys(headerRecord).map(key => headers.append(key, headerRecord[key] as string))
 
   const req: RequestInit = {
