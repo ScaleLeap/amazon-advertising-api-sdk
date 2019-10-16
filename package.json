@@ -21,7 +21,7 @@
     "@pollyjs/adapter-node-http": "2.6.3",
     "@pollyjs/core": "2.6.3",
     "@pollyjs/persister-fs": "2.6.3",
-    "@types/jest": "24.0.18",
+    "@types/jest": "24.0.19",
     "@types/node": "12.11.1",
     "@types/pollyjs__adapter-node-http": "2.0.0",
     "@types/pollyjs__core": "2.6.1",
