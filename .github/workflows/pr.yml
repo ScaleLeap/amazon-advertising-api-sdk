@@ -25,6 +25,7 @@ jobs:
         npm install
         npm run lint
         npm test
+        npm run test:passthrough
         npm run build
       env:
         TEST_ACCESS_TOKEN: ${{ secrets.TEST_ACCESS_TOKEN }}

@@ -54,7 +54,7 @@ describe(OAuthClient.name, () => {
     expect(token).toBeInstanceOf(Token)
   })
 
-  it('refresh an existing token', async () => {
+  it('refresh an existing token polly:passthrough', async () => {
     client = new OAuthClient({
       clientId: config.TEST_CLIENT_ID,
       clientSecret: config.TEST_CLIENT_SECRET,

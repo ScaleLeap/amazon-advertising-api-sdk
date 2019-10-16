@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .js,.ts src test",
-    "test": "jest"
+    "test": "jest",
+    "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,7 @@
     "@pollyjs/adapter-node-http": "2.6.3",
     "@pollyjs/core": "2.6.3",
     "@pollyjs/persister-fs": "2.6.3",
-    "@scaleleap/config": "1.2.0",
+    "@scaleleap/config": "1.2.3",
     "@types/jest": "24.0.19",
     "@types/lodash": "4.14.142",
     "@types/node": "12.7.12",
@@ -32,10 +33,11 @@
     "@types/pollyjs__persister-fs": "2.0.0",
     "@typescript-eslint/eslint-plugin": "2.4.0",
     "@typescript-eslint/parser": "2.4.0",
+    "cross-env": "6.0.3",
+    "eslint": "6.5.1",
     "eslint-config-prettier": "6.4.0",
     "eslint-plugin-jest": "22.19.0",
     "eslint-plugin-prettier": "3.1.1",
-    "eslint": "6.5.1",
     "jest": "24.9.0",
     "prettier": "1.18.2",
     "ts-jest": "24.1.0",
