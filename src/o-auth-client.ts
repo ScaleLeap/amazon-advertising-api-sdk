@@ -4,7 +4,12 @@ import fetch, { Headers } from 'cross-fetch'
 import { defaultsDeep } from 'lodash'
 import { USER_AGENT } from './constants'
 
-const request: ClientOAuth2.Request = async (method, url, body, headerRecord): ReturnType<ClientOAuth2.Request> => {
+const request: ClientOAuth2.Request = async (
+  method,
+  url,
+  body,
+  headerRecord,
+): ReturnType<ClientOAuth2.Request> => {
   const headers = new Headers()
   headers.append('Accept-Encoding', 'application/json') // disable compression
   headers.append('User-Agent', USER_AGENT)
@@ -32,9 +37,12 @@ export class OAuthClient {
     scopes: ['cpc_advertising:campaign_management'],
   }
 
-  private readonly client = new ClientOAuth2(defaultsDeep({}, this.opts, this.amazonOptions), request)
+  private readonly client = new ClientOAuth2(
+    defaultsDeep({}, this.opts, this.amazonOptions),
+    request,
+  )
 
-  public constructor(private readonly opts: Options) { }
+  public constructor(private readonly opts: Options) {}
 
   public get getUri() {
     return this.client.code.getUri.bind(this)

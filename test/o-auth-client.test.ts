@@ -11,10 +11,11 @@ const server = pollyJs.getPollyServer()
 const polly = pollyJs.getPollyInstance()
 
 server.post('https://api.amazon.com/auth/o2/token').on('beforeResponse', (req, res) => {
+  /* eslint-disable @typescript-eslint/camelcase */
   req.body = stringify(
     Object.assign(parse(req.body), {
-      refresh_token: PLACEHOLDER
-    })
+      refresh_token: PLACEHOLDER,
+    }),
   )
 
   req.setHeader('authorization', `Basic ${PLACEHOLDER}`)
@@ -22,9 +23,10 @@ server.post('https://api.amazon.com/auth/o2/token').on('beforeResponse', (req, r
   res.body = JSON.stringify(
     Object.assign(JSON.parse(res.body), {
       access_token: PLACEHOLDER,
-      refresh_token: PLACEHOLDER
-    })
+      refresh_token: PLACEHOLDER,
+    }),
   )
+  /* eslint-enable @typescript-eslint/camelcase */
 })
 
 describe(OAuthClient.name, () => {
