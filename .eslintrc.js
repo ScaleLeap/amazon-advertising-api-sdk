@@ -23,5 +23,9 @@ module.exports =  {
     'prettier',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended'
-  ]
+  ],
+  rules: {
+    '@typescript-eslint/explicit-function-return-type': ['off'],
+    '@typescript-eslint/camelcase': ['warn', { 'properties': 'always' }]
+  }
 };
