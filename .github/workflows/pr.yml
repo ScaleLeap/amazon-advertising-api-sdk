@@ -35,3 +35,8 @@ jobs:
         TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
         TEST_SCOPE: ${{ secrets.TEST_SCOPE }}
         CI: true
+    - name: push
+      uses: github-actions-x/commit@v2.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'test: adds Polly recordings'
