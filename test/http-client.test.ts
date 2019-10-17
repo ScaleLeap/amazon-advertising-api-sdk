@@ -31,7 +31,7 @@ describe('HttpClient', () => {
       return expect(client.get('profiles')).rejects.toThrow(NullError)
     })
 
-    it.skip('should throw a ResourceNotFoundError when resource is not found', () => {
+    it('should throw a ResourceNotFoundError when resource is not found', () => {
       return expect(client.get('foobar')).rejects.toThrow(ResourceNotFoundError)
     })
   })
