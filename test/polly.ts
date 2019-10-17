@@ -20,6 +20,9 @@ export default function(pollyConfig: PollyConfig = {}) {
     },
     recordIfMissing: true,
     recordFailedRequests: true,
+    matchRequestsBy: {
+      headers: false,
+    },
 
     // overwrite default config
     ...pollyConfig,
