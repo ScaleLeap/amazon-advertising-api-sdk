@@ -1,34 +1,46 @@
+import HttpStatus from 'http-status-codes'
+import { ExtendableError } from 'ts-error'
 import setupPolly from './polly'
 import { HttpClient } from '../src/http-client'
 import {
-  UnauthorizedError,
   NullError,
   ResourceNotFoundError,
   InvalidProgramStateError,
 } from '../src/errors'
 
-import { httpClientFactory } from './http-client-factory'
+import { httpClientFactory, SANDBOX_URI } from './http-client-factory'
+
+const context = setupPolly()
 
 describe('HttpClient', () => {
-  setupPolly()
-
   let client: HttpClient
   beforeEach(() => {
     client = httpClientFactory()
   })
 
   describe('get', () => {
+    beforeEach(() => {
+      const server = context.polly.server
+
+      server.host(SANDBOX_URI + '/', () => {
+        server.get('null-body').on('beforeResponse', (req, res) => {
+          res.status(HttpStatus.OK)
+          res.send('')
+        })
+      })
+    })
+
     it('should return a result', async () => {
       const res = await client.get('v2/profiles')
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it.skip('should throw a known error object when encountering an error', () => {
-      return expect(client.get('profiles')).rejects.toThrow(UnauthorizedError)
+    it('should throw a known error object when encountering an error', () => {
+      expect(client.get('encountering-an-error')).rejects.toThrow(ExtendableError)
     })
 
-    it.skip('should throw NullError when response body is null', () => {
-      return expect(client.get('profiles')).rejects.toThrow(NullError)
+    it('should throw NullError when response body is null', () => {
+      return expect(client.get('null-body')).rejects.toThrow(NullError)
     })
 
     it('should throw a ResourceNotFoundError when resource is not found', () => {
@@ -36,7 +48,24 @@ describe('HttpClient', () => {
     })
   })
 
-  describe.skip('download', () => {
+  describe('download', () => {
+    beforeEach(() => {
+      const server = context.polly.server
+      server.host(SANDBOX_URI + '/', () => {
+        server.get('profiles').on('beforeResponse', (req, res) => {
+          res.setHeader('Location', '')
+          res.status(HttpStatus.OK)
+          res.send({
+            snapshotId: 'amzn1.clicksAPI.v1.p1.5C8B19EB.7298de0e-17cd-441f-bf5c-17a27406b0d6',
+            status: 'SUCCESS',
+            statusDetails: 'Snapshot has been successfully generated.',
+            location: '',
+            fileSize: 518,
+          })
+        })
+      })
+    })
+
     it('should throw if location header not set', async () => {
       const promise = client.download('profiles')
       return expect(promise).rejects.toThrowError(InvalidProgramStateError)

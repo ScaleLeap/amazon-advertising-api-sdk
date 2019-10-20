@@ -2,7 +2,7 @@ import { HttpClient, HttpClientAuth } from '../src/http-client'
 import { config } from './config'
 
 const SANDBOX = true
-const SANDBOX_URI = 'https://advertising-api-test.amazon.com'
+export const SANDBOX_URI = 'https://advertising-api-test.amazon.com'
 
 export const auth: HttpClientAuth = {
   authorizationToken: config.TEST_ACCESS_TOKEN || '',
