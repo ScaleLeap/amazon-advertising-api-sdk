@@ -1,16 +1,14 @@
 import { OAuthClient } from '../src/o-auth-client'
 import { Token } from 'client-oauth2'
 import { config } from './config'
-import { PollyJS } from './pollyjs/polly'
+import setupPolly from './polly'
 import { parse, stringify } from 'querystring'
 
 const URI = 'https://example.com'
 const PLACEHOLDER = 'x'
-const pollyJs = new PollyJS('RefreshToken')
-const server = pollyJs.getPollyServer()
-const polly = pollyJs.getPollyInstance()
+const context = setupPolly()
 
-server.post('https://api.amazon.com/auth/o2/token').on('beforeResponse', (req, res) => {
+context.polly.server.post('https://api.amazon.com/auth/o2/token').on('beforeResponse', (req, res) => {
   /* eslint-disable @typescript-eslint/camelcase */
   req.body = stringify(
     Object.assign(parse(req.body), {
@@ -73,7 +71,5 @@ describe(OAuthClient.name, () => {
     expect(res.accessToken).toBe(PLACEHOLDER)
     expect(res.refreshToken).toBe(PLACEHOLDER)
     expect(res.tokenType).toBe('bearer')
-
-    await polly.stop()
   })
 })
