@@ -1,35 +1,14 @@
 import { OAuthClient } from '../src/o-auth-client'
 import { Token } from 'client-oauth2'
 import { config } from './config'
-import { PollyJS } from './pollyjs/polly'
+import setupPolly from './polly'
 import { parse, stringify } from 'querystring'
 
 const URI = 'https://example.com'
 const PLACEHOLDER = 'x'
-const pollyJs = new PollyJS('RefreshToken')
-const server = pollyJs.getPollyServer()
-const polly = pollyJs.getPollyInstance()
-
-server.post('https://api.amazon.com/auth/o2/token').on('beforeResponse', (req, res) => {
-  /* eslint-disable @typescript-eslint/camelcase */
-  req.body = stringify(
-    Object.assign(parse(req.body), {
-      refresh_token: PLACEHOLDER,
-    }),
-  )
-
-  req.setHeader('authorization', `Basic ${PLACEHOLDER}`)
-
-  res.body = JSON.stringify(
-    Object.assign(JSON.parse(res.body), {
-      access_token: PLACEHOLDER,
-      refresh_token: PLACEHOLDER,
-    }),
-  )
-  /* eslint-enable @typescript-eslint/camelcase */
-})
 
 describe(OAuthClient.name, () => {
+  const context = setupPolly()
   let client: OAuthClient
 
   beforeEach(() => {
@@ -38,6 +17,27 @@ describe(OAuthClient.name, () => {
       clientSecret: 'foo',
       redirectUri: URI,
     })
+
+    context.polly.server
+      .post('https://api.amazon.com/auth/o2/token')
+      .on('beforeResponse', (req, res) => {
+        /* eslint-disable @typescript-eslint/camelcase */
+        req.body = stringify(
+          Object.assign(parse(req.body), {
+            refresh_token: PLACEHOLDER,
+          }),
+        )
+
+        req.setHeader('authorization', `Basic ${PLACEHOLDER}`)
+
+        res.body = JSON.stringify(
+          Object.assign(JSON.parse(res.body), {
+            access_token: PLACEHOLDER,
+            refresh_token: PLACEHOLDER,
+          }),
+        )
+        /* eslint-enable @typescript-eslint/camelcase */
+      })
   })
 
   it('should provide a correct uri', () => {
@@ -73,7 +73,5 @@ describe(OAuthClient.name, () => {
     expect(res.accessToken).toBe(PLACEHOLDER)
     expect(res.refreshToken).toBe(PLACEHOLDER)
     expect(res.tokenType).toBe('bearer')
-
-    await polly.stop()
   })
 })
