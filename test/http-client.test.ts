@@ -2,11 +2,7 @@ import HttpStatus from 'http-status-codes'
 import { ExtendableError } from 'ts-error'
 import setupPolly from './polly'
 import { HttpClient } from '../src/http-client'
-import {
-  NullError,
-  ResourceNotFoundError,
-  InvalidProgramStateError,
-} from '../src/errors'
+import { NullError, ResourceNotFoundError, InvalidProgramStateError } from '../src/errors'
 
 import { httpClientFactory, SANDBOX_URI } from './http-client-factory'
 
