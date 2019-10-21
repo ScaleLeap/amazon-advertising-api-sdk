@@ -42,7 +42,8 @@ describe('HttpClient', () => {
         res.status(HttpStatus.NOT_FOUND)
         res.send({
           code: 'NOT_FOUND',
-          details: 'Could not find resource for full path: https://advertising-api-test.amazon.com/foobar'
+          details:
+            'Could not find resource for full path: https://advertising-api-test.amazon.com/foobar',
         })
       })
 
