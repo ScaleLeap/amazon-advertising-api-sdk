@@ -47,6 +47,6 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        branch: 'polly-recordings'
+        branch: 'refs/heads/polly-recordings'
         force: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
