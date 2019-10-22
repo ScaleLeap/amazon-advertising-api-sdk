@@ -1,8 +1,12 @@
 import HttpStatus from 'http-status-codes'
-import { ExtendableError } from 'ts-error'
 import setupPolly from './polly'
 import { HttpClient } from '../src/http-client'
-import { NullError, ResourceNotFoundError, InvalidProgramStateError } from '../src/errors'
+import {
+  NullError,
+  ResourceNotFoundError,
+  InvalidProgramStateError,
+  GenericError,
+} from '../src/errors'
 
 import { httpClientFactory, SANDBOX_URI } from './http-client-factory'
 
@@ -21,7 +25,14 @@ describe('HttpClient', () => {
     })
 
     it('should throw a known error object when encountering an error', () => {
-      expect(client.get('encountering-an-error')).rejects.toThrow(ExtendableError)
+      const server = context.polly.server
+
+      server.get(SANDBOX_URI + '/encountering-an-error').on('beforeResponse', (req, res) => {
+        res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        res.send('')
+      })
+
+      return expect(client.get('encountering-an-error')).rejects.toBeInstanceOf(GenericError)
     })
 
     it('should throw NullError when response body is null', () => {
