@@ -1,17 +1,18 @@
+import HttpStatus from 'http-status-codes'
 import setupPolly from './polly'
 import { HttpClient } from '../src/http-client'
 import {
-  UnauthorizedError,
   NullError,
   ResourceNotFoundError,
   InvalidProgramStateError,
+  GenericError,
 } from '../src/errors'
 
-import { httpClientFactory } from './http-client-factory'
+import { httpClientFactory, SANDBOX_URI } from './http-client-factory'
+
+const context = setupPolly()
 
 describe('HttpClient', () => {
-  setupPolly()
-
   let client: HttpClient
   beforeEach(() => {
     client = httpClientFactory()
@@ -23,21 +24,60 @@ describe('HttpClient', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it.skip('should throw a known error object when encountering an error', () => {
-      return expect(client.get('profiles')).rejects.toThrow(UnauthorizedError)
+    it('should throw a known error object when encountering an error', () => {
+      const server = context.polly.server
+
+      server.get(SANDBOX_URI + '/encountering-an-error').on('beforeResponse', (req, res) => {
+        res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        res.send('')
+      })
+
+      return expect(client.get('encountering-an-error')).rejects.toBeInstanceOf(GenericError)
     })
 
-    it.skip('should throw NullError when response body is null', () => {
-      return expect(client.get('profiles')).rejects.toThrow(NullError)
+    it('should throw NullError when response body is null', () => {
+      const server = context.polly.server
+
+      server.get(SANDBOX_URI + '/null-body').on('beforeResponse', (req, res) => {
+        res.status(HttpStatus.OK)
+        res.send('')
+      })
+
+      return expect(client.get('null-body')).rejects.toThrow(NullError)
     })
 
     it('should throw a ResourceNotFoundError when resource is not found', () => {
+      const server = context.polly.server
+
+      server.get(SANDBOX_URI + '/foobar').on('beforeResponse', (req, res) => {
+        res.status(HttpStatus.NOT_FOUND)
+        res.send({
+          code: 'NOT_FOUND',
+          details:
+            'Could not find resource for full path: https://advertising-api-test.amazon.com/foobar',
+        })
+      })
+
       return expect(client.get('foobar')).rejects.toThrow(ResourceNotFoundError)
     })
   })
 
-  describe.skip('download', () => {
+  describe('download', () => {
     it('should throw if location header not set', async () => {
+      const server = context.polly.server
+
+      server.get(SANDBOX_URI + '/profiles').on('beforeResponse', (req, res) => {
+        res.setHeader('Location', '')
+        res.status(HttpStatus.OK)
+        res.send({
+          snapshotId: 'amzn1.clicksAPI.v1.p1.5C8B19EB.7298de0e-17cd-441f-bf5c-17a27406b0d6',
+          status: 'SUCCESS',
+          statusDetails: 'Snapshot has been successfully generated.',
+          location: '',
+          fileSize: 518,
+        })
+      })
+
       const promise = client.download('profiles')
       return expect(promise).rejects.toThrowError(InvalidProgramStateError)
     })
