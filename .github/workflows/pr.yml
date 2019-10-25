@@ -27,6 +27,7 @@ jobs:
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
         npm install
         npm run lint
+        export TEST_ACCESS_TOKEN=$(npm -s run dev:refresh-token -)
         npm test
         npm run test:passthrough
         npm run build
