@@ -1,1 +1,3 @@
-export class Operation {}
+export class Operation {
+  protected version = 'v2'
+}
