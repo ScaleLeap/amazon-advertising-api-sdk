@@ -3,10 +3,33 @@ import { join } from 'path'
 import { OAuthClient } from '../src/o-auth-client'
 import { config } from './config'
 
-const DOTENV_PATH = join(__dirname, '../.env')
+/**
+ * Refresh an access token.
+ *
+ * Usage:
+ *
+ * By default, will read and write to `.env` in your current working directory.
+ *
+ * $> npm run dev:refresh-token
+ *
+ * But you can also specify a file manually to read & write:
+ *
+ * $> npm run dev:refresh-token .env.dev
+ *
+ * You can also write to STDOUT:
+ *
+ * $> npm run dev:refresh-token -
+ */
 
-if (!existsSync(DOTENV_PATH)) {
-  throw new Error('The `.env` file does not exist.')
+const DOTENV_PATH = join(__dirname, '../.env')
+const OUTPUT = process.argv[2] || DOTENV_PATH
+
+function isOutputStdout(output: string) {
+  return output && output === '-'
+}
+
+if (!isOutputStdout(OUTPUT) && !existsSync(OUTPUT)) {
+  throw new Error(`The "${OUTPUT}" file does not exist.`)
 }
 
 const client = new OAuthClient({
@@ -22,17 +45,20 @@ if (!config.TEST_REFRESH_TOKEN) {
   throw new Error('Missing `TEST_REFRESH_TOKEN` environment variable.')
 }
 
-const token = client.createToken(config.TEST_ACCESS_TOKEN, config.TEST_REFRESH_TOKEN)
-
-const dotenv = readFileSync(DOTENV_PATH, { encoding: 'utf8' })
-
-token
+client
+  .createToken(config.TEST_ACCESS_TOKEN, config.TEST_REFRESH_TOKEN)
   .refresh()
   .then(tokens => {
-    const res = dotenv.replace(
-      /TEST_ACCESS_TOKEN=(.+?)\n/,
-      `TEST_ACCESS_TOKEN=${tokens.accessToken}\n`,
-    )
-    writeFileSync(DOTENV_PATH, res, { encoding: 'utf8' })
+    if (isOutputStdout(OUTPUT)) {
+      process.stdout.write(tokens.accessToken)
+    } else {
+      const dotenv = readFileSync(OUTPUT, { encoding: 'utf8' })
+
+      const res = dotenv.replace(
+        /TEST_ACCESS_TOKEN=(.+?)\n/,
+        `TEST_ACCESS_TOKEN=${tokens.accessToken}\n`,
+      )
+      writeFileSync(OUTPUT, res, { encoding: 'utf8' })
+    }
   })
   .catch(err => console.error(err))
