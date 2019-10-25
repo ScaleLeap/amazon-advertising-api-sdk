@@ -4,7 +4,6 @@ import { Profile } from './types'
 
 export class ProfileOperation extends Operation {
   protected resource = 'profiles'
-
   constructor(protected client: HttpClient) {
     super()
   }
