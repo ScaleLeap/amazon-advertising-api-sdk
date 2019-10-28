@@ -58,38 +58,42 @@ export const AccountInfo = t.intersection([
 ])
 export type AccountInfo = t.TypeOf<typeof AccountInfo>
 
-export const Profile = t.strict({
-  /**
-   * The ID of the profile.
-   */
-  profileId: ProfileId,
+export const Profile = t.intersection([
+  t.strict({
+    /**
+     * The ID of the profile.
+     */
+    profileId: ProfileId,
 
-  /**
-   * The country code identifying the publisher(s) on which ads will run.
-   */
-  countryCode: CountryCode,
+    /**
+     * The country code identifying the publisher(s) on which ads will run.
+     */
+    countryCode: CountryCode,
 
-  /**
-   * The currency used for all monetary values for entities under this profile.
-   */
-  currencyCode: CurrencyCode,
+    /**
+     * The currency used for all monetary values for entities under this profile.
+     */
+    currencyCode: CurrencyCode,
 
-  /**
-   * The optional budget shared by all entities created under this profile.
-   * TODO: setup a check for minimums.
-   */
-  dailyBudget: t.number,
+    /**
+     * The tz database time zone used for all date-based campaign management and reporting.
+     */
+    timezone: TimeZone,
 
-  /**
-   * The tz database time zone used for all date-based campaign management and reporting.
-   */
-  timezone: TimeZone,
+    /**
+     * Account info.
+     */
+    accountInfo: AccountInfo,
+  }),
+  t.partial({
+    /**
+     * The optional budget shared by all entities created under this profile.
+     * TODO: setup a check for minimums.
+     */
+    dailyBudget: t.number,
+  }),
+])
 
-  /**
-   * Account info.
-   */
-  accountInfo: AccountInfo,
-})
 export type Profile = t.TypeOf<typeof Profile>
 
 /**
