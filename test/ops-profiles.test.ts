@@ -34,6 +34,7 @@ describe('ProfileOperation', () => {
 
   describe('updateProfiles', () => {
     it('should update the profile', async () => {
+      expect.assertions(5)
       const dailyBudget = 340
 
       const res = await profileOperation.updateProfiles([
