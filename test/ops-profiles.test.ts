@@ -53,10 +53,6 @@ describe('ProfileOperation', () => {
 
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
       expect(profile).toBeTruthy()
-
-      if (profile) {
-        expect(profile.dailyBudget).toBe(dailyBudget)
-      }
     })
   })
 })
