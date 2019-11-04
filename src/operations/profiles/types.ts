@@ -123,3 +123,20 @@ export const ProfileRegistrationResponse = t.strict({
   description: t.string,
 })
 export type ProfileRegistrationResponse = t.Type<typeof ProfileRegistrationResponse>
+
+export const RegisterProfileResponseStatus = t.union([
+  t.literal('IN_PROGRESS'),
+  t.literal('SUCCESS'),
+])
+
+export const RegisterProfileResponse = t.intersection([
+  t.strict({
+    status: RegisterProfileResponseStatus,
+    statusDetails: t.string,
+  }),
+  t.partial({
+    profileId: ProfileId,
+  }),
+])
+
+export type RegisterProfileResponse = t.Type<typeof RegisterProfileResponse>
