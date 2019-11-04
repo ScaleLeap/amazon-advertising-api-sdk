@@ -56,4 +56,11 @@ describe('ProfileOperation', () => {
       expect(profile).toBeTruthy()
     })
   })
+
+  describe('registerProfile', () => {
+    it('should work with default params', async () => {
+      const profile = await profileOperation.registerProfile()
+      expect(profile).toBeTruthy()
+    })
+  })
 })
