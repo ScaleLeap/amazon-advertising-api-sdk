@@ -1,5 +1,12 @@
 import { Operation } from '../operation'
-import { Profile, ProfileId, ProfileResponse, RegisterProfileResponse } from './types'
+import {
+  Profile,
+  ProfileId,
+  RegisterBrand,
+  ProfileResponse,
+  RegisterProfileResponse,
+  ProfileRegistrationResponse,
+} from './types'
 import { Decode, DecodeArray } from '../../decorators'
 import { CountryCode } from '../commons/types'
 
@@ -26,5 +33,13 @@ export class ProfileOperation extends Operation {
     return this.client.put<RegisterProfileResponse>(`${this.version}/${this.resource}/register`, {
       countryCode,
     })
+  }
+
+  @Decode(ProfileRegistrationResponse)
+  public registerBrand(registerBrand: RegisterBrand) {
+    return this.client.put<ProfileRegistrationResponse>(
+      `${this.version}/${this.resource}/registerBrand`,
+      registerBrand,
+    )
   }
 }
