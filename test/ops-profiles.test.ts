@@ -58,14 +58,14 @@ describe('ProfileOperation', () => {
     })
   })
 
-  describe('registerProfile', () => {
+  describe.skip('registerProfile', () => {
     it('should work with default params', async () => {
       const profile = await profileOperation.registerProfile()
       expect(profile).toBeTruthy()
     })
   })
 
-  describe('registerBrand', () => {
+  describe.skip('registerBrand', () => {
     it('should return success', async () => {
       const param = {
         countryCode: CountryCode.types[8].value,
