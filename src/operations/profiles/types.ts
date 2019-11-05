@@ -110,7 +110,7 @@ export const RegisterBrand = t.strict({
    */
   brand: t.string,
 })
-export type RegisterBrand = t.Type<typeof RegisterBrand>
+export type RegisterBrand = t.TypeOf<typeof RegisterBrand>
 
 /**
  * TODO: The docs don't mention them. Need check on API
@@ -122,7 +122,7 @@ export const ProfileRegistrationResponse = t.strict({
 
   description: t.string,
 })
-export type ProfileRegistrationResponse = t.Type<typeof ProfileRegistrationResponse>
+export type ProfileRegistrationResponse = t.TypeOf<typeof ProfileRegistrationResponse>
 
 export const RegisterProfileResponseStatus = t.union([
   t.literal('IN_PROGRESS'),
@@ -139,4 +139,4 @@ export const RegisterProfileResponse = t.intersection([
   }),
 ])
 
-export type RegisterProfileResponse = t.Type<typeof RegisterProfileResponse>
+export type RegisterProfileResponse = t.TypeOf<typeof RegisterProfileResponse>
