@@ -1,8 +1,9 @@
 import { OperationProvider } from '../src/operations/operation-provider'
 import { ProfileOperation } from '../src/operations/profiles/profile-operation'
 import { httpClientFactory } from './http-client-factory'
-import { Profile } from '../src/operations/profiles/types'
+import { Profile, RegisterProfileResponseStatus } from '../src/operations/profiles/types'
 import setupPolly from './polly'
+import { CountryCode } from '../src/operations/commons/types'
 
 setupPolly()
 
@@ -61,6 +62,19 @@ describe('ProfileOperation', () => {
     it('should work with default params', async () => {
       const profile = await profileOperation.registerProfile()
       expect(profile).toBeTruthy()
+    })
+  })
+
+  describe('registerBrand', () => {
+    it('should return success', async () => {
+      const param = {
+        countryCode: CountryCode.types[8].value,
+        brand: 'yay',
+      }
+
+      const res = await profileOperation.registerBrand(param)
+      expect(res).toBeTruthy()
+      expect(res.code).toBe(RegisterProfileResponseStatus.types[1].value)
     })
   })
 })
