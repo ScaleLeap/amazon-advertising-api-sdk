@@ -2,7 +2,10 @@
   "name": "amazon-advertising-api-nodejs-sdk",
   "version": "1.0.0",
   "description": "Amazon Advertising API TypeScript and Node.js Unofficial SDK",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .js,.ts src test",
