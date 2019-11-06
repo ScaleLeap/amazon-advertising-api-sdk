@@ -1,5 +1,5 @@
 import { OperationProvider } from '../src/operations/operation-provider'
-import { ProfileOperation } from '../src/operations/profiles/ProfileOperation'
+import { ProfileOperation } from '../src/operations/profiles/profile-operation'
 import { httpClientFactory } from './http-client-factory'
 import { Profile } from '../src/operations/profiles/types'
 import setupPolly from './polly'
