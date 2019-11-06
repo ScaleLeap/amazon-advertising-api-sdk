@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.0...v1.1.1) (2019-11-06)
+
+
+### Bug Fixes
+
+* npm ignore ([cabb124](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/cabb124cd3db99a6af2874bb101561226d99e317))
+
 # [1.1.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.0.0...v1.1.0) (2019-11-06)
 
 
