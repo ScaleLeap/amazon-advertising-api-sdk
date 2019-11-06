@@ -5,7 +5,7 @@ export const ProfileId = t.number
 export type ProfileId = t.TypeOf<typeof ProfileId>
 
 export const ProfileResponse = t.intersection([
-  t.strict({
+  t.type({
     /**
      * The ID of the profile that was updated, if successful.
      */
@@ -32,7 +32,7 @@ export const AccountInfoType = t.union([t.literal('seller'), t.literal('vendor')
 export type AccountInfoType = t.TypeOf<typeof AccountInfoType>
 
 export const AccountInfo = t.intersection([
-  t.strict({
+  t.type({
     /**
      * The string identifier for the marketplace associated with this profile.
      * This is the same identifier used by MWS
@@ -59,7 +59,7 @@ export const AccountInfo = t.intersection([
 export type AccountInfo = t.TypeOf<typeof AccountInfo>
 
 export const Profile = t.intersection([
-  t.strict({
+  t.type({
     /**
      * The ID of the profile.
      */
@@ -130,7 +130,7 @@ export const RegisterProfileResponseStatus = t.union([
 ])
 
 export const RegisterProfileResponse = t.intersection([
-  t.strict({
+  t.type({
     status: RegisterProfileResponseStatus,
     statusDetails: t.string,
   }),

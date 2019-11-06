@@ -23,6 +23,7 @@ describe('ProfileOperation', () => {
 
   describe('getProfile', () => {
     it('should return a profile object', async () => {
+      expect.assertions(2)
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
 
       expect(profile).toBeTruthy()
