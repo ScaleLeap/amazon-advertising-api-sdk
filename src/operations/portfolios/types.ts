@@ -44,37 +44,49 @@ export enum PortfolioStateEnum {
 export const PortfolioStateType = createEnumType<PortfolioStateEnum>(PortfolioStateEnum)
 export type PortfolioStateType = t.TypeOf<typeof PortfolioStateType>
 
-export const Portfolio = t.strict({
-  /**
-   * The ID of the portfolio.
-   */
-  portfolioId: PortfolioId,
+export const Portfolio = t.intersection([
+  t.type({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
 
-  /**
-   * The name of the portfolio.
-   */
-  name: PortfolioName,
+    /**
+     * The name of the portfolio.
+     */
+    name: PortfolioName,
 
-  /**
-   * The budget of the portfolio.
-   */
-  budget: PortfolioBudget,
+    /**
+     * States if the portfolio is still within budget.
+     */
+    inBudget: t.boolean,
 
-  /**
-   * States if the portfolio is still within budget.
-   */
-  inBudget: t.boolean,
+    /**
+     * The status of the portfolio.
+     */
+    state: PortfolioState,
+  }),
+  t.partial({
+    /**
+     * The budget of the portfolio.
+     */
+    budget: PortfolioBudget,
+  }),
+])
 
+<<<<<<< HEAD
   /**
    * The status of the portfolio.
    */
   state: PortfolioStateType,
 })
+=======
+>>>>>>> feature: update Porfolio type and test code
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
 export const PortfolioExtended = t.intersection([
   Portfolio,
-  t.strict({
+  t.type({
     /**
      * The date the portfolio was created.
      */
@@ -154,7 +166,7 @@ export const CreatePortfoliosParams = t.strict({
 export type CreatePortfoliosParams = t.TypeOf<typeof CreatePortfoliosParams>
 
 export const UpdatePortfoliosParams = t.intersection([
-  t.strict({
+  t.type({
     /**
      * The ID of the portfolio.
      */
