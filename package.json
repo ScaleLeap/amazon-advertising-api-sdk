@@ -28,6 +28,7 @@
     "ts-error": "1.0.4"
   },
   "devDependencies": {
+    "@jedmao/semantic-release-npm-github-config": "1.0.8",
     "@pollyjs/adapter-node-http": "2.6.3",
     "@pollyjs/core": "2.6.3",
     "@pollyjs/persister-fs": "2.6.3",
@@ -47,6 +48,7 @@
     "eslint-plugin-prettier": "3.1.1",
     "jest": "24.9.0",
     "prettier": "1.18.2",
+    "semantic-release": "15.13.30",
     "setup-polly-jest": "0.6.0",
     "ts-jest": "24.1.0",
     "ts-node": "8.4.1",
@@ -55,5 +57,9 @@
   },
   "publishConfig": {
     "tag": "next"
+  },
+  "release": {
+    "extends": "@jedmao/semantic-release-npm-github-config",
+    "branch": "master"
   }
 }
