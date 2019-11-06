@@ -1,5 +1,5 @@
 {
-  "name": "amazon-advertising-api-nodejs-sdk",
+  "name": "amazon-advertising-api-sdk",
   "version": "1.0.0",
   "description": "Amazon Advertising API TypeScript and Node.js Unofficial SDK",
   "main": "./lib/index.js",
