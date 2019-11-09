@@ -5,7 +5,6 @@ import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 import { Campaign, ListCampaignsParams } from './types'
 
 export class SponsoredBrandsCampaignOperation extends Operation {
-
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/campaigns`
 
   @DecodeArray(Campaign)
