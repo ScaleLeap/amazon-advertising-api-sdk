@@ -9,11 +9,19 @@ describe('SponsoredBrandsCampaignOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const campaignOperation = operationProvider.create(SponsoredBrandsCampaignOperation)
+  const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
     it('should return an array of campaigns', async () => {
       const res = await campaignOperation.listCampaigns()
       expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('getCampaign', () => {
+    it('should return a single campaign', async () => {
+      const res = await campaignOperation.getCampaign(CAMPAIGN_ID)
+      expect(res).toBeTruthy()
     })
   })
 })
