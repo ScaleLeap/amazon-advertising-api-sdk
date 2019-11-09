@@ -313,7 +313,7 @@ export const SponsoredBrandsCampaign = t.strict({
 export type SponsoredBrandsCampaign = t.TypeOf<typeof SponsoredBrandsCampaign>
 
 export const CampaignResponse = t.intersection([
-  t.strict({
+  t.type({
     /**
      * The ID of the campaign.
      */
