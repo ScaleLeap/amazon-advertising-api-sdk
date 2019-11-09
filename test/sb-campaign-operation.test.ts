@@ -14,8 +14,6 @@ describe('SponsoredBrandsCampaignOperation', () => {
     it('should return an array of campaigns', async () => {
       const res = await campaignOperation.listCampaigns()
       expect(Array.isArray(res)).toBeTruthy()
-      expect(typeof res[0].name).toBe('string')
-      expect(res[0]).toHaveProperty('bidding')
     })
   })
 })
