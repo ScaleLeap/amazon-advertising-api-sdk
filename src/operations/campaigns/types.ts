@@ -210,6 +210,8 @@ export const CampaignExtended = t.intersection([
       t.literal('ADVERTISER_PAYMENT_FAILURE'),
       t.literal('CAMPAIGN_OUT_OF_BUDGET'),
       t.literal('ACCOUNT_OUT_OF_BUDGET'),
+      t.literal('PORTFOLIO_ENDED'), // The docs don't say about this type
+      t.literal('CAMPAIGN_INCOMPLETE'),
     ]),
   }),
 ])
