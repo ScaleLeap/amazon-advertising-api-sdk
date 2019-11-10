@@ -91,44 +91,96 @@ export const Campaign = t.partial({
 })
 export type Campaign = t.TypeOf<typeof Campaign>
 
-export const SponsoredBrandsCampaignUpdate = t.strict({
-  /**
-   * The ID of the portfolio.
-   */
-  portfolioId: PortfolioId,
+export const SponsoredProductsCampaignUpdateParams = t.intersection([
+  t.type({
+    /**
+     * The ID of the campaign.
+     */
+    campaignId: CampaignId,
+  }),
+  t.partial({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
+    /**
+     * Campaign name limit is 128 characters.
+     * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
+     */
+    name: CampaignName,
+    /**
+     * Advertiser-specified state of the campaign.
+     */
+    state: CampaignState,
+    /**
+     * Daily budget for the campaign.
+     */
+    dailyBudget: t.number,
+    /**
+     * startDate must be today or in the future. Format YYYYMMDD. If startDate is not set, it will be the current date by default.
+     */
+    startDate: t.string,
 
-  /**
-   * The ID of the campaign.
-   */
-  campaignId: CampaignId,
+    /**
+     * endDate must be greater than startDate. Format YYYYMMDD.
+     * If endDate is not set, campaign will run forever. endDate must be used with startDate. endDate is required for lifetime budget option.
+     */
+    endDate: t.string,
+    /**
+     * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
+     */
+    premiumBidAdjustment: t.boolean,
+  }),
+])
 
-  /**
-   * The Budget of the campaign.
-   */
-  budget: t.number,
+export type SponsoredProductsCampaignUpdateParams = t.TypeOf<
+  typeof SponsoredProductsCampaignUpdateParams
+>
 
-  /**
-   * endDate must be greater than startDate. Format YYYYMMDD.
-   * If endDate is not set, campaign will run forever. endDate must be used with startDate. endDate is required for lifetime budget option.
-   */
-  endDate: t.string,
+export const SponsoredBrandsCampaignUpdateParams = t.intersection([
+  t.type({
+    /**
+     * The ID of the campaign.
+     */
+    campaignId: CampaignId,
+  }),
+  t.partial({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
 
-  /**
-   * Advertiser-specified state of the campaign.
-   */
-  state: CampaignState,
+    /**
+     * The Budget of the campaign.
+     */
+    budget: t.number,
 
-  /**
-   * Allow Amazon to automatically optimize bids for placements below top of search.
-   */
-  bidOptimization: t.boolean,
+    /**
+     * endDate must be greater than startDate. Format YYYYMMDD.
+     * If endDate is not set, campaign will run forever. endDate must be used with startDate. endDate is required for lifetime budget option.
+     */
+    endDate: t.string,
 
-  /**
-   * Should only be set when 'bidOptimization' is set to false. Value is a percentage with two decimal places and range is -99 to +99.99. Example: A -30.00 decrease on a $5.00 bid will become $3.00.
-   */
-  bidMultiplier: t.number,
-})
-export type SponsoredBrandsCampaignUpdate = t.TypeOf<typeof SponsoredBrandsCampaignUpdate>
+    /**
+     * Advertiser-specified state of the campaign.
+     */
+    state: CampaignState,
+
+    /**
+     * Allow Amazon to automatically optimize bids for placements below top of search.
+     */
+    bidOptimization: t.boolean,
+
+    /**
+     * Should only be set when 'bidOptimization' is set to false. Value is a percentage with two decimal places and range is -99 to +99.99. Example: A -30.00 decrease on a $5.00 bid will become $3.00.
+     */
+    bidMultiplier: t.number,
+  }),
+])
+
+export type SponsoredBrandsCampaignUpdateParams = t.TypeOf<
+  typeof SponsoredBrandsCampaignUpdateParams
+>
 
 export const CampaignExtended = t.intersection([
   Campaign,
