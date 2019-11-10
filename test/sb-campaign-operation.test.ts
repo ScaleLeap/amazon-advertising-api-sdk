@@ -14,7 +14,6 @@ describe('SponsoredBrandsCampaignOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const campaignOperation = operationProvider.create(SponsoredBrandsCampaignOperation)
-  const TEST_PROFILE_ID = 2984328618318898
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
@@ -35,7 +34,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
   // Return an error: No resource method found for POST, return 405 with Allow header
   describe.skip('createCampaigns', () => {
     it('should create a campaign', async () => {
-      const res = await campaignOperation.createCampaigns(TEST_PROFILE_ID, [
+      const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
           campaignType: CampaignType.value,
