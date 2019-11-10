@@ -23,7 +23,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
     })
   })
 
-  describe('listCampaignsEx', () => {
+  describe.skip('listCampaignsEx', () => {
     it('should return an array of expanded campaigns', async () => {
       const res = await campaignOperation.listCampaignsEx()
       expect(Array.isArray(res)).toBeTruthy()

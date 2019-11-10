@@ -19,7 +19,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
     return this.client.get<Campaign[]>(this.paramsFilterTransformer('', params))
   }
 
-  @DecodeArray(CampaignExtended)
+  // @DecodeArray(CampaignExtended)
   public listCampaignsEx(params?: ListCampaignsParams) {
     return this.client.get<CampaignExtended[]>(this.paramsFilterTransformer('/extended', params))
   }
