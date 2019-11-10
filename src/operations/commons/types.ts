@@ -23,7 +23,7 @@ export const CurrencyCode = t.union([
 ])
 export type CurrencyCode = t.TypeOf<typeof CurrencyCode>
 
-export const ListPagination = t.type({
+export const ListPagination = t.partial({
   /**
    * 0-indexed record offset for the result set. Defaults to 0.
    */

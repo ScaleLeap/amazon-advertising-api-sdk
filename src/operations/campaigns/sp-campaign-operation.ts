@@ -8,14 +8,20 @@ import {
   CampaignId,
   CampaignResponse,
   SponsoredProductsCampaignUpdateParams,
+  CampaignExtended,
 } from './types'
 
 export class SponsoredProductsCampaignOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/campaigns`
 
   @DecodeArray(Campaign)
-  public listCampaigns(params?: Partial<ListCampaignsParams>) {
+  public listCampaigns(params?: ListCampaignsParams) {
     return this.client.get<Campaign[]>(this.paramsFilterTransformer('', params))
+  }
+
+  @DecodeArray(CampaignExtended)
+  public listCampaignsEx(params?: ListCampaignsParams) {
+    return this.client.get<CampaignExtended[]>(this.paramsFilterTransformer('/extended', params))
   }
 
   @Decode(Campaign)

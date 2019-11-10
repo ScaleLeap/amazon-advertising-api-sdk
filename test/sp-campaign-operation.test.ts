@@ -26,6 +26,23 @@ describe('SponsoredProductsCampaignOperation', () => {
       })
     })
 
+    describe('listCampaignsEx', () => {
+      it('should return an array of expanded campaigns', async () => {
+        const res = await campaignOperation.listCampaignsEx()
+        expect(Array.isArray(res)).toBeTruthy()
+        expect(typeof res[0].name).toBe('string')
+        expect(res[0]).toHaveProperty('bidding')
+      })
+
+      it('should return a filtered list of results', async () => {
+        const res = await campaignOperation.listCampaignsEx({
+          campaignIdFilter: [CAMPAIGN_ID],
+        })
+        expect(Array.isArray(res)).toBeTruthy()
+        expect(res[0].campaignId).toBe(CAMPAIGN_ID)
+      })
+    })
+
     describe('getCampaign', () => {
       it('should return a single campaign', async () => {
         const res = await campaignOperation.getCampaign(CAMPAIGN_ID)
@@ -57,7 +74,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   })
 
   describe('updateCampaigns', () => {
-    it('sp: should update a campaign', async () => {
+    it('should update a campaign', async () => {
       const portfolioId = 77985496739778
       const name = 'new name'
       const state = CampaignState.types[1].value
