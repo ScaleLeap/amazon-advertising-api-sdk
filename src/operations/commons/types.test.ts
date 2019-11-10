@@ -10,12 +10,6 @@ describe('ListPagination', () => {
 
     expect(isRight(res)).toBeTruthy()
   })
-
-  it('should fail', () => {
-    const res = t.ListPagination.decode({})
-
-    expect(isRight(res)).toBeFalsy()
-  })
 })
 
 describe('ResponseStatus', () => {
