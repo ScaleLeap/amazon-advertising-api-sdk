@@ -23,6 +23,20 @@ describe('SponsoredBrandsCampaignOperation', () => {
     })
   })
 
+  describe('listCampaignsEx', () => {
+    it('should return an array of expanded campaigns', async () => {
+      const res = await campaignOperation.listCampaignsEx()
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it('should return a filtered list of results', async () => {
+      const res = await campaignOperation.listCampaignsEx({
+        campaignIdFilter: [CAMPAIGN_ID],
+      })
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
   // Skip: Sponsored brand campaign list is empty
   describe.skip('getCampaign', () => {
     it('should return a single campaign', async () => {

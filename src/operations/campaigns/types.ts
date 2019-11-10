@@ -442,7 +442,7 @@ export const ListCampaignsParams = t.intersection([
     /**
      * Restricts results to campaigns with the specified identifier.
      */
-    campaignIdFilter: CampaignId,
+    campaignIdFilter: t.array(CampaignId),
   }),
 ])
 export type ListCampaignsParams = t.TypeOf<typeof ListCampaignsParams>
