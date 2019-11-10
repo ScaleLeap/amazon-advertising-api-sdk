@@ -13,7 +13,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
   }
 
   @Decode(Campaign)
-  public getCampaign(campaignId: CampaignId): Promise<Campaign> {
+  public getCampaign(campaignId: CampaignId) {
     return this.client.get<Campaign>(`${this.resource}/${campaignId}`)
   }
 

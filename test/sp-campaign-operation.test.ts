@@ -43,7 +43,10 @@ describe('SponsoredProductsCampaignOperation', () => {
             dailyBudget: 1,
             state: CampaignState.types[0].value,
             targetingType: CampaignTargetingType.types[0].value,
-            startDate: '20190301',
+            startDate: new Date()
+              .toISOString()
+              .slice(0, 10)
+              .replace(/-/g, ''),
             premiumBidAdjustment: true,
           },
         ])
