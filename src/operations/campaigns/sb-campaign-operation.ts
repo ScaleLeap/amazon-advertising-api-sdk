@@ -2,7 +2,13 @@ import { Operation } from '../operation'
 import { Decode, DecodeArray } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
-import { Campaign, ListCampaignsParams, CampaignId, CampaignResponse } from './types'
+import {
+  Campaign,
+  ListCampaignsParams,
+  CampaignId,
+  CampaignResponse,
+  SponsoredBrandsCampaignUpdateParams,
+} from './types'
 
 export class SponsoredBrandsCampaignOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/campaigns`
@@ -20,5 +26,10 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   @DecodeArray(CampaignResponse)
   public createCampaigns(campaigns: Campaign[]) {
     return this.client.post<CampaignResponse[]>(this.resource, campaigns)
+  }
+
+  @DecodeArray(CampaignResponse)
+  public updateCampaigns(campaigns: SponsoredBrandsCampaignUpdateParams[]) {
+    return this.client.put<CampaignResponse[]>(this.resource, campaigns)
   }
 }

@@ -108,5 +108,5 @@ describe('CampaignResponse', () => {
 /**
  * TODO: Update test script:
  * SponsoredBrandsCampaign should pass listCampaigns response
- * SponsoredBrandsCampaignUpdate should pass updateCampaigns param of Sponsored Brands
+ * SponsoredBrandsCampaignUpdateParams should pass updateCampaigns param of Sponsored Brands
  */

@@ -55,4 +55,32 @@ describe('SponsoredProductsCampaignOperation', () => {
       })
     })
   })
+
+  describe('updateCampaigns', () => {
+    it('sp: should update a campaign', async () => {
+      const portfolioId = 77985496739778
+      const name = 'new name'
+      const state = CampaignState.types[1].value
+      const dailyBudget = 7
+
+      const res = await campaignOperation.updateCampaigns([
+        {
+          campaignId: CAMPAIGN_ID,
+          portfolioId,
+          name,
+          state,
+          dailyBudget,
+        },
+      ])
+
+      expect(Array.isArray(res)).toBeTruthy()
+
+      const campaign = await campaignOperation.getCampaign(CAMPAIGN_ID)
+
+      expect(campaign.portfolioId).toBe(portfolioId)
+      expect(campaign.name).toBe(name)
+      expect(campaign.state).toBe(state)
+      expect(campaign.dailyBudget).toBe(dailyBudget)
+    })
+  })
 })
