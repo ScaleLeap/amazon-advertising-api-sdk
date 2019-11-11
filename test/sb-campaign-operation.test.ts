@@ -45,6 +45,14 @@ describe('SponsoredBrandsCampaignOperation', () => {
     })
   })
 
+  // Skip: Sponsored brand campaign list is empty
+  describe.skip('getCampaignEx', () => {
+    it('should return a single extended campaign', async () => {
+      const res = await campaignOperation.getCampaignEx(CAMPAIGN_ID)
+      expect(res).toBeTruthy()
+    })
+  })
+
   // Return an error: No resource method found for POST, return 405 with Allow header
   describe.skip('createCampaigns', () => {
     it('should create a campaign', async () => {

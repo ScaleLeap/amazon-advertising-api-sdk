@@ -29,6 +29,11 @@ export class SponsoredProductsCampaignOperation extends Operation {
     return this.client.get<Campaign>(`${this.resource}/${campaignId}`)
   }
 
+  @Decode(CampaignExtended)
+  public getCampaignEx(campaignId: CampaignId) {
+    return this.client.get<CampaignExtended>(`${this.resource}/extended/${campaignId}`)
+  }
+
   @DecodeArray(CampaignResponse)
   public createCampaigns(campaigns: Campaign[]) {
     return this.client.post<CampaignResponse[]>(this.resource, campaigns)
