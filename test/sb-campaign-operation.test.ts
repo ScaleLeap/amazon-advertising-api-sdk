@@ -71,4 +71,16 @@ describe('SponsoredBrandsCampaignOperation', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
   })
+
+  // Skip: Sponsored brand campaign list is empty
+  describe.skip('archiveCampaign', () => {
+    it('should set the campaign to archived state', async () => {
+      const ARCHIVED_CAMPAIGN_ID = 60376914769424
+      const res = await campaignOperation.archiveCampaign(ARCHIVED_CAMPAIGN_ID)
+      expect(res.code).toBe('SUCCESS')
+
+      const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
+      expect(campaign.state).toBe(CampaignState.types[2].value)
+    })
+  })
 })

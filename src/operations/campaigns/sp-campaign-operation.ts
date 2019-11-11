@@ -43,4 +43,9 @@ export class SponsoredProductsCampaignOperation extends Operation {
   public updateCampaigns(campaigns: SponsoredProductsCampaignUpdateParams[]) {
     return this.client.put<CampaignResponse[]>(this.resource, campaigns)
   }
+
+  @Decode(CampaignResponse)
+  public archiveCampaign(campaignId: CampaignId) {
+    return this.client.delete<CampaignResponse>(`${this.resource}/${campaignId}`)
+  }
 }
