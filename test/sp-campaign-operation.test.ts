@@ -50,6 +50,13 @@ describe('SponsoredProductsCampaignOperation', () => {
     })
   })
 
+  describe('getCampaignEx', () => {
+    it('should return a single extended campaign', async () => {
+      const res = await campaignOperation.getCampaignEx(CAMPAIGN_ID)
+      expect(res).toBeTruthy()
+    })
+  })
+
   describe('createCampaigns', () => {
     it('should create a campaign', async () => {
       const res = await campaignOperation.createCampaigns([
