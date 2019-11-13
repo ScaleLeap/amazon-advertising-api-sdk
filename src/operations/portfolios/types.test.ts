@@ -82,12 +82,6 @@ describe('ListPortfoliosParams', () => {
 
     expect(isRight(res)).toBeTruthy()
   })
-
-  it('should fail', () => {
-    const res = t.ListPortfoliosParams.decode({})
-
-    expect(isRight(res)).toBeFalsy()
-  })
 })
 
 describe('CreatePortfoliosParams', () => {
