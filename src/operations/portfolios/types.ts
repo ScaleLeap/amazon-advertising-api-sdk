@@ -44,6 +44,16 @@ export enum PortfolioStateEnum {
 export const PortfolioStateType = createEnumType<PortfolioStateEnum>(PortfolioStateEnum)
 export type PortfolioStateType = t.TypeOf<typeof PortfolioStateType>
 
+/**
+ * The mutation status of the portfolio.
+ */
+export const PortfolioResponseStatus = t.union([
+  t.literal('SUCCESS'),
+  t.literal('INVALID_ARGUMENT'),
+  t.literal('NOT_FOUND'),
+])
+export type PortfolioResponseStatus = t.TypeOf<typeof PortfolioResponseStatus>
+
 export const Portfolio = t.intersection([
   t.type({
     /**
@@ -74,14 +84,11 @@ export const Portfolio = t.intersection([
   }),
 ])
 
-<<<<<<< HEAD
   /**
    * The status of the portfolio.
    */
   state: PortfolioStateType,
 })
-=======
->>>>>>> feature: update Porfolio type and test code
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
 export const PortfolioExtended = t.intersection([
@@ -127,7 +134,7 @@ export const PortfolioMutationResponse = t.strict({
    */
   portfolioId: PortfolioId,
 })
-export type PortfolioMutationResponse = t.TypeOf<typeof PortfolioMutationResponse>
+export type PortfolioResponse = t.TypeOf<typeof PortfolioResponse>
 
 export const ListPortfoliosParams = t.partial({
   /**
@@ -147,16 +154,24 @@ export const ListPortfoliosParams = t.partial({
 })
 export type ListPortfoliosParams = t.TypeOf<typeof ListPortfoliosParams>
 
-export const CreatePortfoliosParams = t.strict({
-  /**
-   * The name of the requested portfolio.
-   */
-  name: PortfolioName,
-
-  /**
-   * The portfolio budget. If budget is specified, then policy and startDate are required fields. Mutable fields are: amount, policy, startDate, and endDate.
-   */
-  budget: PortfolioBudget,
+export const CreatePortfoliosParams = t.intersection([
+  t.type({
+    /**
+     * The name of the requested portfolio.
+     */
+    name: PortfolioName,
+    /**
+     * The state of the requested portfolio.
+     */
+    state: PortfolioState,
+  }),
+  t.partial({
+    /**
+     * The portfolio budget. If budget is specified, then policy and startDate are required fields. Mutable fields are: amount, policy, startDate, and endDate.
+     */
+    budget: PortfolioBudget,
+  }),
+])
 
   /**
    * The state of the requested portfolio.
