@@ -59,7 +59,7 @@ describe('PortfolioOperation', () => {
       expect.assertions(3)
       const res = await portfolioOperation.createPortfolios([
         {
-          name: 'My Portfolio Four',
+          name: 'My Portfolio Five',
           state: PortfolioState.types[0].value,
         },
       ])
@@ -76,7 +76,7 @@ describe('PortfolioOperation', () => {
       expect.assertions(3)
       const res = await portfolioOperation.createPortfolios([
         {
-          name: 'My Portfolio Three',
+          name: 'My Portfolio Six',
           budget: {
             amount: 100.0,
             policy: 'dateRange',
