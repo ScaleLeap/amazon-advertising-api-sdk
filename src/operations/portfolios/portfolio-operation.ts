@@ -1,12 +1,17 @@
 import { Operation } from '../operation'
-import { ListPortfoliosParams, Portfolio } from './types'
+import { ListPortfoliosParams, Portfolio, PortfolioExtended } from './types'
 import { DecodeArray } from '../../decorators'
 
 export class PortfolioOperation extends Operation {
-  protected resource = 'portfolios'
+  protected resource = `${this.version}/portfolios`
 
   @DecodeArray(Portfolio)
-  public listPortfolios(params?: Partial<ListPortfoliosParams>): Promise<Portfolio[]> {
-    return this.client.get<Portfolio[]>(this.query(`${this.version}/${this.resource}`, params))
+  public listPortfolios(params?: ListPortfoliosParams) {
+    return this.client.get<Portfolio[]>(this.query(this.resource, params))
+  }
+
+  @DecodeArray(PortfolioExtended)
+  public listPortfoliosEx(params?: ListPortfoliosParams) {
+    return this.client.get<PortfolioExtended[]>(this.query(`${this.resource}/extended`, params))
   }
 }

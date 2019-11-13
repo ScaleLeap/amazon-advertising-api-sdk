@@ -129,7 +129,7 @@ export const PortfolioMutationResponse = t.strict({
 })
 export type PortfolioMutationResponse = t.TypeOf<typeof PortfolioMutationResponse>
 
-export const ListPortfoliosParams = t.strict({
+export const ListPortfoliosParams = t.partial({
   /**
    * Retrieve the portfolios with the specified IDs.
    */
