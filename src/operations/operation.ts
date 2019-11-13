@@ -22,6 +22,7 @@ type OperationParameterTransformer<T> = (
   clonedQuery: WithOperationParameterKeys<T>,
 ) => WithOperationParameterKeys<T>
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type OperationParameterValues = any
 
 export interface OperationParameter {
