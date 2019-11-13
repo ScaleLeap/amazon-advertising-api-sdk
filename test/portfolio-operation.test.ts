@@ -20,7 +20,6 @@ describe('PortfolioOperation', () => {
       const res = await portfolioOperation.listPortfolios({
         portfolioIdFilter: portfolioId,
       })
-
       expect(Array.isArray(res)).toBeTruthy()
       expect(res).toHaveLength(1)
       expect(res[0].portfolioId).toBe(portfolioId)
@@ -34,6 +33,23 @@ describe('PortfolioOperation', () => {
       expect(res[0].creationDate).toBeInstanceOf(Date)
       expect(res[0].lastUpdatedDate).toBeInstanceOf(Date)
       expect(res[0].servingStatus).toBeDefined()
+    })
+  })
+
+  describe('getPortfolio', () => {
+    it('should return a single portfolio', async () => {
+      const res = await portfolioOperation.getPortfolio(portfolioId)
+      expect(res.portfolioId).toBe(portfolioId)
+    })
+  })
+
+  describe('getPortfolioEx', () => {
+    it('should return a single expanded portfolio', async () => {
+      const res = await portfolioOperation.getPortfolioEx(portfolioId)
+      expect(res.portfolioId).toBe(portfolioId)
+      expect(res.creationDate).toBeInstanceOf(Date)
+      expect(res.lastUpdatedDate).toBeInstanceOf(Date)
+      expect(res.servingStatus).toBeDefined()
     })
   })
 })
