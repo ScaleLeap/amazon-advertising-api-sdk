@@ -1,5 +1,13 @@
 import { Operation } from '../operation'
-import { ListPortfoliosParams, Portfolio, PortfolioExtended, PortfolioId } from './types'
+import {
+  ListPortfoliosParams,
+  Portfolio,
+  PortfolioExtended,
+  PortfolioId,
+  CreatePortfoliosParams,
+  PortfolioResponse,
+  UpdatePortfoliosParams,
+} from './types'
 import { Decode, DecodeArray } from '../../decorators'
 
 export class PortfolioOperation extends Operation {
@@ -23,5 +31,15 @@ export class PortfolioOperation extends Operation {
   @Decode(PortfolioExtended)
   public getPortfolioEx(portfolioId: PortfolioId) {
     return this.client.get<PortfolioExtended>(`${this.resource}/extended/${portfolioId}`)
+  }
+
+  @DecodeArray(PortfolioResponse)
+  public createPortfolios(portfolios: CreatePortfoliosParams[]) {
+    return this.client.post<PortfolioResponse[]>(this.resource, portfolios)
+  }
+
+  @DecodeArray(PortfolioResponse)
+  public updatePortfolios(portfolios: UpdatePortfoliosParams[]) {
+    return this.client.put<PortfolioResponse[]>(this.resource, portfolios)
   }
 }
