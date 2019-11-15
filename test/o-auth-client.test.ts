@@ -3,6 +3,7 @@ import { Token } from 'client-oauth2'
 import { config } from './config'
 import setupPolly from './polly'
 import { parse, stringify } from 'querystring'
+import { POLLY_PASSTHROUGH_TAG } from './constants'
 
 const URI = 'https://example.com'
 const PLACEHOLDER = 'x'
@@ -56,7 +57,7 @@ describe(OAuthClient.name, () => {
     expect(token).toBeInstanceOf(Token)
   })
 
-  it('refresh an existing token polly:passthrough', async () => {
+  it(`refresh an existing token ${POLLY_PASSTHROUGH_TAG}`, async () => {
     client = new OAuthClient({
       clientId: config.TEST_CLIENT_ID,
       clientSecret: config.TEST_CLIENT_SECRET,
