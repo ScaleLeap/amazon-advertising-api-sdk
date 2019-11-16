@@ -1,5 +1,6 @@
 import { isRight } from 'fp-ts/lib/Either'
 import * as t from './types'
+import * as t2 from 'io-ts'
 
 describe('ListPagination', () => {
   it('should pass', () => {
@@ -26,5 +27,36 @@ describe('ResponseStatus', () => {
     const res = t.ResponseStatus.decode({})
 
     expect(isRight(res)).toBeFalsy()
+  })
+})
+
+describe('EnumType', () => {
+  let FruitItem: any
+  beforeEach(() => {
+    enum FRUIT {
+      APPLE = 'APPLE',
+      BANANA = 'BANANA',
+    }
+
+    FruitItem = t2.type({
+      fruit: t.createEnumType<FRUIT>(FRUIT),
+      quatity: t2.number,
+    })
+  })
+
+  it('should pass', () => {
+    const result = FruitItem.is({
+      fruit: 'BANANA',
+      quatity: 10,
+    })
+    expect(result).toBe(true)
+  })
+
+  it('should fail', () => {
+    const result = FruitItem.is({
+      fruit: 'apple',
+      quatity: 8,
+    })
+    expect(result).toBe(false)
   })
 })
