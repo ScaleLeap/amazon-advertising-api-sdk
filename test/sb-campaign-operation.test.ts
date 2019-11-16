@@ -62,7 +62,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
           name: 'test campaign 4',
           campaignType: CampaignType.value,
           dailyBudget: 1,
-          state: CampaignState.types[0].value,
+          state: CampaignState.ENABLED,
           targetingType: CampaignTargetingType.types[0].value,
           startDate: '20190301',
           premiumBidAdjustment: true,
@@ -81,7 +81,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
       expect(res.code).toBe('SUCCESS')
 
       const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
-      expect(campaign.state).toBe(CampaignState.types[2].value)
+      expect(campaign.state).toBe(CampaignState.ARCHIVED)
     })
   })
 })
