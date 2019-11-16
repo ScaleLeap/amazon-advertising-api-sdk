@@ -38,8 +38,11 @@ export const PortfolioBudget = t.partial({
 /**
  * The state of the portfolio
  */
-export const PortfolioState = t.union([t.literal('enabled'), t.null])
-export type PortfolioState = t.TypeOf<typeof PortfolioState>
+export enum PortfolioState {
+  ENABLED = 'enabled'
+}
+export const PortfolioStateType = createEnumType<PortfolioState>(PortfolioState)
+export type PortfolioStateType = t.TypeOf<typeof PortfolioStateType>
 
 export const Portfolio = t.strict({
   /**
@@ -65,7 +68,7 @@ export const Portfolio = t.strict({
   /**
    * The status of the portfolio.
    */
-  state: PortfolioState,
+  state: PortfolioStateType,
 })
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
@@ -126,7 +129,7 @@ export const ListPortfoliosParams = t.strict({
   /**
    * Retrieve the portfolios with the specified state.
    */
-  portfolioStateFilter: PortfolioState,
+  portfolioStateFilter: PortfolioStateType,
 })
 export type ListPortfoliosParams = t.TypeOf<typeof ListPortfoliosParams>
 
@@ -144,7 +147,7 @@ export const CreatePortfoliosParams = t.strict({
   /**
    * The state of the requested portfolio.
    */
-  state: PortfolioState,
+  state: PortfolioStateType,
 })
 export type CreatePortfoliosParams = t.TypeOf<typeof CreatePortfoliosParams>
 
@@ -169,7 +172,7 @@ export const UpdatePortfoliosParams = t.intersection([
     /**
      * The state of the requested portfolio.
      */
-    state: PortfolioState,
+    state: PortfolioStateType,
   }),
 ])
 export type UpdatePortfoliosParams = t.TypeOf<typeof UpdatePortfoliosParams>
