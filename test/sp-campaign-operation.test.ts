@@ -1,9 +1,9 @@
 import { OperationProvider } from '../src/operations/operation-provider'
 import { SponsoredProductsCampaignOperation } from '../src/operations/campaigns/sp-campaign-operation'
 import {
-  CampaignType,
-  CampaignState,
-  CampaignTargetingType,
+  CampaignStateEnum,
+  CampaignTargetingEnum,
+  CampaignTypeEnum,
 } from '../src/operations/campaigns/types'
 import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
@@ -63,10 +63,10 @@ describe('SponsoredProductsCampaignOperation', () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
-          campaignType: CampaignType.value,
+          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
           dailyBudget: 1,
-          state: CampaignState.ENABLED,
-          targetingType: CampaignTargetingType.types[0].value,
+          state: CampaignStateEnum.ENABLED,
+          targetingType: CampaignTargetingEnum.MANUAL,
           startDate: new Date()
             .toISOString()
             .slice(0, 10)
@@ -83,7 +83,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const portfolioId = 77985496739778
       const name = 'new name'
-      const state = CampaignState.PAUSED
+      const state = CampaignStateEnum.PAUSED
       const dailyBudget = 7
 
       const res = await campaignOperation.updateCampaigns([
@@ -114,7 +114,7 @@ describe('SponsoredProductsCampaignOperation', () => {
       expect(res.code).toBe('SUCCESS')
 
       const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
-      expect(campaign.state).toBe(CampaignState.ARCHIVED)
+      expect(campaign.state).toBe(CampaignStateEnum.ARCHIVED)
     })
   })
 })

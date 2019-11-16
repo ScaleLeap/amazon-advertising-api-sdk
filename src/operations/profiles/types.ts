@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { CurrencyCodeType, TimeZoneType, CountryCodeType } from '../commons/types'
+import { CurrencyCodeType, TimeZoneType, CountryCodeType, createEnumType } from '../commons/types'
 
 export const ProfileId = t.number
 export type ProfileId = t.TypeOf<typeof ProfileId>
@@ -28,7 +28,12 @@ export type ProfileResponse = t.TypeOf<typeof ProfileResponse>
 /**
  * The type of account being called
  */
-export const AccountInfoType = t.union([t.literal('seller'), t.literal('vendor')])
+export enum AccountInfoTypeEnum {
+  SELLER = 'seller',
+  VENDOR = 'vendor',
+}
+
+export const AccountInfoType = createEnumType<AccountInfoTypeEnum>(AccountInfoTypeEnum)
 export type AccountInfoType = t.TypeOf<typeof AccountInfoType>
 
 export const AccountInfo = t.intersection([
@@ -125,14 +130,19 @@ export const ProfileRegistrationResponse = t.strict({
 
 export type ProfileRegistrationResponse = t.TypeOf<typeof ProfileRegistrationResponse>
 
-export const RegisterProfileResponseStatus = t.union([
-  t.literal('IN_PROGRESS'),
-  t.literal('SUCCESS'),
-])
+export enum RegisterProfileResponseStatusEnum {
+  IN_PROGRESS = 'IN_PROGRESS',
+  SUCCESS = 'SUCCESS',
+}
+
+export const RegisterProfileResponseStatusType = createEnumType<RegisterProfileResponseStatusEnum>(
+  RegisterProfileResponseStatusEnum,
+)
+export type RegisterProfileResponseStatusType = t.TypeOf<typeof RegisterProfileResponseStatusType>
 
 export const RegisterProfileResponse = t.intersection([
   t.type({
-    status: RegisterProfileResponseStatus,
+    status: RegisterProfileResponseStatusType,
     statusDetails: t.string,
   }),
   t.partial({

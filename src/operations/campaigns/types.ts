@@ -19,26 +19,35 @@ export type CampaignName = t.TypeOf<typeof CampaignName>
 /**
  * Specifies the advertising product managed by this campaign.
  */
-export const CampaignType = t.literal('sponsoredProducts')
+export enum CampaignTypeEnum {
+  SPONSORED_PRODUCTS = 'sponsoredProducts',
+}
+
+export const CampaignType = createEnumType<CampaignTypeEnum>(CampaignTypeEnum)
 export type CampaignType = t.TypeOf<typeof CampaignType>
 
 /**
  * Differentiates between a keyword-targeted and automatically targeted campaign.
  */
-export const CampaignTargetingType = t.union([t.literal('manual'), t.literal('auto')])
+export enum CampaignTargetingEnum {
+  MANUAL = 'manual',
+  AUTO = 'auto',
+}
+
+export const CampaignTargetingType = createEnumType<CampaignTargetingEnum>(CampaignTargetingEnum)
 export type CampaignTargetingType = t.TypeOf<typeof CampaignTargetingType>
 
 /**
  * Advertiser-specified state of the campaign.
  */
 
-export enum CampaignState {
+export enum CampaignStateEnum {
   ENABLED = 'enabled',
   PAUSED = 'paused',
   ARCHIVED = 'archived',
 }
 
-export const CampaignStateType = createEnumType<CampaignState>(CampaignState)
+export const CampaignStateType = createEnumType<CampaignStateEnum>(CampaignStateEnum)
 export type CampaignStateType = t.TypeOf<typeof CampaignStateType>
 
 export const Campaign = t.partial({
@@ -188,7 +197,7 @@ export type SponsoredBrandsCampaignUpdateParams = t.TypeOf<
 /**
  * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
  */
-export enum CampaignServingStatus {
+export enum CampaignServingStatusEnum {
   CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
   CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
   CAMPAIGN_STATUS_ENABLED = 'CAMPAIGN_STATUS_ENABLED',
@@ -199,8 +208,8 @@ export enum CampaignServingStatus {
   CAMPAIGN_INCOMPLETE = 'CAMPAIGN_INCOMPLETE',
 }
 
-export const CampaignServingStatusType = createEnumType<CampaignServingStatus>(
-  CampaignServingStatus,
+export const CampaignServingStatusType = createEnumType<CampaignServingStatusEnum>(
+  CampaignServingStatusEnum,
 )
 export type CampaignServingStatusType = t.TypeOf<typeof CampaignServingStatusType>
 
