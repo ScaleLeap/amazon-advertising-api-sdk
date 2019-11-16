@@ -65,7 +65,7 @@ describe('SponsoredProductsCampaignOperation', () => {
           name: 'test campaign 4',
           campaignType: CampaignType.value,
           dailyBudget: 1,
-          state: CampaignState.types[0].value,
+          state: CampaignState.ENABLED,
           targetingType: CampaignTargetingType.types[0].value,
           startDate: new Date()
             .toISOString()
@@ -83,7 +83,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const portfolioId = 77985496739778
       const name = 'new name'
-      const state = CampaignState.types[1].value
+      const state = CampaignState.PAUSED
       const dailyBudget = 7
 
       const res = await campaignOperation.updateCampaigns([
@@ -114,7 +114,7 @@ describe('SponsoredProductsCampaignOperation', () => {
       expect(res.code).toBe('SUCCESS')
 
       const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
-      expect(campaign.state).toBe(CampaignState.types[2].value)
+      expect(campaign.state).toBe(CampaignState.ARCHIVED)
     })
   })
 })
