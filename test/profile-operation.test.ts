@@ -70,7 +70,7 @@ describe('ProfileOperation', () => {
   describe.skip('registerBrand', () => {
     it(`should return success ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const param = {
-        countryCode: CountryCode.types[8].value,
+        countryCode: CountryCode.US,
         brand: 'yay',
       }
 

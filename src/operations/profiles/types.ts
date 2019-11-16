@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { CountryCode, CurrencyCode, TimeZone } from '../commons/types'
+import { CurrencyCodeType, TimeZoneType, CountryCodeType } from '../commons/types'
 
 export const ProfileId = t.number
 export type ProfileId = t.TypeOf<typeof ProfileId>
@@ -68,17 +68,17 @@ export const Profile = t.intersection([
     /**
      * The country code identifying the publisher(s) on which ads will run.
      */
-    countryCode: CountryCode,
+    countryCode: CountryCodeType,
 
     /**
      * The currency used for all monetary values for entities under this profile.
      */
-    currencyCode: CurrencyCode,
+    currencyCode: CurrencyCodeType,
 
     /**
      * The tz database time zone used for all date-based campaign management and reporting.
      */
-    timezone: TimeZone,
+    timezone: TimeZoneType,
 
     /**
      * Account info.
@@ -103,7 +103,7 @@ export const RegisterBrand = t.strict({
   /**
    * The country in which you wish to register the profile. Can be one of: US, CA, UK, DE, FR, IT, ES, JP, AU
    */
-  countryCode: CountryCode,
+  countryCode: CountryCodeType,
 
   /**
    * REQUIRED. Brand name.
@@ -122,6 +122,7 @@ export const ProfileRegistrationResponse = t.strict({
 
   description: t.string,
 })
+
 export type ProfileRegistrationResponse = t.TypeOf<typeof ProfileRegistrationResponse>
 
 export const RegisterProfileResponseStatus = t.union([
