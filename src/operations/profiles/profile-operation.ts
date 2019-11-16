@@ -8,7 +8,7 @@ import {
   ProfileRegistrationResponse,
 } from './types'
 import { Decode, DecodeArray } from '../../decorators'
-import { CountryCode } from '../commons/types'
+import { CountryCode, CountryCodeType } from '../commons/types'
 
 export class ProfileOperation extends Operation {
   protected resource = 'profiles'
@@ -29,7 +29,7 @@ export class ProfileOperation extends Operation {
   }
 
   @Decode(RegisterProfileResponse)
-  public registerProfile(countryCode: CountryCode = 'US') {
+  public registerProfile(countryCode: CountryCodeType = CountryCode.US) {
     return this.client.put<RegisterProfileResponse>(`${this.version}/${this.resource}/register`, {
       countryCode,
     })

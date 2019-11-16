@@ -1,6 +1,5 @@
 import * as t from 'io-ts'
 
-// EnumType Class
 export class EnumType<A> extends t.Type<A> {
   public readonly _tag: 'EnumType' = 'EnumType'
   public enumObject!: object
@@ -18,28 +17,43 @@ export class EnumType<A> extends t.Type<A> {
 // simple helper function
 export const createEnumType = <T>(e: object, name?: string) => new EnumType<T>(e, name)
 
-export const CountryCode = t.union([
-  t.literal('AU'),
-  t.literal('CA'),
-  t.literal('DE'),
-  t.literal('ES'),
-  t.literal('FR'),
-  t.literal('IT'),
-  t.literal('JP'),
-  t.literal('UK'),
-  t.literal('US'),
-])
-export type CountryCode = t.TypeOf<typeof CountryCode>
+export enum CountryCode {
+  AU = 'AU',
+  CA = 'CA',
+  DE = 'DE',
+  ES = 'ES',
+  FR = 'FR',
+  IT = 'IT',
+  JP = 'JP',
+  UK = 'UK',
+  US = 'US',
+}
 
-export const CurrencyCode = t.union([
-  t.literal('AUD'),
-  t.literal('CAD'),
-  t.literal('EUR'),
-  t.literal('GBP'),
-  t.literal('JPY'),
-  t.literal('USD'),
-])
-export type CurrencyCode = t.TypeOf<typeof CurrencyCode>
+export const CountryCodeType = createEnumType<CountryCode>(CountryCode)
+export type CountryCodeType = t.TypeOf<typeof CountryCodeType>
+
+export enum CurrencyCode {
+  AUD = 'AUD',
+  CAD = 'CAD',
+  EUR = 'EUR',
+  GBP = 'GBP',
+  JPY = 'JPY',
+  USD = 'USD',
+}
+
+export const CurrencyCodeType = createEnumType<CurrencyCode>(CurrencyCode)
+export type CurrencyCodeType = t.TypeOf<typeof CurrencyCodeType>
+
+export enum TimeZone {
+  AMERICA_LOS_ANGELES = 'America/Los_Angeles',
+  ASIA_TOKYO = 'Asia/Tokyo',
+  AUSTRALIA_SYDNEY = 'Australia/Sydney',
+  EUROPE_LONDON = 'Europe/London',
+  EUROPE_PARIS = 'Europe/Paris',
+}
+
+export const TimeZoneType = createEnumType<TimeZone>(TimeZone)
+export type TimeZoneType = t.TypeOf<typeof TimeZoneType>
 
 export const ListPagination = t.partial({
   /**
@@ -66,12 +80,3 @@ export const ResponseStatus = t.strict({
   details: t.string,
 })
 export type ResponseStatus = t.TypeOf<typeof ResponseStatus>
-
-export const TimeZone = t.union([
-  t.literal('America/Los_Angeles'),
-  t.literal('Asia/Tokyo'),
-  t.literal('Australia/Sydney'),
-  t.literal('Europe/London'),
-  t.literal('Europe/Paris'),
-])
-export type TimeZone = t.TypeOf<typeof TimeZone>

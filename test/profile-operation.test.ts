@@ -69,7 +69,7 @@ describe('ProfileOperation', () => {
   describe.skip('registerBrand', () => {
     it('should return success', async () => {
       const param = {
-        countryCode: CountryCode.types[8].value,
+        countryCode: CountryCode.US,
         brand: 'yay',
       }
 
