@@ -38,10 +38,10 @@ export const PortfolioBudget = t.partial({
 /**
  * The state of the portfolio
  */
-export enum PortfolioState {
+export enum PortfolioStateEnum {
   ENABLED = 'enabled',
 }
-export const PortfolioStateType = createEnumType<PortfolioState>(PortfolioState)
+export const PortfolioStateType = createEnumType<PortfolioStateEnum>(PortfolioStateEnum)
 export type PortfolioStateType = t.TypeOf<typeof PortfolioStateType>
 
 export const Portfolio = t.strict({
@@ -93,14 +93,14 @@ export const PortfolioExtended = t.intersection([
 ])
 export type PortfolioExtended = t.TypeOf<typeof PortfolioExtended>
 
-export enum PortfolioMutationResponseCode {
+export enum PortfolioMutationResponseCodeEnum {
   SUCCESS = 'SUCCESS',
   INVALID_ARGUMENT = 'INVALID_ARGUMENT',
   NOT_FOUND = 'NOT_FOUND',
 }
 
-export const PortfolioMutationResponseCodeType = createEnumType<PortfolioMutationResponseCode>(
-  PortfolioMutationResponseCode,
+export const PortfolioMutationResponseCodeType = createEnumType<PortfolioMutationResponseCodeEnum>(
+  PortfolioMutationResponseCodeEnum,
 )
 export type PortfolioMutationResponseCodeType = t.TypeOf<typeof PortfolioMutationResponseCodeType>
 

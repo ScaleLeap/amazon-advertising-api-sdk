@@ -1,9 +1,9 @@
 import { OperationProvider } from '../src/operations/operation-provider'
 import { ProfileOperation } from '../src/operations/profiles/profile-operation'
 import { httpClientFactory } from './http-client-factory'
-import { Profile, RegisterProfileResponseStatus } from '../src/operations/profiles/types'
+import { Profile, RegisterProfileResponseStatusEnum } from '../src/operations/profiles/types'
 import setupPolly from './polly'
-import { CountryCode } from '../src/operations/commons/types'
+import { CountryCodeEnum } from '../src/operations/commons/types'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
 
 setupPolly()
@@ -70,13 +70,13 @@ describe('ProfileOperation', () => {
   describe.skip('registerBrand', () => {
     it(`should return success ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const param = {
-        countryCode: CountryCode.US,
+        countryCode: CountryCodeEnum.US,
         brand: 'yay',
       }
 
       const res = await profileOperation.registerBrand(param)
       expect(res).toBeTruthy()
-      expect(res.code).toBe(RegisterProfileResponseStatus.types[1].value)
+      expect(res.code).toBe(RegisterProfileResponseStatusEnum.IN_PROGRESS)
     })
   })
 })

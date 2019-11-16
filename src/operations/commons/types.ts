@@ -17,7 +17,7 @@ export class EnumType<A> extends t.Type<A> {
 // simple helper function
 export const createEnumType = <T>(e: object, name?: string) => new EnumType<T>(e, name)
 
-export enum CountryCode {
+export enum CountryCodeEnum {
   AU = 'AU',
   CA = 'CA',
   DE = 'DE',
@@ -29,10 +29,10 @@ export enum CountryCode {
   US = 'US',
 }
 
-export const CountryCodeType = createEnumType<CountryCode>(CountryCode)
+export const CountryCodeType = createEnumType<CountryCodeEnum>(CountryCodeEnum)
 export type CountryCodeType = t.TypeOf<typeof CountryCodeType>
 
-export enum CurrencyCode {
+export enum CurrencyCodeEnum {
   AUD = 'AUD',
   CAD = 'CAD',
   EUR = 'EUR',
@@ -41,10 +41,10 @@ export enum CurrencyCode {
   USD = 'USD',
 }
 
-export const CurrencyCodeType = createEnumType<CurrencyCode>(CurrencyCode)
+export const CurrencyCodeType = createEnumType<CurrencyCodeEnum>(CurrencyCodeEnum)
 export type CurrencyCodeType = t.TypeOf<typeof CurrencyCodeType>
 
-export enum TimeZone {
+export enum TimeZoneEnum {
   AMERICA_LOS_ANGELES = 'America/Los_Angeles',
   ASIA_TOKYO = 'Asia/Tokyo',
   AUSTRALIA_SYDNEY = 'Australia/Sydney',
@@ -52,7 +52,7 @@ export enum TimeZone {
   EUROPE_PARIS = 'Europe/Paris',
 }
 
-export const TimeZoneType = createEnumType<TimeZone>(TimeZone)
+export const TimeZoneType = createEnumType<TimeZoneEnum>(TimeZoneEnum)
 export type TimeZoneType = t.TypeOf<typeof TimeZoneType>
 
 export const ListPagination = t.partial({

@@ -1,9 +1,9 @@
 import { OperationProvider } from '../src/operations/operation-provider'
 import { SponsoredBrandsCampaignOperation } from '../src/operations/campaigns/sb-campaign-operation'
 import {
-  CampaignType,
-  CampaignState,
-  CampaignTargetingType,
+  CampaignTypeEnum,
+  CampaignStateEnum,
+  CampaignTargetingEnum,
 } from '../src/operations/campaigns/types'
 import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
@@ -60,10 +60,10 @@ describe('SponsoredBrandsCampaignOperation', () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
-          campaignType: CampaignType.value,
+          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
           dailyBudget: 1,
-          state: CampaignState.ENABLED,
-          targetingType: CampaignTargetingType.types[0].value,
+          state: CampaignStateEnum.ENABLED,
+          targetingType: CampaignTargetingEnum.MANUAL,
           startDate: '20190301',
           premiumBidAdjustment: true,
         },
@@ -81,7 +81,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
       expect(res.code).toBe('SUCCESS')
 
       const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
-      expect(campaign.state).toBe(CampaignState.ARCHIVED)
+      expect(campaign.state).toBe(CampaignStateEnum.ARCHIVED)
     })
   })
 })
