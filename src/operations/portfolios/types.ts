@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { CurrencyCodeType } from '../commons/types'
+import { CurrencyCodeType, createEnumType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const PortfolioId = t.number
@@ -90,11 +90,20 @@ export const PortfolioExtended = t.intersection([
 ])
 export type PortfolioExtended = t.TypeOf<typeof PortfolioExtended>
 
+export enum PortfolioMutationResponseCode {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
+
+export const PortfolioMutationResponseCodeType = createEnumType<PortfolioMutationResponseCode>(PortfolioMutationResponseCode)
+export type PortfolioMutationResponseCodeType = t.TypeOf<typeof PortfolioMutationResponseCodeType>
+
 export const PortfolioMutationResponse = t.strict({
   /**
    * The mutation status of the portfolio.
    */
-  code: t.union([t.literal('SUCCESS'), t.literal('INVALID_ARGUMENT'), t.literal('NOT_FOUND')]),
+  code: PortfolioMutationResponseCodeType,
 
   /**
    * The mutation status of the portfolio.
