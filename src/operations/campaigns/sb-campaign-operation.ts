@@ -29,6 +29,11 @@ export class SponsoredBrandsCampaignOperation extends Operation {
     return this.client.get<Campaign>(`${this.resource}/${campaignId}`)
   }
 
+  @Decode(CampaignExtended)
+  public getCampaignEx(campaignId: CampaignId) {
+    return this.client.get<CampaignExtended>(`${this.resource}/extended/${campaignId}`)
+  }
+
   @DecodeArray(CampaignResponse)
   public createCampaigns(campaigns: Campaign[]) {
     return this.client.post<CampaignResponse[]>(this.resource, campaigns)
@@ -37,5 +42,10 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   @DecodeArray(CampaignResponse)
   public updateCampaigns(campaigns: SponsoredBrandsCampaignUpdateParams[]) {
     return this.client.put<CampaignResponse[]>(this.resource, campaigns)
+  }
+
+  @Decode(CampaignResponse)
+  public archiveCampaign(campaignId: CampaignId) {
+    return this.client.delete<CampaignResponse>(`${this.resource}/${campaignId}`)
   }
 }

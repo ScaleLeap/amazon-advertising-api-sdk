@@ -4,6 +4,7 @@ import { httpClientFactory } from './http-client-factory'
 import { Profile, RegisterProfileResponseStatus } from '../src/operations/profiles/types'
 import setupPolly from './polly'
 import { CountryCode } from '../src/operations/commons/types'
+import { POLLY_PASSTHROUGH_TAG } from './constants'
 
 setupPolly()
 
@@ -14,7 +15,7 @@ describe('ProfileOperation', () => {
   const TEST_PROFILE_ID = 2984328618318898
 
   describe('listProfiles', () => {
-    it('should return an array or profiles', async () => {
+    it(`should return an array or profiles ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: Profile[] = await profileOperation.listProfiles()
 
       expect(Array.isArray(res)).toBeTruthy()
@@ -22,7 +23,7 @@ describe('ProfileOperation', () => {
   })
 
   describe('getProfile', () => {
-    it('should return a profile object', async () => {
+    it(`should return a profile object ${POLLY_PASSTHROUGH_TAG}`, async () => {
       expect.assertions(2)
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
 
@@ -35,7 +36,7 @@ describe('ProfileOperation', () => {
   })
 
   describe('updateProfiles', () => {
-    it('should update the profile', async () => {
+    it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
       expect.assertions(5)
       const dailyBudget = 340
 
@@ -60,14 +61,14 @@ describe('ProfileOperation', () => {
   })
 
   describe.skip('registerProfile', () => {
-    it('should work with default params', async () => {
+    it(`should work with default params ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const profile = await profileOperation.registerProfile()
       expect(profile).toBeTruthy()
     })
   })
 
   describe.skip('registerBrand', () => {
-    it('should return success', async () => {
+    it(`should return success ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const param = {
         countryCode: CountryCode.US,
         brand: 'yay',
