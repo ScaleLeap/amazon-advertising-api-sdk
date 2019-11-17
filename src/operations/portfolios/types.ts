@@ -47,12 +47,16 @@ export type PortfolioStateType = t.TypeOf<typeof PortfolioStateType>
 /**
  * The mutation status of the portfolio.
  */
-export const PortfolioResponseStatus = t.union([
-  t.literal('SUCCESS'),
-  t.literal('INVALID_ARGUMENT'),
-  t.literal('NOT_FOUND'),
-])
-export type PortfolioResponseStatus = t.TypeOf<typeof PortfolioResponseStatus>
+export enum PortfolioResponseStatusEnum {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
+
+export const PortfolioResponseStatusType = createEnumType<PortfolioResponseStatusEnum>(
+  PortfolioResponseStatusEnum,
+)
+export type PortfolioResponseStatusType = t.TypeOf<typeof PortfolioResponseStatusType>
 
 export const Portfolio = t.intersection([
   t.type({
@@ -74,7 +78,7 @@ export const Portfolio = t.intersection([
     /**
      * The status of the portfolio.
      */
-    state: PortfolioState,
+    state: PortfolioStateType,
   }),
   t.partial({
     /**
@@ -84,11 +88,6 @@ export const Portfolio = t.intersection([
   }),
 ])
 
-  /**
-   * The status of the portfolio.
-   */
-  state: PortfolioStateType,
-})
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
 export const PortfolioExtended = t.intersection([
@@ -123,17 +122,19 @@ export const PortfolioMutationResponseCodeType = createEnumType<PortfolioMutatio
 )
 export type PortfolioMutationResponseCodeType = t.TypeOf<typeof PortfolioMutationResponseCodeType>
 
-export const PortfolioMutationResponse = t.strict({
-  /**
-   * The mutation status of the portfolio.
-   */
-  code: PortfolioMutationResponseCodeType,
+export const PortfolioResponse = t.intersection([
+  t.type({
+    /**
+     * The mutation status of the portfolio.
+     */
+    code: PortfolioMutationResponseCodeType,
 
-  /**
-   * The mutation status of the portfolio.
-   */
-  portfolioId: PortfolioId,
-})
+    portfolioId: PortfolioId,
+  }),
+  t.partial({
+    description: t.string,
+  }),
+])
 export type PortfolioResponse = t.TypeOf<typeof PortfolioResponse>
 
 export const ListPortfoliosParams = t.partial({
@@ -163,7 +164,7 @@ export const CreatePortfoliosParams = t.intersection([
     /**
      * The state of the requested portfolio.
      */
-    state: PortfolioState,
+    state: PortfolioStateType,
   }),
   t.partial({
     /**
@@ -173,11 +174,6 @@ export const CreatePortfoliosParams = t.intersection([
   }),
 ])
 
-  /**
-   * The state of the requested portfolio.
-   */
-  state: PortfolioStateType,
-})
 export type CreatePortfoliosParams = t.TypeOf<typeof CreatePortfoliosParams>
 
 export const UpdatePortfoliosParams = t.intersection([
