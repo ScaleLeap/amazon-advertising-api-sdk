@@ -2,7 +2,7 @@ import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
 import { OperationProvider } from '../src/operations/operation-provider'
 import { PortfolioOperation } from '../src/operations/portfolios/portfolio-operation'
-import { PortfolioState, PortfolioResponseStatus } from '../src/operations/portfolios/types'
+import { PortfolioStateEnum, PortfolioResponseStatusEnum } from '../src/operations/portfolios/types'
 
 setupPolly()
 describe('PortfolioOperation', () => {
@@ -60,14 +60,14 @@ describe('PortfolioOperation', () => {
       const res = await portfolioOperation.createPortfolios([
         {
           name: 'My Portfolio Five',
-          state: PortfolioState.types[0].value,
+          state: PortfolioStateEnum.ENABLED,
         },
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].code).toBe(PortfolioResponseStatus.types[0].value)
+      expect(res[0].code).toBe(PortfolioResponseStatusEnum.SUCCESS)
 
-      if (res[0].code === PortfolioResponseStatus.types[0].value) {
+      if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
         expect(res[0].portfolioId).toBeDefined()
       }
     })
@@ -83,14 +83,14 @@ describe('PortfolioOperation', () => {
             startDate: '20190301',
             endDate: '20190331',
           },
-          state: PortfolioState.types[0].value,
+          state: PortfolioStateEnum.ENABLED,
         },
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].code).toBe(PortfolioResponseStatus.types[0].value)
+      expect(res[0].code).toBe(PortfolioResponseStatusEnum.SUCCESS)
 
-      if (res[0].code === PortfolioResponseStatus.types[0].value) {
+      if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
         expect(res[0].portfolioId).toBeDefined()
       }
     })
