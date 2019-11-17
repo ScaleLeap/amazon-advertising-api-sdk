@@ -111,23 +111,12 @@ export const PortfolioExtended = t.intersection([
 ])
 export type PortfolioExtended = t.TypeOf<typeof PortfolioExtended>
 
-export enum PortfolioMutationResponseCodeEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-}
-
-export const PortfolioMutationResponseCodeType = createEnumType<PortfolioMutationResponseCodeEnum>(
-  PortfolioMutationResponseCodeEnum,
-)
-export type PortfolioMutationResponseCodeType = t.TypeOf<typeof PortfolioMutationResponseCodeType>
-
 export const PortfolioResponse = t.intersection([
   t.type({
     /**
      * The mutation status of the portfolio.
      */
-    code: PortfolioMutationResponseCodeType,
+    code: PortfolioResponseStatusType,
 
     portfolioId: PortfolioId,
   }),
