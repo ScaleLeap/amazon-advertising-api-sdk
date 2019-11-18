@@ -48,7 +48,7 @@
     "eslint-plugin-prettier": "3.1.1",
     "jest": "24.9.0",
     "prettier": "1.19.1",
-    "semantic-release": "15.13.30",
+    "semantic-release": "15.13.31",
     "setup-polly-jest": "0.6.0",
     "ts-jest": "24.1.0",
     "ts-node": "8.5.0",
