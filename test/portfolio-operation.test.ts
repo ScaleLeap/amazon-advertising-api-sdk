@@ -126,10 +126,8 @@ describe('PortfolioOperation', () => {
       const res = await portfolioOperation.updatePortfolios([
         {
           portfolioId: portfolioId,
-          name: `My Portfolio ${Date.now() + 3}`,
-          budget: {
-            amount: 101,
-          },
+          name: `My Portfolio ${Date.now() + 2}`,
+          state: PortfolioStateEnum.ENABLED,
         },
       ])
 
