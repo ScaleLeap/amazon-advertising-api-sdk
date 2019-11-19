@@ -117,10 +117,9 @@ export const PortfolioResponse = t.intersection([
      * The mutation status of the portfolio.
      */
     code: PortfolioResponseStatusType,
-
-    portfolioId: PortfolioId,
   }),
   t.partial({
+    portfolioId: PortfolioId,
     description: t.string,
   }),
 ])

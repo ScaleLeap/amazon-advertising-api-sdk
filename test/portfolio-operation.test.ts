@@ -59,7 +59,7 @@ describe('PortfolioOperation', () => {
       expect.assertions(3)
       const res = await portfolioOperation.createPortfolios([
         {
-          name: 'My Portfolio Five',
+          name: `My Portfolio ${Date.now() + 1}`,
           state: PortfolioStateEnum.ENABLED,
         },
       ])
@@ -74,14 +74,18 @@ describe('PortfolioOperation', () => {
 
     it('should create a portfolio with a budget', async () => {
       expect.assertions(3)
+      const today = new Date()
+        .toISOString()
+        .slice(0, 10)
+        .replace(/-/g, '')
       const res = await portfolioOperation.createPortfolios([
         {
-          name: 'My Portfolio Six',
+          name: `My Portfolio ${Date.now() + 2}`,
           budget: {
             amount: 100.0,
             policy: 'dateRange',
-            startDate: '20190301',
-            endDate: '20190331',
+            startDate: today,
+            endDate: today,
           },
           state: PortfolioStateEnum.ENABLED,
         },
@@ -92,6 +96,48 @@ describe('PortfolioOperation', () => {
 
       if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
         expect(res[0].portfolioId).toBeDefined()
+      }
+    })
+  })
+
+  describe('updatePortfolios', () => {
+    it('should fail updating portfolio that does not exist', async () => {
+      expect.assertions(4)
+      const res = await portfolioOperation.updatePortfolios([
+        {
+          portfolioId: 1,
+          name: 'renamed portfolio',
+        },
+      ])
+
+      expect(Array.isArray(res)).toBeTruthy()
+      expect(res[0].code).toBe(PortfolioResponseStatusEnum.NOT_FOUND)
+
+      if (res[0].code === PortfolioResponseStatusEnum.NOT_FOUND) {
+        // TODO: figure out why TypeScript is not properly discriminating this type
+        // and not suggesting PortfoliosResponseNotFound's property `description`.
+        expect(res[0].code).toBeTruthy()
+        expect(res[0]).toHaveProperty('description')
+      }
+    })
+
+    it('should update portfolio and return a status', async () => {
+      expect.assertions(3)
+      const res = await portfolioOperation.updatePortfolios([
+        {
+          portfolioId: portfolioId,
+          name: `My Portfolio ${Date.now() + 3}`,
+          budget: {
+            amount: 101,
+          },
+        },
+      ])
+
+      expect(Array.isArray(res)).toBeTruthy()
+      expect(res[0].code).toBe(PortfolioResponseStatusEnum.SUCCESS)
+
+      if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
+        expect(res[0]).toHaveProperty('portfolioId')
       }
     })
   })
