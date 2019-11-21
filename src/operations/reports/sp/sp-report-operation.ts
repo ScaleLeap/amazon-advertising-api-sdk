@@ -4,8 +4,10 @@ import { BaseReportOperation } from '../base-report-operation'
 import { ReportResponse } from '../report-response'
 import { SponsoredProductsCampaignReportParams } from './sp-campaign-report-params'
 
+type SponsoredProductsReportParams = SponsoredProductsCampaignReportParams
+
 export class SponsoredProductsReportOperation<
-  ReportParams extends SponsoredProductsCampaignReportParams
+  ReportParams extends SponsoredProductsReportParams
 > extends BaseReportOperation {
   private type = 'sp'
 
