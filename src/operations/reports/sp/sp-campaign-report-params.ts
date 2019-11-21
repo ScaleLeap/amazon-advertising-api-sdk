@@ -1,8 +1,8 @@
-import { BaseReportRequest } from '../base-report-request'
+import { BaseReportParams } from '../base-report-params'
 import { SponsoredProductsReportTypeEnum } from '../report-types-enum'
 import { CampaignReportMetricsEnum } from '../metrics/campaign-report-metrics-enum'
 
-export interface SponsoredProductsCampaignReportRequest
-  extends BaseReportRequest<SponsoredProductsReportTypeEnum, CampaignReportMetricsEnum> {
+export interface SponsoredProductsCampaignReportParams
+  extends BaseReportParams<SponsoredProductsReportTypeEnum, CampaignReportMetricsEnum> {
   recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS
 }

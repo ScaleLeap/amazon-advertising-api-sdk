@@ -1,6 +1,6 @@
 import { ReportSegmentsEnum } from './report-segments-enum'
 
-export interface BaseReportRequest<RecordType, ReportMetrics> {
+export interface BaseReportParams<RecordType, ReportMetrics> {
   /**
    * The type of entity for which the report should be generated.
    */
