@@ -8,6 +8,7 @@ import {
 import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
+import { DateTimeUtils } from './datetime-utils'
 
 setupPolly()
 
@@ -58,7 +59,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     })
   })
 
-  describe('createCampaigns', () => {
+  describe.skip('createCampaigns', () => {
     it(`should create a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await campaignOperation.createCampaigns([
         {
@@ -67,10 +68,7 @@ describe('SponsoredProductsCampaignOperation', () => {
           dailyBudget: 1,
           state: CampaignStateEnum.ENABLED,
           targetingType: CampaignTargetingEnum.MANUAL,
-          startDate: new Date()
-            .toISOString()
-            .slice(0, 10)
-            .replace(/-/g, ''),
+          startDate: DateTimeUtils.getCurrentISODate(),
           premiumBidAdjustment: true,
         },
       ])
