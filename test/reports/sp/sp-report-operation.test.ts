@@ -6,6 +6,7 @@ import { SponsoredProductsReportOperation } from '../../../src/operations/report
 import { SponsoredProductsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metrics/campaign-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
+import { DateTimeUtils } from '../../datetime-utils'
 
 setupPolly()
 
@@ -15,14 +16,11 @@ describe('SponsoredProductsReportOperation', () => {
   const reportOperation = operationProvider.create(SponsoredProductsReportOperation)
 
   describe('requestReport', () => {
-    it(`should return a response ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES_14D],
-        reportDate: new Date()
-          .toISOString()
-          .slice(0, 10)
-          .replace(/-/g, ''),
+        reportDate: DateTimeUtils.getCurrentISODate(),
       })
 
       expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
