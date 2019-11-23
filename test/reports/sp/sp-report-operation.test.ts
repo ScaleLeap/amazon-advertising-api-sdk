@@ -36,7 +36,6 @@ describe('SponsoredProductsReportOperation', () => {
       const res = await reportOperation.getReport(reportId)
 
       expect(res.reportId).toBeDefined()
-      expect(res.recordType).toBeDefined()
       expect(res.statusDetails).toBeDefined()
 
       if (res.status == ReportResponseStatusEnum.SUCCESS) {
