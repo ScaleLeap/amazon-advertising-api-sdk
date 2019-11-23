@@ -23,7 +23,26 @@ describe('SponsoredProductsReportOperation', () => {
         reportDate: DateTimeUtils.getCurrentISODate(),
       })
 
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
       expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.statusDetails).toBeDefined()
+    })
+  })
+
+  describe('getReport', () => {
+    it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const reportId: string = 'amzn1.clicksAPI.v1.m1.5DD6AC1A.fcb02e87-8b0a-4edf-8f04-cd87e66376d5'
+      const res = await reportOperation.getReport(reportId)
+
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.statusDetails).toBeDefined()
+
+      if (res.status == ReportResponseStatusEnum.SUCCESS) {
+        expect(res.location).toBeDefined()
+        expect(res.fileSize).toBeDefined()
+      }
     })
   })
 })
