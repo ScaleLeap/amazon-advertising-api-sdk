@@ -12,11 +12,14 @@ export const ReportResponseStatusEnumType = createEnumType<ReportResponseStatusE
 )
 export type ReportResponseStatusEnumType = t.TypeOf<typeof ReportResponseStatusEnumType>
 
+export const ReportId = t.string
+export type ReportId = t.TypeOf<typeof ReportId>
+
 export const ReportResponse = t.partial({
   /**
    * The ID of the report that was requested.
    */
-  reportId: t.string,
+  reportId: ReportId,
 
   /**
    * The record type of the report. It can be campaigns, adGroups, productAds or keywords.
@@ -43,5 +46,4 @@ export const ReportResponse = t.partial({
    */
   fileSize: t.number,
 })
-
 export type ReportResponse = t.TypeOf<typeof ReportResponse>
