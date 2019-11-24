@@ -15,35 +15,39 @@ export type ReportResponseStatusEnumType = t.TypeOf<typeof ReportResponseStatusE
 export const ReportId = t.string
 export type ReportId = t.TypeOf<typeof ReportId>
 
-export const ReportResponse = t.partial({
-  /**
-   * The ID of the report that was requested.
-   */
-  reportId: ReportId,
+export const ReportResponse = t.intersection([
+  t.type({
+    /**
+     * The ID of the report that was requested.
+     */
+    reportId: ReportId,
 
-  /**
-   * The record type of the report. It can be campaigns, adGroups, productAds or keywords.
-   */
-  recordType: t.string,
+    /**
+     * The status of the generation of the report, it can be IN_PROGRESS, SUCCESS or FAILURE.
+     */
+    status: ReportResponseStatusEnumType,
 
-  /**
-   * The status of the generation of the report, it can be IN_PROGRESS, SUCCESS or FAILURE.
-   */
-  status: ReportResponseStatusEnumType,
+    /**
+     * Description of the status.
+     */
+    statusDetails: t.string,
+  }),
+  t.partial({
+    /**
+     * The record type of the report. It can be campaigns, adGroups, productAds or keywords.
+     */
+    recordType: t.string,
 
-  /**
-   * Description of the status.
-   */
-  statusDetails: t.string,
+    /**
+     * The URI from the API service from which a redirect to the report can be found. It's only available if status is SUCCESS.
+     */
+    location: t.string,
 
-  /**
-   * The URI from the API service from which a redirect to the report can be found. It's only available if status is SUCCESS.
-   */
-  location: t.string,
+    /**
+     * The size of the report file in bytes. It's only available if status is SUCCESS.
+     */
+    fileSize: t.number,
+  }),
+])
 
-  /**
-   * The size of the report file in bytes. It's only available if status is SUCCESS.
-   */
-  fileSize: t.number,
-})
 export type ReportResponse = t.TypeOf<typeof ReportResponse>
