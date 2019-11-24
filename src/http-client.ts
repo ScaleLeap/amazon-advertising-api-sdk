@@ -168,6 +168,8 @@ export class HttpClient {
       headers: this.headers,
     })
 
+    console.log(res)
+
     // checks for common errors, we don't care about the result, as we expect it to throw
     // if any failures are detected
     await this.handleApiResponse(res.clone())
@@ -177,7 +179,12 @@ export class HttpClient {
       throw new InvalidProgramStateError(['Expected a signed URL.', res.statusText].join(' '))
     }
 
+    console.log(location)
+
     const download = await this.fetch(location)
+
+    console.log(download)
+    console.log(download.headers)
 
     if (download.status !== this.httpStatus.OK) {
       throw new InvalidProgramStateError(`Expected OK HTTP status, but got: ${res.statusText}`)
@@ -186,9 +193,14 @@ export class HttpClient {
     const buffer = await download.arrayBuffer().then(res => Buffer.from(res))
     const contentType = download.headers.get('Content-Type')
 
+    console.log(buffer)
+    console.log(contentType)
+
     const bufferToJson = (buf: Buffer): T => {
       return JSON.parse(buf.toString())
     }
+
+    console.log(bufferToJson)
 
     switch (contentType) {
       case JSON_CONTENT_TYPE:
