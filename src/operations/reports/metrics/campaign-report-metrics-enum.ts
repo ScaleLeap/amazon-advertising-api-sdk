@@ -1,4 +1,4 @@
-export enum CampaignReportMetricsEnum {
+export const enum CampaignReportMetricsEnum {
   /**
    * A dimensional metric.
    * See [Premium bid adjustment](https://advertising.amazon.com/API/docs/v2/guides/developer_notes#Premium-bid-adjustment)
