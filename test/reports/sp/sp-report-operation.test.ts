@@ -44,4 +44,24 @@ describe('SponsoredProductsReportOperation', () => {
       }
     })
   })
+
+  describe('downloadReport', () => {
+    it('should return the report uncompressed', async () => {
+      const requestReportResult = await reportOperation.requestReport({
+        recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
+        metrics: [
+          CampaignReportMetricsEnum.CLICKS,
+          CampaignReportMetricsEnum.COST,
+          CampaignReportMetricsEnum.IMPRESSIONS,
+        ],
+        reportDate: DateTimeUtils.getCurrentISODate(),
+      })
+
+      const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
+        requestReportResult.reportId,
+      )
+
+      expect(res.length).toBeGreaterThan(0)
+    })
+  })
 })
