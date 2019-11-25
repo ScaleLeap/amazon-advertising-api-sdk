@@ -183,7 +183,7 @@ export class HttpClient {
 
     const download = await this.fetch(location)
 
-    console.log(download)
+    console.log(download.body)
     console.log(download.headers)
 
     if (download.status !== this.httpStatus.OK) {
