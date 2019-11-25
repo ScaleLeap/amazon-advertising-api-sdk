@@ -190,9 +190,12 @@ export class HttpClient {
       throw new InvalidProgramStateError(`Expected OK HTTP status, but got: ${res.statusText}`)
     }
 
-    const buffer = await download.arrayBuffer().then(res => Buffer.from(res))
+    const buffer = await download.arrayBuffer().then(res => {
+      return Buffer.from(res)
+    })
     const contentType = download.headers.get('Content-Type')
 
+    console.log(await download.arrayBuffer())
     console.log(buffer)
     console.log(buffer.toString())
     console.log(contentType)
