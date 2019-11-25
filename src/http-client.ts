@@ -191,11 +191,11 @@ export class HttpClient {
     }
 
     const buffer = await download.arrayBuffer().then(res => {
+      console.log(res)
       return Buffer.from(res)
     })
     const contentType = download.headers.get('Content-Type')
 
-    console.log(await download.arrayBuffer())
     console.log(buffer)
     console.log(buffer.toString())
     console.log(contentType)
