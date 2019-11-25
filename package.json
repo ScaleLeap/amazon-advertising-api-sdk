@@ -52,7 +52,7 @@
     "setup-polly-jest": "0.6.0",
     "ts-jest": "24.2.0",
     "ts-node": "8.5.2",
-    "tsconfigs": "4.0.1",
+    "tsconfigs": "4.0.2",
     "typescript": "3.7.2"
   },
   "publishConfig": {
