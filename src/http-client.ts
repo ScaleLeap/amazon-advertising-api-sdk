@@ -194,14 +194,12 @@ export class HttpClient {
     const contentType = download.headers.get('Content-Type')
 
     console.log(buffer)
+    console.log(buffer.toString())
     console.log(contentType)
 
     const bufferToJson = (buf: Buffer): T => {
       return JSON.parse(buf.toString())
     }
-
-    console.log(buffer.toString('utf8'))
-    console.log(bufferToJson(buffer))
 
     switch (contentType) {
       case JSON_CONTENT_TYPE:
