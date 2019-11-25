@@ -200,7 +200,8 @@ export class HttpClient {
       return JSON.parse(buf.toString())
     }
 
-    console.log(bufferToJson)
+    console.log(buffer.toString('utf8'))
+    console.log(bufferToJson(buffer))
 
     switch (contentType) {
       case JSON_CONTENT_TYPE:
