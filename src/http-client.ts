@@ -4,6 +4,7 @@ import HttpStatus from 'http-status-codes'
 import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
+import { gunzip as gunzip2 } from 'zlib'
 
 export interface HttpClientAuth {
   authorizationToken: string
@@ -190,10 +191,8 @@ export class HttpClient {
       throw new InvalidProgramStateError(`Expected OK HTTP status, but got: ${res.statusText}`)
     }
 
-    const buffer = await download.arrayBuffer().then(res => {
-      console.log(res)
-      return Buffer.from(res)
-    })
+    const reportResponse = download.arrayBuffer()
+    const buffer = await reportResponse.then(res => Buffer.from(res))
     const contentType = download.headers.get('Content-Type')
 
     console.log(buffer)
@@ -208,6 +207,10 @@ export class HttpClient {
       case JSON_CONTENT_TYPE:
         return bufferToJson(buffer)
       case 'application/octet-stream':
+        gunzip2(await reportResponse, (err, uncompressed) => {
+          console.log(err)
+          console.log(uncompressed)
+        })
         return gunzip(buffer).then(bufferToJson)
       default:
         throw new InvalidProgramStateError(`Unknown Content-Type: ${contentType}`)
