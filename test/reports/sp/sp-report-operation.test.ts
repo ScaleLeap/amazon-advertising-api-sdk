@@ -46,7 +46,7 @@ describe('SponsoredProductsReportOperation', () => {
   })
 
   describe('downloadReport', () => {
-    it('should return the report uncompressed', async () => {
+    it('should return the report uncompressed', async done => {
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [
@@ -57,11 +57,14 @@ describe('SponsoredProductsReportOperation', () => {
         reportDate: DateTimeUtils.getCurrentISODate(),
       })
 
-      const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
-        requestReportResult.reportId,
-      )
-
-      expect(res.length).toBeGreaterThan(0)
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      setTimeout(async () => {
+        const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
+          requestReportResult.reportId,
+        )
+        expect(res.length).toBeGreaterThan(0)
+        done()
+      }, 5000)
     })
   })
 })

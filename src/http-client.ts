@@ -4,7 +4,6 @@ import HttpStatus from 'http-status-codes'
 import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
-import { gunzip as gunzip2 } from 'zlib'
 
 export interface HttpClientAuth {
   authorizationToken: string
@@ -169,8 +168,6 @@ export class HttpClient {
       headers: this.headers,
     })
 
-    console.log(res)
-
     // checks for common errors, we don't care about the result, as we expect it to throw
     // if any failures are detected
     await this.handleApiResponse(res.clone())
@@ -180,24 +177,14 @@ export class HttpClient {
       throw new InvalidProgramStateError(['Expected a signed URL.', res.statusText].join(' '))
     }
 
-    console.log(location)
-
     const download = await this.fetch(location)
-
-    console.log(download.body)
-    console.log(download.headers)
 
     if (download.status !== this.httpStatus.OK) {
       throw new InvalidProgramStateError(`Expected OK HTTP status, but got: ${res.statusText}`)
     }
 
-    const reportResponse = download.arrayBuffer()
-    const buffer = await reportResponse.then(res => Buffer.from(res))
+    const buffer = await download.arrayBuffer().then(res => Buffer.from(res))
     const contentType = download.headers.get('Content-Type')
-
-    console.log(buffer)
-    console.log(buffer.toString())
-    console.log(contentType)
 
     const bufferToJson = (buf: Buffer): T => {
       return JSON.parse(buf.toString())
@@ -207,10 +194,6 @@ export class HttpClient {
       case JSON_CONTENT_TYPE:
         return bufferToJson(buffer)
       case 'application/octet-stream':
-        gunzip2(await reportResponse, (err, uncompressed) => {
-          console.log(err)
-          console.log(uncompressed)
-        })
         return gunzip(buffer).then(bufferToJson)
       default:
         throw new InvalidProgramStateError(`Unknown Content-Type: ${contentType}`)
