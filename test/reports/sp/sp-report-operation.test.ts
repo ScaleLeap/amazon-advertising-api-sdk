@@ -47,6 +47,7 @@ describe('SponsoredProductsReportOperation', () => {
 
   describe('downloadReport', () => {
     it('should return the report uncompressed', async done => {
+      jest.setTimeout(15000)
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [
@@ -59,10 +60,18 @@ describe('SponsoredProductsReportOperation', () => {
 
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       setTimeout(async () => {
-        const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
-          requestReportResult.reportId,
-        )
-        expect(res.length).toBeGreaterThan(0)
+        const getReportResult = await reportOperation.getReport(requestReportResult.reportId)
+
+        console.log(`Report Status: ${getReportResult.status}`)
+
+        if (getReportResult.status == ReportResponseStatusEnum.SUCCESS) {
+          const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
+            requestReportResult.reportId,
+          )
+
+          console.log(res)
+          expect(res.length).toBeGreaterThan(0)
+        }
         done()
       }, 5000)
     })
