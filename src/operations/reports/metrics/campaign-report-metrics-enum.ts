@@ -56,132 +56,132 @@ export const enum CampaignReportMetricsEnum {
   /**
    * Number of attributed conversion events occurring within 1 day of click on ad.
    */
-  ATTRIBUTED_CONVERSIONS_1D = 'attributedConversions1d',
+  ATTRIBUTED_CONVERSIONS1D = 'attributedConversions1d',
 
   /**
    * Number of attributed conversion events occurring within 7 days of click on ad.
    */
-  ATTRIBUTED_CONVERSIONS_7D = 'attributedConversions7d',
+  ATTRIBUTED_CONVERSIONS7D = 'attributedConversions7d',
 
   /**
    * Number of attributed conversion events occurring within 14 days of click on ad.
    */
-  ATTRIBUTED_CONVERSIONS_14D = 'attributedConversions14d',
+  ATTRIBUTED_CONVERSIONS14D = 'attributedConversions14d',
 
   /**
    * Number of attributed conversion events occurring within 30 days of click on ad.
    */
-  ATTRIBUTED_CONVERSIONS_30D = 'attributedConversions30d',
+  ATTRIBUTED_CONVERSIONS30D = 'attributedConversions30d',
 
   /**
    * Number of attributed conversion events occurring within 1 day of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_CONVERSIONS_1D_SAME_SKU = 'attributedConversions1dSameSKU',
+  ATTRIBUTED_CONVERSIONS1D_SAME_SKU = 'attributedConversions1dSameSKU',
 
   /**
    * Number of attributed conversion events occurring within 7 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_CONVERSIONS_7D_SAME_SKU = 'attributedConversions7dSameSKU',
+  ATTRIBUTED_CONVERSIONS7D_SAME_SKU = 'attributedConversions7dSameSKU',
 
   /**
    * Number of attributed conversion events occurring within 14 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_CONVERSIONS_14D_SAME_SKU = 'attributedConversions14dSameSKU',
+  ATTRIBUTED_CONVERSIONS14D_SAME_SKU = 'attributedConversions14dSameSKU',
 
   /**
    * Number of attributed conversion events occurring within 30 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_CONVERSIONS_30D_SAME_SKU = 'attributedConversions30dSameSKU',
+  ATTRIBUTED_CONVERSIONS30D_SAME_SKU = 'attributedConversions30dSameSKU',
 
   /**
    * Number of attributed units ordered within 1 day of click on ad.
    */
-  ATTRIBUTED_UNITS_ORDERED_1D = 'attributedUnitsOrdered1d',
+  ATTRIBUTED_UNITS_ORDERED1D = 'attributedUnitsOrdered1d',
 
   /**
    * Number of attributed units ordered within 7 days of click on ad.
    */
-  ATTRIBUTED_UNITS_ORDERED_7D = 'attributedUnitsOrdered7d',
+  ATTRIBUTED_UNITS_ORDERED7D = 'attributedUnitsOrdered7d',
 
   /**
    * Number of attributed units ordered within 14 days of click on ad.
    */
-  ATTRIBUTED_UNITS_ORDERED_14D = 'attributedUnitsOrdered14d',
+  ATTRIBUTED_UNITS_ORDERED14D = 'attributedUnitsOrdered14d',
 
   /**
    * Number of attributed units ordered within 30 days of click on ad.
    */
-  ATTRIBUTED_UNITS_ORDERED_30D = 'attributedUnitsOrdered30d',
+  ATTRIBUTED_UNITS_ORDERED30D = 'attributedUnitsOrdered30d',
 
   /**
    * Number of attributed sales occurring within 1 day of click on ad.
    */
-  ATTRIBUTED_SALES_1D = 'attributedSales1d',
+  ATTRIBUTED_SALES1D = 'attributedSales1d',
 
   /**
    * Number of attributed sales occurring within 7 days of click on ad.
    */
-  ATTRIBUTED_SALES_7D = 'attributedSales7d',
+  ATTRIBUTED_SALES7D = 'attributedSales7d',
 
   /**
    * Number of attributed sales occurring within 14 days of click on ad.
    */
-  ATTRIBUTED_SALES_14D = 'attributedSales14d',
+  ATTRIBUTED_SALES14D = 'attributedSales14d',
 
   /**
    * Number of attributed sales occurring within 30 days of click on ad.
    */
-  ATTRIBUTED_SALES_30D = 'attributedSales30d',
+  ATTRIBUTED_SALES30D = 'attributedSales30d',
 
   /**
    * Aggregate value of attributed sales occurring within 1 day of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_SALES_1D_SAME_SKU = 'attributedSales1dSameSKU',
+  ATTRIBUTED_SALES1D_SAME_SKU = 'attributedSales1dSameSKU',
 
   /**
    * Aggregate value of attributed sales occurring within 7 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_SALES_7D_SAME_SKU = 'attributedSales7dSameSKU',
+  ATTRIBUTED_SALES7D_SAME_SKU = 'attributedSales7dSameSKU',
 
   /**
    * Aggregate value of attributed sales occurring within 14 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_SALES_14D_SAME_SKU = 'attributedSales14dSameSKU',
+  ATTRIBUTED_SALES14D_SAME_SKU = 'attributedSales14dSameSKU',
 
   /**
    * Aggregate value of attributed sales occurring within 30 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_SALES_30D_SAME_SKU = 'attributedSales30dSameSKU',
+  ATTRIBUTED_SALES30D_SAME_SKU = 'attributedSales30dSameSKU',
 
   /**
    * Number of attributed units ordered within 1 day of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_UNITS_ORDERED_1D_SAME_SKU = 'attributedUnitsOrdered1dSameSKU',
+  ATTRIBUTED_UNITS_ORDERED1D_SAME_SKU = 'attributedUnitsOrdered1dSameSKU',
 
   /**
    * Number of attributed units ordered within 7 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_UNITS_ORDERED_7D_SAME_SKU = 'attributedUnitsOrdered7dSameSKU',
+  ATTRIBUTED_UNITS_ORDERED7D_SAME_SKU = 'attributedUnitsOrdered7dSameSKU',
 
   /**
    * Number of attributed units ordered within 14 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_UNITS_ORDERED_14D_SAME_SKU = 'attributedUnitsOrdered14dSameSKU',
+  ATTRIBUTED_UNITS_ORDERED14D_SAME_SKU = 'attributedUnitsOrdered14dSameSKU',
 
   /**
    * Number of attributed units ordered within 30 days of click on ad where the purchased
    * SKU was the same as the one advertised.
    */
-  ATTRIBUTED_UNITS_ORDERED_30D_SAME_SKU = 'attributedUnitsOrdered30dSameSKU',
+  ATTRIBUTED_UNITS_ORDERED30D_SAME_SKU = 'attributedUnitsOrdered30dSameSKU',
 }
