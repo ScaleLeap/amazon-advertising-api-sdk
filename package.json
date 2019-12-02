@@ -19,7 +19,7 @@
   "dependencies": {
     "client-oauth2": "4.2.5",
     "cross-fetch": "3.0.4",
-    "fp-ts": "2.1.2",
+    "fp-ts": "2.2.0",
     "http-status-codes": "1.4.0",
     "io-ts": "2.0.1",
     "io-ts-promise": "2.0.1",
