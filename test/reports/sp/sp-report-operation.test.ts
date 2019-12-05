@@ -19,7 +19,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
-        metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES_14D],
+        metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES14D],
         reportDate: DateTimeUtils.getCurrentISODate(),
       })
 
