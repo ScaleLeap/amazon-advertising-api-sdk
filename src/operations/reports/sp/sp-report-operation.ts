@@ -3,8 +3,17 @@ import { Decode } from '../../../decorators'
 import { Operation } from '../../operation'
 import { ReportResponse, ReportId } from '../report-response'
 import { SponsoredProductsCampaignReportParams } from './sp-campaign-report-params'
+import { SponsoredProductsAdGroupReportParams } from './sp-adgroup-report-params'
+import { SponsoredProductsKeywordReportParams } from './sp-keyword-report-params'
+import { SponsoredProductsTargetsReportParams } from './sp-target-report-params'
+import { SponsoredProductsProductAdsReportParams } from './sp-product-ads-report-params'
 
-type SponsoredProductsReportParams = SponsoredProductsCampaignReportParams
+type SponsoredProductsReportParams =
+  | SponsoredProductsCampaignReportParams
+  | SponsoredProductsAdGroupReportParams
+  | SponsoredProductsKeywordReportParams
+  | SponsoredProductsProductAdsReportParams
+  | SponsoredProductsTargetsReportParams
 
 export class SponsoredProductsReportOperation<
   ReportParams extends SponsoredProductsReportParams
