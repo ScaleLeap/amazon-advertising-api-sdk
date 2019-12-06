@@ -19,7 +19,6 @@ type SponsoredProductsReportParams =
   | SponsoredProductsProductAdsReportParams
   | SponsoredProductsTargetsReportParams
 
-
 /**
  * Paper-over the incosistency of the API.
  * The API returns `recordType` in singular, while it is documented to return it in plural.
@@ -50,16 +49,12 @@ function fixRecordTypeResponse(res: ReportResponse): ReportResponse {
   }
 }
 
-
 export class SponsoredProductsReportOperation<
   ReportParams extends SponsoredProductsReportParams
 > extends Operation {
   private type = 'sp'
 
-  protected async requestReportByUri(
-    uri: string,
-    params: ReportParams,
-  ): Promise<ReportResponse> {
+  protected async requestReportByUri(uri: string, params: ReportParams): Promise<ReportResponse> {
     const res = await this.client.post<ReportResponse>(
       uri,
       this.paramsFilterTransformerReal(omit(params, ['recordType']), ['metrics']),
@@ -68,7 +63,7 @@ export class SponsoredProductsReportOperation<
     return fixRecordTypeResponse(res)
   }
 
-  private requestAsinReport(params: ReportParams){
+  private requestAsinReport(params: ReportParams) {
     return this.requestReportByUri(
       `${this.version}/${params.recordType}/report`,
       // add undocumented param `campaignType`, without it the request fails
