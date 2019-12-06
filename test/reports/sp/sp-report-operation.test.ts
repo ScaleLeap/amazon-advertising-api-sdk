@@ -11,6 +11,7 @@ import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metric
 import { KeywordReportMetricsEnum } from '../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
 import { ProductTargetingReportMetricsEnum } from '../../../src/operations/reports/metrics/product-targeting-report-metrics-enum'
+import { AsinsReportMetricsEnum } from '../../../src/operations/reports/metrics/asins-report-metrics-enum'
 
 setupPolly()
 
@@ -43,6 +44,25 @@ describe('SponsoredProductsReportOperation', () => {
           AdGroupReportMetricsEnum.ADGROUP_NAME,
           AdGroupReportMetricsEnum.COST,
           AdGroupReportMetricsEnum.IMPRESSIONS,
+        ],
+        reportDate: DateTimeUtils.getCurrentISODate(),
+      })
+
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.statusDetails).toBeDefined()
+    })
+
+    it(`should return a in progress status with asins report ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await reportOperation.requestReport({
+        recordType: SponsoredProductsReportTypeEnum.ASINS,
+        metrics: [
+          AsinsReportMetricsEnum.CAMPAIGN_ID,
+          AsinsReportMetricsEnum.CAMPAIGN_NAME,
+          AsinsReportMetricsEnum.ASIN,
+          AsinsReportMetricsEnum.KEYWORD_ID,
+          AsinsReportMetricsEnum.SKU,
         ],
         reportDate: DateTimeUtils.getCurrentISODate(),
       })
