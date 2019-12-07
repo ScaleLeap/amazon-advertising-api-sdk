@@ -2,7 +2,7 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
 import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
-import { DateTimeUtils } from '../../datetime-utils'
+import { DateTimeUtils, Ramdom } from '../../test-utils'
 import { SponsoredBrandsReportOperation } from '../../../src/operations/reports/sb/sb-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
@@ -16,10 +16,6 @@ describe('SponsoredBrandsReportOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const reportOperation = operationProvider.create(SponsoredBrandsReportOperation)
-
-  function getRandomTimeout(min = 1, max = 5): number {
-    return Math.floor((Math.random() * (max - min) + min) * 1000)
-  }
 
   describe('requestReport', () => {
     it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -58,7 +54,7 @@ describe('SponsoredBrandsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, getRandomTimeout())
+      }, Ramdom.getRandomTimeout())
     })
 
     it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -82,7 +78,7 @@ describe('SponsoredBrandsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, getRandomTimeout())
+      }, Ramdom.getRandomTimeout())
     })
   })
 
@@ -112,7 +108,7 @@ describe('SponsoredBrandsReportOperation', () => {
           expect(res.fileSize).toBeDefined()
         }
         done()
-      }, getRandomTimeout())
+      }, Ramdom.getRandomTimeout())
     })
   })
 
