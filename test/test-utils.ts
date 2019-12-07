@@ -8,3 +8,9 @@ export class DateTimeUtils {
       .replace(/-/g, '')
   }
 }
+
+export class Ramdom {
+  static getRandomTimeout(min = 1, max = 5): number {
+    return Math.floor((Math.random() * (max - min) + min) * 1000)
+  }
+}
