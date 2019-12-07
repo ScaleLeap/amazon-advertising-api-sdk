@@ -1,7 +1,7 @@
 import { omit } from 'lodash'
 import { Decode } from '../../../decorators'
-import { Operation } from '../../operation'
-import { ReportResponse, ReportId, ReportResponseStatusEnum } from '../report-response'
+import { BaseReportOperation } from '../base-report-operation'
+import { ReportResponse, ReportResponseStatusEnum } from '../report-response'
 import { SponsoredProductsAdGroupReportParams } from './sp-adgroup-report-params'
 import { SponsoredProductsAsinsReportParams } from './sp-asins-report-params'
 import { SponsoredProductsCampaignReportParams } from './sp-campaign-report-params'
@@ -51,7 +51,7 @@ function fixRecordTypeResponse(res: ReportResponse): ReportResponse {
 
 export class SponsoredProductsReportOperation<
   ReportParams extends SponsoredProductsReportParams
-> extends Operation {
+> extends BaseReportOperation {
   private type = 'sp'
 
   protected async requestReportByUri(uri: string, params: ReportParams): Promise<ReportResponse> {
@@ -81,17 +81,5 @@ export class SponsoredProductsReportOperation<
       `${this.version}/${this.type}/${params.recordType}/report`,
       this.paramsFilterTransformerReal(omit(params, ['recordType']), ['metrics']),
     )
-  }
-
-  @Decode(ReportResponse)
-  public getReport(reportId: ReportId) {
-    return this.client.get<ReportResponse>(`${this.version}/reports/${reportId}`)
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  public async downloadReport<T extends string>(
-    reportId: ReportId,
-  ): Promise<Partial<Record<T, 'number' | 'string'>>[]> {
-    return this.client.download(`${this.version}/reports/${reportId}/download`)
   }
 }
