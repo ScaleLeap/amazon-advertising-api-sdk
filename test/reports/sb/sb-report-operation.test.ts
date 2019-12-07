@@ -17,6 +17,10 @@ describe('SponsoredBrandsReportOperation', () => {
   const operationProvider = new OperationProvider(client)
   const reportOperation = operationProvider.create(SponsoredBrandsReportOperation)
 
+  function getRandomTimeout(min = 1, max = 5): number {
+    return Math.floor((Math.random() * (max - min) + min) * 1000)
+  }
+
   describe('requestReport', () => {
     it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await reportOperation.requestReport({
@@ -31,66 +35,84 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await reportOperation.requestReport({
-        recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS,
-        metrics: [
-          AdGroupReportMetricsEnum.CAMPAIGN_ID,
-          AdGroupReportMetricsEnum.CAMPAIGN_NAME,
-          AdGroupReportMetricsEnum.ADGROUP_ID,
-          AdGroupReportMetricsEnum.ADGROUP_NAME,
-          AdGroupReportMetricsEnum.COST,
-          AdGroupReportMetricsEnum.IMPRESSIONS,
-        ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
-      })
+    it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, done => {
+      jest.setTimeout(15000)
 
-      expect(res.reportId).toBeDefined()
-      expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
-      expect(res.statusDetails).toBeDefined()
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      setTimeout(async () => {
+        const res = await reportOperation.requestReport({
+          recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS,
+          metrics: [
+            AdGroupReportMetricsEnum.CAMPAIGN_ID,
+            AdGroupReportMetricsEnum.CAMPAIGN_NAME,
+            AdGroupReportMetricsEnum.ADGROUP_ID,
+            AdGroupReportMetricsEnum.ADGROUP_NAME,
+            AdGroupReportMetricsEnum.COST,
+            AdGroupReportMetricsEnum.IMPRESSIONS,
+          ],
+          reportDate: DateTimeUtils.getCurrentISODate(),
+        })
+
+        expect(res.reportId).toBeDefined()
+        expect(res.recordType).toBeDefined()
+        expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+        expect(res.statusDetails).toBeDefined()
+        done()
+      }, getRandomTimeout())
     })
 
-    it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await reportOperation.requestReport({
-        recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-        metrics: [
-          KeywordReportMetricsEnum.CAMPAIGN_ID,
-          KeywordReportMetricsEnum.KEYWORD_ID,
-          KeywordReportMetricsEnum.COST,
-          KeywordReportMetricsEnum.IMPRESSIONS,
-        ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
-      })
+    it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, done => {
+      jest.setTimeout(15000)
 
-      expect(res.reportId).toBeDefined()
-      expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
-      expect(res.statusDetails).toBeDefined()
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      setTimeout(async () => {
+        const res = await reportOperation.requestReport({
+          recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
+          metrics: [
+            KeywordReportMetricsEnum.CAMPAIGN_ID,
+            KeywordReportMetricsEnum.KEYWORD_ID,
+            KeywordReportMetricsEnum.COST,
+            KeywordReportMetricsEnum.IMPRESSIONS,
+          ],
+          reportDate: DateTimeUtils.getCurrentISODate(),
+        })
+
+        expect(res.reportId).toBeDefined()
+        expect(res.recordType).toBeDefined()
+        expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+        expect(res.statusDetails).toBeDefined()
+        done()
+      }, getRandomTimeout())
     })
   })
 
   describe('getReport', () => {
-    it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const requestReportResult = await reportOperation.requestReport({
-        recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-        metrics: [
-          KeywordReportMetricsEnum.CAMPAIGN_ID,
-          KeywordReportMetricsEnum.KEYWORD_ID,
-          KeywordReportMetricsEnum.COST,
-          KeywordReportMetricsEnum.IMPRESSIONS,
-        ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
-      })
-      const res = await reportOperation.getReport(requestReportResult.reportId)
+    it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, done => {
+      jest.setTimeout(15000)
 
-      expect(res.reportId).toBeDefined()
-      expect(res.statusDetails).toBeDefined()
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      setTimeout(async () => {
+        const requestReportResult = await reportOperation.requestReport({
+          recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
+          metrics: [
+            KeywordReportMetricsEnum.CAMPAIGN_ID,
+            KeywordReportMetricsEnum.KEYWORD_ID,
+            KeywordReportMetricsEnum.COST,
+            KeywordReportMetricsEnum.IMPRESSIONS,
+          ],
+          reportDate: DateTimeUtils.getCurrentISODate(),
+        })
+        const res = await reportOperation.getReport(requestReportResult.reportId)
 
-      if (res.status == ReportResponseStatusEnum.SUCCESS) {
-        expect(res.location).toBeDefined()
-        expect(res.fileSize).toBeDefined()
-      }
+        expect(res.reportId).toBeDefined()
+        expect(res.statusDetails).toBeDefined()
+
+        if (res.status == ReportResponseStatusEnum.SUCCESS) {
+          expect(res.location).toBeDefined()
+          expect(res.fileSize).toBeDefined()
+        }
+        done()
+      }, getRandomTimeout())
     })
   })
 
