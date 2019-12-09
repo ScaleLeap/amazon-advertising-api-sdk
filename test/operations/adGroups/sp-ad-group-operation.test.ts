@@ -17,6 +17,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
   const adGroupOperation = operationProvider.create(SponsoredProductsAdGroupOperation)
   const CAMPAIGN_ID = 31299234922913
   const ARCHIVED_AD_GROUP_ID = 138818764235694
+  const ENABLED_AD_GROUP_ID = 164621261612363
 
   describe('getAdGroup', () => {
     it(`should return a single adgroup ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -48,7 +49,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
     })
   })
 
-  describe('createAdGroups', () => {
+  describe.skip('createAdGroups', () => {
     it('should create an ad group', async () => {
       const res = await adGroupOperation.createAdGroups([
         {
@@ -65,11 +66,11 @@ describe('SponsoredProductsAdGroupOperation', () => {
     })
   })
 
-  describe.skip('updateAdGroups', () => {
+  describe('updateAdGroups', () => {
     it('should update an ad group', async () => {
       const res = await adGroupOperation.updateAdGroups([
         {
-          adGroupId: ARCHIVED_AD_GROUP_ID,
+          adGroupId: ENABLED_AD_GROUP_ID,
           name: 'New Name',
           state: AdGroupStateEnum.ENABLED,
           defaultBid: 1,
