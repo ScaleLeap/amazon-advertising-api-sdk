@@ -53,7 +53,7 @@
     "ts-jest": "24.2.0",
     "ts-node": "8.5.4",
     "tsconfigs": "4.0.2",
-    "typescript": "3.7.2"
+    "typescript": "3.7.3"
   },
   "publishConfig": {
     "tag": "next"
