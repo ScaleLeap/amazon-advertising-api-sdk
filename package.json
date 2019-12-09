@@ -28,7 +28,7 @@
     "ts-error": "1.0.4"
   },
   "devDependencies": {
-    "@jedmao/semantic-release-npm-github-config": "1.0.8",
+    "@jedmao/semantic-release-npm-github-config": "1.0.9",
     "@pollyjs/adapter-node-http": "2.7.0",
     "@pollyjs/core": "2.6.3",
     "@pollyjs/persister-fs": "2.6.3",
