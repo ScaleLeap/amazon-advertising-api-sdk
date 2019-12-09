@@ -52,6 +52,7 @@ export enum AdGroupServingStatusEnum {
   CAMPAIGN_INCOMPLETE = 'CAMPAIGN_INCOMPLETE',
   ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
   PORTFOLIO_PENDING_START_DATE = 'PORTFOLIO_PENDING_START_DATE', // The docs don't mention about this type
+  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED', // The docs don't mention about this type
 }
 export const AdGroupServingStatusType = createEnumType<AdGroupServingStatusEnum>(
   AdGroupServingStatusEnum,
