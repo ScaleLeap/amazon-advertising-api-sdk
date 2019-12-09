@@ -16,35 +16,35 @@ describe('SponsoredProductsAdGroupOperation', () => {
   const operationProvider = new OperationProvider(client)
   const adGroupOperation = operationProvider.create(SponsoredProductsAdGroupOperation)
   const CAMPAIGN_ID = 31299234922913
-  const AD_GROUP_ID = 138818764235694
+  const ARCHIVED_AD_GROUP_ID = 138818764235694
 
   describe('getAdGroup', () => {
     it(`should return a single adgroup ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await adGroupOperation.getAdGroup(AD_GROUP_ID)
+      const res = await adGroupOperation.getAdGroup(ARCHIVED_AD_GROUP_ID)
 
-      expect(res.adGroupId).toBe(AD_GROUP_ID)
+      expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       expect(res).toHaveProperty('name')
       expect(res).toHaveProperty('campaignId')
       expect(res).toHaveProperty('defaultBid')
       expect(res.defaultBid).toBeGreaterThan(0.02)
-      expect(res.state).toBe(AdGroupStateEnum.ENABLED)
+      expect(res.state).toBe(AdGroupStateEnum.ARCHIVED)
     })
   })
 
   describe('getAdGroupEx', () => {
     it('should get an extended ad group', async () => {
-      const res = await adGroupOperation.getAdGroupEx(AD_GROUP_ID)
+      const res = await adGroupOperation.getAdGroupEx(ARCHIVED_AD_GROUP_ID)
 
-      expect(res.adGroupId).toBe(AD_GROUP_ID)
+      expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       expect(res).toHaveProperty('name')
       expect(res).toHaveProperty('campaignId')
       expect(res).toHaveProperty('defaultBid')
       expect(res.defaultBid).toBeGreaterThan(0.02)
-      expect(res.state).toBe(AdGroupStateEnum.ENABLED)
+      expect(res.state).toBe(AdGroupStateEnum.ARCHIVED)
 
       expect(res).toHaveProperty('creationDate')
       expect(res).toHaveProperty('lastUpdatedDate')
-      expect(res.servingStatus).toBe(AdGroupServingStatusEnum.PORTFOLIO_PENDING_START_DATE)
+      expect(res.servingStatus).toBe(AdGroupServingStatusEnum.PORTFOLIO_ENDED)
     })
   })
 
@@ -65,11 +65,11 @@ describe('SponsoredProductsAdGroupOperation', () => {
     })
   })
 
-  describe('updateAdGroups', () => {
+  describe.skip('updateAdGroups', () => {
     it('should update an ad group', async () => {
       const res = await adGroupOperation.updateAdGroups([
         {
-          adGroupId: AD_GROUP_ID,
+          adGroupId: ARCHIVED_AD_GROUP_ID,
           name: 'New Name',
           state: AdGroupStateEnum.ENABLED,
           defaultBid: 1,
@@ -84,11 +84,11 @@ describe('SponsoredProductsAdGroupOperation', () => {
 
   describe('archiveAdGroup', () => {
     it('should archive the ad group', async () => {
-      const res = await adGroupOperation.archiveAdGroup(AD_GROUP_ID)
+      const res = await adGroupOperation.archiveAdGroup(ARCHIVED_AD_GROUP_ID)
       expect(res.code).toBe(AdGroupResponseStatusEnum.SUCCESS)
 
       if (res.code === AdGroupResponseStatusEnum.SUCCESS) {
-        expect(res.adGroupId).toBe(AD_GROUP_ID)
+        expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       }
     })
   })
@@ -96,25 +96,26 @@ describe('SponsoredProductsAdGroupOperation', () => {
   describe('listAdGroups', () => {
     it('should return a list of ad groups', async () => {
       const res = await adGroupOperation.listAdGroups()
+
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].adGroupId).toBe(AD_GROUP_ID)
+      expect(res[0].adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       expect(res[0].campaignId).toBe(CAMPAIGN_ID)
       expect(res[0]).toHaveProperty('name')
       expect(res[0]).toHaveProperty('defaultBid')
-      expect(res[0].defaultBid).toBeGreaterThan(0)
+      expect(res[0].defaultBid).toBeGreaterThan(0.02)
       expect(res[0].state).toBe(AdGroupStateEnum.ARCHIVED)
     })
 
     it('should accept params', async () => {
       const res = await adGroupOperation.listAdGroups({
-        adGroupIdFilter: [AD_GROUP_ID],
+        adGroupIdFilter: [ARCHIVED_AD_GROUP_ID],
         campaignIdFilter: [CAMPAIGN_ID],
         count: 1,
         stateFilter: [AdGroupStateEnum.ARCHIVED],
       })
 
       expect(res).toHaveLength(1)
-      expect(res[0].adGroupId).toBe(AD_GROUP_ID)
+      expect(res[0].adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       expect(res[0].campaignId).toBe(CAMPAIGN_ID)
     })
   })
@@ -122,10 +123,17 @@ describe('SponsoredProductsAdGroupOperation', () => {
   describe('listAdGroupsEx', () => {
     it('should return an extended list of ad groups', async () => {
       const res = await adGroupOperation.listAdGroupsEx()
+
       expect(Array.isArray(res)).toBeTruthy()
+      expect(res[0].adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
+      expect(res[0].campaignId).toBe(CAMPAIGN_ID)
+      expect(res[0]).toHaveProperty('name')
+      expect(res[0]).toHaveProperty('defaultBid')
+      expect(res[0].defaultBid).toBeGreaterThan(0.02)
+
       expect(res[0]).toHaveProperty('creationDate')
       expect(res[0]).toHaveProperty('lastUpdatedDate')
-      expect(res[0].servingStatus).toBe(AdGroupServingStatusEnum.PORTFOLIO_PENDING_START_DATE)
+      expect(res[0].servingStatus).toBe(AdGroupServingStatusEnum.PORTFOLIO_ENDED)
     })
   })
 })
