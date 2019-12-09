@@ -2,13 +2,7 @@ import { Operation } from '../operation'
 import { Decode, DecodeArray } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
-import {
-  AdGroup,
-  AdGroupId,
-  AdGroupResponse,
-  AdGroupExtended,
-  ListAdGroupsParams
-} from './types'
+import { AdGroup, AdGroupId, AdGroupResponse, AdGroupExtended, ListAdGroupsParams } from './types'
 
 export class SponsoredProductsAdGroupOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/adGroups`
