@@ -27,6 +27,18 @@ export const AdGroupStatesType = t.array(AdGroupStateType)
 export type AdGroupStatesType = t.TypeOf<typeof AdGroupStatesType>
 
 /**
+ * The mutation status of the portfolio.
+ */
+export enum AdGroupResponseStatusEnum {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
+export const AdGroupResponseStatusType = createEnumType<AdGroupResponseStatusEnum>(
+  AdGroupResponseStatusEnum,
+)
+
+/**
  * The computed status, accounting for out of budget, policy violations, etc. See Developer notes for more information.
  */
 export enum AdGroupServingStatusEnum {
@@ -52,12 +64,12 @@ export const AdGroup = t.intersection([
      * The name of the ad group
      */
     name: AdGroupName,
-  
+
     /**
      * The bid used when keywords belonging to this ad group don't specify a bid.
      */
     defaultBid: t.number,
-  
+
     /**
      * Advertiser-specified state of the ad group
      */
@@ -74,9 +86,8 @@ export const AdGroup = t.intersection([
      * The ID of the campaign to which this ad group belongs
      */
     campaignId: CampaignId,
-  })
+  }),
 ])
-
 
 export type AdGroup = t.TypeOf<typeof AdGroup>
 
@@ -124,7 +135,6 @@ export const AdGroupResponse = t.intersection([
 ])
 export type AdGroupResponse = t.TypeOf<typeof AdGroupResponse>
 
-
 export const ListAdGroupsParams = t.intersection([
   ListPagination,
 
@@ -150,6 +160,6 @@ export const ListAdGroupsParams = t.intersection([
      * Optional. Restricts results to ad groups with the specified name.
      */
     name: AdGroupName,
-  })
+  }),
 ])
 export type ListAdGroupsParams = t.TypeOf<typeof ListAdGroupsParams>
