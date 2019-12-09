@@ -1,10 +1,13 @@
 import * as t from 'io-ts'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
-import { CampaignId } from '../campaigns/types'
-import { createEnumType } from '../commons/types'
+import { CampaignId, CampaignIds } from '../campaigns/types'
+import { createEnumType, ListPagination } from '../commons/types'
 
 export const AdGroupId = t.number
 export type AdGroupId = t.TypeOf<typeof AdGroupId>
+
+export const AdGroupIds = t.array(AdGroupId)
+export type AdGroupIds = t.TypeOf<typeof AdGroupIds>
 
 export const AdGroupName = t.string
 export type AdGroupName = t.TypeOf<typeof AdGroupName>
@@ -19,6 +22,9 @@ export enum AdGroupStateEnum {
 }
 export const AdGroupStateType = createEnumType<AdGroupStateEnum>(AdGroupStateEnum)
 export type AdGroupStateType = t.TypeOf<typeof AdGroupStateType>
+
+export const AdGroupStatesType = t.array(AdGroupStateType)
+export type AdGroupStatesType = t.TypeOf<typeof AdGroupStatesType>
 
 /**
  * The computed status, accounting for out of budget, policy violations, etc. See Developer notes for more information.
@@ -40,32 +46,38 @@ export const AdGroupServingStatusType = createEnumType<AdGroupServingStatusEnum>
 )
 export type AdGroupServingStatusType = t.TypeOf<typeof AdGroupServingStatusType>
 
-export const AdGroup = t.type({
-  /**
-   * The ID of the ad group
-   */
-  adGroupId: AdGroupId,
+export const AdGroup = t.intersection([
+  t.type({
+    /**
+     * The name of the ad group
+     */
+    name: AdGroupName,
+  
+    /**
+     * The bid used when keywords belonging to this ad group don't specify a bid.
+     */
+    defaultBid: t.number,
+  
+    /**
+     * Advertiser-specified state of the ad group
+     */
+    state: AdGroupStateType,
+  }),
 
-  /**
-   * The name of the ad group
-   */
-  name: AdGroupName,
+  t.partial({
+    /**
+     * The ID of the ad group
+     */
+    adGroupId: AdGroupId,
 
-  /**
-   * The ID of the campaign to which this ad group belongs
-   */
-  campaignId: CampaignId,
+    /**
+     * The ID of the campaign to which this ad group belongs
+     */
+    campaignId: CampaignId,
+  })
+])
 
-  /**
-   * The bid used when keywords belonging to this ad group don't specify a bid.
-   */
-  defaultBid: t.number,
 
-  /**
-   * Advertiser-specified state of the ad group
-   */
-  state: AdGroupStateType,
-})
 export type AdGroup = t.TypeOf<typeof AdGroup>
 
 export const AdGroupExtended = t.intersection([
@@ -111,3 +123,33 @@ export const AdGroupResponse = t.intersection([
   }),
 ])
 export type AdGroupResponse = t.TypeOf<typeof AdGroupResponse>
+
+
+export const ListAdGroupsParams = t.intersection([
+  ListPagination,
+
+  t.partial({
+    /**
+     * Optional. Restricts results to ad groups within campaigns specified in comma-separated list.
+     */
+    campaignIdFilter: CampaignIds,
+
+    /**
+     * Optional. Restricts results to ad groups specified in comma-separated list.
+     */
+    adGroupIdFilter: AdGroupIds,
+
+    /**
+     * Optional.Restricts results to keywords with state within the specified comma-separated list.
+     * Must be one of: enabled, paused, or archived.
+     * Default behavior is to include all.
+     */
+    stateFilter: AdGroupStatesType,
+
+    /**
+     * Optional. Restricts results to ad groups with the specified name.
+     */
+    name: AdGroupName,
+  })
+])
+export type ListAdGroupsParams = t.TypeOf<typeof ListAdGroupsParams>

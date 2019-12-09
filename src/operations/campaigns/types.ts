@@ -12,6 +12,9 @@ import { CampaignBiddingAdjustments } from '../bidding/campaign-bidding-adjustme
 export const CampaignId = t.number
 export type CampaignId = t.TypeOf<typeof CampaignId>
 
+export const CampaignIds = t.array(CampaignId)
+export type CampaignIds = t.TypeOf<typeof CampaignIds>
+
 /**
  * The name of the campaign.
  */
@@ -517,7 +520,7 @@ export const ListCampaignsParams = t.intersection([
     /**
      * Restricts results to campaigns with the specified identifier.
      */
-    campaignIdFilter: t.array(CampaignId),
+    campaignIdFilter: CampaignIds,
   }),
 ])
 export type ListCampaignsParams = t.TypeOf<typeof ListCampaignsParams>
