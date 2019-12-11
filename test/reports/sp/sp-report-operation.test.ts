@@ -45,8 +45,8 @@ describe('SponsoredProductsReportOperation', () => {
     })
   })
 
-  describe('downloadReport', () => {
-    it('should return the report uncompressed', async () => {
+  describe.skip('downloadReport', () => {
+    it(`should return the report uncompressed ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [
