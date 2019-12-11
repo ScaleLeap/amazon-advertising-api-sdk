@@ -8,9 +8,7 @@ import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metri
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
 import { DateTimeUtils } from '../../datetime-utils'
 
-setupPolly()
-
-describe('SponsoredProductsReportOperation', () => {
+describe(`SponsoredProductsReportOperation passthrough ${POLLY_PASSTHROUGH_TAG}`, () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const reportOperation = operationProvider.create(SponsoredProductsReportOperation)
@@ -46,7 +44,7 @@ describe('SponsoredProductsReportOperation', () => {
   })
 
   describe('downloadReport', () => {
-    it(`should return the report uncompressed passthrough`, async done => {
+    it(`should return the report uncompressed passthrough ${POLLY_PASSTHROUGH_TAG}`, async done => {
       jest.setTimeout(15000)
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
