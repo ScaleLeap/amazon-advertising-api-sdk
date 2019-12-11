@@ -13,7 +13,7 @@ describe('SponsoredProductsReportOperation', () => {
   const operationProvider = new OperationProvider(client)
   const reportOperation = operationProvider.create(SponsoredProductsReportOperation)
 
-  describe.skip('requestReport', () => {
+  describe('requestReport', () => {
     it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
@@ -28,7 +28,7 @@ describe('SponsoredProductsReportOperation', () => {
     })
   })
 
-  describe.skip('getReport', () => {
+  describe('getReport', () => {
     it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const reportId = 'amzn1.clicksAPI.v1.m1.5DD6AC1A.fcb02e87-8b0a-4edf-8f04-cd87e66376d5'
       const res = await reportOperation.getReport(reportId)
@@ -44,7 +44,7 @@ describe('SponsoredProductsReportOperation', () => {
   })
 
   describe('downloadReport', () => {
-    it('should return the report uncompressed', async done => {
+    it(`should return the report uncompressed ${POLLY_PASSTHROUGH_TAG}`, async done => {
       jest.setTimeout(15000)
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
