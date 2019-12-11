@@ -184,7 +184,6 @@ export class HttpClient {
     }
 
     const buffer = await download.arrayBuffer().then(res => Buffer.from(res))
-    const buffer2 = Buffer.from(buffer.toString(), 'hex')
 
     const contentType = download.headers.get('Content-Type')
 
@@ -196,7 +195,8 @@ export class HttpClient {
       case JSON_CONTENT_TYPE:
         return bufferToJson(buffer)
       case 'application/octet-stream':
-        return gunzip(buffer2).then(bufferToJson)
+        const bufferHex = Buffer.from(buffer.toString(), 'hex')
+        return gunzip(bufferHex).then(bufferToJson)
       default:
         throw new InvalidProgramStateError(`Unknown Content-Type: ${contentType}`)
     }

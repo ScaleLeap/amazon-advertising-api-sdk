@@ -8,8 +8,6 @@ import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metri
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
 import { DateTimeUtils } from '../../datetime-utils'
 
-setupPolly()
-
 describe('SponsoredProductsReportOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
