@@ -44,7 +44,7 @@ describe('SponsoredProductsReportOperation', () => {
   })
 
   describe('downloadReport', () => {
-    it(`should return the report uncompressed ${POLLY_PASSTHROUGH_TAG}`, async done => {
+    it(`should return the report uncompressed passthrough`, async done => {
       jest.setTimeout(15000)
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
