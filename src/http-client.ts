@@ -4,8 +4,6 @@ import HttpStatus from 'http-status-codes'
 import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
-import * as https from 'https'
-import * as fs from 'fs'
 
 export interface HttpClientAuth {
   authorizationToken: string
@@ -186,19 +184,9 @@ export class HttpClient {
     }
 
     const buffer = await download.arrayBuffer().then(res => Buffer.from(res))
+    const buffer2 = Buffer.from(buffer.toString(), 'hex')
+
     const contentType = download.headers.get('Content-Type')
-
-    const filename = 'response'
-    const file = fs.createWriteStream(filename)
-    const request = https.get(location, function(response) {
-      response.pipe(file)
-    })
-    const buffer2 = fs.readFileSync(filename)
-    console.log(buffer.toString())
-
-    console.log(location)
-    console.log(download.headers)
-    console.log(buffer.toString())
 
     const bufferToJson = (buf: Buffer): T => {
       return JSON.parse(buf.toString())
@@ -208,7 +196,7 @@ export class HttpClient {
       case JSON_CONTENT_TYPE:
         return bufferToJson(buffer)
       case 'application/octet-stream':
-        return gunzip(buffer).then(bufferToJson)
+        return gunzip(buffer2).then(bufferToJson)
       default:
         throw new InvalidProgramStateError(`Unknown Content-Type: ${contentType}`)
     }
