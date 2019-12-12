@@ -9,6 +9,7 @@ import {
   CampaignResponse,
   SponsoredProductsCampaignUpdateParams,
   CampaignExtended,
+  SponsoredProductsCampaignCreateParams,
 } from './types'
 
 export class SponsoredProductsCampaignOperation extends Operation {
@@ -35,7 +36,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
   }
 
   @DecodeArray(CampaignResponse)
-  public createCampaigns(campaigns: Campaign[]) {
+  public createCampaigns(campaigns: SponsoredProductsCampaignCreateParams[]) {
     return this.client.post<CampaignResponse[]>(this.resource, campaigns)
   }
 
