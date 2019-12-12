@@ -75,7 +75,6 @@ describe('SponsoredProductsCampaignOperation', () => {
           state: CampaignStateEnum.ENABLED,
           targetingType: CampaignTargetingEnum.MANUAL,
           startDate: DateTimeUtils.getCurrentISODate(),
-          premiumBidAdjustment: true,
         },
       ])
 
