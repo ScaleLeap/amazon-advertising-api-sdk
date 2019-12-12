@@ -17,44 +17,6 @@ describe('Campaign', () => {
 
     expect(isRight(res)).toBeTruthy()
   })
-
-  it('should pass createCampaigns param', () => {
-    const res = t.Campaign.decode({
-      name: 'test campaign 7',
-      campaignType: 'sponsoredProducts',
-      dailyBudget: 1,
-      state: 'paused',
-      targetingType: 'manual',
-      startDate: '20190401',
-      bidding: {
-        strategy: 'manual',
-        adjustments: [
-          {
-            predicate: 'placementTop',
-            percentage: 50,
-          },
-          {
-            predicate: 'placementProductPage',
-            percentage: 20,
-          },
-        ],
-      },
-    })
-
-    expect(isRight(res)).toBeTruthy()
-  })
-
-  it('should pass updateCampaigns param of Sponsored Products', () => {
-    const res = t.Campaign.decode({
-      campaignId: 31299234922913,
-      name: 'new name',
-      state: 'paused',
-      dailyBudget: 7,
-      portfolioId: 77985496739778,
-    })
-
-    expect(isRight(res)).toBeTruthy()
-  })
 })
 
 describe('CampaignExtended', () => {
@@ -81,6 +43,48 @@ describe('CampaignExtended', () => {
       creationDate: 1550067309000,
       lastUpdatedDate: 1550119120000,
     })
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('SponsoredProductsCampaignCreateParams', () => {
+  it('should pass createCampaigns param', () => {
+    const res = t.SponsoredProductsCampaignCreateParams.decode({
+      name: 'test campaign 7',
+      campaignType: 'sponsoredProducts',
+      dailyBudget: 1,
+      state: 'paused',
+      targetingType: 'manual',
+      startDate: '20190401',
+      bidding: {
+        strategy: 'manual',
+        adjustments: [
+          {
+            predicate: 'placementTop',
+            percentage: 50,
+          },
+          {
+            predicate: 'placementProductPage',
+            percentage: 20,
+          },
+        ],
+      },
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('SponsoredProductsCampaignUpdateParams', () => {
+  it('should pass updateCampaigns param of Sponsored Products', () => {
+    const res = t.SponsoredProductsCampaignUpdateParams.decode({
+      campaignId: 31299234922913,
+      name: 'new name',
+      state: 'paused',
+      dailyBudget: 7,
+      portfolioId: 77985496739778,
+    })
+
     expect(isRight(res)).toBeTruthy()
   })
 })

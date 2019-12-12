@@ -103,6 +103,43 @@ export const Campaign = t.partial({
 })
 export type Campaign = t.TypeOf<typeof Campaign>
 
+export const SponsoredProductsCampaignCreateParams = t.intersection([
+  t.type({
+    /**
+     * Campaign name limit is 128 characters.
+     * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
+     */
+    name: CampaignName,
+
+    campaignType: CampaignType,
+
+    /**
+     * Differentiates between a keyword-targeted and automatically targeted campaign.
+     */
+    targetingType: CampaignTargetingType,
+
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignStateType,
+
+    /**
+     * Daily budget for the campaign.
+     */
+    dailyBudget: t.number,
+
+    /**
+     * The date the campaign will go or went live as YYYYMMDD.
+     */
+    startDate: t.string,
+  }),
+
+  t.partial({}),
+])
+export type SponsoredProductsCampaignCreateParams = t.TypeOf<
+  typeof SponsoredProductsCampaignCreateParams
+>
+
 export const SponsoredProductsCampaignUpdateParams = t.intersection([
   t.type({
     /**
