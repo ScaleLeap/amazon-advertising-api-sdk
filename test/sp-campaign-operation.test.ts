@@ -146,6 +146,10 @@ describe('SponsoredProductsCampaignOperation', () => {
             predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
             percentage: 1,
           },
+          {
+            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_PRODUCT_PAGE,
+            percentage: 2,
+          },
         ],
       }
 
