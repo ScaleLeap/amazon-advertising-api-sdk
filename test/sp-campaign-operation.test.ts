@@ -74,7 +74,7 @@ describe('SponsoredProductsCampaignOperation', () => {
           dailyBudget: 1,
           state: CampaignStateEnum.ENABLED,
           targetingType: CampaignTargetingEnum.MANUAL,
-          startDate: DateTimeUtils.getCurrentISODate(),
+          startDate,
         },
       ])
 
