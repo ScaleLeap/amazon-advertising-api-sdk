@@ -2,7 +2,10 @@
  * Copyright (C) 2019, Scale Leap
  */
 
-export const enum CampaignBiddingStrategyEnum {
+import * as t from 'io-ts'
+import { createEnumType } from '../commons/types'
+
+export enum CampaignBiddingStrategyEnum {
   /**
    * Lowers your bids in real time when your ad may be less likely to convert to a sale.
    * Campaigns created before the release of the bidding controls feature used this setting by default.
@@ -22,3 +25,7 @@ export const enum CampaignBiddingStrategyEnum {
    */
   MANUAL = 'manual',
 }
+export const CampaignBiddingStrategyType = createEnumType<CampaignBiddingStrategyEnum>(
+  CampaignBiddingStrategyEnum,
+)
+export type CampaignBiddingStrategyType = t.TypeOf<typeof CampaignBiddingStrategyType>

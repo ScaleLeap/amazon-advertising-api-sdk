@@ -9,6 +9,8 @@ import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
 import { DateTimeUtils } from './datetime-utils'
+import { CampaignBiddingStrategyEnum } from '../src/operations/bidding/campaign-bidding-strategy'
+import { CampaignBiddingAdjustmentsPredicateEnum } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
 
 setupPolly()
 
@@ -16,6 +18,10 @@ describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const campaignOperation = operationProvider.create(SponsoredProductsCampaignOperation)
+  const startDate = new Date()
+    .toISOString()
+    .slice(0, 10)
+    .replace(/-/g, '')
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
@@ -75,16 +81,47 @@ describe('SponsoredProductsCampaignOperation', () => {
 
       expect(Array.isArray(res)).toBeTruthy()
     })
+
+    it(`should create a campaign with auto bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const bidding = {
+        strategy: CampaignBiddingStrategyEnum.AUTO_FOR_SALES,
+        adjustments: [
+          {
+            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
+            percentage: 900,
+          },
+        ],
+      }
+
+      const [createdCampaignResponse] = await campaignOperation.createCampaigns([
+        {
+          name: `test campaign ${startDate + 1}`,
+          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
+          dailyBudget: 1,
+          state: CampaignStateEnum.PAUSED,
+          targetingType: CampaignTargetingEnum.MANUAL,
+          startDate,
+          bidding,
+        },
+      ])
+
+      expect(createdCampaignResponse.code).toBe('SUCCESS')
+
+      if (createdCampaignResponse.code === 'SUCCESS') {
+        const res = await campaignOperation.getCampaign(createdCampaignResponse.campaignId)
+        expect(res.bidding).toMatchObject(bidding)
+      }
+    })
   })
 
   describe('updateCampaigns', () => {
-    it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const portfolioId = 77985496739778
-      const name = 'new name'
-      const state = CampaignStateEnum.PAUSED
-      const dailyBudget = 7
+    const portfolioId = 77985496739778
+    const name = 'new name'
+    const state = CampaignStateEnum.PAUSED
+    const dailyBudget = 7
 
-      const res = await campaignOperation.updateCampaigns([
+    it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const [updateCampaignResponse] = await campaignOperation.updateCampaigns([
         {
           campaignId: CAMPAIGN_ID,
           portfolioId,
@@ -93,15 +130,42 @@ describe('SponsoredProductsCampaignOperation', () => {
           dailyBudget,
         },
       ])
-
-      expect(Array.isArray(res)).toBeTruthy()
-
-      const campaign = await campaignOperation.getCampaign(CAMPAIGN_ID)
+      const campaign = await campaignOperation.getCampaign(updateCampaignResponse.campaignId)
 
       expect(campaign.portfolioId).toBe(portfolioId)
       expect(campaign.name).toBe(name)
       expect(campaign.state).toBe(state)
       expect(campaign.dailyBudget).toBe(dailyBudget)
+    })
+
+    it(`should update a campaign with manual bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const bidding = {
+        strategy: CampaignBiddingStrategyEnum.MANUAL,
+        adjustments: [
+          {
+            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
+            percentage: 1,
+          },
+        ],
+      }
+
+      const [updateCampaignResponse] = await campaignOperation.updateCampaigns([
+        {
+          campaignId: CAMPAIGN_ID,
+          portfolioId,
+          name,
+          state,
+          dailyBudget,
+          bidding,
+        },
+      ])
+
+      expect(updateCampaignResponse.code).toBe('SUCCESS')
+
+      if (updateCampaignResponse.code === 'SUCCESS') {
+        const res = await campaignOperation.getCampaign(updateCampaignResponse.campaignId)
+        expect(res.bidding).toMatchObject(bidding)
+      }
     })
   })
 

@@ -3,6 +3,8 @@ import * as t from 'io-ts'
 import { ResponseStatus, ListPagination, createEnumType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { PortfolioId } from '../portfolios/types'
+import { CampaignBiddingStrategyType } from '../bidding/campaign-bidding-strategy'
+import { CampaignBiddingAdjustments } from '../bidding/campaign-bidding-adjustments-predicate'
 
 /**
  * The ID of the campaign.
@@ -49,6 +51,11 @@ export enum CampaignStateEnum {
 
 export const CampaignStateType = createEnumType<CampaignStateEnum>(CampaignStateEnum)
 export type CampaignStateType = t.TypeOf<typeof CampaignStateType>
+
+export const CampaignBidding = t.type({
+  strategy: CampaignBiddingStrategyType,
+  adjustments: CampaignBiddingAdjustments,
+})
 
 export const Campaign = t.partial({
   /**
@@ -100,6 +107,8 @@ export const Campaign = t.partial({
    * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
    */
   premiumBidAdjustment: t.boolean,
+
+  bidding: CampaignBidding,
 })
 export type Campaign = t.TypeOf<typeof Campaign>
 
@@ -134,7 +143,9 @@ export const SponsoredProductsCampaignCreateParams = t.intersection([
     startDate: t.string,
   }),
 
-  t.partial({}),
+  t.partial({
+    bidding: CampaignBidding,
+  }),
 ])
 export type SponsoredProductsCampaignCreateParams = t.TypeOf<
   typeof SponsoredProductsCampaignCreateParams
@@ -179,6 +190,8 @@ export const SponsoredProductsCampaignUpdateParams = t.intersection([
      * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
      */
     premiumBidAdjustment: t.boolean,
+
+    bidding: CampaignBidding,
   }),
 ])
 
