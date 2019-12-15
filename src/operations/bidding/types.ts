@@ -105,9 +105,11 @@ export const BidRecommendationsResponse = t.strict({
          * The resulting status code for retrieving the bid.
          */
         code: BidRecommendationsResponseCodeType,
+
+        suggestedBid: SuggestedBid,
       }),
+
       BidRecommendationsKeyword,
-      SuggestedBid,
     ]),
   ),
 })
