@@ -18,10 +18,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const campaignOperation = operationProvider.create(SponsoredProductsCampaignOperation)
-  const startDate = new Date()
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, '')
+  const startDate = DateTimeUtils.getCurrentISODate()
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
