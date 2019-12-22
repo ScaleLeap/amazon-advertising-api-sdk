@@ -235,3 +235,106 @@ export const NegativeKeywordResponse = t.intersection([
   }),
 ])
 export type NegativeKeywordResponse = t.TypeOf<typeof NegativeKeywordResponse>
+
+/**
+ * Advertiser-specified state of the keyword
+ */
+export enum CampaignNegativeKeywordStateEnum {
+  ENABLED = 'enabled',
+  DELETED = 'deleted',
+}
+export const CampaignNegativeKeywordStateType = createEnumType<CampaignNegativeKeywordStateEnum>(
+  CampaignNegativeKeywordStateEnum,
+)
+
+/**
+ * The match type used to match the keyword to search query
+ */
+export enum CampaignNegativeKeywordMatchTypeEnum {
+  NEGATIVE_EXACT = 'negativeExact',
+  NEGATIVE_PHRASE = 'negativePhrase',
+}
+export const CampaignNegativeKeywordMatchType = createEnumType<
+  CampaignNegativeKeywordMatchTypeEnum
+>(CampaignNegativeKeywordMatchTypeEnum)
+
+/**
+ * The computed status, accounting for out of budget, policy violations, etc.
+ * See developer notes for more information.
+ */
+export enum CampaignNegativeKeywordServingStatusEnum {
+  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
+}
+export const CampaignNegativeKeywordServingStatusType = createEnumType<
+  CampaignNegativeKeywordServingStatusEnum
+>(CampaignNegativeKeywordServingStatusEnum)
+
+export const CampaignNegativeKeyword = t.strict({
+  /**
+   * The ID of the keyword
+   */
+  keywordId: KeywordId,
+
+  /**
+   * The ID of the campaign to which this keyword belongs
+   */
+  campaignId: CampaignId,
+
+  /**
+   * Advertiser-specified state of the keyword
+   */
+  state: CampaignNegativeKeywordStateType,
+
+  /**
+   * The expression to match against search queries
+   */
+  keywordText: t.string,
+
+  /**
+   * The match type used to match the keyword to search query
+   */
+  matchType: CampaignNegativeKeywordMatchType,
+})
+export type CampaignNegativeKeyword = t.TypeOf<typeof CampaignNegativeKeyword>
+
+export const CampaignNegativeKeywordExtended = t.intersection([
+  CampaignNegativeKeyword,
+  t.strict({
+    /**
+     * The date the campaign was created as epoch time in milliseconds.
+     */
+    creationDate: DateFromNumber,
+
+    /**
+     * The date the campaign was created as epoch time in milliseconds.
+     */
+    lastUpdatedDate: DateFromNumber,
+
+    /**
+     * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
+     */
+    servingStatus: CampaignNegativeKeywordServingStatusType,
+  }),
+])
+export type CampaignNegativeKeywordExtended = t.TypeOf<typeof CampaignNegativeKeywordExtended>
+
+export const CampaignNegativeKeywordResponse = t.intersection([
+  t.type({
+    /**
+     * The ID of the keyword that was created/updated, if successful
+     */
+    keywordId: KeywordId,
+
+    /**
+     * An enumerated success or error code for machine use.
+     */
+    code: t.string,
+  }),
+  t.partial({
+    /**
+     * A human-readable description of the error, if unsuccessful.
+     */
+    details: t.string,
+  }),
+])
+export type CampaignNegativeKeywordResponse = t.TypeOf<typeof CampaignNegativeKeywordResponse>
