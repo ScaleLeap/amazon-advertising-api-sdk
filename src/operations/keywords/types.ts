@@ -58,7 +58,7 @@ export const Keyword = t.strict({
   campaignId: CampaignId,
 
   /**
-   * The ID of the keyword
+   * The ID of the ad group to which this keyword belongs
    */
   adGroupId: t.number, //TODO: Change to AdGroupId type
 
@@ -125,3 +125,113 @@ export const KeywordResponse = t.intersection([
   }),
 ])
 export type KeywordResponse = t.TypeOf<typeof KeywordResponse>
+
+/**
+ * Advertiser-specified state of the keyword
+ */
+export enum NegativeKeywordStateEnum {
+  ENABLED = 'enabled',
+  ARCHIVED = 'archived',
+}
+export const NegativeKeywordStateType = createEnumType<NegativeKeywordStateEnum>(
+  NegativeKeywordStateEnum,
+)
+
+/**
+ * The match type used to match the keyword to search query
+ */
+export enum NegativeKeywordMatchTypeEnum {
+  NEGATIVE_EXACT = 'negativeExact',
+  NEGATIVE_PHRASE = 'negativePhrase',
+}
+export const NegativeKeywordMatchType = createEnumType<NegativeKeywordMatchTypeEnum>(
+  NegativeKeywordMatchTypeEnum,
+)
+
+/**
+ * The computed status, accounting for out of budget, policy violations, etc.
+ * See developer notes for more information.
+ */
+export enum NegativeKeywordServingStatusEnum {
+  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
+  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
+}
+export const NegativeKeywordServingStatusType = createEnumType<NegativeKeywordServingStatusEnum>(
+  NegativeKeywordServingStatusEnum,
+)
+
+export const NegativeKeyword = t.strict({
+  /**
+   * The ID of the keyword
+   */
+  keywordId: KeywordId,
+
+  /**
+   * The ID of the campaign to which this keyword belongs
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The ID of the ad group to which this keyword belongs
+   */
+  adGroupId: t.number, //TODO: Change to AdGroupId type
+
+  /**
+   * Advertiser-specified state of the keyword
+   */
+  state: NegativeKeywordStateType,
+
+  /**
+   * The expression to match against search queries
+   */
+  keywordText: t.string,
+
+  /**
+   * Ads don't show on search queries that
+   * contain the exact phrase for 'negativeExact' or close variations for 'negativePhrase'.
+   */
+  matchType: NegativeKeywordMatchType,
+})
+export type NegativeKeyword = t.TypeOf<typeof NegativeKeyword>
+
+export const NegativeKeywordExtended = t.intersection([
+  NegativeKeyword,
+  t.strict({
+    /**
+     * The date the campaign was created as epoch time in milliseconds.
+     */
+    creationDate: DateFromNumber,
+
+    /**
+     * The date the campaign was created as epoch time in milliseconds.
+     */
+    lastUpdatedDate: DateFromNumber,
+
+    /**
+     * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
+     */
+    servingStatus: NegativeKeywordServingStatusType,
+  }),
+])
+export type NegativeKeywordExtended = t.TypeOf<typeof NegativeKeywordExtended>
+
+export const NegativeKeywordResponse = t.intersection([
+  t.type({
+    /**
+     * The ID of the keyword that was created/updated, if successful
+     */
+    keywordId: KeywordId,
+
+    /**
+     * An enumerated success or error code for machine use.
+     */
+    code: t.string,
+  }),
+  t.partial({
+    /**
+     * A human-readable description of the error, if unsuccessful.
+     */
+    details: t.string,
+  }),
+])
+export type NegativeKeywordResponse = t.TypeOf<typeof NegativeKeywordResponse>
