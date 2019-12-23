@@ -338,3 +338,81 @@ export const CampaignNegativeKeywordResponse = t.intersection([
   }),
 ])
 export type CampaignNegativeKeywordResponse = t.TypeOf<typeof CampaignNegativeKeywordResponse>
+
+export const SuggestedKeyword = t.strict({
+  /**
+   * The suggested keyword
+   */
+  keywordText: t.string,
+
+  /**
+   * Match type of the suggested keyword
+   */
+  matchType: t.string,
+})
+
+export const SuggestedKeywords = t.array(SuggestedKeyword)
+
+export const AdGroupSuggestedKeywordsResponse = t.strict({
+  /**
+   * The ID of the requested ad group.
+   */
+  adGroupId: t.number, //TODO: Change to AdGroupId type
+
+  /**
+   * List of suggested keywords.
+   */
+  suggestedKeywords: t.array(t.string),
+})
+export type AdGroupSuggestedKeywordsResponse = t.TypeOf<typeof AdGroupSuggestedKeywordsResponse>
+
+export const GetAdGroupSuggestedKeywordsExResponse = t.strict({
+  /**
+   * The ID of the requested ad group
+   */
+  adGroupId: t.number, //TODO: Change to AdGroupId type
+
+  /**
+   * The campaign ID in which the ad group belongs to
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The suggested keyword
+   */
+  keywordText: t.string,
+
+  /**
+   * Match type of the suggested keyword
+   */
+  matchType: t.string,
+
+  /**
+   * The state of the ad for which the keyword is suggested. Should be either enabled or paused
+   */
+  state: t.string,
+
+  /**
+   * The keyword bid suggestion.
+   * Will only be shown if suggestBid is 'yes' and the keyword has a bid suggestion
+   */
+  bid: t.number,
+})
+export type GetAdGroupSuggestedKeywordsExResponse = t.TypeOf<
+  typeof GetAdGroupSuggestedKeywordsExResponse
+>
+
+export const GetAsinSuggestedKeywordsResponse = t.strict({
+  /**
+   * The ASIN for which a keyword suggestion is requested
+   */
+  asin: t.string,
+
+  /**
+   * List of suggested keywords
+   */
+  suggestedKeywords: SuggestedKeywords,
+})
+export type GetAsinSuggestedKeywordsResponse = t.TypeOf<typeof GetAsinSuggestedKeywordsResponse>
+
+export const BulkGetAsinSuggestedKeywordsResponse = SuggestedKeywords
