@@ -56,6 +56,7 @@ export const CampaignBidding = t.type({
   strategy: CampaignBiddingStrategyType,
   adjustments: CampaignBiddingAdjustments,
 })
+export type CampaignBidding = t.TypeOf<typeof CampaignBidding>
 
 export const Campaign = t.partial({
   /**
