@@ -4,6 +4,7 @@ import {
   CampaignStateEnum,
   CampaignTargetingEnum,
   CampaignTypeEnum,
+  CampaignBidding,
 } from '../src/operations/campaigns/types'
 import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
@@ -79,7 +80,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     })
 
     it(`should create a campaign with auto bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const bidding = {
+      const bidding: CampaignBidding = {
         strategy: CampaignBiddingStrategyEnum.AUTO_FOR_SALES,
         adjustments: [
           {
@@ -135,7 +136,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     })
 
     it(`should update a campaign with manual bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const bidding = {
+      const bidding: CampaignBidding = {
         strategy: CampaignBiddingStrategyEnum.MANUAL,
         adjustments: [
           {
