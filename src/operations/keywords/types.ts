@@ -46,6 +46,12 @@ export const KeywordServingStatusType = createEnumType<KeywordServingStatusEnum>
   KeywordServingStatusEnum,
 )
 
+export enum KeywordResponseStatusEnum {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
+
 export const Keyword = t.strict({
   /**
    * The ID of the keyword
