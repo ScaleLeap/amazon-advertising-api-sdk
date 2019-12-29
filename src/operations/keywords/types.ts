@@ -52,42 +52,46 @@ export enum KeywordResponseStatusEnum {
   NOT_FOUND = 'NOT_FOUND',
 }
 
-export const Keyword = t.strict({
-  /**
-   * The ID of the keyword
-   */
-  keywordId: KeywordId,
+export const Keyword = t.intersection([
+  t.strict({
+    /**
+     * The ID of the keyword
+     */
+    keywordId: KeywordId,
 
-  /**
-   * The ID of the campaign to which this keyword belongs
-   */
-  campaignId: CampaignId,
+    /**
+     * The ID of the campaign to which this keyword belongs
+     */
+    campaignId: CampaignId,
 
-  /**
-   * The ID of the ad group to which this keyword belongs
-   */
-  adGroupId: t.number, //TODO: Change to AdGroupId type
+    /**
+     * The ID of the ad group to which this keyword belongs
+     */
+    adGroupId: t.number, //TODO: Change to AdGroupId type
 
-  /**
-   * Advertiser-specified state of the keyword
-   */
-  state: KeywordStateType,
+    /**
+     * Advertiser-specified state of the keyword
+     */
+    state: KeywordStateType,
 
-  /**
-   * The expression to match against search queries
-   */
-  keywordText: t.string,
+    /**
+     * The expression to match against search queries
+     */
+    keywordText: t.string,
 
-  /**
-   * The match type used to match the keyword to search query
-   */
-  matchType: KeywordMatchType,
+    /**
+     * The match type used to match the keyword to search query
+     */
+    matchType: KeywordMatchType,
+  }),
+  t.partial({
+    /**
+     * Bid used when ads are sourced using this keyword. Only compatible with biddable match types.
+     */
+    bid: t.number,
+  }),
+])
 
-  /**
-   * Bid used when ads are sourced using this keyword. Only compatible with biddable match types.
-   */
-  bid: t.number,
-})
 export type Keyword = t.TypeOf<typeof Keyword>
 
 export const KeywordExtended = t.intersection([
