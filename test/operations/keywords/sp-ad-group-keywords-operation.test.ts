@@ -20,7 +20,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   const MANUAL_CAMPAIGN_ID = 164069484151709
   const MANUAL_AD_GROUP_ID = 149522344269714
 
-  describe('createKeywords', () => {
+  describe.skip('createKeywords', () => {
     it(`should create a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateKeywordsParam[] = [
         {
