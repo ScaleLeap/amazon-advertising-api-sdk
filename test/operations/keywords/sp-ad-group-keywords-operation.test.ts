@@ -17,16 +17,16 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsAdGroupKeywordsOperation)
-  const PAUSED_CAMPAIGN_ID = 31299234922913
-  const PAUSED_AD_GROUP_ID = 109226894492069
+  const MANUAL_CAMPAIGN_ID = 164069484151709
+  const MANUAL_AD_GROUP_ID = 149522344269714
 
   describe('createKeywords', () => {
     it(`should create a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateKeywordsParam[] = [
         {
-          campaignId: PAUSED_CAMPAIGN_ID,
+          campaignId: MANUAL_CAMPAIGN_ID,
 
-          adGroupId: PAUSED_AD_GROUP_ID,
+          adGroupId: MANUAL_AD_GROUP_ID,
 
           keywordText: 'Apple',
 
