@@ -9,6 +9,7 @@ import {
   KeywordMatchTypeEnum,
   KeywordStateEnum,
   KeywordResponseStatusEnum,
+  KeywordExtended,
 } from '../../../src/operations/keywords/types'
 
 setupPolly()
@@ -31,6 +32,22 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
       expect(res).toHaveProperty('keywordText')
       expect(res).toHaveProperty('matchType')
       expect(res).toHaveProperty('state')
+    })
+  })
+
+  describe('getBiddableKeywordExtended', () => {
+    it(`should return a KeywordExtended ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res: KeywordExtended = await operation.getBiddableKeywordExtended(KEYWORD_ID)
+
+      expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
+      expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
+      expect(res.keywordId).toBe(KEYWORD_ID)
+      expect(res).toHaveProperty('keywordText')
+      expect(res).toHaveProperty('matchType')
+      expect(res).toHaveProperty('state')
+      expect(res).toHaveProperty('creationDate')
+      expect(res).toHaveProperty('lastUpdatedDate')
+      expect(res).toHaveProperty('servingStatus')
     })
   })
 
