@@ -52,7 +52,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
-  describe.skip('createKeywords', () => {
+  describe('createKeywords', () => {
     it(`should create a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateKeywordsParam[] = [
         {
@@ -73,7 +73,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
-  describe('updateKeywords', () => {
+  describe.skip('updateKeywords', () => {
     it(`should update a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateKeywordsParam[] = [
         {
