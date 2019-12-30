@@ -210,6 +210,7 @@ export type ListBiddableKeywordsExtendedParam = t.TypeOf<typeof ListBiddableKeyw
  */
 export enum NegativeKeywordStateEnum {
   ENABLED = 'enabled',
+  PAUSED = 'paused',
   ARCHIVED = 'archived',
 }
 export const NegativeKeywordStateType = createEnumType<NegativeKeywordStateEnum>(
@@ -314,6 +315,61 @@ export const NegativeKeywordResponse = t.intersection([
   }),
 ])
 export type NegativeKeywordResponse = t.TypeOf<typeof NegativeKeywordResponse>
+
+export const CreateNegativeKeywordsParam = t.strict({
+  campaignId: CampaignId,
+
+  adGroupId: t.number, //TODO: Change to AdGroupId type
+
+  keywordText: t.string,
+
+  matchType: KeywordMatchType,
+
+  state: KeywordStateType,
+})
+export type CreateNegativeKeywordsParam = t.TypeOf<typeof CreateNegativeKeywordsParam>
+
+export const UpdateNegativeKeywordsParam = t.strict({
+  keywordId: KeywordId,
+
+  state: KeywordStateType,
+})
+export type UpdateNegativeKeywordsParam = t.TypeOf<typeof UpdateNegativeKeywordsParam>
+
+export const ListNegativeKeywordsParam = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * Optional. Restricts results to keywords with match types within the specified comma-separated list.
+     * Valid values are: negativePhrase, and negativeExact
+     */
+    matchTypeFilter: NegativeKeywordMatchType,
+
+    /**
+     * Optional. Restricts results to keywords with the specified keywordText.
+     */
+    keywordText: t.string,
+
+    /**
+     * Optional. Restricts results to keywords with state within the specified comma-separated list.
+     * Must be one of enabled, paused, archived. Default behavior is to include all.
+     * TODO: check Negative Keyword State again. Conflict in the docs: There is disabled state or not?
+     *
+     */
+    stateFilter: NegativeKeywordStateType,
+
+    /**
+     * Optional. Restricts results to keywords within campaigns specified in comma-separated list.
+     */
+    campaignIdFilter: t.array(CampaignId),
+
+    /**
+     * Optional. Restricts results to keywords within ad groups specified in comma-separated list.
+     */
+    adGroupIdFilter: t.array(t.number), // TODO: Change to AdGroupID type
+  }),
+])
+export type ListNegativeKeywordsParam = t.TypeOf<typeof ListNegativeKeywordsParam>
 
 /**
  * Advertiser-specified state of the keyword
