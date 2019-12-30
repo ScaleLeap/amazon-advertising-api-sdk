@@ -136,6 +136,74 @@ export const KeywordResponse = t.intersection([
 ])
 export type KeywordResponse = t.TypeOf<typeof KeywordResponse>
 
+export const CreateKeywordsParam = t.strict({
+  campaignId: CampaignId,
+
+  adGroupId: t.number, //TODO: Change to AdGroupId type
+
+  keywordText: t.string,
+
+  matchType: KeywordMatchType,
+
+  state: KeywordStateType,
+})
+export type CreateKeywordsParam = t.TypeOf<typeof CreateKeywordsParam>
+
+export const UpdateKeywordsParam = t.strict({
+  keywordId: KeywordId,
+
+  state: KeywordStateType,
+
+  bid: t.number,
+})
+export type UpdateKeywordsParam = t.TypeOf<typeof UpdateKeywordsParam>
+
+export const ListBiddableKeywordsParam = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * Optional. Restricts results to keywords with match types within the specified comma-separated list.
+     * Must be one of: broad, phrase, exact
+     */
+    matchTypeFilter: KeywordMatchType,
+
+    /**
+     * Optional. Restricts results to keywords with the specified keywordText.
+     */
+    keywordText: t.string,
+
+    /**
+     * Optional. Restricts results to keywords with state within the specified comma-separated list.
+     * Must be one of: enabled, paused, or archived. Default behavior is to include all.
+     */
+    stateFilter: KeywordStateType,
+
+    /**
+     * Optional. Restricts results to keywords within campaigns specified in comma-separated list.
+     */
+    campaignIdFilter: t.array(CampaignId),
+
+    /**
+     * Optional. Restricts results to keywords within ad groups specified in comma-separated list.
+     */
+    adGroupIdFilter: t.array(t.number), // TODO: Change to AdGroupID type
+  }),
+])
+export type ListBiddableKeywordsParam = t.TypeOf<typeof ListBiddableKeywordsParam>
+
+export const ListBiddableKeywordsExtendedParam = t.intersection([
+  ListBiddableKeywordsParam,
+  t.partial({
+    campaignType: KeywordMatchType,
+
+    /**
+     * Optional. Restricts results to keywords with the specified keyword Id specified in comma-separated list.
+     */
+    keywordIdFilter: t.array(KeywordId),
+  }),
+])
+export type ListBiddableKeywordsExtendedParam = t.TypeOf<typeof ListBiddableKeywordsExtendedParam>
+
 /**
  * Advertiser-specified state of the keyword
  */
@@ -482,71 +550,3 @@ export type GetAdGroupSuggestedKeywordsExtendedParams = t.TypeOf<
   typeof GetAdGroupSuggestedKeywordsExtendedParams
 >
 export const BulkGetAsinSuggestedKeywordsResponse = SuggestedKeywords
-
-export const CreateKeywordsParam = t.strict({
-  campaignId: CampaignId,
-
-  adGroupId: t.number, //TODO: Change to AdGroupId type
-
-  keywordText: t.string,
-
-  matchType: KeywordMatchType,
-
-  state: KeywordStateType,
-})
-export type CreateKeywordsParam = t.TypeOf<typeof CreateKeywordsParam>
-
-export const UpdateKeywordsParam = t.strict({
-  keywordId: KeywordId,
-
-  state: KeywordStateType,
-
-  bid: t.number,
-})
-export type UpdateKeywordsParam = t.TypeOf<typeof UpdateKeywordsParam>
-
-export const ListBiddableKeywordsParam = t.intersection([
-  ListPagination,
-  t.partial({
-    /**
-     * Optional. Restricts results to keywords with match types within the specified comma-separated list.
-     * Must be one of: broad, phrase, exact
-     */
-    matchTypeFilter: KeywordMatchType,
-
-    /**
-     * Optional. Restricts results to keywords with the specified keywordText.
-     */
-    keywordText: t.string,
-
-    /**
-     * Optional. Restricts results to keywords with state within the specified comma-separated list.
-     * Must be one of: enabled, paused, or archived. Default behavior is to include all.
-     */
-    stateFilter: KeywordStateType,
-
-    /**
-     * Optional. Restricts results to keywords within campaigns specified in comma-separated list.
-     */
-    campaignIdFilter: t.array(CampaignId),
-
-    /**
-     * Optional. Restricts results to keywords within ad groups specified in comma-separated list.
-     */
-    adGroupIdFilter: t.array(t.number), // TODO: Change to AdGroupID type
-  }),
-])
-export type ListBiddableKeywordsParam = t.TypeOf<typeof ListBiddableKeywordsParam>
-
-export const ListBiddableKeywordsExtendedParam = t.intersection([
-  ListBiddableKeywordsParam,
-  t.partial({
-    campaignType: KeywordMatchType,
-
-    /**
-     * Optional. Restricts results to keywords with the specified keyword Id specified in comma-separated list.
-     */
-    keywordIdFilter: t.array(KeywordId),
-  }),
-])
-export type ListBiddableKeywordsExtendedParam = t.TypeOf<typeof ListBiddableKeywordsExtendedParam>
