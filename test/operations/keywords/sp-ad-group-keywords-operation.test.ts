@@ -10,6 +10,7 @@ import {
   KeywordStateEnum,
   KeywordResponseStatusEnum,
   KeywordExtended,
+  UpdateKeywordsParam,
 } from '../../../src/operations/keywords/types'
 
 setupPolly()
@@ -67,6 +68,23 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
         },
       ]
       const [res] = await operation.createKeywords(params)
+
+      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+    })
+  })
+
+  describe('updateKeywords', () => {
+    it(`should update a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: UpdateKeywordsParam[] = [
+        {
+          keywordId: KEYWORD_ID,
+
+          state: KeywordStateEnum.PAUSED,
+
+          bid: 1,
+        },
+      ]
+      const [res] = await operation.updateKeywords(params)
 
       expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
     })
