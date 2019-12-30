@@ -90,9 +90,25 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
+  describe('archiveBiddableKeyword', () => {
+    it(`should archive a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.archiveBiddableKeyword(KEYWORD_ID)
+
+      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+    })
+  })
+
   describe('listBiddableKeywords', () => {
     it(`should return an array of Keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: Keyword[] = await operation.listBiddableKeywords()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('listBiddableKeywordsExtended', () => {
+    it(`should return an array of KeywordExtendeds ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res: KeywordExtended[] = await operation.listBiddableKeywordsExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
