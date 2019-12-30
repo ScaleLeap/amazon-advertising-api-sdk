@@ -21,15 +21,16 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   const operation = operationProvider.create(SponsoredProductsAdGroupKeywordsOperation)
   const MANUAL_CAMPAIGN_ID = 164069484151709
   const MANUAL_AD_GROUP_ID = 149522344269714
-  const KEYWORD_ID = 16577721726418
+  const ARCHIVED_KEYWORD_ID = 16577721726418
+  const PAUSED_KEYWORD_ID = 239748696088896
 
   describe('getBiddableKeyword', () => {
     it(`should return a Keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res: Keyword = await operation.getBiddableKeyword(KEYWORD_ID)
+      const res: Keyword = await operation.getBiddableKeyword(ARCHIVED_KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
-      expect(res.keywordId).toBe(KEYWORD_ID)
+      expect(res.keywordId).toBe(ARCHIVED_KEYWORD_ID)
       expect(res).toHaveProperty('keywordText')
       expect(res).toHaveProperty('matchType')
       expect(res).toHaveProperty('state')
@@ -38,11 +39,11 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
 
   describe('getBiddableKeywordExtended', () => {
     it(`should return a KeywordExtended ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res: KeywordExtended = await operation.getBiddableKeywordExtended(KEYWORD_ID)
+      const res: KeywordExtended = await operation.getBiddableKeywordExtended(ARCHIVED_KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
-      expect(res.keywordId).toBe(KEYWORD_ID)
+      expect(res.keywordId).toBe(ARCHIVED_KEYWORD_ID)
       expect(res).toHaveProperty('keywordText')
       expect(res).toHaveProperty('matchType')
       expect(res).toHaveProperty('state')
@@ -52,7 +53,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
-  describe('createKeywords', () => {
+  describe.skip('createKeywords', () => {
     it(`should create a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateKeywordsParam[] = [
         {
@@ -73,11 +74,11 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
-  describe.skip('updateKeywords', () => {
+  describe('updateKeywords', () => {
     it(`should update a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateKeywordsParam[] = [
         {
-          keywordId: KEYWORD_ID,
+          keywordId: PAUSED_KEYWORD_ID,
 
           state: KeywordStateEnum.PAUSED,
 
@@ -92,7 +93,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
 
   describe('archiveBiddableKeyword', () => {
     it(`should archive a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.archiveBiddableKeyword(KEYWORD_ID)
+      const res = await operation.archiveBiddableKeyword(ARCHIVED_KEYWORD_ID)
 
       expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
     })
