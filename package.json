@@ -35,7 +35,7 @@
     "@scaleleap/config": "1.2.3",
     "@types/jest": "24.0.25",
     "@types/lodash": "4.14.149",
-    "@types/node": "12.12.21",
+    "@types/node": "13.1.1",
     "@types/pollyjs__adapter-node-http": "2.0.0",
     "@types/pollyjs__core": "2.6.1",
     "@types/pollyjs__persister-fs": "2.0.0",
