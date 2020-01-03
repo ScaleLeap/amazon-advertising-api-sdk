@@ -5,7 +5,6 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateNegativeKeywordsParam,
-  KeywordMatchTypeEnum,
   KeywordStateEnum,
   NegativeKeywordResponseStatusEnum,
   NegativeKeywordMatchTypeEnum,
@@ -20,7 +19,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
   const MANUAL_CAMPAIGN_ID = 164069484151709
   const MANUAL_AD_GROUP_ID = 149522344269714
 
-  describe('createNegativeKeywords', () => {
+  describe.skip('createNegativeKeywords', () => {
     it(`should create a negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateNegativeKeywordsParam[] = [
         {
