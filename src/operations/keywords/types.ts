@@ -240,6 +240,12 @@ export const NegativeKeywordServingStatusType = createEnumType<NegativeKeywordSe
   NegativeKeywordServingStatusEnum,
 )
 
+export const enum NegativeKeywordResponseStatusEnum {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
+
 export const NegativeKeyword = t.strict({
   /**
    * The ID of the keyword
