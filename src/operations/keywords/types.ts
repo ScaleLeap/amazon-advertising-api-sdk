@@ -329,7 +329,7 @@ export const CreateNegativeKeywordsParam = t.strict({
 
   keywordText: t.string,
 
-  matchType: KeywordMatchType,
+  matchType: NegativeKeywordMatchType,
 
   state: KeywordStateType,
 })
