@@ -348,6 +348,12 @@ export const CampaignNegativeKeywordServingStatusType = createEnumType<
   CampaignNegativeKeywordServingStatusEnum
 >(CampaignNegativeKeywordServingStatusEnum)
 
+export const enum CampaignNegativeKeywordResponseStatusEnum {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
+
 export const CampaignNegativeKeyword = t.strict({
   /**
    * The ID of the keyword
