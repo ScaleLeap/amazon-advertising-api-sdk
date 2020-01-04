@@ -231,6 +231,8 @@ export const NegativeKeywordMatchType = createEnumType<NegativeKeywordMatchTypeE
 /**
  * The computed status, accounting for out of budget, policy violations, etc.
  * See developer notes for more information.
+ * TODO: The docs only mention to TARGETING_CLAUSE_ARCHIVED and TARGETING_CLAUSE_STATUS_LIVE.
+ * Need check again.
  */
 export enum NegativeKeywordServingStatusEnum {
   TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
