@@ -11,6 +11,7 @@ import {
   CampaignNegativeKeyword,
   CampaignNegativeKeywordExtended,
   ListCampaignNegativeKeywordsParam,
+  UpdateCampaignNegativeKeywordsParam,
 } from '../../../src/operations/keywords/types'
 
 setupPolly()
@@ -64,6 +65,28 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
+  describe('updateCampaignNegativeKeywords', () => {
+    it(`should update a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: UpdateCampaignNegativeKeywordsParam[] = [
+        {
+          keywordId: KEYWORD_ID,
+          state: CampaignNegativeKeywordStateEnum.DELETED,
+        },
+      ]
+      const [res] = await operation.updateCampaignNegativeKeywords(params)
+
+      expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
+    })
+  })
+
+  describe('archiveCampaignNegativeKeyword', () => {
+    it(`should archive a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.archiveCampaignNegativeKeyword(KEYWORD_ID)
+
+      expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
+    })
+  })
+
   describe('listCampaignNegativeKeywords', () => {
     it(`should return an array of campaign negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: CampaignNegativeKeyword[] = await operation.listCampaignNegativeKeywords()
@@ -95,7 +118,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return an array of Negative Keyword Extendeds when filter additional properties ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaign negative keywords extendeds when filter additional properties ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: ListCampaignNegativeKeywordsParam = {
         startIndex: 0,
         count: 1,
