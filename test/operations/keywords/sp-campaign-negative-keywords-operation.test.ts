@@ -21,10 +21,11 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsCampaignNegativeKeywordsOperation)
   const MANUAL_CAMPAIGN_ID = 164069484151709
-  const KEYWORD_ID = 38353327298089
+  const KEYWORD_ID = 271800073719731
+  const DELETED_KEYWORD_ID = 38353327298089
   const KEYWORD_TEXT = 'banana'
 
-  describe.skip('getCampaignNegativeKeyword', () => {
+  describe('getCampaignNegativeKeyword', () => {
     it(`should return a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getCampaignNegativeKeyword(KEYWORD_ID)
 
@@ -35,7 +36,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe.skip('getCampaignNegativeKeywordExtended', () => {
+  describe('getCampaignNegativeKeywordExtended', () => {
     it(`should return a campaign negative keyword extended ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getCampaignNegativeKeywordExtended(KEYWORD_ID)
 
@@ -46,7 +47,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('createCampaignNegativeKeywords', () => {
+  describe.skip('createCampaignNegativeKeywords', () => {
     it(`should create a negative keyword for campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateCampaignNegativeKeywordsParam[] = [
         {
@@ -65,12 +66,12 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe.skip('updateCampaignNegativeKeywords', () => {
+  describe('updateCampaignNegativeKeywords', () => {
     it(`should update a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateCampaignNegativeKeywordsParam[] = [
         {
           keywordId: KEYWORD_ID,
-          state: CampaignNegativeKeywordStateEnum.DELETED,
+          state: CampaignNegativeKeywordStateEnum.ENABLED,
         },
       ]
       const [res] = await operation.updateCampaignNegativeKeywords(params)
@@ -79,15 +80,15 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe.skip('archiveCampaignNegativeKeyword', () => {
+  describe('archiveCampaignNegativeKeyword', () => {
     it(`should archive a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.archiveCampaignNegativeKeyword(KEYWORD_ID)
+      const res = await operation.archiveCampaignNegativeKeyword(DELETED_KEYWORD_ID)
 
       expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
     })
   })
 
-  describe.skip('listCampaignNegativeKeywords', () => {
+  describe('listCampaignNegativeKeywords', () => {
     it(`should return an array of campaign negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: CampaignNegativeKeyword[] = await operation.listCampaignNegativeKeywords()
 
@@ -111,7 +112,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe.skip('listCampaignNegativeKeywordsExtended', () => {
+  describe('listCampaignNegativeKeywordsExtended', () => {
     it(`should return an array of campaign negative keywords extendeds ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: CampaignNegativeKeywordExtended[] = await operation.listCampaignNegativeKeywordsExtended()
 
