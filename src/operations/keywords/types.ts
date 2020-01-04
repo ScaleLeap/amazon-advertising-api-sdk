@@ -340,9 +340,20 @@ export const CampaignNegativeKeywordMatchType = createEnumType<
 /**
  * The computed status, accounting for out of budget, policy violations, etc.
  * See developer notes for more information.
+ * TODO: The docs only mention to TARGETING_CLAUSE_STATUS_LIVE.
+ * Need check again.
  */
 export enum CampaignNegativeKeywordServingStatusEnum {
+  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
+  TARGETING_CLAUSE_PAUSED = 'TARGETING_CLAUSE_PAUSED',
   TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
+  TARGETING_CLAUSE_POLICING_SUSPENDED = 'TARGETING_CLAUSE_POLICING_SUSPENDED',
+  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
+  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
+  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
+  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
+  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
+  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
 }
 export const CampaignNegativeKeywordServingStatusType = createEnumType<
   CampaignNegativeKeywordServingStatusEnum
