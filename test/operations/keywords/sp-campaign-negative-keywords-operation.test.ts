@@ -24,7 +24,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   const KEYWORD_ID = 38353327298089
   const KEYWORD_TEXT = 'banana'
 
-  describe('getCampaignNegativeKeyword', () => {
+  describe.skip('getCampaignNegativeKeyword', () => {
     it(`should return a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getCampaignNegativeKeyword(KEYWORD_ID)
 
@@ -35,7 +35,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('getCampaignNegativeKeywordExtended', () => {
+  describe.skip('getCampaignNegativeKeywordExtended', () => {
     it(`should return a campaign negative keyword extended ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getCampaignNegativeKeywordExtended(KEYWORD_ID)
 
@@ -46,7 +46,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe.skip('createCampaignNegativeKeywords', () => {
+  describe('createCampaignNegativeKeywords', () => {
     it(`should create a negative keyword for campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateCampaignNegativeKeywordsParam[] = [
         {
@@ -65,7 +65,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('updateCampaignNegativeKeywords', () => {
+  describe.skip('updateCampaignNegativeKeywords', () => {
     it(`should update a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateCampaignNegativeKeywordsParam[] = [
         {
@@ -79,7 +79,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('archiveCampaignNegativeKeyword', () => {
+  describe.skip('archiveCampaignNegativeKeyword', () => {
     it(`should archive a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveCampaignNegativeKeyword(KEYWORD_ID)
 
@@ -87,7 +87,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('listCampaignNegativeKeywords', () => {
+  describe.skip('listCampaignNegativeKeywords', () => {
     it(`should return an array of campaign negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: CampaignNegativeKeyword[] = await operation.listCampaignNegativeKeywords()
 
@@ -111,7 +111,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('listCampaignNegativeKeywordsExtended', () => {
+  describe.skip('listCampaignNegativeKeywordsExtended', () => {
     it(`should return an array of campaign negative keywords extendeds ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: CampaignNegativeKeywordExtended[] = await operation.listCampaignNegativeKeywordsExtended()
 
