@@ -5,7 +5,7 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateNegativeKeywordsParam,
-  KeywordStateEnum,
+  NegativeKeywordStateEnum,
   NegativeKeywordResponseStatusEnum,
   NegativeKeywordMatchTypeEnum,
   UpdateNegativeKeywordsParam,
@@ -61,7 +61,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
 
           matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
 
-          state: KeywordStateEnum.PAUSED,
+          state: NegativeKeywordStateEnum.PAUSED,
         },
       ]
       const [res] = await operation.createNegativeKeywords(params)
@@ -75,7 +75,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       const params: UpdateNegativeKeywordsParam[] = [
         {
           keywordId: KEYWORD_ID,
-          state: KeywordStateEnum.ARCHIVED,
+          state: NegativeKeywordStateEnum.ARCHIVED,
         },
       ]
       const [res] = await operation.updateNegativeKeywords(params)
