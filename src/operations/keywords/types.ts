@@ -418,6 +418,50 @@ export const CampaignNegativeKeywordResponse = t.intersection([
 ])
 export type CampaignNegativeKeywordResponse = t.TypeOf<typeof CampaignNegativeKeywordResponse>
 
+export const CreateCampaignNegativeKeywordsParam = t.strict({
+  campaignId: CampaignId,
+
+  keywordText: t.string,
+
+  matchType: CampaignNegativeKeywordMatchType,
+
+  state: CampaignNegativeKeywordStateType,
+})
+export type CreateCampaignNegativeKeywordsParam = t.TypeOf<
+  typeof CreateCampaignNegativeKeywordsParam
+>
+
+export const UpdateCampaignNegativeKeywordsParam = t.strict({
+  keywordId: KeywordId,
+
+  state: CampaignNegativeKeywordStateType,
+})
+export type UpdateCampaignNegativeKeywordsParam = t.TypeOf<
+  typeof UpdateCampaignNegativeKeywordsParam
+>
+
+export const ListCampaignNegativeKeywordsParam = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * Optional. Restricts results to keywords with match types within the specified comma-separated list.
+     * Valid values are: negativePhrase, negativeExact
+     */
+    matchTypeFilter: CampaignNegativeKeywordMatchType,
+
+    /**
+     * Optional. Restricts results to keywords with the specified keywordText.
+     */
+    keywordText: t.string,
+
+    /**
+     * Optional. Restricts results to keywords within campaigns specified in comma-separated list.
+     */
+    campaignIdFilter: t.array(CampaignId),
+  }),
+])
+export type ListCampaignNegativeKeywordsParam = t.TypeOf<typeof ListCampaignNegativeKeywordsParam>
+
 export const SuggestedKeyword = t.strict({
   /**
    * The suggested keyword
