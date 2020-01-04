@@ -23,7 +23,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
   const MANUAL_CAMPAIGN_ID = 164069484151709
   const MANUAL_AD_GROUP_ID = 149522344269714
   const KEYWORD_ID = 262433850080632
-  const NEGATIVE_KEYWORD_TEXT = 'green apple'
+  const KEYWORD_TEXT = 'green apple'
 
   describe('getNegativeKeyword', () => {
     it(`should return a Negative Keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -32,7 +32,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
-      expect(res.keywordText).toBe(NEGATIVE_KEYWORD_TEXT)
+      expect(res.keywordText).toBe(KEYWORD_TEXT)
       expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
     })
   })
@@ -44,7 +44,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
-      expect(res.keywordText).toBe(NEGATIVE_KEYWORD_TEXT)
+      expect(res.keywordText).toBe(KEYWORD_TEXT)
       expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
     })
   })
@@ -57,7 +57,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
 
           adGroupId: MANUAL_AD_GROUP_ID,
 
-          keywordText: NEGATIVE_KEYWORD_TEXT,
+          keywordText: KEYWORD_TEXT,
 
           matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
 
@@ -70,7 +70,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('updateKeywords', () => {
+  describe('updateNegativeKeywords', () => {
     it(`should update a negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateNegativeKeywordsParam[] = [
         {
@@ -104,7 +104,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
         startIndex: 0,
         count: 1,
         matchTypeFilter: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
-        keywordText: NEGATIVE_KEYWORD_TEXT,
+        keywordText: KEYWORD_TEXT,
         campaignIdFilter: [MANUAL_CAMPAIGN_ID],
         adGroupIdFilter: [MANUAL_AD_GROUP_ID],
       }
@@ -113,7 +113,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
-      expect(res.keywordText).toBe(NEGATIVE_KEYWORD_TEXT)
+      expect(res.keywordText).toBe(KEYWORD_TEXT)
       expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
     })
   })
@@ -130,7 +130,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
         startIndex: 0,
         count: 1,
         matchTypeFilter: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
-        keywordText: NEGATIVE_KEYWORD_TEXT,
+        keywordText: KEYWORD_TEXT,
         campaignIdFilter: [MANUAL_CAMPAIGN_ID],
         adGroupIdFilter: [MANUAL_AD_GROUP_ID],
       }
@@ -139,7 +139,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
-      expect(res.keywordText).toBe(NEGATIVE_KEYWORD_TEXT)
+      expect(res.keywordText).toBe(KEYWORD_TEXT)
       expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
     })
   })
