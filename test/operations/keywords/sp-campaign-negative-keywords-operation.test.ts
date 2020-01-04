@@ -80,7 +80,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('archiveCampaignNegativeKeyword', () => {
+  describe.skip('archiveCampaignNegativeKeyword', () => {
     it(`should archive a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveCampaignNegativeKeyword(DELETED_KEYWORD_ID)
 
