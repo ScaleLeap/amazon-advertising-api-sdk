@@ -75,10 +75,18 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       const params: UpdateNegativeKeywordsParam[] = [
         {
           keywordId: KEYWORD_ID,
-          state: KeywordStateEnum.PAUSED,
+          state: KeywordStateEnum.ARCHIVED,
         },
       ]
       const [res] = await operation.updateNegativeKeywords(params)
+
+      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+    })
+  })
+
+  describe('archiveNegativeKeyword', () => {
+    it(`should archive a negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.archiveNegativeKeyword(KEYWORD_ID)
 
       expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
     })
