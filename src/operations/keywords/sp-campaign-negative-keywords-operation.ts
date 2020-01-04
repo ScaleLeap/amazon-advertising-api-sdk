@@ -47,7 +47,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
   }
 
   @DecodeArray(CampaignNegativeKeywordExtended)
-  public listNegativeKeywordsExtended(params?: ListCampaignNegativeKeywordsParam) {
+  public listCampaignNegativeKeywordsExtended(params?: ListCampaignNegativeKeywordsParam) {
     return this.client.get<CampaignNegativeKeywordExtended[]>(
       this.paramsFilterTransformer('/extended', params),
     )
