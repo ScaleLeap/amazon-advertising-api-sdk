@@ -341,14 +341,14 @@ export const CreateNegativeKeywordsParam = t.strict({
 
   matchType: NegativeKeywordMatchType,
 
-  state: KeywordStateType,
+  state: NegativeKeywordStateType,
 })
 export type CreateNegativeKeywordsParam = t.TypeOf<typeof CreateNegativeKeywordsParam>
 
 export const UpdateNegativeKeywordsParam = t.strict({
   keywordId: KeywordId,
 
-  state: KeywordStateType,
+  state: NegativeKeywordStateType,
 })
 export type UpdateNegativeKeywordsParam = t.TypeOf<typeof UpdateNegativeKeywordsParam>
 
