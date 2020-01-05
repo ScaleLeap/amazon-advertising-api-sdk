@@ -1,7 +1,7 @@
 import { Operation } from '../operation'
 import { Decode } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
-import { AdGroupSuggestedKeywordsResponse } from './types'
+import { AdGroupSuggestedKeywordsResponse, GetAdGroupSuggestedKeywordsParams } from './types'
 
 export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   private resourcePostfix = '/suggested/keywords'
@@ -9,9 +9,12 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
 
   // TODO: Change adGroupId type to AdGroupId
   @Decode(AdGroupSuggestedKeywordsResponse)
-  public getAdGroupSuggestedKeywords(adGroupId: number) {
+  public getAdGroupSuggestedKeywords(
+    adGroupId: number,
+    params?: GetAdGroupSuggestedKeywordsParams,
+  ) {
     return this.client.get<AdGroupSuggestedKeywordsResponse>(
-      `${this.adGroupResource}/${adGroupId}${this.resourcePostfix}`,
+      this.query(`${this.adGroupResource}/${adGroupId}${this.resourcePostfix}`, params),
     )
   }
 }

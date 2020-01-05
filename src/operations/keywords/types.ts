@@ -416,3 +416,30 @@ export const GetAsinSuggestedKeywordsResponse = t.strict({
 export type GetAsinSuggestedKeywordsResponse = t.TypeOf<typeof GetAsinSuggestedKeywordsResponse>
 
 export const BulkGetAsinSuggestedKeywordsResponse = SuggestedKeywords
+
+/**
+ * Advertiser-specified state of the ad group
+ */
+export enum AdGroupStateEnum {
+  ENABLED = 'enabled',
+  PAUSED = 'paused',
+  ARCHIVED = 'archived',
+}
+export const AdGroupStateType = createEnumType<AdGroupStateEnum>(AdGroupStateEnum)
+export type AdGroupStateType = t.TypeOf<typeof AdGroupStateType>
+
+export const GetAdGroupSuggestedKeywordsParams = t.strict({
+  /**
+   * Maximum number of returned suggested keywords. Default is 100, maximum is 1000
+   */
+  maxNumSuggestions: t.number,
+
+  /**
+   * Ad state filter (values are comma separated), to filter out the Ads to get suggested keywords for their ASINs.
+   * Valid values are: enabled, paused, and archived.
+   * Default values are enabled and paused
+   * TODO: use AdGroupStateType of AdGroup type
+   */
+  adStateFilter: t.array(AdGroupStateType),
+})
+export type GetAdGroupSuggestedKeywordsParams = t.TypeOf<typeof GetAdGroupSuggestedKeywordsParams>
