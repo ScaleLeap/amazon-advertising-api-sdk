@@ -362,44 +362,48 @@ export const AdGroupSuggestedKeywordsResponse = t.strict({
   /**
    * List of suggested keywords.
    */
-  suggestedKeywords: t.array(t.string),
+  suggestedKeywords: t.array(SuggestedKeyword),
 })
 export type AdGroupSuggestedKeywordsResponse = t.TypeOf<typeof AdGroupSuggestedKeywordsResponse>
 
-export const GetAdGroupSuggestedKeywordsExResponse = t.strict({
-  /**
-   * The ID of the requested ad group
-   */
-  adGroupId: t.number, //TODO: Change to AdGroupId type
+export const AdGroupSuggestedKeywordsExtendedResponse = t.intersection([
+  t.strict({
+    /**
+     * The ID of the requested ad group
+     */
+    adGroupId: t.number, //TODO: Change to AdGroupId type
 
-  /**
-   * The campaign ID in which the ad group belongs to
-   */
-  campaignId: CampaignId,
+    /**
+     * The campaign ID in which the ad group belongs to
+     */
+    campaignId: CampaignId,
 
-  /**
-   * The suggested keyword
-   */
-  keywordText: t.string,
+    /**
+     * The suggested keyword
+     */
+    keywordText: t.string,
 
-  /**
-   * Match type of the suggested keyword
-   */
-  matchType: t.string,
+    /**
+     * Match type of the suggested keyword
+     */
+    matchType: t.string,
 
-  /**
-   * The state of the ad for which the keyword is suggested. Should be either enabled or paused
-   */
-  state: t.string,
+    /**
+     * The state of the ad for which the keyword is suggested. Should be either enabled or paused
+     */
+    state: t.string,
+  }),
+  t.partial({
+    /**
+     * The keyword bid suggestion.
+     * Will only be shown if suggestBid is 'yes' and the keyword has a bid suggestion
+     */
+    bid: t.number,
+  }),
+])
 
-  /**
-   * The keyword bid suggestion.
-   * Will only be shown if suggestBid is 'yes' and the keyword has a bid suggestion
-   */
-  bid: t.number,
-})
-export type GetAdGroupSuggestedKeywordsExResponse = t.TypeOf<
-  typeof GetAdGroupSuggestedKeywordsExResponse
+export type AdGroupSuggestedKeywordsExtendedResponse = t.TypeOf<
+  typeof AdGroupSuggestedKeywordsExtendedResponse
 >
 
 export const GetAsinSuggestedKeywordsResponse = t.strict({
@@ -428,6 +432,13 @@ export enum AdGroupStateEnum {
 export const AdGroupStateType = createEnumType<AdGroupStateEnum>(AdGroupStateEnum)
 export type AdGroupStateType = t.TypeOf<typeof AdGroupStateType>
 
+export enum SuggestBidsEnum {
+  YES = 'yes',
+  NO = 'no',
+}
+export const SuggestBidsType = createEnumType<SuggestBidsEnum>(SuggestBidsEnum)
+export type SuggestBidsType = t.TypeOf<typeof SuggestBidsType>
+
 export const GetAdGroupSuggestedKeywordsParams = t.strict({
   /**
    * Maximum number of returned suggested keywords. Default is 100, maximum is 1000
@@ -443,3 +454,18 @@ export const GetAdGroupSuggestedKeywordsParams = t.strict({
   adStateFilter: t.array(AdGroupStateType),
 })
 export type GetAdGroupSuggestedKeywordsParams = t.TypeOf<typeof GetAdGroupSuggestedKeywordsParams>
+
+export const GetAdGroupSuggestedKeywordsExtendedParams = t.intersection([
+  GetAdGroupSuggestedKeywordsParams,
+  t.partial({
+    /**
+     * Valid values are yes and no. Default value is no.
+     * If yes, any suggested keywords can contain the extra bid field, where bid will be populated by calculated suggested bid.
+     * Note: The bid field will be missing if there are no suggested bids for the keyword
+     */
+    suggestBids: SuggestBidsType,
+  }),
+])
+export type GetAdGroupSuggestedKeywordsExtendedParams = t.TypeOf<
+  typeof GetAdGroupSuggestedKeywordsExtendedParams
+>
