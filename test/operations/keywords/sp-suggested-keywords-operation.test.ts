@@ -36,7 +36,7 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
     })
   })
 
-  // TODO: response is alway empty. Need check again.
+  // TODO: response is empty. Need check again.
   describe('getAdGroupSuggestedKeywordsExtended', () => {
     it(`should return extended suggested keyword data for the specified adGroupId ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getAdGroupSuggestedKeywordsExtended(AD_GROUP_ID)
