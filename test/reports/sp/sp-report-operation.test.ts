@@ -6,7 +6,7 @@ import { SponsoredProductsReportOperation } from '../../../src/operations/report
 import { SponsoredProductsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metrics/campaign-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
-import { DateTimeUtils, Ramdom } from '../../test-utils'
+import { DateTimeUtils, Random } from '../../test-utils'
 import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
 import { KeywordReportMetricsEnum } from '../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
@@ -37,7 +37,7 @@ describe('SponsoredProductsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
 
     it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -63,7 +63,7 @@ describe('SponsoredProductsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
 
     it(`should return a in progress status with asins report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -88,7 +88,7 @@ describe('SponsoredProductsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
 
     it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -112,7 +112,7 @@ describe('SponsoredProductsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
 
     it(`should return a in progress status with product ads report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -137,7 +137,7 @@ describe('SponsoredProductsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
 
     it(`should return a in progress status with targets report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -161,7 +161,7 @@ describe('SponsoredProductsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
   })
 
