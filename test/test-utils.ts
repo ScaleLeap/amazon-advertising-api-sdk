@@ -9,7 +9,7 @@ export class DateTimeUtils {
   }
 }
 
-export class Ramdom {
+export class Random {
   static getRandomTimeout(min = 1, max = 5): number {
     return Math.floor((Math.random() * (max - min) + min) * 1000)
   }

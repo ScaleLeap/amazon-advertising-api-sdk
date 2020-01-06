@@ -2,7 +2,7 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
 import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
-import { DateTimeUtils, Ramdom } from '../../test-utils'
+import { DateTimeUtils, Random } from '../../test-utils'
 import { SponsoredBrandsReportOperation } from '../../../src/operations/reports/sb/sb-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
@@ -54,7 +54,7 @@ describe('SponsoredBrandsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
 
     it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, done => {
@@ -78,7 +78,7 @@ describe('SponsoredBrandsReportOperation', () => {
         expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
         expect(res.statusDetails).toBeDefined()
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
   })
 
@@ -108,7 +108,7 @@ describe('SponsoredBrandsReportOperation', () => {
           expect(res.fileSize).toBeDefined()
         }
         done()
-      }, Ramdom.getRandomTimeout())
+      }, Random.getRandomTimeout())
     })
   })
 
