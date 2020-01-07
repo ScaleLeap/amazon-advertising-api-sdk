@@ -65,10 +65,10 @@ export const Keyword = t.intersection([
      */
     campaignId: CampaignId,
 
-    /**
-     * The ID of the ad group to which this keyword belongs
-     */
-    adGroupId: AdGroupId,
+  /**
+   * The ID of the ad group to which this keyword belongs
+   */
+  adGroupId: AdGroupId,
 
     /**
      * Advertiser-specified state of the keyword
@@ -335,7 +335,7 @@ export type NegativeKeywordResponse = t.TypeOf<typeof NegativeKeywordResponse>
 export const CreateNegativeKeywordsParam = t.strict({
   campaignId: CampaignId,
 
-  adGroupId: t.number, //TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   keywordText: t.string,
 
@@ -382,7 +382,7 @@ export const ListNegativeKeywordsParam = t.intersection([
     /**
      * Optional. Restricts results to keywords within ad groups specified in comma-separated list.
      */
-    adGroupIdFilter: t.array(t.number), // TODO: Change to AdGroupID type
+    adGroupIdFilter: AdGroupIds,
   }),
 ])
 export type ListNegativeKeywordsParam = t.TypeOf<typeof ListNegativeKeywordsParam>
