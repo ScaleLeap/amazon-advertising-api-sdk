@@ -1,5 +1,7 @@
 import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
+import { KeywordId } from '../keywords/types'
+import { AdGroupId } from '../adGroups/types'
 
 export enum KeywordBidRecommendationsMatchTypeEnum {
   EXACT = 'exact',
@@ -61,7 +63,7 @@ export const AdGroupBidRecommendationsResponse = t.strict({
   /**
    * The ID of the ad group that a bid was requested for.
    */
-  adGroupId: t.number, // TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   /**
    * Suggested Bid
@@ -74,7 +76,7 @@ export const KeywordBidRecommendationsResponse = t.intersection([
   AdGroupBidRecommendationsResponse,
 
   t.strict({
-    keywordId: t.number, // TODO: Change to KeywordId type
+    keywordId: KeywordId,
   }),
 ])
 export type KeywordBidRecommendationsResponse = t.TypeOf<typeof KeywordBidRecommendationsResponse>
@@ -83,7 +85,7 @@ export const KeywordBidRecommendationsData = t.strict({
   /**
    * The ID of the ad group that a bid was requested for.
    */
-  adGroupId: t.number, // TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   /**
    * Suggested Bid
@@ -96,7 +98,7 @@ export const BidRecommendationsResponse = t.strict({
   /**
    * The ID of the ad group that a bid was requested for.
    */
-  adGroupId: t.number, // TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   recommendations: t.array(
     t.intersection([
@@ -173,7 +175,7 @@ export const BidRecommendationRequest = t.strict({
   /**
    * The adGroupId where the targeting expression exists, to generate a bid recommendation
    */
-  adGroupId: t.number, // TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   /**
    * List of targeting expressions to generate recommendations for
@@ -208,7 +210,7 @@ export const BidRecommendationForTargetsResponse = t.strict({
   /**
    * The adGroup Id for the recommended bids
    */
-  adGroupId: t.number, // TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   /**
    * The bid recommendations
