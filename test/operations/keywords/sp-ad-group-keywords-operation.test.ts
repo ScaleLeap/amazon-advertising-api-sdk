@@ -58,13 +58,9 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
       const params: CreateKeywordsParam[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
-
           adGroupId: MANUAL_AD_GROUP_ID,
-
           keywordText: 'Apple',
-
           matchType: KeywordMatchTypeEnum.BROAD,
-
           state: KeywordStateEnum.PAUSED,
         },
       ]
@@ -79,9 +75,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
       const params: UpdateKeywordsParam[] = [
         {
           keywordId: PAUSED_KEYWORD_ID,
-
           state: KeywordStateEnum.PAUSED,
-
           bid: 1,
         },
       ]
