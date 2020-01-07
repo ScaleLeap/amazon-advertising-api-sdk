@@ -2,6 +2,7 @@ import * as t from 'io-ts'
 import { createEnumType, ListPagination } from '../commons/types'
 import { CampaignId } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
+import { AdGroupId, AdGroupIds } from '../adGroups/types'
 
 export const KeywordId = t.number
 export type KeywordId = t.TypeOf<typeof KeywordId>
@@ -67,7 +68,7 @@ export const Keyword = t.intersection([
     /**
      * The ID of the ad group to which this keyword belongs
      */
-    adGroupId: t.number, //TODO: Change to AdGroupId type
+    adGroupId: AdGroupId,
 
     /**
      * Advertiser-specified state of the keyword
@@ -139,7 +140,7 @@ export type KeywordResponse = t.TypeOf<typeof KeywordResponse>
 export const CreateKeywordsParam = t.strict({
   campaignId: CampaignId,
 
-  adGroupId: t.number, //TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   keywordText: t.string,
 
@@ -186,7 +187,7 @@ export const ListBiddableKeywordsParam = t.intersection([
     /**
      * Optional. Restricts results to keywords within ad groups specified in comma-separated list.
      */
-    adGroupIdFilter: t.array(t.number), // TODO: Change to AdGroupID type
+    adGroupIdFilter: AdGroupIds,
   }),
 ])
 export type ListBiddableKeywordsParam = t.TypeOf<typeof ListBiddableKeywordsParam>
@@ -252,7 +253,7 @@ export const NegativeKeyword = t.strict({
   /**
    * The ID of the ad group to which this keyword belongs
    */
-  adGroupId: t.number, //TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   /**
    * Advertiser-specified state of the keyword
@@ -436,7 +437,7 @@ export const AdGroupSuggestedKeywordsResponse = t.strict({
   /**
    * The ID of the requested ad group.
    */
-  adGroupId: t.number, //TODO: Change to AdGroupId type
+  adGroupId: AdGroupId,
 
   /**
    * List of suggested keywords.
@@ -445,12 +446,11 @@ export const AdGroupSuggestedKeywordsResponse = t.strict({
 })
 export type AdGroupSuggestedKeywordsResponse = t.TypeOf<typeof AdGroupSuggestedKeywordsResponse>
 
-export const AdGroupSuggestedKeywordsExtendedResponse = t.intersection([
-  t.strict({
-    /**
-     * The ID of the requested ad group
-     */
-    adGroupId: t.number, //TODO: Change to AdGroupId type
+export const GetAdGroupSuggestedKeywordsExResponse = t.strict({
+  /**
+   * The ID of the requested ad group
+   */
+  adGroupId: AdGroupId,
 
     /**
      * The campaign ID in which the ad group belongs to
