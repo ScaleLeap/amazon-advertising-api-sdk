@@ -54,13 +54,9 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       const params: CreateNegativeKeywordsParam[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
-
           adGroupId: MANUAL_AD_GROUP_ID,
-
           keywordText: KEYWORD_TEXT,
-
           matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
-
           state: NegativeKeywordStateEnum.PAUSED,
         },
       ]
