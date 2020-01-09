@@ -6,8 +6,7 @@ import {
   AdGroupSuggestedKeywordsResponse,
   GetAdGroupSuggestedKeywordsExtendedParams,
   AdGroupSuggestedKeywordsExtendedResponse,
-  AsinSuggestedKeywordsResponse,
-  BulkAsinSuggestedKeywordsResponse,
+  SuggestedKeywords,
 } from './types'
 import { AdGroupId } from '../adGroups/types'
 
@@ -36,18 +35,18 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
     )
   }
 
-  @Decode(AsinSuggestedKeywordsResponse)
+  @Decode(SuggestedKeywords)
   public getAsinSuggestedKeywords(asinValue: string, maxNumSuggestions = 100) {
-    return this.client.get<AsinSuggestedKeywordsResponse>(
+    return this.client.get<SuggestedKeywords>(
       this.query(`${this.asinResource}/${asinValue}${this.resourcePostfix}`, { maxNumSuggestions }),
     )
   }
 
-  @Decode(BulkAsinSuggestedKeywordsResponse)
+  @Decode(SuggestedKeywords)
   public bulkGetAsinSuggestedKeywords(asinValue: Array<string>, maxNumSuggestions?: number) {
-    return this.client.post<BulkAsinSuggestedKeywordsResponse>(
-      `${this.asinResource}${this.resourcePostfix}`,
-      { asins: asinValue, maxNumSuggestions },
-    )
+    return this.client.post<SuggestedKeywords>(`${this.asinResource}${this.resourcePostfix}`, {
+      asins: asinValue,
+      maxNumSuggestions,
+    })
   }
 }

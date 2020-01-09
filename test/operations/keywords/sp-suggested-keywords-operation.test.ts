@@ -17,6 +17,9 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsSuggestedKeywordsOperation)
   const AD_GROUP_ID = 149522344269714
+  const ASIN = 'B07663Z46Z'
+  const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
+  const DEFAULT_SUGGESTION_KEYWORDS_NUMBER = 100
 
   describe('getAdGroupSuggestedKeywords', () => {
     it(`should return suggested keyword data for the specified adGroupId ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -56,39 +59,36 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
     })
   })
 
+  /**
+   * Docs: https://advertising.amazon.com/API/docs/en-us/reference/sponsored-products/2/suggested-keywords
+   * Response only return suggested keyword. Doesn't return ASIN
+   */
   describe('getAsinSuggestedKeywords', () => {
     it(`should return suggested keywords for specified ASIN ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const ASIN = 'B07663Z46Z'
       const res = await operation.getAsinSuggestedKeywords(ASIN)
 
-      expect(res.asin).toMatch(ASIN)
+      expect(res.length).toEqual(DEFAULT_SUGGESTION_KEYWORDS_NUMBER)
     })
 
     it(`should return suggested keywords for specified ASIN, max suggestion keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const ASIN = 'B07663Z46Z'
       const SUGGESTION_KEYWORD_NUMBER = 1
       const res = await operation.getAsinSuggestedKeywords(ASIN, SUGGESTION_KEYWORD_NUMBER)
 
-      expect(res.asin).toMatch(ASIN)
-      const suggestionKeywordsResponseNumber = res.suggestedKeywords.length
-      expect([0, SUGGESTION_KEYWORD_NUMBER]).toContain(suggestionKeywordsResponseNumber)
+      expect(res.length).toEqual(SUGGESTION_KEYWORD_NUMBER)
     })
   })
 
   describe('bulkGetAsinSuggestedKeywords', () => {
     it(`should return keyword suggestions for specified list of ASINs ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
       const res = await operation.bulkGetAsinSuggestedKeywords(ASINS)
 
-      expect(Array.isArray(res)).toBeTruthy()
+      expect(res.length).toEqual(DEFAULT_SUGGESTION_KEYWORDS_NUMBER)
     })
     it(`should return keyword suggestions for specified list of ASINs, max suggestion keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
       const SUGGESTION_KEYWORD_NUMBER = 1
       const res = await operation.bulkGetAsinSuggestedKeywords(ASINS, SUGGESTION_KEYWORD_NUMBER)
 
-      const suggestionKeywordsResponseNumber = res.length
-      expect([0, SUGGESTION_KEYWORD_NUMBER]).toContain(suggestionKeywordsResponseNumber)
+      expect(res.length).toEqual(SUGGESTION_KEYWORD_NUMBER)
     })
   })
 })

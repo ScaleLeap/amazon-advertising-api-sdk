@@ -352,6 +352,7 @@ export const SuggestedKeyword = t.strict({
 })
 
 export const SuggestedKeywords = t.array(SuggestedKeyword)
+export type SuggestedKeywords = t.TypeOf<typeof SuggestedKeywords>
 
 export const AdGroupSuggestedKeywordsResponse = t.strict({
   /**
