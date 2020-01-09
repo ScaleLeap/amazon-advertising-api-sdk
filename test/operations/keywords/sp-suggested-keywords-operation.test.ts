@@ -63,6 +63,16 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
 
       expect(res.asin).toMatch(ASIN)
     })
+
+    it(`should return suggested keywords for specified ASIN, max suggestion keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const ASIN = 'B07663Z46Z'
+      const SUGGESTION_KEYWORD_NUMBER = 1
+      const res = await operation.getAsinSuggestedKeywords(ASIN, SUGGESTION_KEYWORD_NUMBER)
+
+      expect(res.asin).toMatch(ASIN)
+      const suggestionKeywordsResponseNumber = res.suggestedKeywords.length
+      expect([0, SUGGESTION_KEYWORD_NUMBER]).toContain(suggestionKeywordsResponseNumber)
+    })
   })
 
   describe('bulkGetAsinSuggestedKeywords', () => {
@@ -71,6 +81,14 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
       const res = await operation.bulkGetAsinSuggestedKeywords(ASINS)
 
       expect(Array.isArray(res)).toBeTruthy()
+    })
+    it(`should return keyword suggestions for specified list of ASINs, max suggestion keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
+      const SUGGESTION_KEYWORD_NUMBER = 1
+      const res = await operation.bulkGetAsinSuggestedKeywords(ASINS, SUGGESTION_KEYWORD_NUMBER)
+
+      const suggestionKeywordsResponseNumber = res.length
+      expect([0, SUGGESTION_KEYWORD_NUMBER]).toContain(suggestionKeywordsResponseNumber)
     })
   })
 })
