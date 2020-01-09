@@ -406,7 +406,7 @@ export type AdGroupSuggestedKeywordsExtendedResponse = t.TypeOf<
   typeof AdGroupSuggestedKeywordsExtendedResponse
 >
 
-export const GetAsinSuggestedKeywordsResponse = t.strict({
+export const AsinSuggestedKeywordsResponse = t.strict({
   /**
    * The ASIN for which a keyword suggestion is requested
    */
@@ -417,9 +417,10 @@ export const GetAsinSuggestedKeywordsResponse = t.strict({
    */
   suggestedKeywords: SuggestedKeywords,
 })
-export type GetAsinSuggestedKeywordsResponse = t.TypeOf<typeof GetAsinSuggestedKeywordsResponse>
+export type AsinSuggestedKeywordsResponse = t.TypeOf<typeof AsinSuggestedKeywordsResponse>
 
-export const BulkGetAsinSuggestedKeywordsResponse = SuggestedKeywords
+export const BulkAsinSuggestedKeywordsResponse = t.array(SuggestedKeywords)
+export type BulkAsinSuggestedKeywordsResponse = t.TypeOf<typeof BulkAsinSuggestedKeywordsResponse>
 
 /**
  * Advertiser-specified state of the ad group

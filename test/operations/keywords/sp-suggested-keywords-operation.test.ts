@@ -55,4 +55,22 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
   })
+
+  describe('getAsinSuggestedKeywords', () => {
+    it(`should return suggested keywords for specified ASIN ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const ASIN = 'B07663Z46Z'
+      const res = await operation.getAsinSuggestedKeywords(ASIN)
+
+      expect(res.asin).toMatch(ASIN)
+    })
+  })
+
+  describe('bulkGetAsinSuggestedKeywords', () => {
+    it(`should return keyword suggestions for specified list of ASINs ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
+      const res = await operation.bulkGetAsinSuggestedKeywords(ASINS)
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
 })
