@@ -37,7 +37,7 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   }
 
   @Decode(AsinSuggestedKeywordsResponse)
-  public getAsinSuggestedKeywords(asinValue: string, maxNumSuggestions?: number) {
+  public getAsinSuggestedKeywords(asinValue: string, maxNumSuggestions = 100) {
     return this.client.get<AsinSuggestedKeywordsResponse>(
       this.query(`${this.asinResource}/${asinValue}${this.resourcePostfix}`, { maxNumSuggestions }),
     )
@@ -47,7 +47,7 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   public bulkGetAsinSuggestedKeywords(asinValue: Array<string>, maxNumSuggestions?: number) {
     return this.client.post<BulkAsinSuggestedKeywordsResponse>(
       `${this.asinResource}${this.resourcePostfix}`,
-      { maxNumSuggestions },
+      { asins: asinValue, maxNumSuggestions },
     )
   }
 }
