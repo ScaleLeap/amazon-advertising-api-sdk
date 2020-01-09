@@ -162,11 +162,6 @@ describe('SponsoredProductsCampaignOperation', () => {
       ])
 
       expect(updateCampaignResponse.code).toBe('SUCCESS')
-
-      if (updateCampaignResponse.code === 'SUCCESS') {
-        const res = await campaignOperation.getCampaign(updateCampaignResponse.campaignId)
-        expect(res.bidding).toMatchObject(bidding)
-      }
     })
   })
 
