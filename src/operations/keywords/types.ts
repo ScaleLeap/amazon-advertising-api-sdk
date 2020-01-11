@@ -773,6 +773,37 @@ export const ListSBKeywordParams = t.intersection([
 ])
 export type ListSBKeywordParams = t.TypeOf<typeof ListSBKeywordParams>
 
+export const UpdateSBKeywordParams = t.strict({
+  /**
+   * The identifier of the keyword.
+   */
+  keywordId: KeywordId,
+
+  /**
+   * The identifier of an existing ad group to which the keyword is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign to which the keyword is associated.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * Newly created SB keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
+   * After moderation, the keyword will be in an enabled state.
+   */
+  state: SBKeywordStateType,
+
+  /**
+   * The bid associated with the keyword.
+   * Note that this value must be less than the budget associated with the Advertiser account.
+   * For more information, see the Keyword bid constraints by marketplace section of the supported features article.
+   */
+  bid: t.number,
+})
+export type UpdateSBKeywordParams = t.TypeOf<typeof UpdateSBKeywordParams>
+
 export const CreateSBKeywordParams = t.strict({
   /**
    * The identifier of an existing ad group to which the keyword is associated.
