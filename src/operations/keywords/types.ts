@@ -1,11 +1,14 @@
 import * as t from 'io-ts'
 import { createEnumType, ListPagination } from '../commons/types'
-import { CampaignId } from '../campaigns/types'
+import { CampaignId, CampaignIds } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { AdGroupId, AdGroupIds } from '../adGroups/types'
 
 export const KeywordId = t.number
 export type KeywordId = t.TypeOf<typeof KeywordId>
+
+export const KeywordIds = t.array(KeywordId)
+export type KeywordIds = t.TypeOf<typeof KeywordIds>
 
 /**
  * Advertiser-specified state of the keyword
@@ -683,4 +686,119 @@ export const GetAdGroupSuggestedKeywordsExtendedParams = t.intersection([
 export type GetAdGroupSuggestedKeywordsExtendedParams = t.TypeOf<
   typeof GetAdGroupSuggestedKeywordsExtendedParams
 >
-export const BulkGetAsinSuggestedKeywordsResponse = SuggestedKeywords
+
+export enum SBKeywordStateEnum {
+  ENABLED = 'enabled',
+  PAUSED = 'paused',
+  PENDING = 'pending',
+  ARCHIVED = 'archived',
+  DRAFT = 'draft',
+}
+export const SBKeywordStateType = createEnumType(SBKeywordStateEnum)
+
+export const SBKeyword = t.strict({
+  /**
+   * The keyword identifier.
+   */
+  keywordId: KeywordId,
+
+  /**
+   * The identifier of the ad group associated with the keyword.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of the campaign associated with the keyword.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The keyword text. The maximum number of words for this string is 10.
+   */
+  keywordText: t.string,
+
+  /**
+   * The match type. For more information, see match types in the Amazon Advertising support center.
+   */
+  matchType: KeywordMatchType,
+
+  /**
+   * Newly created SB keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
+   * After moderation, the keyword will be in an enabled state.
+   */
+  state: SBKeywordStateType,
+
+  /**
+   * The bid associated with the keyword.
+   * Note that this value must be less than the budget associated with the Advertiser account.
+   * For more information, see the Keyword bid constraints by marketplace section of the supported features article.
+   */
+  bid: t.number,
+})
+export type SBKeyword = t.TypeOf<typeof SBKeyword>
+
+export const ListSBKeywordParams = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * The returned array is filtered to include only keywords with matchType set to one of the values in the specified comma-delimited list.
+     */
+    matchTypeFilter: t.array(KeywordMatchType),
+
+    /**
+     * The returned array includes only keywords with the specified text.
+     */
+    keywordText: t.string,
+
+    /**
+     * The returned array includes only keywords with state set to the specified value.
+     */
+    stateFilter: KeywordStateType,
+
+    /**
+     * The returned array includes only keywords associated with campaigns matching those specified by identifier in the comma-delimited string.
+     */
+    campaignIdFilter: CampaignIds,
+
+    /**
+     * The returned array includes only keywords associated with ad groups matching those specified by identifier in the comma-delimited string.
+     */
+    adGroupIdFilter: AdGroupIds,
+
+    /**
+     * The returned array includes only keywords with identifiers matching those specified in the comma-delimited string.
+     */
+    keywordIdFilter: KeywordIds,
+  }),
+])
+export type ListSBKeywordParams = t.TypeOf<typeof ListSBKeywordParams>
+
+export const CreateSBKeywordParams = t.strict({
+  /**
+   * The identifier of an existing ad group to which the keyword is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign to which the keyword is associated.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The keyword text. The maximum number of words for this string is 10.
+   */
+  keywordText: t.string,
+
+  /**
+   * The match type. For more information, see match types in the Amazon Advertising support center.
+   */
+  matchType: KeywordMatchType,
+
+  /**
+   * The bid associated with the keyword.
+   * Note that this value must be less than the budget associated with the Advertiser account.
+   * For more information, see the Keyword bid constraints by marketplace section of the supported features article.
+   */
+  bid: t.number,
+})
+export type CreateSBKeywordParams = t.TypeOf<typeof CreateSBKeywordParams>
