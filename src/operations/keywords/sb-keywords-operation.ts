@@ -11,7 +11,7 @@ import {
 } from './types'
 
 export class SponsoredBrandsKeywordsOperation extends Operation {
-  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/keywords`
+  protected resource = `${this.version}/sb/keywords`
 
   @DecodeArray(SBKeyword)
   public listKeywords(params: ListSBKeywordParams) {
@@ -23,7 +23,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
     return this.client.put<KeywordResponse[]>(this.resource, params)
   }
 
-  @DecodeArray(KeywordResponse)
+  // @DecodeArray(KeywordResponse)
   public createKeywords(params: CreateSBKeywordParams[]) {
     return this.client.post<KeywordResponse[]>(this.resource, params)
   }
