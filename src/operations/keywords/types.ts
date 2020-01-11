@@ -446,11 +446,12 @@ export const AdGroupSuggestedKeywordsResponse = t.strict({
 })
 export type AdGroupSuggestedKeywordsResponse = t.TypeOf<typeof AdGroupSuggestedKeywordsResponse>
 
-export const GetAdGroupSuggestedKeywordsExResponse = t.strict({
-  /**
-   * The ID of the requested ad group
-   */
-  adGroupId: AdGroupId,
+export const AdGroupSuggestedKeywordsExtendedResponse = t.intersection([
+  t.strict({
+    /**
+     * The ID of the requested ad group
+     */
+    adGroupId: AdGroupId,
 
     /**
      * The campaign ID in which the ad group belongs to
