@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { CampaignId } from '../campaigns/types'
-import { AdGroupId } from '../adGroups/types'
-import { createEnumType } from '../commons/types'
+import { AdGroupId, AdGroupIds } from '../adGroups/types'
+import { createEnumType, ListPagination } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const AdId = t.number
@@ -104,3 +104,56 @@ export const AdResponse = t.partial({
    */
   details: t.string,
 })
+export type AdResponse = t.TypeOf<typeof AdResponse>
+
+const CreateProductAdParamsBase = t.strict({
+  campaignId: CampaignId,
+  adGroupId: AdGroupId,
+  state: ProductAdServingStatusType,
+})
+
+const CreateProductAdParamsSeller = t.intersection([
+  CreateProductAdParamsBase,
+  t.strict({
+    SKU: t.string,
+  }),
+])
+type CreateProductAdParamsSeller = t.TypeOf<typeof CreateProductAdParamsSeller>
+
+const CreateProductAdParamsVendor = t.intersection([
+  CreateProductAdParamsBase,
+  t.strict({
+    ASIN: t.string,
+  }),
+])
+type CreateProductAdParamsVendor = t.TypeOf<typeof CreateProductAdParamsVendor>
+
+export type CreateProductAdParams = CreateProductAdParamsVendor | CreateProductAdParamsSeller
+
+export const UpdateProductAdParams = t.strict({
+  adId: AdId,
+  state: ProductAdStateType,
+})
+export type UpdateProductAdParams = t.TypeOf<typeof UpdateProductAdParams>
+
+export const ListProductAdsParams = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * Optional. Restricts results to ads within campaigns specified in comma-separated list.
+     */
+    campaignIdFilter: t.array(CampaignId),
+
+    /**
+     * Optional. Restricts results to ads within ad groups specified in comma-separated list.
+     */
+    adGroupIdFilter: AdGroupIds,
+
+    /**
+     * Optional. Restricts results to ads with state within the specified comma-separated list.
+     * Must be one of: enabled, paused, archived. Default behavior is to include all.
+     */
+    stateFilter: ProductAdStateType,
+  }),
+])
+export type ListProductAdsParams = t.TypeOf<typeof ListProductAdsParams>
