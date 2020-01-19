@@ -14,6 +14,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
   const CAMPAIGN_ID = 149522344269714
   const AD_GROUP_ID = 149522344269714
   const ASIN = 'B07663Z46Z'
+  const SKU = 'AB-RED-8675309'
 
   describe('createProductAds', () => {
     it(`should creates one or more product ads ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -22,7 +23,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           state: ProductAdStateEnum.ENABLED,
-          asin: ASIN,
+          sku: SKU,
         },
       ]
       const res = await operation.createProductAds(params)
