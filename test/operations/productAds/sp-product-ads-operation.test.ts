@@ -73,11 +73,9 @@ describe('SponsoredProductsProductAdsOperation', () => {
 
   describe('listProductAds', () => {
     it(`should retrieve a list of product ads ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const [res] = await operation.listProductAds()
+      const res = await operation.listProductAds()
 
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.adId).toEqual(AD_ID)
+      expect(Array.isArray(res)).toBeTruthy()
     })
 
     it(`should retrieve a list of product ads satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -98,11 +96,9 @@ describe('SponsoredProductsProductAdsOperation', () => {
 
   describe('listProductAdsExtended', () => {
     it(`should retrieve a list of product ads  ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const [res] = await operation.listProductAdsExtended()
+      const res = await operation.listProductAdsExtended()
 
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.adId).toEqual(AD_ID)
+      expect(Array.isArray(res)).toBeTruthy()
     })
 
     it(`should retrieve a list of product ads  satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
