@@ -6,7 +6,7 @@ import { SponsoredProductsReportOperation } from '../../../src/operations/report
 import { SponsoredProductsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metrics/campaign-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
-import { DateTimeUtils, Random, delay } from '../../test-utils'
+import { DateTimeUtils, delay } from '../../test-utils'
 import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
 import { KeywordReportMetricsEnum } from '../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
