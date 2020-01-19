@@ -71,7 +71,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
     })
   })
 
-  describe('archiveProductAd', () => {
+  describe.skip('archiveProductAd', () => {
     it(`should set the product ad status to archived ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveProductAd(AD_ID)
 
