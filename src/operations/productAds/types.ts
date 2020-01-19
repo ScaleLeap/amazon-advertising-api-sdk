@@ -109,7 +109,7 @@ export type AdResponse = t.TypeOf<typeof AdResponse>
 const CreateProductAdParamsBase = t.strict({
   campaignId: CampaignId,
   adGroupId: AdGroupId,
-  state: ProductAdServingStatusType,
+  state: ProductAdStateType,
 })
 
 const CreateProductAdParamsSeller = t.intersection([
