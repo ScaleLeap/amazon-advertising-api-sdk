@@ -14,3 +14,7 @@ export class Random {
     return Math.floor((Math.random() * (max - min) + min) * 1000)
   }
 }
+
+export async function delay(time: number = Random.getRandomTimeout()) {
+  return await new Promise(resolve => setTimeout(resolve, time))
+}

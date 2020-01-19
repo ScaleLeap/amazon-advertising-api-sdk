@@ -2,7 +2,7 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
 import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
-import { DateTimeUtils, Random } from '../../test-utils'
+import { DateTimeUtils, delay } from '../../test-utils'
 import { SponsoredBrandsReportOperation } from '../../../src/operations/reports/sb/sb-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
@@ -31,84 +31,75 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, done => {
+    it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, async () => {
       jest.setTimeout(15000)
+      await delay()
 
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      setTimeout(async () => {
-        const res = await reportOperation.requestReport({
-          recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS,
-          metrics: [
-            AdGroupReportMetricsEnum.CAMPAIGN_ID,
-            AdGroupReportMetricsEnum.CAMPAIGN_NAME,
-            AdGroupReportMetricsEnum.ADGROUP_ID,
-            AdGroupReportMetricsEnum.ADGROUP_NAME,
-            AdGroupReportMetricsEnum.COST,
-            AdGroupReportMetricsEnum.IMPRESSIONS,
-          ],
-          reportDate: DateTimeUtils.getCurrentISODate(),
-        })
+      const res = await reportOperation.requestReport({
+        recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS,
+        metrics: [
+          AdGroupReportMetricsEnum.CAMPAIGN_ID,
+          AdGroupReportMetricsEnum.CAMPAIGN_NAME,
+          AdGroupReportMetricsEnum.ADGROUP_ID,
+          AdGroupReportMetricsEnum.ADGROUP_NAME,
+          AdGroupReportMetricsEnum.COST,
+          AdGroupReportMetricsEnum.IMPRESSIONS,
+        ],
+        reportDate: DateTimeUtils.getCurrentISODate(),
+      })
 
-        expect(res.reportId).toBeDefined()
-        expect(res.recordType).toBeDefined()
-        expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
-        expect(res.statusDetails).toBeDefined()
-        done()
-      }, Random.getRandomTimeout())
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, done => {
+    it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, async () => {
       jest.setTimeout(15000)
+      await delay()
 
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      setTimeout(async () => {
-        const res = await reportOperation.requestReport({
-          recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-          metrics: [
-            KeywordReportMetricsEnum.CAMPAIGN_ID,
-            KeywordReportMetricsEnum.KEYWORD_ID,
-            KeywordReportMetricsEnum.COST,
-            KeywordReportMetricsEnum.IMPRESSIONS,
-          ],
-          reportDate: DateTimeUtils.getCurrentISODate(),
-        })
+      const res = await reportOperation.requestReport({
+        recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
+        metrics: [
+          KeywordReportMetricsEnum.CAMPAIGN_ID,
+          KeywordReportMetricsEnum.KEYWORD_ID,
+          KeywordReportMetricsEnum.COST,
+          KeywordReportMetricsEnum.IMPRESSIONS,
+        ],
+        reportDate: DateTimeUtils.getCurrentISODate(),
+      })
 
-        expect(res.reportId).toBeDefined()
-        expect(res.recordType).toBeDefined()
-        expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
-        expect(res.statusDetails).toBeDefined()
-        done()
-      }, Random.getRandomTimeout())
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.statusDetails).toBeDefined()
     })
   })
 
   describe('getReport', () => {
-    it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, done => {
+    it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
       jest.setTimeout(15000)
+      await delay()
 
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      setTimeout(async () => {
-        const requestReportResult = await reportOperation.requestReport({
-          recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-          metrics: [
-            KeywordReportMetricsEnum.CAMPAIGN_ID,
-            KeywordReportMetricsEnum.KEYWORD_ID,
-            KeywordReportMetricsEnum.COST,
-            KeywordReportMetricsEnum.IMPRESSIONS,
-          ],
-          reportDate: DateTimeUtils.getCurrentISODate(),
-        })
-        const res = await reportOperation.getReport(requestReportResult.reportId)
+      const requestReportResult = await reportOperation.requestReport({
+        recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
+        metrics: [
+          KeywordReportMetricsEnum.CAMPAIGN_ID,
+          KeywordReportMetricsEnum.KEYWORD_ID,
+          KeywordReportMetricsEnum.COST,
+          KeywordReportMetricsEnum.IMPRESSIONS,
+        ],
+        reportDate: DateTimeUtils.getCurrentISODate(),
+      })
+      const res = await reportOperation.getReport(requestReportResult.reportId)
 
-        expect(res.reportId).toBeDefined()
-        expect(res.statusDetails).toBeDefined()
+      expect(res.reportId).toBeDefined()
+      expect(res.statusDetails).toBeDefined()
 
-        if (res.status == ReportResponseStatusEnum.SUCCESS) {
-          expect(res.location).toBeDefined()
-          expect(res.fileSize).toBeDefined()
-        }
-        done()
-      }, Random.getRandomTimeout())
+      if (res.status == ReportResponseStatusEnum.SUCCESS) {
+        expect(res.location).toBeDefined()
+        expect(res.fileSize).toBeDefined()
+      }
     })
   })
 

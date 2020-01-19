@@ -5,6 +5,7 @@ import { Profile, RegisterProfileResponseStatusEnum } from '../src/operations/pr
 import setupPolly from './polly'
 import { CountryCodeEnum } from '../src/operations/commons/types'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
+import { delay } from './test-utils'
 
 setupPolly()
 
@@ -16,6 +17,9 @@ describe('ProfileOperation', () => {
 
   describe('listProfiles', () => {
     it(`should return an array or profiles ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      jest.setTimeout(15000)
+      await delay()
+
       const res: Profile[] = await profileOperation.listProfiles()
 
       expect(Array.isArray(res)).toBeTruthy()
@@ -24,6 +28,9 @@ describe('ProfileOperation', () => {
 
   describe('getProfile', () => {
     it(`should return a profile object ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      jest.setTimeout(15000)
+      await delay()
+
       expect.assertions(2)
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
 
@@ -37,6 +44,9 @@ describe('ProfileOperation', () => {
 
   describe('updateProfiles', () => {
     it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      jest.setTimeout(15000)
+      await delay()
+
       expect.assertions(5)
       const dailyBudget = 340
 
