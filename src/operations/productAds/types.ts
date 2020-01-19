@@ -7,6 +7,9 @@ import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 export const AdId = t.number
 export type AdId = t.TypeOf<typeof AdId>
 
+export const AdIds = t.array(AdId)
+export type AdIds = t.TypeOf<typeof AdIds>
+
 export enum ProductAdStateEnum {
   ENABLED = 'enabled',
   PAUSED = 'paused',
@@ -160,6 +163,11 @@ export const ListProductAdsParams = t.intersection([
      * Optional. Restricts results to ads within ad groups specified in comma-separated list.
      */
     adGroupIdFilter: AdGroupIds,
+
+    /**
+     * Optional. Restricts results to ads with the specified product ad Id specified in comma-separated list.
+     */
+    adIdFilter: AdIds,
 
     /**
      * Optional. Restricts results to ads with state within the specified comma-separated list.
