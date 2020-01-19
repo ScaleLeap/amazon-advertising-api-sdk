@@ -26,8 +26,8 @@ describe('SponsoredProductsProductAdsOperation', () => {
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.sku).toEqual(SKU)
       expect(res.adId).toEqual(AD_ID)
+      res
     })
   })
 
@@ -37,7 +37,6 @@ describe('SponsoredProductsProductAdsOperation', () => {
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.sku).toEqual(SKU)
       expect(res.adId).toEqual(AD_ID)
     })
   })
