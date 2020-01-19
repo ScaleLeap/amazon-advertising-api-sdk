@@ -115,7 +115,7 @@ const CreateProductAdParamsBase = t.strict({
 const CreateProductAdParamsSeller = t.intersection([
   CreateProductAdParamsBase,
   t.strict({
-    SKU: t.string,
+    sku: t.string,
   }),
 ])
 type CreateProductAdParamsSeller = t.TypeOf<typeof CreateProductAdParamsSeller>
