@@ -11,9 +11,8 @@ describe('SponsoredProductsProductAdsOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsProductAdsOperation)
-  const CAMPAIGN_ID = 149522344269714
+  const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 149522344269714
-  const ASIN = 'B07663Z46Z'
   const SKU = 'AB-RED-8675309'
 
   describe('createProductAds', () => {
