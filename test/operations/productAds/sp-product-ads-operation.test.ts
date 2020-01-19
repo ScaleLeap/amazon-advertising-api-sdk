@@ -7,6 +7,7 @@ import {
   CreateProductAdParams,
   ProductAdStateEnum,
   UpdateProductAdParams,
+  ListProductAdsParams,
 } from '../../../src/operations/productAds/types'
 
 setupPolly()
@@ -27,7 +28,6 @@ describe('SponsoredProductsProductAdsOperation', () => {
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
       expect(res.adId).toEqual(AD_ID)
-      res
     })
   })
 
@@ -68,6 +68,56 @@ describe('SponsoredProductsProductAdsOperation', () => {
       const res = await operation.updateProductAds(params)
 
       expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('listProductAds', () => {
+    it(`should retrieve a list of product ads ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const [res] = await operation.listProductAds()
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.adId).toEqual(AD_ID)
+    })
+
+    it(`should retrieve a list of product ads satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ListProductAdsParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        adIdFilter: [AD_ID],
+      }
+      const [res] = await operation.listProductAds(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.adId).toEqual(AD_ID)
+    })
+  })
+
+  describe('listProductAdsExtended', () => {
+    it(`should retrieve a list of product ads  ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const [res] = await operation.listProductAdsExtended()
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.adId).toEqual(AD_ID)
+    })
+
+    it(`should retrieve a list of product ads  satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ListProductAdsParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        adIdFilter: [AD_ID],
+      }
+      const [res] = await operation.listProductAdsExtended(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.adId).toEqual(AD_ID)
     })
   })
 })
