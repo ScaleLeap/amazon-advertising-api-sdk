@@ -71,6 +71,14 @@ describe('SponsoredProductsProductAdsOperation', () => {
     })
   })
 
+  describe('archiveProductAd', () => {
+    it(`should set the product ad status to archived ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.archiveProductAd(AD_ID)
+
+      expect(res).toHaveProperty('adId')
+    })
+  })
+
   describe('listProductAds', () => {
     it(`should retrieve a list of product ads ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.listProductAds()
