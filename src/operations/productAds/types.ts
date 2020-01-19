@@ -29,6 +29,7 @@ export enum ProductAdServingStatusEnum {
   CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
   ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
   MISSING_DECORATION = 'MISSING_DECORATION',
+  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED',
 }
 export const ProductAdServingStatusType = createEnumType<ProductAdServingStatusEnum>(
   ProductAdServingStatusEnum,
