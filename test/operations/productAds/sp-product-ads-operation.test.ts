@@ -22,7 +22,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           state: ProductAdStateEnum.ENABLED,
-          ASIN,
+          asin: ASIN,
         },
       ]
       const res = await operation.createProductAds(params)

@@ -123,7 +123,7 @@ type CreateProductAdParamsSeller = t.TypeOf<typeof CreateProductAdParamsSeller>
 const CreateProductAdParamsVendor = t.intersection([
   CreateProductAdParamsBase,
   t.strict({
-    ASIN: t.string,
+    asin: t.string,
   }),
 ])
 type CreateProductAdParamsVendor = t.TypeOf<typeof CreateProductAdParamsVendor>
