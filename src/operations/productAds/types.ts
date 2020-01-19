@@ -31,7 +31,7 @@ export const ProductAdServingStatusType = createEnumType<ProductAdServingStatusE
   ProductAdServingStatusEnum,
 )
 
-export const ProductAd = t.strict({
+const ProductAdBase = t.strict({
   /**
    * The ID of the product ad
    */
@@ -48,23 +48,35 @@ export const ProductAd = t.strict({
   adGroupId: AdGroupId,
 
   /**
-   * The SKU for the listed product to be advertised.
-   * Either this or the asin must be present. Used by sellers.
-   */
-  sku: t.string,
-
-  /**
-   * The ASIN for the listed product to be advertised.
-   * Either this or the sku must be present. Used by vendors.
-   */
-  asin: t.string,
-
-  /**
    * Advertiser-specified state of the product ad.
    * Value of state for asin can only be enabled or paused, archived state not available.
    */
   state: ProductAdStateType,
 })
+
+const ProductAdSeller = t.intersection([
+  ProductAdBase,
+  t.strict({
+    /**
+     * The SKU for the listed product to be advertised.
+     * Either this or the asin must be present. Used by sellers.
+     */
+    sku: t.string,
+  }),
+])
+
+const ProductAdVendor = t.intersection([
+  ProductAdBase,
+  t.strict({
+    /**
+     * The ASIN for the listed product to be advertised.
+     * Either this or the sku must be present. Used by vendors.
+     */
+    asin: t.string,
+  }),
+])
+
+export const ProductAd = t.union([ProductAdSeller, ProductAdVendor])
 export type ProductAd = t.TypeOf<typeof ProductAd>
 
 export const ProductAdExtended = t.intersection([
