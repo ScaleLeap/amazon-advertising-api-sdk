@@ -21,7 +21,7 @@
     "cross-fetch": "3.0.4",
     "fp-ts": "2.4.0",
     "http-status-codes": "1.4.0",
-    "io-ts": "2.0.4",
+    "io-ts": "2.0.5",
     "io-ts-promise": "2.0.2",
     "io-ts-types": "0.5.1",
     "lodash": "4.17.15",
