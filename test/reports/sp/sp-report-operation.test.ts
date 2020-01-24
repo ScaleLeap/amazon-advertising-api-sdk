@@ -144,8 +144,20 @@ describe('SponsoredProductsReportOperation', () => {
 
   describe('getReport', () => {
     it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const reportId = 'amzn1.clicksAPI.v1.m1.5DD6AC1A.fcb02e87-8b0a-4edf-8f04-cd87e66376d5'
-      const res = await reportOperation.getReport(reportId)
+      await delay()
+
+      const requestReportResponse = await reportOperation.requestReport({
+        recordType: SponsoredProductsReportTypeEnum.PRODUCT_ATTRIBUTE_TARGETING,
+        metrics: [
+          ProductTargetingReportMetricsEnum.COST,
+          ProductTargetingReportMetricsEnum.IMPRESSIONS,
+        ],
+        reportDate: DateTimeUtils.getCurrentISODate(),
+      })
+
+      await delay()
+
+      const res = await reportOperation.getReport(requestReportResponse.reportId)
 
       expect(res.reportId).toBeDefined()
       expect(res.statusDetails).toBeDefined()
