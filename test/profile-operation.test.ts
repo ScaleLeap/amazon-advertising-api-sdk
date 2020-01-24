@@ -8,6 +8,7 @@ import { POLLY_PASSTHROUGH_TAG } from './constants'
 import { delay } from './test-utils'
 
 setupPolly()
+jest.setTimeout(15000)
 
 describe('ProfileOperation', () => {
   const client = httpClientFactory()
@@ -17,7 +18,6 @@ describe('ProfileOperation', () => {
 
   describe('listProfiles', () => {
     it(`should return an array or profiles ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res: Profile[] = await profileOperation.listProfiles()
@@ -28,7 +28,6 @@ describe('ProfileOperation', () => {
 
   describe('getProfile', () => {
     it(`should return a profile object ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       expect.assertions(2)
@@ -44,7 +43,6 @@ describe('ProfileOperation', () => {
 
   describe('updateProfiles', () => {
     it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       expect.assertions(5)

@@ -11,6 +11,7 @@ import { KeywordReportMetricsEnum } from '../../../src/operations/reports/metric
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
 
 setupPolly()
+jest.setTimeout(15000)
 
 describe('SponsoredBrandsReportOperation', () => {
   const client = httpClientFactory()
@@ -32,7 +33,6 @@ describe('SponsoredBrandsReportOperation', () => {
     })
 
     it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -55,7 +55,6 @@ describe('SponsoredBrandsReportOperation', () => {
     })
 
     it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -78,7 +77,6 @@ describe('SponsoredBrandsReportOperation', () => {
 
   describe('getReport', () => {
     it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const requestReportResult = await reportOperation.requestReport({
