@@ -14,6 +14,7 @@ import { ProductTargetingReportMetricsEnum } from '../../../src/operations/repor
 import { AsinsReportMetricsEnum } from '../../../src/operations/reports/metrics/asins-report-metrics-enum'
 
 setupPolly()
+jest.setTimeout(15000)
 
 describe('SponsoredProductsReportOperation', () => {
   const client = httpClientFactory()
@@ -22,7 +23,6 @@ describe('SponsoredProductsReportOperation', () => {
 
   describe('requestReport', () => {
     it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -38,7 +38,6 @@ describe('SponsoredProductsReportOperation', () => {
     })
 
     it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -61,7 +60,6 @@ describe('SponsoredProductsReportOperation', () => {
     })
 
     it(`should return a in progress status with asins report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -83,7 +81,6 @@ describe('SponsoredProductsReportOperation', () => {
     })
 
     it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -104,7 +101,6 @@ describe('SponsoredProductsReportOperation', () => {
     })
 
     it(`should return a in progress status with product ads report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
@@ -126,7 +122,6 @@ describe('SponsoredProductsReportOperation', () => {
     })
 
     it(`should return a in progress status with targets report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      jest.setTimeout(15000)
       await delay()
 
       const res = await reportOperation.requestReport({
