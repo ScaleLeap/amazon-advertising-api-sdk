@@ -2,6 +2,7 @@ import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
 import { CampaignId } from '../campaigns/types'
 import { AdGroupId } from '../adGroups/types'
+import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const TargetId = t.number
 export type TargetId = t.TypeOf<typeof TargetId>
@@ -55,6 +56,22 @@ export enum ExpressionTypeEnum {
 }
 export const ExpressionType = createEnumType<ExpressionTypeEnum>(ExpressionTypeEnum)
 
+export enum TargetingClauseServingStatusEnum {
+  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
+  TARGETING_CLAUSE_PAUSED = 'TARGETING_CLAUSE_PAUSED',
+  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
+  TARGETING_CLAUSE_POLICING_SUSPENDED = 'TARGETING_CLAUSE_POLICING_SUSPENDED',
+  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
+  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
+  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
+  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
+  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
+  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
+}
+export const TargetingClauseServingStatusType = createEnumType<TargetingClauseServingStatusEnum>(
+  TargetingClauseServingStatusEnum,
+)
+
 export const TargetingClause = t.strict({
   /**
    * The ID of the target
@@ -95,3 +112,140 @@ export type TargetingClause = t.TypeOf<typeof TargetingClause>
 
 export const TargetingClauses = t.array(TargetingClause)
 export type TargetingClauses = t.TypeOf<typeof TargetingClause>
+
+export const TargetingClauseExtended = t.intersection([
+  TargetingClause,
+  t.strict({
+    /**
+     * The date the ad group was created as epoch time in milliseconds.
+     */
+    creationDate: DateFromNumber,
+
+    /**
+     * The date the ad group was last updated as epoch time in milliseconds.
+     */
+    lastUpdatedDate: DateFromNumber,
+
+    /**
+     * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
+     */
+    servingStatus: TargetingClauseServingStatusType,
+  }),
+])
+export type TargetingClauseExtended = t.TypeOf<typeof TargetingClauseExtended>
+
+export const ProductRecommendationRequest = t.strict({
+  /**
+   * The number of recommendations to return in one page.
+   */
+  pageSize: t.number,
+
+  /**
+   * The number of pages to index into the result set
+   */
+  pageNumber: t.number,
+
+  /**
+   * A list of asins for which to get recommendations for
+   */
+  asins: t.array(t.string),
+})
+export type ProductRecommendationRequest = t.TypeOf<typeof ProductRecommendationRequest>
+
+export const RecommendedTargetAsin = t.strict({
+  /**
+   * The recommended asin to target
+   */
+  recommendedTargetAsin: t.string,
+})
+
+export type RecommendedTargetAsin = t.TypeOf<typeof RecommendedTargetAsin>
+export const RecommendedTargetAsins = t.array(RecommendedTargetAsin)
+
+export const ProductRecommendationResponse = t.strict({
+  /**
+   * The number of recommendations from which there are to page through.
+   */
+  totalResultCount: t.number,
+
+  /**
+   * The number of pages to index into the result set
+   */
+  recommendedProducts: RecommendedTargetAsins,
+})
+export type ProductRecommendationResponse = t.TypeOf<typeof ProductRecommendationResponse>
+
+export const CategoryId = t.number
+export type CategoryId = t.TypeOf<typeof CategoryId>
+
+export const CategoryResponse = t.strict({
+  /**
+   * The ID of the category
+   */
+  id: CategoryId,
+
+  /**
+   * The name of the category
+   */
+  name: t.string,
+
+  /**
+   * A boolean describing whether this category can be targeted or not in a targeting expression
+   */
+  isTargetable: t.boolean,
+
+  /**
+   * The path of the category within the category catalogue
+   */
+  path: t.boolean,
+})
+export type CategoryResponse = t.TypeOf<typeof CategoryResponse>
+
+export const AgeRange = t.strict({
+  /**
+   * The id of the age range.
+   */
+  id: t.number,
+
+  /**
+   * The name of the age range
+   */
+  name: t.string,
+})
+export type AgeRange = t.TypeOf<typeof AgeRange>
+export const AgeRanges = t.array(AgeRange)
+
+export const BrandId = t.number
+export type BrandId = t.TypeOf<typeof BrandId>
+
+export const BrandResponse = t.strict({
+  /**
+   * The ID of the brand. This is for use in targeting expressions.
+   */
+  id: BrandId,
+
+  /**
+   * The name of the brand
+   */
+  name: t.string,
+})
+export type BrandResponse = t.TypeOf<typeof BrandResponse>
+export const BrandResponses = t.array(BrandResponse)
+
+export const RefinementsResponse = t.strict({
+  /**
+   * The ID of the category
+   */
+  categoryId: CategoryId,
+
+  /**
+   * An array of age ranges this category supports.  Not all categories have age ranges.
+   */
+  ageRanges: AgeRanges,
+
+  /**
+   * Brands that can be found within this category.
+   */
+  brands: BrandResponses,
+})
+export type RefinementsResponse = t.TypeOf<typeof RefinementsResponse>
