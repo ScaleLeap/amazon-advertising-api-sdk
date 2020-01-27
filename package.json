@@ -39,7 +39,7 @@
     "@types/pollyjs__adapter-node-http": "2.0.0",
     "@types/pollyjs__core": "4.0.0",
     "@types/pollyjs__persister-fs": "2.0.0",
-    "@typescript-eslint/eslint-plugin": "2.14.0",
+    "@typescript-eslint/eslint-plugin": "2.17.0",
     "@typescript-eslint/parser": "2.17.0",
     "cross-env": "6.0.3",
     "eslint": "6.8.0",
