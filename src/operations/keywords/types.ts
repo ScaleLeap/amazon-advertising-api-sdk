@@ -65,10 +65,10 @@ export const Keyword = t.intersection([
      */
     campaignId: CampaignId,
 
-  /**
-   * The ID of the ad group to which this keyword belongs
-   */
-  adGroupId: AdGroupId,
+    /**
+     * The ID of the ad group to which this keyword belongs
+     */
+    adGroupId: AdGroupId,
 
     /**
      * Advertiser-specified state of the keyword
