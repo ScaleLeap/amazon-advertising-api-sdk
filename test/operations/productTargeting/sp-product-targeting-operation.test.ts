@@ -17,7 +17,8 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsProductTargetingOperation)
   const CAMPAIGN_ID = 164069484151709
-  const AD_GROUP_ID = 149522344269714
+  const AD_GROUP_ID = 202694745498469
+  const ASIN = 'B07663Z46Z'
 
   describe('createTargetingClauses', () => {
     it(`should create one or more targeting expressions ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -29,7 +30,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
           expression: [
             {
               type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
-              value: '1234567',
+              value: ASIN,
             },
           ],
           expressionType: ExpressionTypeEnum.MANUAL,
