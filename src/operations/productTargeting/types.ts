@@ -1,11 +1,14 @@
 import * as t from 'io-ts'
-import { createEnumType } from '../commons/types'
-import { CampaignId } from '../campaigns/types'
-import { AdGroupId } from '../adGroups/types'
+import { createEnumType, ListPagination } from '../commons/types'
+import { CampaignId, CampaignIds } from '../campaigns/types'
+import { AdGroupId, AdGroupIds } from '../adGroups/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const TargetId = t.number
 export type TargetId = t.TypeOf<typeof TargetId>
+
+export const TargetIds = t.array(TargetId)
+export type TargetIds = t.TypeOf<typeof TargetIds>
 
 export enum TargetingClauseStateEnum {
   ENABLED = 'enabled',
@@ -29,22 +32,30 @@ export enum TargetingExpressionTypeEnum {
   ASIN_IS_PRIME_SHIPPING_ELIGIBLE = 'asinIsPrimeShippingEligible',
   ASIN_AGE_RANGE_SAME_AS = 'asinAgeRangeSameAs',
   ASIN_GENRE_SAME_AS = 'asinGenreSameAs',
+  QUERY_HIGH_REL_MATCHES = 'queryHighRelMatches',
+  QUERY_BROAD_REL_MATCHES = 'queryBroadRelMatches',
+  ASIN_SUBSTITUTE_RELATED = 'asinSubstituteRelated',
+  ASIN_ACCESSORY_RELATED = 'asinAccessoryRelated',
 }
 export const TargetingExpressionType = createEnumType<TargetingExpressionTypeEnum>(
   TargetingExpressionTypeEnum,
 )
 
-export const TargetingExpression = t.strict({
-  /**
-   * The type of intent
-   */
-  type: TargetingExpressionType,
+export const TargetingExpression = t.intersection([
+  t.strict({
+    /**
+     * The type of intent
+     */
+    type: TargetingExpressionType,
+  }),
+  t.partial({
+    /**
+     * The value which should be targeted
+     */
+    value: t.string,
+  }),
+])
 
-  /**
-   * The value which should be targeted
-   */
-  value: t.string,
-})
 export type TargetingExpression = t.TypeOf<typeof TargetingExpression>
 
 export const TargetingExpressions = t.array(TargetingExpression)
@@ -300,3 +311,30 @@ export const CreateTargetingClausesParams = t.partial({
   bid: t.number,
 })
 export type CreateTargetingClausesParams = t.TypeOf<typeof CreateTargetingClausesParams>
+
+export const ListTargetingClausesParams = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * Restricts results to targets with state within the specified comma-separated list.
+     * Possible filter types are: enabled, paused, or archived
+     */
+    stateFilter: TargetingClauseStateType,
+
+    /**
+     * Restricts results to targets within campaigns specified in comma-separated list
+     */
+    campaignIdFilter: CampaignIds,
+
+    /**
+     * Restricts results to targets within ad groups specified in comma-separated list
+     */
+    adGroupIdFilter: AdGroupIds,
+
+    /**
+     * Restricts results to targets with the specified target Ids specified in comma-separated list
+     */
+    targetIdFilter: TargetIds,
+  }),
+])
+export type ListTargetingClausesParams = t.TypeOf<typeof ListTargetingClausesParams>

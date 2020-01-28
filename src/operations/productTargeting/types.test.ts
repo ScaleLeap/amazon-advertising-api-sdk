@@ -65,6 +65,19 @@ describe('TargetingClauses', () => {
         bid: 10,
         state: 'enabled',
       },
+      {
+        campaignId: 12345678912,
+        adGroupId: 23456789012,
+        targetId: 23456809123,
+        expressionType: 'auto',
+        expression: [
+          {
+            type: 'queryHighRelMatches',
+          },
+        ],
+        bid: 10,
+        state: 'paused',
+      },
     ])
 
     expect(isRight(res)).toBeTruthy()
