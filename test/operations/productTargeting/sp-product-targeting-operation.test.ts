@@ -8,6 +8,7 @@ import {
   TargetingClauseStateEnum,
   TargetingExpressionTypeEnum,
   ExpressionTypeEnum,
+  ListTargetingClausesParams,
 } from '../../../src/operations/productTargeting/types'
 
 setupPolly()
@@ -20,6 +21,72 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const AD_GROUP_ID = 202694745498469
   const TARGET_ID = 256247845256441
   const ASIN = 'B07663Z46Z'
+
+  describe('getTargetingClause', () => {
+    it(`should retrieve a targeting clause with a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getTargetingClause(TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
+  describe('getTargetingClauseExtended', () => {
+    it(`should retrieve a targeting clause with additional attributes using a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getTargetingClauseExtended(TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
+  describe('listTargetingClauses', () => {
+    it(`should retrieve a list of targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.listTargetingClauses()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it(`should retrieve a list of targeting clauses satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ListTargetingClausesParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        targetIdFilter: [TARGET_ID],
+      }
+      const [res] = await operation.listTargetingClauses(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
+  describe('listTargetingClausesExtended', () => {
+    it(`should retrieve a list of targeting clauses with additional attributes ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.listTargetingClausesExtended()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it(`should retrieve a list of targeting clauses with additional attributes satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ListTargetingClausesParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        targetIdFilter: [TARGET_ID],
+      }
+      const [res] = await operation.listTargetingClausesExtended(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
 
   describe.skip('createTargetingClauses', () => {
     it(`should create one or more targeting expressions ${POLLY_PASSTHROUGH_TAG}`, async () => {
