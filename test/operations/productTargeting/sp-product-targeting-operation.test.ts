@@ -18,9 +18,10 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const operation = operationProvider.create(SponsoredProductsProductTargetingOperation)
   const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 202694745498469
+  const TARGET_ID = 256247845256441
   const ASIN = 'B07663Z46Z'
 
-  describe('createTargetingClauses', () => {
+  describe.skip('createTargetingClauses', () => {
     it(`should create one or more targeting expressions ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateTargetingClausesParams[] = [
         {
