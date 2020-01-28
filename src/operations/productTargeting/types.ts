@@ -249,3 +249,54 @@ export const RefinementsResponse = t.strict({
   brands: BrandResponses,
 })
 export type RefinementsResponse = t.TypeOf<typeof RefinementsResponse>
+
+export const TargetingClauseResponse = t.partial({
+  /**
+   * The ID of the target that was created/updated, if successful
+   */
+  targetId: TargetId,
+
+  /**
+   * An enumerated success or error code for machine use.
+   */
+  code: t.string,
+
+  /**
+   * A human-readable description of the error, if unsuccessful
+   */
+  details: t.string,
+})
+export type TargetingClauseResponse = t.TypeOf<typeof TargetingClauseResponse>
+
+export const CreateTargetingClausesParams = t.partial({
+  /**
+   * The ID of the campaign to which this target belongs
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The ID of the ad group to which this target belongs.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * Advertiser-specified state of the target
+   */
+  state: TargetingClauseStateType,
+
+  /**
+   * The expression to match against search queries
+   */
+  expression: TargetingExpressions,
+
+  /**
+   * The type of expression
+   */
+  expressionType: ExpressionType,
+
+  /**
+   * Bid used when ads are sourced using this target.
+   */
+  bid: t.number,
+})
+export type CreateTargetingClausesParams = t.TypeOf<typeof CreateTargetingClausesParams>
