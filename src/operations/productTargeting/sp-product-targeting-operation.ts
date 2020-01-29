@@ -24,14 +24,14 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     return this.client.get<TargetingClauseExtended>(`${this.targetResource}/extended/${targetId}`)
   }
 
-  @DecodeArray(TargetingClause)
+  // @DecodeArray(TargetingClause)
   public listTargetingClauses(params?: ListTargetingClausesParams) {
     return this.client.get<TargetingClause[]>(
       this.paramsFilterTransformer(this.targetResource, params),
     )
   }
 
-  @DecodeArray(TargetingClauseExtended)
+  // @DecodeArray(TargetingClauseExtended)
   public listTargetingClausesExtended(params?: ListTargetingClausesParams) {
     return this.client.get<TargetingClauseExtended[]>(
       this.paramsFilterTransformer(`${this.targetResource}/extended`, params),
