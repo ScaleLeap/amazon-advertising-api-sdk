@@ -9,6 +9,7 @@ import {
   TargetingExpressionTypeEnum,
   ExpressionTypeEnum,
   ListTargetingClausesParams,
+  UpdateTargetingClausesParams,
 } from '../../../src/operations/productTargeting/types'
 
 setupPolly()
@@ -108,6 +109,37 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.createTargetingClauses(params)
 
       expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('updateTargetingClauses', () => {
+    it(`should updates one or more targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: UpdateTargetingClausesParams[] = [
+        {
+          campaignId: CAMPAIGN_ID,
+          adGroupId: AD_GROUP_ID,
+          state: TargetingClauseStateEnum.PAUSED,
+          expression: [
+            {
+              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              value: ASIN,
+            },
+          ],
+          expressionType: ExpressionTypeEnum.MANUAL,
+          bid: 10,
+        },
+      ]
+      const res = await operation.updateTargetingClauses(params)
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe.skip('archiveTargetingClause', () => {
+    it(`should set the status of targeting clauses to archived ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.archiveTargetingClause(TARGET_ID)
+
+      expect(res).toHaveProperty('targetId')
     })
   })
 })
