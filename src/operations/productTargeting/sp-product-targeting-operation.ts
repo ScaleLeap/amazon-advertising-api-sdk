@@ -51,6 +51,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
 
   @Decode(TargetingClauseResponse)
   public archiveTargetingClause(targetId: TargetId) {
-    return this.client.delete<TargetingClauseResponse>(`${this.resource}/${targetId}`)
+    return this.client.delete<TargetingClauseResponse>(`${this.targetResource}/${targetId}`)
   }
 }
