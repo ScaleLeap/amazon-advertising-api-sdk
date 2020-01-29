@@ -135,7 +135,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe.skip('archiveTargetingClause', () => {
+  describe('archiveTargetingClause', () => {
     it(`should set the status of targeting clauses to archived ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveTargetingClause(TARGET_ID)
 
