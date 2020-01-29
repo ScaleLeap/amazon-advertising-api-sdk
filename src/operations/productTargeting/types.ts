@@ -78,47 +78,50 @@ export enum TargetingClauseServingStatusEnum {
   CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
   CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
   ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
+  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED',
 }
 export const TargetingClauseServingStatusType = createEnumType<TargetingClauseServingStatusEnum>(
   TargetingClauseServingStatusEnum,
 )
+export const TargetingClause = t.intersection([
+  t.strict({
+    /**
+     * The ID of the target
+     */
+    targetId: TargetId,
 
-export const TargetingClause = t.strict({
-  /**
-   * The ID of the target
-   */
-  targetId: TargetId,
+    /**
+     * The ID of the campaign to which this target belongs
+     */
+    campaignId: CampaignId,
 
-  /**
-   * The ID of the campaign to which this target belongs
-   */
-  campaignId: CampaignId,
+    /**
+     * The ID of the ad group to which this target belongs.
+     */
+    adGroupId: AdGroupId,
 
-  /**
-   * The ID of the ad group to which this target belongs.
-   */
-  adGroupId: AdGroupId,
+    /**
+     * Advertiser-specified state of the target
+     */
+    state: TargetingClauseStateType,
 
-  /**
-   * Advertiser-specified state of the target
-   */
-  state: TargetingClauseStateType,
+    /**
+     * The expression to match against search queries
+     */
+    expression: TargetingExpressions,
 
-  /**
-   * The expression to match against search queries
-   */
-  expression: TargetingExpressions,
-
-  /**
-   * The type of expression
-   */
-  expressionType: ExpressionType,
-
-  /**
-   * Bid used when ads are sourced using this target.
-   */
-  bid: t.number,
-})
+    /**
+     * The type of expression
+     */
+    expressionType: ExpressionType,
+  }),
+  t.partial({
+    /**
+     * Bid used when ads are sourced using this target.
+     */
+    bid: t.number,
+  }),
+])
 export type TargetingClause = t.TypeOf<typeof TargetingClause>
 
 export const TargetingClauses = t.array(TargetingClause)
