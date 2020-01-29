@@ -341,3 +341,36 @@ export const ListTargetingClausesParams = t.intersection([
   }),
 ])
 export type ListTargetingClausesParams = t.TypeOf<typeof ListTargetingClausesParams>
+
+export const UpdateTargetingClausesParams = t.partial({
+  /**
+   * The ID of the campaign to which this target belongs
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The ID of the ad group to which this target belongs.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * Advertiser-specified state of the target
+   */
+  state: TargetingClauseStateType,
+
+  /**
+   * The expression to match against search queries
+   */
+  expression: TargetingExpressions,
+
+  /**
+   * The type of expression
+   */
+  expressionType: ExpressionType,
+
+  /**
+   * Bid used when ads are sourced using this target.
+   */
+  bid: t.number,
+})
+export type UpdateTargetingClausesParams = t.TypeOf<typeof UpdateTargetingClausesParams>

@@ -9,6 +9,7 @@ import {
   TargetingClause,
   TargetingClauseExtended,
   ListTargetingClausesParams,
+  UpdateTargetingClausesParams,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
@@ -40,6 +41,16 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
 
   @DecodeArray(TargetingClauseResponse)
   public createTargetingClauses(params: CreateTargetingClausesParams[]) {
-    return this.client.post<TargetingClauseResponse[]>(`${this.targetResource}`, params)
+    return this.client.post<TargetingClauseResponse[]>(this.targetResource, params)
+  }
+
+  @DecodeArray(TargetingClauseResponse)
+  public updateTargetingClauses(params: UpdateTargetingClausesParams[]) {
+    return this.client.put<TargetingClauseResponse[]>(this.targetResource, params)
+  }
+
+  @Decode(TargetingClauseResponse)
+  public archiveTargetingClause(targetId: TargetId) {
+    return this.client.delete<TargetingClauseResponse>(`${this.resource}/${targetId}`)
   }
 }
