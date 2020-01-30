@@ -54,9 +54,9 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     return this.client.delete<TargetingClauseResponse>(`${this.resource}/${targetId}`)
   }
 
-  @DecodeArray(ProductRecommendationResponse)
+  @Decode(ProductRecommendationResponse)
   public createTargetRecommendations(params: ProductRecommendationRequest) {
-    return this.client.post<ProductRecommendationResponse[]>(
+    return this.client.post<ProductRecommendationResponse>(
       `${this.resource}/productRecommendations`,
       params,
     )
