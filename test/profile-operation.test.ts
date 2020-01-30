@@ -43,9 +43,10 @@ describe('ProfileOperation', () => {
 
   describe('updateProfiles', () => {
     it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      expect.assertions(4)
+
       await delay()
 
-      expect.assertions(5)
       const dailyBudget = 340
 
       const res = await profileOperation.updateProfiles([
