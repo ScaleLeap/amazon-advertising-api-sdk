@@ -164,10 +164,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     it(`should return a list of targeting categories ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getTargetingCategories(ASINS)
 
-      expect(res).toHaveProperty('id')
-      expect(res).toHaveProperty('name')
-      expect(res).toHaveProperty('isTargetable')
-      expect(res).toHaveProperty('path')
+      expect(Array.isArray(res)).toBeTruthy()
     })
   })
 })

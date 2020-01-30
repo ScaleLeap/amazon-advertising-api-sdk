@@ -63,8 +63,10 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
-  @Decode(CategoryResponse)
+  @DecodeArray(CategoryResponse)
   public getTargetingCategories(asins: string[]) {
-    return this.client.get<CategoryResponse>(this.paramsFilterTransformer('/categories', { asins }))
+    return this.client.get<CategoryResponse[]>(
+      this.paramsFilterTransformer('/categories', { asins }),
+    )
   }
 }
