@@ -146,8 +146,8 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe('createTargetingClauses', () => {
-    it(`should create one or more targeting expressions ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('createTargetRecommendations', () => {
+    it(`should return list of recommended products to target ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: ProductRecommendationRequest = {
         pageSize: PAGE_SIZE,
         pageNumber: 1,
@@ -157,6 +157,17 @@ describe('SponsoredProductsProductTargetingOperation', () => {
 
       expect(res.totalResultCount).toEqual(PAGE_SIZE)
       expect(res.recommendedProducts).toHaveLength(PAGE_SIZE)
+    })
+  })
+
+  describe('getTargetingCategories', () => {
+    it(`should return a list of targeting categories ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getTargetingCategories(ASINS)
+
+      expect(res).toHaveProperty('id')
+      expect(res).toHaveProperty('name')
+      expect(res).toHaveProperty('isTargetable')
+      expect(res).toHaveProperty('path')
     })
   })
 })
