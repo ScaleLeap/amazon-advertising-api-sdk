@@ -211,7 +211,7 @@ export const CategoryResponse = t.strict({
   /**
    * The path of the category within the category catalogue
    */
-  path: t.boolean,
+  path: t.string,
 })
 export type CategoryResponse = t.TypeOf<typeof CategoryResponse>
 
