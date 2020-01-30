@@ -10,6 +10,7 @@ import {
   ExpressionTypeEnum,
   ListTargetingClausesParams,
   UpdateTargetingClausesParams,
+  ProductRecommendationRequest,
 } from '../../../src/operations/productTargeting/types'
 
 setupPolly()
@@ -22,6 +23,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const AD_GROUP_ID = 202694745498469
   const TARGET_ID = 256247845256441
   const ASIN = 'B07663Z46Z'
+  const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
 
   describe('getTargetingClause', () => {
     it(`should retrieve a targeting clause with a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -140,6 +142,19 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.archiveTargetingClause(TARGET_ID)
 
       expect(res).toHaveProperty('targetId')
+    })
+  })
+
+  describe('createTargetingClauses', () => {
+    it(`should create one or more targeting expressions ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ProductRecommendationRequest = {
+        pageSize: 10,
+        pageNumber: 5,
+        asins: ASINS,
+      }
+      const res = await operation.createTargetRecommendations(params)
+
+      expect(Array.isArray(res)).toBeTruthy()
     })
   })
 })

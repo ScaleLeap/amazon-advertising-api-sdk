@@ -10,47 +10,55 @@ import {
   TargetingClauseExtended,
   ListTargetingClausesParams,
   UpdateTargetingClausesParams,
+  ProductRecommendationRequest,
+  ProductRecommendationResponse,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
-  protected targetResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/targets`
+  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/targets`
 
   @Decode(TargetingClause)
   public getTargetingClause(targetId: TargetId) {
-    return this.client.get<TargetingClause>(`${this.targetResource}/${targetId}`)
+    return this.client.get<TargetingClause>(`${this.resource}/${targetId}`)
   }
 
   @Decode(TargetingClauseExtended)
   public getTargetingClauseExtended(targetId: TargetId) {
-    return this.client.get<TargetingClauseExtended>(`${this.targetResource}/extended/${targetId}`)
+    return this.client.get<TargetingClauseExtended>(`${this.resource}/extended/${targetId}`)
   }
 
   @DecodeArray(TargetingClause)
   public listTargetingClauses(params?: ListTargetingClausesParams) {
-    return this.client.get<TargetingClause[]>(
-      this.paramsFilterTransformer(this.targetResource, params),
-    )
+    return this.client.get<TargetingClause[]>(this.paramsFilterTransformer('', params))
   }
 
   @DecodeArray(TargetingClauseExtended)
   public listTargetingClausesExtended(params?: ListTargetingClausesParams) {
     return this.client.get<TargetingClauseExtended[]>(
-      this.paramsFilterTransformer(`${this.targetResource}/extended`, params),
+      this.paramsFilterTransformer('/extended', params),
     )
   }
 
   @DecodeArray(TargetingClauseResponse)
   public createTargetingClauses(params: CreateTargetingClausesParams[]) {
-    return this.client.post<TargetingClauseResponse[]>(this.targetResource, params)
+    return this.client.post<TargetingClauseResponse[]>(this.resource, params)
   }
 
   @DecodeArray(TargetingClauseResponse)
   public updateTargetingClauses(params: UpdateTargetingClausesParams[]) {
-    return this.client.put<TargetingClauseResponse[]>(this.targetResource, params)
+    return this.client.put<TargetingClauseResponse[]>(this.resource, params)
   }
 
   @Decode(TargetingClauseResponse)
   public archiveTargetingClause(targetId: TargetId) {
-    return this.client.delete<TargetingClauseResponse>(`${this.targetResource}/${targetId}`)
+    return this.client.delete<TargetingClauseResponse>(`${this.resource}/${targetId}`)
+  }
+
+  @DecodeArray(ProductRecommendationResponse)
+  public createTargetRecommendations(params: ProductRecommendationRequest) {
+    return this.client.post<ProductRecommendationResponse[]>(
+      `${this.resource}/productRecommendations`,
+      params,
+    )
   }
 }
