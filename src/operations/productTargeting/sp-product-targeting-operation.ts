@@ -12,6 +12,7 @@ import {
   UpdateTargetingClausesParams,
   ProductRecommendationRequest,
   ProductRecommendationResponse,
+  CategoryResponse,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
@@ -60,5 +61,10 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
       `${this.resource}/productRecommendations`,
       params,
     )
+  }
+
+  @Decode(CategoryResponse)
+  public getTargetingCategories(asins: string[]) {
+    return this.client.get<CategoryResponse>(this.paramsFilterTransformer('/categories', { asins }))
   }
 }
