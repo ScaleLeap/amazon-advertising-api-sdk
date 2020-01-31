@@ -17,10 +17,13 @@ import {
   RefinementsResponse,
   BrandResponse,
   GetBrandRecommendationsParams,
+  NegativeTargetingClauseResponse,
+  CreateNegativeTargetingClausesParams,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/targets`
+  protected negativeTargetsResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/negativeTargets`
 
   @Decode(TargetingClause)
   public getTargetingClause(targetId: TargetId) {
@@ -84,5 +87,12 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   @DecodeArray(BrandResponse)
   public getBrandRecommendations(params: GetBrandRecommendationsParams) {
     return this.client.get<BrandResponse>(this.paramsFilterTransformer('/brands', params))
+  }
+
+  // Negative targeting clauses operations
+
+  @DecodeArray(NegativeTargetingClauseResponse)
+  public createNegativeTargetingClauses(params: CreateNegativeTargetingClausesParams[]) {
+    return this.client.post<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
   }
 }
