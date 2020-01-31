@@ -22,6 +22,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 202694745498469
   const TARGET_ID = 256247845256441
+  const CATEGORY_ID = 2335752011
   const ASIN = 'B07663Z46Z'
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
   const PAGE_SIZE = 10
@@ -165,6 +166,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.getTargetingCategories(ASINS)
 
       expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('getRefinementsForCategory', () => {
+    it(`should return refinements for a single category ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getRefinementsForCategory(TARGET_ID)
+
+      expect(res.categoryId).toEqual(CATEGORY_ID)
     })
   })
 })

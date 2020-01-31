@@ -13,6 +13,8 @@ import {
   ProductRecommendationRequest,
   ProductRecommendationResponse,
   CategoryResponse,
+  CategoryId,
+  RefinementsResponse,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
@@ -67,6 +69,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   public getTargetingCategories(asins: string[]) {
     return this.client.get<CategoryResponse[]>(
       this.paramsFilterTransformer('/categories', { asins }),
+    )
+  }
+
+  @Decode(RefinementsResponse)
+  public getRefinementsForCategory(categoryId: CategoryId) {
+    return this.client.get<RefinementsResponse>(
+      this.paramsFilterTransformer('/categories/refinements', { categoryId }),
     )
   }
 }
