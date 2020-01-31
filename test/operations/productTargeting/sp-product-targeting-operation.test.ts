@@ -171,7 +171,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
 
   describe('getRefinementsForCategory', () => {
     it(`should return refinements for a single category ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.getRefinementsForCategory(TARGET_ID)
+      const res = await operation.getRefinementsForCategory(CATEGORY_ID)
 
       expect(res.categoryId).toEqual(CATEGORY_ID)
     })
