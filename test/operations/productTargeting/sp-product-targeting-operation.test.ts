@@ -193,7 +193,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe('createNegativeTargetingClauses', () => {
+  describe.skip('createNegativeTargetingClauses', () => {
     it(`should create one or more negative targeting clauses at the campaign level ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateNegativeTargetingClausesParams[] = [
         {
