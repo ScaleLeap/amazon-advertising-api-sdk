@@ -207,7 +207,6 @@ describe('SponsoredProductsProductTargetingOperation', () => {
             },
           ],
           expressionType: ExpressionTypeEnum.MANUAL,
-          bid: 10,
         },
       ]
       const res = await operation.createNegativeTargetingClauses(params)

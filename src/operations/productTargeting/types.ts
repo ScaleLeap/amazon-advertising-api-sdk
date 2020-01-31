@@ -402,17 +402,17 @@ export type NegativeTargetingClauseResponse = t.TypeOf<typeof NegativeTargetingC
 
 export const CreateNegativeTargetingClausesParams = t.strict({
   /**
-   * The ID of the campaign to which this target belongs
+   * The ID of the campaign to which this negative target belongs
    */
   campaignId: CampaignId,
 
   /**
-   * The ID of the ad group to which this target belongs.
+   * The ID of the ad group to which this negative target belongs.
    */
   adGroupId: AdGroupId,
 
   /**
-   * Advertiser-specified state of the target
+   * Advertiser-specified state of the negative target
    */
   state: TargetingClauseStateType,
 
@@ -425,11 +425,6 @@ export const CreateNegativeTargetingClausesParams = t.strict({
    * The type of expression
    */
   expressionType: ExpressionType,
-
-  /**
-   * Bid used when ads are sourced using this target.
-   */
-  bid: t.number,
 })
 export type CreateNegativeTargetingClausesParams = t.TypeOf<
   typeof CreateNegativeTargetingClausesParams
