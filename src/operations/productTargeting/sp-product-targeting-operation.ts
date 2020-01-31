@@ -15,6 +15,8 @@ import {
   CategoryResponse,
   CategoryId,
   RefinementsResponse,
+  BrandResponse,
+  GetBrandRecommendationsParams,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
@@ -77,5 +79,10 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     return this.client.get<RefinementsResponse>(
       this.paramsFilterTransformer('/categories/refinements', { categoryId }),
     )
+  }
+
+  @DecodeArray(BrandResponse)
+  public getBrandRecommendations(params: GetBrandRecommendationsParams) {
+    return this.client.get<BrandResponse>(this.paramsFilterTransformer('/brands', params))
   }
 }

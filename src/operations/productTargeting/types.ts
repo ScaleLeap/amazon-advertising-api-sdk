@@ -374,3 +374,10 @@ export const UpdateTargetingClausesParams = t.partial({
   bid: t.number,
 })
 export type UpdateTargetingClausesParams = t.TypeOf<typeof UpdateTargetingClausesParams>
+
+export const GetBrandRecommendationsParams = t.partial({
+  keyword: t.string,
+  categoryId: CategoryId,
+})
+
+export type GetBrandRecommendationsParams = t.TypeOf<typeof GetBrandRecommendationsParams>
