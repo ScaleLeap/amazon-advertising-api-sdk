@@ -11,6 +11,7 @@ import {
   ListTargetingClausesParams,
   UpdateTargetingClausesParams,
   ProductRecommendationRequest,
+  CreateNegativeTargetingClausesParams,
 } from '../../../src/operations/productTargeting/types'
 
 setupPolly()
@@ -189,6 +190,29 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.getBrandRecommendations({ categoryId: CATEGORY_ID })
 
       expect(res).toBeTruthy()
+    })
+  })
+
+  describe('createNegativeTargetingClauses', () => {
+    it(`should create one or more negative targeting clauses at the campaign level ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: CreateNegativeTargetingClausesParams[] = [
+        {
+          campaignId: CAMPAIGN_ID,
+          adGroupId: AD_GROUP_ID,
+          state: TargetingClauseStateEnum.PAUSED,
+          expression: [
+            {
+              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              value: ASIN,
+            },
+          ],
+          expressionType: ExpressionTypeEnum.MANUAL,
+          bid: 10,
+        },
+      ]
+      const res = await operation.createNegativeTargetingClauses(params)
+
+      expect(Array.isArray(res)).toBeTruthy()
     })
   })
 })
