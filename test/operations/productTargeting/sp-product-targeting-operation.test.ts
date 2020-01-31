@@ -26,6 +26,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const ASIN = 'B07663Z46Z'
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
   const PAGE_SIZE = 10
+  const KEYWORD = 'Apple'
 
   describe('getTargetingClause', () => {
     it(`should retrieve a targeting clause with a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
@@ -174,6 +175,20 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.getRefinementsForCategory(CATEGORY_ID)
 
       expect(res.categoryId).toEqual(CATEGORY_ID)
+    })
+  })
+
+  describe('getBrandRecommendations', () => {
+    it(`should return recommended brands for the specified keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getBrandRecommendations({ keyword: KEYWORD })
+
+      expect(res).toBeTruthy()
+    })
+
+    it(`should return recommended brands for the specified category id ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getBrandRecommendations({ categoryId: CATEGORY_ID })
+
+      expect(res).toBeTruthy()
     })
   })
 })
