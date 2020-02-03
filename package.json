@@ -50,7 +50,7 @@
     "prettier": "1.19.1",
     "semantic-release": "15.14.0",
     "setup-polly-jest": "0.6.0",
-    "ts-jest": "25.0.0",
+    "ts-jest": "25.1.0",
     "ts-node": "8.6.2",
     "tsconfigs": "4.0.2",
     "typescript": "3.7.5"
