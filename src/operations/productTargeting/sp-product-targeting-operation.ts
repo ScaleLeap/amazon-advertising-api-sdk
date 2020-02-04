@@ -19,53 +19,57 @@ import {
   GetBrandRecommendationsParams,
   NegativeTargetingClauseResponse,
   CreateNegativeTargetingClausesParams,
+  NegativeTargetingClause,
+  NegativeTargetingClauseExtended,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
-  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/targets`
+  protected targetResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/targets`
   protected negativeTargetsResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/negativeTargets`
 
   @Decode(TargetingClause)
   public getTargetingClause(targetId: TargetId) {
-    return this.client.get<TargetingClause>(`${this.resource}/${targetId}`)
+    return this.client.get<TargetingClause>(`${this.targetResource}/${targetId}`)
   }
 
   @Decode(TargetingClauseExtended)
   public getTargetingClauseExtended(targetId: TargetId) {
-    return this.client.get<TargetingClauseExtended>(`${this.resource}/extended/${targetId}`)
+    return this.client.get<TargetingClauseExtended>(`${this.targetResource}/extended/${targetId}`)
   }
 
   @DecodeArray(TargetingClause)
   public listTargetingClauses(params?: ListTargetingClausesParams) {
-    return this.client.get<TargetingClause[]>(this.paramsFilterTransformer('', params))
+    return this.client.get<TargetingClause[]>(
+      this.paramsFilterTransformer(this.targetResource, params),
+    )
   }
 
   @DecodeArray(TargetingClauseExtended)
   public listTargetingClausesExtended(params?: ListTargetingClausesParams) {
     return this.client.get<TargetingClauseExtended[]>(
-      this.paramsFilterTransformer('/extended', params),
+      this.paramsFilterTransformer(`${this.targetResource}/extended`, params),
     )
   }
 
   @DecodeArray(TargetingClauseResponse)
   public createTargetingClauses(params: CreateTargetingClausesParams[]) {
-    return this.client.post<TargetingClauseResponse[]>(this.resource, params)
+    return this.client.post<TargetingClauseResponse[]>(this.targetResource, params)
   }
 
   @DecodeArray(TargetingClauseResponse)
   public updateTargetingClauses(params: UpdateTargetingClausesParams[]) {
-    return this.client.put<TargetingClauseResponse[]>(this.resource, params)
+    return this.client.put<TargetingClauseResponse[]>(this.targetResource, params)
   }
 
   @Decode(TargetingClauseResponse)
   public archiveTargetingClause(targetId: TargetId) {
-    return this.client.delete<TargetingClauseResponse>(`${this.resource}/${targetId}`)
+    return this.client.delete<TargetingClauseResponse>(`${this.targetResource}/${targetId}`)
   }
 
   @Decode(ProductRecommendationResponse)
   public createTargetRecommendations(params: ProductRecommendationRequest) {
     return this.client.post<ProductRecommendationResponse>(
-      `${this.resource}/productRecommendations`,
+      `${this.targetResource}/productRecommendations`,
       params,
     )
   }
@@ -73,23 +77,37 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   @DecodeArray(CategoryResponse)
   public getTargetingCategories(asins: string[]) {
     return this.client.get<CategoryResponse[]>(
-      this.paramsFilterTransformer('/categories', { asins }),
+      this.paramsFilterTransformer(`${this.targetResource}/categories`, { asins }),
     )
   }
 
   @Decode(RefinementsResponse)
   public getRefinementsForCategory(categoryId: CategoryId) {
     return this.client.get<RefinementsResponse>(
-      this.paramsFilterTransformer('/categories/refinements', { categoryId }),
+      this.paramsFilterTransformer(`${this.targetResource}/categories/refinements`, { categoryId }),
     )
   }
 
   @DecodeArray(BrandResponse)
   public getBrandRecommendations(params: GetBrandRecommendationsParams) {
-    return this.client.get<BrandResponse>(this.paramsFilterTransformer('/brands', params))
+    return this.client.get<BrandResponse>(
+      this.paramsFilterTransformer(`${this.targetResource}/brands`, params),
+    )
   }
 
   // Negative targeting clauses operations
+
+  @Decode(NegativeTargetingClause)
+  public getNegativeTargetingClause(targetId: TargetId) {
+    return this.client.get<NegativeTargetingClause>(`${this.negativeTargetsResource}/${targetId}`)
+  }
+
+  @Decode(NegativeTargetingClauseExtended)
+  public getNegativeTargetingClauseExtended(targetId: TargetId) {
+    return this.client.get<NegativeTargetingClauseExtended>(
+      `${this.negativeTargetsResource}/extended/${targetId}`,
+    )
+  }
 
   @DecodeArray(NegativeTargetingClauseResponse)
   public createNegativeTargetingClauses(params: CreateNegativeTargetingClausesParams[]) {
