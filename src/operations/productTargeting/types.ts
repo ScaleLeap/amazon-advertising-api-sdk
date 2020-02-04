@@ -429,3 +429,57 @@ export const CreateNegativeTargetingClausesParams = t.strict({
 export type CreateNegativeTargetingClausesParams = t.TypeOf<
   typeof CreateNegativeTargetingClausesParams
 >
+
+export const NegativeTargetingClause = t.strict({
+  /**
+   * The ID of the target
+   */
+  targetId: TargetId,
+
+  /**
+   * The ID of the campaign to which this target belongs
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The ID of the ad group to which this target belongs.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * Advertiser-specified state of the target
+   */
+  state: TargetingClauseStateType,
+
+  /**
+   * The expression to match against search queries
+   */
+  expression: TargetingExpressions,
+
+  /**
+   * The type of expression
+   */
+  expressionType: ExpressionType,
+})
+export type NegativeTargetingClause = t.TypeOf<typeof NegativeTargetingClause>
+
+export const NegativeTargetingClauseExtended = t.intersection([
+  NegativeTargetingClause,
+  t.strict({
+    /**
+     * The date the ad group was created as epoch time in milliseconds.
+     */
+    creationDate: DateFromNumber,
+
+    /**
+     * The date the ad group was last updated as epoch time in milliseconds.
+     */
+    lastUpdatedDate: DateFromNumber,
+
+    /**
+     * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
+     */
+    servingStatus: TargetingClauseServingStatusType,
+  }),
+])
+export type NegativeTargetingClauseExtended = t.TypeOf<typeof NegativeTargetingClauseExtended>
