@@ -43,7 +43,7 @@ describe('ProfileOperation', () => {
 
   describe('updateProfiles', () => {
     it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      expect.assertions(4)
+      expect.assertions(5)
 
       await delay()
 
