@@ -63,6 +63,8 @@ describe('ProfileOperation', () => {
         expect(res[0].profileId).toBe(TEST_PROFILE_ID)
       }
 
+      await delay()
+
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
       expect(profile).toBeTruthy()
     })
@@ -70,6 +72,8 @@ describe('ProfileOperation', () => {
 
   describe.skip('registerProfile', () => {
     it(`should work with default params ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       const profile = await profileOperation.registerProfile()
       expect(profile).toBeTruthy()
     })
@@ -77,6 +81,8 @@ describe('ProfileOperation', () => {
 
   describe.skip('registerBrand', () => {
     it(`should return success ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       const param = {
         countryCode: CountryCodeEnum.US,
         brand: 'yay',
