@@ -23,6 +23,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 202694745498469
   const TARGET_ID = 256247845256441
+  const NEGATIVE_TARGET_ID = 160326773421036
   const CATEGORY_ID = 2335752011
   const ASIN = 'B07663Z46Z'
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
@@ -212,6 +213,26 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.createNegativeTargetingClauses(params)
 
       expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('getNegativeTargetingClause', () => {
+    it(`should retrieve a negative targeting clause with a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getNegativeTargetingClause(NEGATIVE_TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
+    })
+  })
+
+  describe('getNegativeTargetingClauseExtended', () => {
+    it(`should retrieve a negative targeting clause with additional attributes using a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.getNegativeTargetingClauseExtended(NEGATIVE_TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
     })
   })
 })
