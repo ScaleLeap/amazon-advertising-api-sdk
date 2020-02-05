@@ -32,6 +32,7 @@ jobs:
         npm run test:passthrough
         npm run build
       env:
+        POLLY_MODE: replay
         TEST_ACCESS_TOKEN: ${{ secrets.TEST_ACCESS_TOKEN }}
         TEST_APPLICATION_ID: ${{ secrets.TEST_APPLICATION_ID }}
         TEST_CLIENT_ID: ${{ secrets.TEST_CLIENT_ID }}
