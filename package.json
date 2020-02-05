@@ -10,7 +10,7 @@
     "build": "tsc",
     "lint": "eslint --ext .js,.ts src test",
     "test": "jest",
-    "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'",
+    "test:passthrough": "cross-env POLLY_MODE=passthrough JEST_DELAY=500 npm test -- --maxConcurrency=1 --maxWorkers=1 -t 'polly:passthrough'",
     "dev:refresh-token": "ts-node test/refresh-token.ts"
   },
   "keywords": [],
