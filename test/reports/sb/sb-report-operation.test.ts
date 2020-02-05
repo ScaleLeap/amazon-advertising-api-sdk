@@ -2,7 +2,7 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
 import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
-import { DateTimeUtils, delay } from '../../test-utils'
+import { DateTimeUtils } from '../../test-utils'
 import { SponsoredBrandsReportOperation } from '../../../src/operations/reports/sb/sb-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
 import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
@@ -33,8 +33,6 @@ describe('SponsoredBrandsReportOperation', () => {
     })
 
     it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS,
         metrics: [
@@ -55,8 +53,6 @@ describe('SponsoredBrandsReportOperation', () => {
     })
 
     it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
         metrics: [
@@ -77,8 +73,6 @@ describe('SponsoredBrandsReportOperation', () => {
 
   describe('getReport', () => {
     it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
         metrics: [
