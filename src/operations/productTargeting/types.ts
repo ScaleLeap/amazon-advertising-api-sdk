@@ -483,3 +483,30 @@ export const NegativeTargetingClauseExtended = t.intersection([
   }),
 ])
 export type NegativeTargetingClauseExtended = t.TypeOf<typeof NegativeTargetingClauseExtended>
+
+export const ListNegativeTargetingClausesParams = t.intersection([
+  ListPagination,
+  t.partial({
+    /**
+     * Restricts results to targets with state within the specified comma-separated list.
+     * Possible filter types are: enabled, paused, or archived
+     */
+    stateFilter: TargetingClauseStateType,
+
+    /**
+     * Restricts results to targets within campaigns specified in comma-separated list.
+     */
+    campaignIdFilter: CampaignIds,
+
+    /**
+     * Restricts results to targets within ad groups specified in comma-separated list.
+     */
+    adGroupIdFilter: AdGroupIds,
+
+    /**
+     * Restricts results to targets with the specified target Ids specified in comma-separated list.
+     */
+    targetIdFilter: TargetIds,
+  }),
+])
+export type ListNegativeTargetingClausesParams = t.TypeOf<typeof ListNegativeTargetingClausesParams>
