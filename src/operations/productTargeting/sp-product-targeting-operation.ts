@@ -21,6 +21,7 @@ import {
   CreateNegativeTargetingClausesParams,
   NegativeTargetingClause,
   NegativeTargetingClauseExtended,
+  ListNegativeTargetingClausesParams,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
@@ -112,5 +113,19 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   @DecodeArray(NegativeTargetingClauseResponse)
   public createNegativeTargetingClauses(params: CreateNegativeTargetingClausesParams[]) {
     return this.client.post<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
+  }
+
+  @DecodeArray(NegativeTargetingClause)
+  public listNegativeTargetingClauses(params?: ListNegativeTargetingClausesParams) {
+    return this.client.get<NegativeTargetingClause[]>(
+      this.paramsFilterTransformer(this.negativeTargetsResource, params),
+    )
+  }
+
+  @DecodeArray(NegativeTargetingClauseExtended)
+  public listNegativeTargetingClausesExtended(params?: ListNegativeTargetingClausesParams) {
+    return this.client.get<NegativeTargetingClauseExtended[]>(
+      this.paramsFilterTransformer(`${this.negativeTargetsResource}/extended`, params),
+    )
   }
 }

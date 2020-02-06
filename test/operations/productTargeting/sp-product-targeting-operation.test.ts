@@ -12,6 +12,7 @@ import {
   UpdateTargetingClausesParams,
   ProductRecommendationRequest,
   CreateNegativeTargetingClausesParams,
+  ListNegativeTargetingClausesParams,
 } from '../../../src/operations/productTargeting/types'
 
 setupPolly()
@@ -229,6 +230,52 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   describe('getNegativeTargetingClauseExtended', () => {
     it(`should retrieve a negative targeting clause with additional attributes using a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getNegativeTargetingClauseExtended(NEGATIVE_TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
+    })
+  })
+
+  describe('listNegativeTargetingClauses', () => {
+    it(`should retrieve a list of negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.listNegativeTargetingClauses()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it(`should retrieve a list of negative targeting clauses satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ListNegativeTargetingClausesParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        targetIdFilter: [NEGATIVE_TARGET_ID],
+      }
+      const [res] = await operation.listNegativeTargetingClauses(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
+    })
+  })
+
+  describe('listNegativeTargetingClausesExtended', () => {
+    it(`should retrieve a list of negative targeting clauses with additional attributes ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.listNegativeTargetingClausesExtended()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it(`should retrieve a list of negative targeting clauses with additional attributes satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: ListNegativeTargetingClausesParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        targetIdFilter: [NEGATIVE_TARGET_ID],
+      }
+      const [res] = await operation.listNegativeTargetingClausesExtended(params)
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
