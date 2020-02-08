@@ -130,6 +130,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  @Decode(NegativeTargetingClauseResponse)
+  public archiveNegativeTargetingClause(targetId: TargetId) {
+    return this.client.delete<NegativeTargetingClauseResponse>(
+      `${this.negativeTargetsResource}/${targetId}`,
+    )
+  }
+
   @DecodeArray(NegativeTargetingClauseResponse)
   public updateNegativeTargetingClauses(params: UpdateNegativeTargetingClausesParams[]) {
     return this.client.put<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
