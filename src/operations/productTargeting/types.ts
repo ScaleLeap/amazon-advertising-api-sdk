@@ -344,6 +344,11 @@ export type ListTargetingClausesParams = t.TypeOf<typeof ListTargetingClausesPar
 
 export const UpdateTargetingClausesParams = t.partial({
   /**
+   * The ID of the target
+   */
+  targetId: TargetId,
+
+  /**
    * The ID of the campaign to which this target belongs
    */
   campaignId: CampaignId,
