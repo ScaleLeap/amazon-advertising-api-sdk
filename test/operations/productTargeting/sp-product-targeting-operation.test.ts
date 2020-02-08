@@ -285,6 +285,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
+  describe('archiveNegativeTargetingClause', () => {
+    it(`should archive negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res = await operation.archiveNegativeTargetingClause(NEGATIVE_TARGET_ID)
+
+      expect(res).toHaveProperty('targetId')
+    })
+  })
+
   describe('updateNegativeTargetingClauses', () => {
     it(`should updates one or more negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateNegativeTargetingClausesParams[] = [
