@@ -127,6 +127,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
         {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
+          targetId: TARGET_ID,
           state: TargetingClauseStateEnum.PAUSED,
           expression: [
             {
