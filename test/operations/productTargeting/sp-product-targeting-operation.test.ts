@@ -128,7 +128,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           targetId: TARGET_ID,
-          state: TargetingClauseStateEnum.PAUSED,
+          state: TargetingClauseStateEnum.ARCHIVED,
           expression: [
             {
               type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
@@ -145,7 +145,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe('archiveTargetingClause', () => {
+  describe.skip('archiveTargetingClause', () => {
     it(`should set the status of targeting clauses to archived ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveTargetingClause(TARGET_ID)
 
@@ -285,7 +285,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe('archiveNegativeTargetingClause', () => {
+  describe.skip('archiveNegativeTargetingClause', () => {
     it(`should archive negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveNegativeTargetingClause(NEGATIVE_TARGET_ID)
 
@@ -300,7 +300,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           targetId: NEGATIVE_TARGET_ID,
-          state: TargetingClauseStateEnum.PAUSED,
+          state: TargetingClauseStateEnum.ARCHIVED,
           expression: [
             {
               type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
