@@ -432,22 +432,22 @@ export type CreateNegativeTargetingClausesParams = t.TypeOf<
 
 export const NegativeTargetingClause = t.strict({
   /**
-   * The ID of the target
+   * The ID of the negative target
    */
   targetId: TargetId,
 
   /**
-   * The ID of the campaign to which this target belongs
+   * The ID of the campaign to which this negative target belongs
    */
   campaignId: CampaignId,
 
   /**
-   * The ID of the ad group to which this target belongs.
+   * The ID of the ad group to which this negative target belongs.
    */
   adGroupId: AdGroupId,
 
   /**
-   * Advertiser-specified state of the target
+   * Advertiser-specified state of the negative target
    */
   state: TargetingClauseStateType,
 
@@ -510,3 +510,38 @@ export const ListNegativeTargetingClausesParams = t.intersection([
   }),
 ])
 export type ListNegativeTargetingClausesParams = t.TypeOf<typeof ListNegativeTargetingClausesParams>
+
+export const UpdateNegativeTargetingClausesParams = t.partial({
+  /**
+   * The ID of the negative target.
+   */
+  targetId: TargetId,
+
+  /**
+   * The ID of the campaign to which this negative target belongs.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The ID of the ad group to which this negative target belongs.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * Advertiser-specified state of the negative target.
+   */
+  state: TargetingClauseStateType,
+
+  /**
+   * The expression to match against search queries.
+   */
+  expression: TargetingExpressions,
+
+  /**
+   * The type of expression.
+   */
+  expressionType: ExpressionType,
+})
+export type UpdateNegativeTargetingClausesParams = t.TypeOf<
+  typeof UpdateNegativeTargetingClausesParams
+>

@@ -13,6 +13,7 @@ import {
   ProductRecommendationRequest,
   CreateNegativeTargetingClausesParams,
   ListNegativeTargetingClausesParams,
+  UpdateNegativeTargetingClausesParams,
 } from '../../../src/operations/productTargeting/types'
 
 setupPolly()
@@ -280,6 +281,29 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
       expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
+    })
+  })
+
+  describe('updateNegativeTargetingClauses', () => {
+    it(`should updates one or more negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: UpdateNegativeTargetingClausesParams[] = [
+        {
+          campaignId: CAMPAIGN_ID,
+          adGroupId: AD_GROUP_ID,
+          targetId: NEGATIVE_TARGET_ID,
+          state: TargetingClauseStateEnum.PAUSED,
+          expression: [
+            {
+              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              value: ASIN,
+            },
+          ],
+          expressionType: ExpressionTypeEnum.MANUAL,
+        },
+      ]
+      const [res] = await operation.updateNegativeTargetingClauses(params)
+
+      expect(res).toHaveProperty('targetId')
     })
   })
 })
