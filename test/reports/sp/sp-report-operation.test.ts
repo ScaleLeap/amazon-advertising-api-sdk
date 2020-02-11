@@ -169,8 +169,10 @@ describe('SponsoredProductsReportOperation', () => {
     })
   })
 
-  describe.skip('downloadReport', () => {
+  describe('downloadReport', () => {
     it(`should return the report uncompressed ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [
@@ -180,6 +182,8 @@ describe('SponsoredProductsReportOperation', () => {
         ],
         reportDate: DateTimeUtils.getCurrentISODate(),
       })
+
+      await delay()
 
       const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
         requestReportResult.reportId,
