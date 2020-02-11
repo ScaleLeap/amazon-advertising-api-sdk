@@ -4,11 +4,14 @@ import {
   CampaignStateEnum,
   CampaignTargetingEnum,
   CampaignTypeEnum,
+  CampaignBidding,
 } from '../src/operations/campaigns/types'
 import { httpClientFactory } from './http-client-factory'
 import setupPolly from './polly'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
-import { DateTimeUtils } from './datetime-utils'
+import { DateTimeUtils } from './test-utils'
+import { CampaignBiddingStrategyEnum } from '../src/operations/bidding/campaign-bidding-strategy'
+import { CampaignBiddingAdjustmentsPredicateEnum } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
 
 setupPolly()
 
@@ -16,6 +19,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const campaignOperation = operationProvider.create(SponsoredProductsCampaignOperation)
+  const startDate = DateTimeUtils.getCurrentISODate()
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
@@ -68,23 +72,53 @@ describe('SponsoredProductsCampaignOperation', () => {
           dailyBudget: 1,
           state: CampaignStateEnum.ENABLED,
           targetingType: CampaignTargetingEnum.MANUAL,
-          startDate: DateTimeUtils.getCurrentISODate(),
-          premiumBidAdjustment: true,
+          startDate,
         },
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
     })
+
+    it(`should create a campaign with auto bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const bidding: CampaignBidding = {
+        strategy: CampaignBiddingStrategyEnum.AUTO_FOR_SALES,
+        adjustments: [
+          {
+            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
+            percentage: 900,
+          },
+        ],
+      }
+
+      const [createdCampaignResponse] = await campaignOperation.createCampaigns([
+        {
+          name: `test campaign ${startDate + 1}`,
+          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
+          dailyBudget: 1,
+          state: CampaignStateEnum.PAUSED,
+          targetingType: CampaignTargetingEnum.MANUAL,
+          startDate,
+          bidding,
+        },
+      ])
+
+      expect(createdCampaignResponse.code).toBe('SUCCESS')
+
+      if (createdCampaignResponse.code === 'SUCCESS') {
+        const res = await campaignOperation.getCampaign(createdCampaignResponse.campaignId)
+        expect(res.bidding).toMatchObject(bidding)
+      }
+    })
   })
 
   describe('updateCampaigns', () => {
-    it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const portfolioId = 77985496739778
-      const name = 'new name'
-      const state = CampaignStateEnum.PAUSED
-      const dailyBudget = 7
+    const portfolioId = 77985496739778
+    const name = 'new name'
+    const state = CampaignStateEnum.PAUSED
+    const dailyBudget = 7
 
-      const res = await campaignOperation.updateCampaigns([
+    it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const [updateCampaignResponse] = await campaignOperation.updateCampaigns([
         {
           campaignId: CAMPAIGN_ID,
           portfolioId,
@@ -93,15 +127,41 @@ describe('SponsoredProductsCampaignOperation', () => {
           dailyBudget,
         },
       ])
-
-      expect(Array.isArray(res)).toBeTruthy()
-
-      const campaign = await campaignOperation.getCampaign(CAMPAIGN_ID)
+      const campaign = await campaignOperation.getCampaign(updateCampaignResponse.campaignId)
 
       expect(campaign.portfolioId).toBe(portfolioId)
       expect(campaign.name).toBe(name)
       expect(campaign.state).toBe(state)
       expect(campaign.dailyBudget).toBe(dailyBudget)
+    })
+
+    it(`should update a campaign with manual bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const bidding: CampaignBidding = {
+        strategy: CampaignBiddingStrategyEnum.MANUAL,
+        adjustments: [
+          {
+            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
+            percentage: 1,
+          },
+          {
+            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_PRODUCT_PAGE,
+            percentage: 2,
+          },
+        ],
+      }
+
+      const [updateCampaignResponse] = await campaignOperation.updateCampaigns([
+        {
+          campaignId: CAMPAIGN_ID,
+          portfolioId,
+          name,
+          state,
+          dailyBudget,
+          bidding,
+        },
+      ])
+
+      expect(updateCampaignResponse.code).toBe('SUCCESS')
     })
   })
 

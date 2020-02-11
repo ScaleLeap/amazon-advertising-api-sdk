@@ -44,37 +44,55 @@ export enum PortfolioStateEnum {
 export const PortfolioStateType = createEnumType<PortfolioStateEnum>(PortfolioStateEnum)
 export type PortfolioStateType = t.TypeOf<typeof PortfolioStateType>
 
-export const Portfolio = t.strict({
-  /**
-   * The ID of the portfolio.
-   */
-  portfolioId: PortfolioId,
+/**
+ * The mutation status of the portfolio.
+ */
+export enum PortfolioResponseStatusEnum {
+  SUCCESS = 'SUCCESS',
+  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
+  NOT_FOUND = 'NOT_FOUND',
+}
 
-  /**
-   * The name of the portfolio.
-   */
-  name: PortfolioName,
+export const PortfolioResponseStatusType = createEnumType<PortfolioResponseStatusEnum>(
+  PortfolioResponseStatusEnum,
+)
+export type PortfolioResponseStatusType = t.TypeOf<typeof PortfolioResponseStatusType>
 
-  /**
-   * The budget of the portfolio.
-   */
-  budget: PortfolioBudget,
+export const Portfolio = t.intersection([
+  t.type({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
 
-  /**
-   * States if the portfolio is still within budget.
-   */
-  inBudget: t.boolean,
+    /**
+     * The name of the portfolio.
+     */
+    name: PortfolioName,
 
-  /**
-   * The status of the portfolio.
-   */
-  state: PortfolioStateType,
-})
+    /**
+     * States if the portfolio is still within budget.
+     */
+    inBudget: t.boolean,
+
+    /**
+     * The status of the portfolio.
+     */
+    state: PortfolioStateType,
+  }),
+  t.partial({
+    /**
+     * The budget of the portfolio.
+     */
+    budget: PortfolioBudget,
+  }),
+])
+
 export type Portfolio = t.TypeOf<typeof Portfolio>
 
 export const PortfolioExtended = t.intersection([
   Portfolio,
-  t.strict({
+  t.type({
     /**
      * The date the portfolio was created.
      */
@@ -93,31 +111,21 @@ export const PortfolioExtended = t.intersection([
 ])
 export type PortfolioExtended = t.TypeOf<typeof PortfolioExtended>
 
-export enum PortfolioMutationResponseCodeEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-}
+export const PortfolioResponse = t.intersection([
+  t.type({
+    /**
+     * The mutation status of the portfolio.
+     */
+    code: PortfolioResponseStatusType,
+  }),
+  t.partial({
+    portfolioId: PortfolioId,
+    description: t.string,
+  }),
+])
+export type PortfolioResponse = t.TypeOf<typeof PortfolioResponse>
 
-export const PortfolioMutationResponseCodeType = createEnumType<PortfolioMutationResponseCodeEnum>(
-  PortfolioMutationResponseCodeEnum,
-)
-export type PortfolioMutationResponseCodeType = t.TypeOf<typeof PortfolioMutationResponseCodeType>
-
-export const PortfolioMutationResponse = t.strict({
-  /**
-   * The mutation status of the portfolio.
-   */
-  code: PortfolioMutationResponseCodeType,
-
-  /**
-   * The mutation status of the portfolio.
-   */
-  portfolioId: PortfolioId,
-})
-export type PortfolioMutationResponse = t.TypeOf<typeof PortfolioMutationResponse>
-
-export const ListPortfoliosParams = t.strict({
+export const ListPortfoliosParams = t.partial({
   /**
    * Retrieve the portfolios with the specified IDs.
    */
@@ -135,26 +143,29 @@ export const ListPortfoliosParams = t.strict({
 })
 export type ListPortfoliosParams = t.TypeOf<typeof ListPortfoliosParams>
 
-export const CreatePortfoliosParams = t.strict({
-  /**
-   * The name of the requested portfolio.
-   */
-  name: PortfolioName,
+export const CreatePortfoliosParams = t.intersection([
+  t.type({
+    /**
+     * The name of the requested portfolio.
+     */
+    name: PortfolioName,
+    /**
+     * The state of the requested portfolio.
+     */
+    state: PortfolioStateType,
+  }),
+  t.partial({
+    /**
+     * The portfolio budget. If budget is specified, then policy and startDate are required fields. Mutable fields are: amount, policy, startDate, and endDate.
+     */
+    budget: PortfolioBudget,
+  }),
+])
 
-  /**
-   * The portfolio budget. If budget is specified, then policy and startDate are required fields. Mutable fields are: amount, policy, startDate, and endDate.
-   */
-  budget: PortfolioBudget,
-
-  /**
-   * The state of the requested portfolio.
-   */
-  state: PortfolioStateType,
-})
 export type CreatePortfoliosParams = t.TypeOf<typeof CreatePortfoliosParams>
 
 export const UpdatePortfoliosParams = t.intersection([
-  t.strict({
+  t.type({
     /**
      * The ID of the portfolio.
      */

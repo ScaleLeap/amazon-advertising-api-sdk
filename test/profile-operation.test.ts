@@ -5,8 +5,10 @@ import { Profile, RegisterProfileResponseStatusEnum } from '../src/operations/pr
 import setupPolly from './polly'
 import { CountryCodeEnum } from '../src/operations/commons/types'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
+import { delay } from './test-utils'
 
 setupPolly()
+jest.setTimeout(15000)
 
 describe('ProfileOperation', () => {
   const client = httpClientFactory()
@@ -16,6 +18,8 @@ describe('ProfileOperation', () => {
 
   describe('listProfiles', () => {
     it(`should return an array or profiles ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       const res: Profile[] = await profileOperation.listProfiles()
 
       expect(Array.isArray(res)).toBeTruthy()
@@ -24,6 +28,8 @@ describe('ProfileOperation', () => {
 
   describe('getProfile', () => {
     it(`should return a profile object ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       expect.assertions(2)
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
 
@@ -38,6 +44,9 @@ describe('ProfileOperation', () => {
   describe('updateProfiles', () => {
     it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
       expect.assertions(5)
+
+      await delay()
+
       const dailyBudget = 340
 
       const res = await profileOperation.updateProfiles([
@@ -55,6 +64,8 @@ describe('ProfileOperation', () => {
         expect(res[0].profileId).toBe(TEST_PROFILE_ID)
       }
 
+      await delay()
+
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
       expect(profile).toBeTruthy()
     })
@@ -62,6 +73,8 @@ describe('ProfileOperation', () => {
 
   describe.skip('registerProfile', () => {
     it(`should work with default params ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       const profile = await profileOperation.registerProfile()
       expect(profile).toBeTruthy()
     })
@@ -69,6 +82,8 @@ describe('ProfileOperation', () => {
 
   describe.skip('registerBrand', () => {
     it(`should return success ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      await delay()
+
       const param = {
         countryCode: CountryCodeEnum.US,
         brand: 'yay',

@@ -3,12 +3,17 @@ import * as t from 'io-ts'
 import { ResponseStatus, ListPagination, createEnumType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { PortfolioId } from '../portfolios/types'
+import { CampaignBiddingStrategyType } from '../bidding/campaign-bidding-strategy'
+import { CampaignBiddingAdjustments } from '../bidding/campaign-bidding-adjustments-predicate'
 
 /**
  * The ID of the campaign.
  */
 export const CampaignId = t.number
 export type CampaignId = t.TypeOf<typeof CampaignId>
+
+export const CampaignIds = t.array(CampaignId)
+export type CampaignIds = t.TypeOf<typeof CampaignIds>
 
 /**
  * The name of the campaign.
@@ -49,6 +54,12 @@ export enum CampaignStateEnum {
 
 export const CampaignStateType = createEnumType<CampaignStateEnum>(CampaignStateEnum)
 export type CampaignStateType = t.TypeOf<typeof CampaignStateType>
+
+export const CampaignBidding = t.type({
+  strategy: CampaignBiddingStrategyType,
+  adjustments: CampaignBiddingAdjustments,
+})
+export type CampaignBidding = t.TypeOf<typeof CampaignBidding>
 
 export const Campaign = t.partial({
   /**
@@ -100,8 +111,49 @@ export const Campaign = t.partial({
    * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
    */
   premiumBidAdjustment: t.boolean,
+
+  bidding: CampaignBidding,
 })
 export type Campaign = t.TypeOf<typeof Campaign>
+
+export const SponsoredProductsCampaignCreateParams = t.intersection([
+  t.type({
+    /**
+     * Campaign name limit is 128 characters.
+     * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
+     */
+    name: CampaignName,
+
+    campaignType: CampaignType,
+
+    /**
+     * Differentiates between a keyword-targeted and automatically targeted campaign.
+     */
+    targetingType: CampaignTargetingType,
+
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignStateType,
+
+    /**
+     * Daily budget for the campaign.
+     */
+    dailyBudget: t.number,
+
+    /**
+     * The date the campaign will go or went live as YYYYMMDD.
+     */
+    startDate: t.string,
+  }),
+
+  t.partial({
+    bidding: CampaignBidding,
+  }),
+])
+export type SponsoredProductsCampaignCreateParams = t.TypeOf<
+  typeof SponsoredProductsCampaignCreateParams
+>
 
 export const SponsoredProductsCampaignUpdateParams = t.intersection([
   t.type({
@@ -142,6 +194,8 @@ export const SponsoredProductsCampaignUpdateParams = t.intersection([
      * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
      */
     premiumBidAdjustment: t.boolean,
+
+    bidding: CampaignBidding,
   }),
 ])
 
@@ -466,7 +520,7 @@ export const ListCampaignsParams = t.intersection([
     /**
      * Restricts results to campaigns with the specified identifier.
      */
-    campaignIdFilter: t.array(CampaignId),
+    campaignIdFilter: CampaignIds,
   }),
 ])
 export type ListCampaignsParams = t.TypeOf<typeof ListCampaignsParams>

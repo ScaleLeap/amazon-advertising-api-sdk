@@ -57,7 +57,7 @@ describe('PortfolioExtended', () => {
 
 describe('PortfolioMutationResponse', () => {
   it('should pass createPortfolios and updatePortfolios response', () => {
-    const res = t.PortfolioMutationResponse.decode({
+    const res = t.PortfolioResponse.decode({
       code: 'SUCCESS',
       portfolioId: 1234567890,
     })
@@ -66,7 +66,7 @@ describe('PortfolioMutationResponse', () => {
   })
 
   it('should fail', () => {
-    const res = t.PortfolioMutationResponse.decode({})
+    const res = t.PortfolioResponse.decode({})
 
     expect(isRight(res)).toBeFalsy()
   })
@@ -81,12 +81,6 @@ describe('ListPortfoliosParams', () => {
     })
 
     expect(isRight(res)).toBeTruthy()
-  })
-
-  it('should fail', () => {
-    const res = t.ListPortfoliosParams.decode({})
-
-    expect(isRight(res)).toBeFalsy()
   })
 })
 
