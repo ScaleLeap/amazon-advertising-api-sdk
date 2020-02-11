@@ -195,8 +195,8 @@ export class HttpClient {
       case JSON_CONTENT_TYPE:
         return bufferToJson(buffer)
       case 'application/octet-stream': {
-        const bufferHex = Buffer.from(buffer.toString(), 'hex')
-        return gunzip(bufferHex).then(bufferToJson)
+        // const bufferHex = Buffer.from(buffer.toString(), 'hex')
+        return gunzip(buffer).then(bufferToJson)
       }
       default:
         throw new InvalidProgramStateError(`Unknown Content-Type: ${contentType}`)
