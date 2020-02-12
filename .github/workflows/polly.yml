@@ -2,10 +2,9 @@ name: Polly Recordings
 
 on:
   push:
-    branches:
-      - '*'
-      - '!polly-recordings'
-      - '!master'
+    branches-ignore:
+      - polly-recordings
+      - master
     paths:
       - '**.test.ts'
 
