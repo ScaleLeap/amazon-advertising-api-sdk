@@ -1,6 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
-import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { DateTimeUtils, delay } from '../../test-utils'
 import { SponsoredBrandsReportOperation } from '../../../src/operations/reports/sb/sb-report-operation'
@@ -10,7 +9,6 @@ import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metri
 import { KeywordReportMetricsEnum } from '../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
 
-setupPolly()
 jest.setTimeout(15000)
 
 describe('SponsoredBrandsReportOperation', () => {

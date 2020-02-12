@@ -4,5 +4,6 @@ module.exports = {
   testPathIgnorePatterns : [
     '<rootDir>/node_modules/',
     '<rootDir>/lib/'
-  ]
+  ],
+  setupFilesAfterEnv: ['@scaleleap/jest-polly', './test/polly.js'],
 };

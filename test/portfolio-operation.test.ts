@@ -1,10 +1,8 @@
 import { httpClientFactory } from './http-client-factory'
-import setupPolly from './polly'
 import { OperationProvider } from '../src/operations/operation-provider'
 import { PortfolioOperation } from '../src/operations/portfolios/portfolio-operation'
 import { PortfolioStateEnum, PortfolioResponseStatusEnum } from '../src/operations/portfolios/types'
 
-setupPolly()
 describe('PortfolioOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)

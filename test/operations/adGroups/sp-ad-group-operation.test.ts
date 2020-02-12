@@ -1,15 +1,12 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredProductsAdGroupOperation } from '../../../src/operations/adGroups/sp-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {
   AdGroupStateEnum,
   AdGroupServingStatusEnum,
   AdGroupResponseStatusEnum,
 } from '../../../src/operations/adGroups/types'
-
-setupPolly()
 
 describe('SponsoredProductsAdGroupOperation', () => {
   const client = httpClientFactory()

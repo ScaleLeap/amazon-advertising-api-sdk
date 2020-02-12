@@ -1,15 +1,14 @@
 import { OAuthClient } from '../src/o-auth-client'
 import { Token } from 'client-oauth2'
 import { config } from './config'
-import setupPolly from './polly'
 import { parse, stringify } from 'querystring'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
+import { jestPollyContext } from '@scaleleap/jest-polly'
 
 const URI = 'https://example.com'
 const PLACEHOLDER = 'x'
 
 describe(OAuthClient.name, () => {
-  const context = setupPolly()
   let client: OAuthClient
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe(OAuthClient.name, () => {
       redirectUri: URI,
     })
 
-    context.polly.server
+    jestPollyContext.polly.server
       .post('https://api.amazon.com/auth/o2/token')
       .on('beforeResponse', (req, res) => {
         /* eslint-disable @typescript-eslint/camelcase */

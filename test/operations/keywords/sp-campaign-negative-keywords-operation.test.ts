@@ -1,4 +1,3 @@
-import setupPolly from '../../polly'
 import { SponsoredProductsCampaignNegativeKeywordsOperation } from '../../../src/operations/keywords/sp-campaign-negative-keywords-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
@@ -13,8 +12,6 @@ import {
   ListCampaignNegativeKeywordsParam,
   UpdateCampaignNegativeKeywordsParam,
 } from '../../../src/operations/keywords/types'
-
-setupPolly()
 
 describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   const client = httpClientFactory()

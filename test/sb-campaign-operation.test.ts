@@ -6,10 +6,7 @@ import {
   CampaignTargetingEnum,
 } from '../src/operations/campaigns/types'
 import { httpClientFactory } from './http-client-factory'
-import setupPolly from './polly'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
-
-setupPolly()
 
 describe('SponsoredBrandsCampaignOperation', () => {
   const client = httpClientFactory()
