@@ -27,9 +27,7 @@ jobs:
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
         npm install
         npm run lint
-        export TEST_ACCESS_TOKEN=$(npm -s run dev:refresh-token -)
-        npm test
-        npm run test:passthrough
+        npm t
         npm run build
       env:
         TEST_ACCESS_TOKEN: ${{ secrets.TEST_ACCESS_TOKEN }}
@@ -39,15 +37,3 @@ jobs:
         TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
         TEST_SCOPE: ${{ secrets.TEST_SCOPE }}
         CI: true
-    - name: Commit files
-      run: |
-        git config --local user.email "scale-bot@scaleleap.com"
-        git config --local user.name "Scale Bot"
-        git add -A test/__recordings__
-        git diff-index --quiet HEAD || git commit -m "test: add Polly recordings"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: 'refs/heads/polly-recordings'
-        force: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
