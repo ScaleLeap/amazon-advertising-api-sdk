@@ -1,6 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
-import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { SponsoredProductsReportOperation } from '../../../src/operations/reports/sp/sp-report-operation'
 import { SponsoredProductsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
@@ -13,7 +12,6 @@ import { ProductAdsReportMetricsEnum } from '../../../src/operations/reports/met
 import { ProductTargetingReportMetricsEnum } from '../../../src/operations/reports/metrics/product-targeting-report-metrics-enum'
 import { AsinsReportMetricsEnum } from '../../../src/operations/reports/metrics/asins-report-metrics-enum'
 
-setupPolly()
 jest.setTimeout(15000)
 
 describe('SponsoredProductsReportOperation', () => {

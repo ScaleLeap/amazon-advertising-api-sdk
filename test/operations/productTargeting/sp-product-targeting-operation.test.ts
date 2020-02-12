@@ -1,4 +1,3 @@
-import setupPolly from '../../polly'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
@@ -15,8 +14,6 @@ import {
   ListNegativeTargetingClausesParams,
   UpdateNegativeTargetingClausesParams,
 } from '../../../src/operations/productTargeting/types'
-
-setupPolly()
 
 describe('SponsoredProductsProductTargetingOperation', () => {
   const client = httpClientFactory()

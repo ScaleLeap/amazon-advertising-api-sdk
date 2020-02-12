@@ -7,13 +7,10 @@ import {
   CampaignBidding,
 } from '../src/operations/campaigns/types'
 import { httpClientFactory } from './http-client-factory'
-import setupPolly from './polly'
 import { POLLY_PASSTHROUGH_TAG } from './constants'
 import { DateTimeUtils } from './test-utils'
 import { CampaignBiddingStrategyEnum } from '../src/operations/bidding/campaign-bidding-strategy'
 import { CampaignBiddingAdjustmentsPredicateEnum } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
-
-setupPolly()
 
 describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()

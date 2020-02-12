@@ -1,4 +1,3 @@
-import setupPolly from '../../polly'
 import { SponsoredProductsSuggestedKeywordsOperation } from '../../../src/operations/keywords/sp-suggested-keywords-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
@@ -9,8 +8,6 @@ import {
   GetAdGroupSuggestedKeywordsExtendedParams,
   SuggestBidsEnum,
 } from '../../../src/operations/keywords/types'
-
-setupPolly()
 
 describe('SponsoredProductsSuggestedKeywordsOperation', () => {
   const client = httpClientFactory()

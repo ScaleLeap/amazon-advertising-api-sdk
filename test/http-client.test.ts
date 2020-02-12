@@ -1,5 +1,5 @@
 import HttpStatus from 'http-status-codes'
-import setupPolly from './polly'
+import { jestPollyContext } from '@scaleleap/jest-polly'
 import { HttpClient } from '../src/http-client'
 import {
   NullError,
@@ -9,8 +9,6 @@ import {
 } from '../src/errors'
 
 import { httpClientFactory, SANDBOX_URI } from './http-client-factory'
-
-const context = setupPolly()
 
 describe('HttpClient', () => {
   let client: HttpClient
@@ -25,7 +23,7 @@ describe('HttpClient', () => {
     })
 
     it('should throw a known error object when encountering an error', () => {
-      const server = context.polly.server
+      const server = jestPollyContext.polly.server
 
       server.get(SANDBOX_URI + '/encountering-an-error').on('beforeResponse', (req, res) => {
         res.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -36,7 +34,7 @@ describe('HttpClient', () => {
     })
 
     it('should throw NullError when response body is null', () => {
-      const server = context.polly.server
+      const server = jestPollyContext.polly.server
 
       server.get(SANDBOX_URI + '/null-body').on('beforeResponse', (req, res) => {
         res.status(HttpStatus.OK)
@@ -47,7 +45,7 @@ describe('HttpClient', () => {
     })
 
     it('should throw a ResourceNotFoundError when resource is not found', () => {
-      const server = context.polly.server
+      const server = jestPollyContext.polly.server
 
       server.get(SANDBOX_URI + '/foobar').on('beforeResponse', (req, res) => {
         res.status(HttpStatus.NOT_FOUND)
@@ -64,7 +62,7 @@ describe('HttpClient', () => {
 
   describe('download', () => {
     it('should throw if location header not set', async () => {
-      const server = context.polly.server
+      const server = jestPollyContext.polly.server
 
       server.get(SANDBOX_URI + '/profiles').on('beforeResponse', (req, res) => {
         res.setHeader('Location', '')

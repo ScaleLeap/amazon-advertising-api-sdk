@@ -1,4 +1,3 @@
-import setupPolly from '../../polly'
 import { SponsoredProductsProductAdsOperation } from '../../../src/operations/productAds/sp-product-ads-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
@@ -9,8 +8,6 @@ import {
   UpdateProductAdParams,
   ListProductAdsParams,
 } from '../../../src/operations/productAds/types'
-
-setupPolly()
 
 describe('SponsoredProductsProductAdsOperation', () => {
   const client = httpClientFactory()
