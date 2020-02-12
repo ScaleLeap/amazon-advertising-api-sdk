@@ -3,6 +3,8 @@ name: Polly Recordings
 on:
   push:
     branches:
+      - '*'
+      - '!polly-recordings'
       - '!master'
     paths:
       - '**.test.ts'
