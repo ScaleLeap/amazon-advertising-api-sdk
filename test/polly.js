@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { jestPollyConfigService, jestPollyContext } = require('@scaleleap/jest-polly')
 const { resolve } = require('path')
 
