@@ -37,7 +37,7 @@ jobs:
         git config --local user.email "scale-bot@scaleleap.com"
         git config --local user.name "Scale Bot"
         git add -A test/__recordings__
-        git diff-index --quiet HEAD || git commit -m "test: adds Polly recordings"
+        git diff-index --quiet HEAD || git commit -m "test: adds Polly recordings [skip ci]"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
