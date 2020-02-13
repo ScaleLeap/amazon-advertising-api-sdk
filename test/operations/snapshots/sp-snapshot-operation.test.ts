@@ -43,12 +43,9 @@ describe('SponsoredProductsSnapshotOperation', () => {
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 
       expect(res.snapshotId).toBe(requestSnapshotResponse.snapshotId)
-      expect(res.recordType).toBe(RecordTypeEnum.KEYWORD)
-
       if (res.status == SnapshotStatusEnum.SUCCESS) {
         expect(res).toHaveProperty('location')
         expect(res).toHaveProperty('fileSize')
-        expect(res).toHaveProperty('expiration')
       }
     })
   })
