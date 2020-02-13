@@ -13,7 +13,7 @@ describe('SponsoredProductsSnapshotOperation', () => {
     it(`should return a snapshot report for all entities of a single record type ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const recordType = RecordTypeEnum.CAMPAIGNS
       const res = await operation.requestSnapshot(recordType, {})
-
+      console.log(res)
       expect(res.recordType).toBe(recordType)
     })
   })
