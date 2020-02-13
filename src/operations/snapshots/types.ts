@@ -76,7 +76,7 @@ export const SnapshotResponse = t.intersection([
     /**
      * The size of the snapshot file in bytes. It's only available if status is SUCCESS.
      */
-    fileSize: SnapshotId,
+    fileSize: t.number,
 
     /**
      * The epoch time for expiration of the snapshot file. It's only available if status is SUCCESS.
