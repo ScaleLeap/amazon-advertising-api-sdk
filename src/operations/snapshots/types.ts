@@ -53,16 +53,16 @@ export const SnapshotResponse = t.intersection([
     snapshotId: SnapshotId,
 
     /**
-     * The record type of the report.
-     */
-    recordType: RecordType,
-
-    /**
      * The status of the generation of the snapshot.
      */
     status: SnapshotStatusType,
   }),
   t.partial({
+    /**
+     * The record type of the report.
+     */
+    recordType: RecordType,
+
     /**
      * Description of the status.
      */
