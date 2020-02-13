@@ -196,7 +196,7 @@ export class HttpClient {
       case 'application/octet-stream':
         return gunzip(buffer)
           .then(bufferToJson)
-          .catch(_ => {
+          .catch(() => {
             const bufferHex = Buffer.from(buffer.toString(), 'hex')
             return gunzip(bufferHex).then(bufferToJson)
           })
