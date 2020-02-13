@@ -13,6 +13,6 @@ export class SponsoredProductsSnapshotOperation extends Operation {
 
   @Decode(SnapshotResponse)
   public getSnapshot(id: SnapshotId) {
-    return this.client.get<SnapshotResponse>(`snapshots/${id}`)
+    return this.client.get<SnapshotResponse>(`${this.resource}snapshots/${id}`)
   }
 }
