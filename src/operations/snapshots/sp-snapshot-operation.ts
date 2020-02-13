@@ -1,13 +1,13 @@
 import { Operation } from '../operation'
 import { Decode } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
-import { RecordType, SnapshotResponse, RequestSnapshotParams, SnapshotId } from './types'
+import { SnapshotResponse, RequestSnapshotParams, SnapshotId, RecordTypeRequest } from './types'
 
 export class SponsoredProductsSnapshotOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/`
 
-  // @Decode(SnapshotResponse)
-  public requestSnapshot(recordType: RecordType, params: RequestSnapshotParams) {
+  @Decode(SnapshotResponse)
+  public requestSnapshot(recordType: RecordTypeRequest, params: RequestSnapshotParams) {
     return this.client.post<SnapshotResponse>(`${this.resource}${recordType}/snapshot`, params)
   }
 

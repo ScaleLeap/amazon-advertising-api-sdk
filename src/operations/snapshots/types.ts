@@ -5,7 +5,7 @@ import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 export const SnapshotId = t.string
 export type SnapshotId = t.TypeOf<typeof SnapshotId>
 
-export enum RecordTypeEnum {
+export enum RecordTypeRequestEnum {
   CAMPAIGNS = 'campaigns',
   AD_GROUPS = 'adGroups',
   PRODUCT_ADS = 'productAds',
@@ -14,6 +14,19 @@ export enum RecordTypeEnum {
   CAMPAIGN_NEGATIVE_KEYWORDS = 'campaignNegativeKeywords',
   TARGETS = 'targets',
   NEGATIVE_TARGETS = 'negativeTargets',
+}
+export const RecordTypeRequest = createEnumType<RecordTypeRequestEnum>(RecordTypeRequestEnum)
+export type RecordTypeRequest = t.TypeOf<typeof RecordTypeRequest>
+
+export enum RecordTypeEnum {
+  CAMPAIGN = 'campaign',
+  AD_GROUP = 'adGroup',
+  PRODUCT_AD = 'productAd',
+  KEYWORD = 'keyword',
+  NEGATIVE_KEYWORD = 'negativeKeyword',
+  CAMPAIGN_NEGATIVE_KEYWORD = 'campaignNegativeKeyword',
+  TARGET = 'target',
+  NEGATIVE_TARGET = 'negativeTarget',
 }
 export const RecordType = createEnumType<RecordTypeEnum>(RecordTypeEnum)
 export type RecordType = t.TypeOf<typeof RecordType>
@@ -48,13 +61,13 @@ export const SnapshotResponse = t.intersection([
      * The status of the generation of the snapshot.
      */
     status: SnapshotStatusType,
-
+  }),
+  t.partial({
     /**
      * Description of the status.
      */
     statusDetails: t.string,
-  }),
-  t.partial({
+
     /**
      * The URI for the snapshot. It's only available if status is SUCCESS.
      */
