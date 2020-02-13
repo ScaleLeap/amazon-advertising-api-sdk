@@ -6,7 +6,7 @@ import { RecordType, SnapshotResponse, RequestSnapshotParams, SnapshotId } from 
 export class SponsoredProductsSnapshotOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/`
 
-  @Decode(SnapshotResponse)
+  // @Decode(SnapshotResponse)
   public requestSnapshot(recordType: RecordType, params: RequestSnapshotParams) {
     return this.client.post<SnapshotResponse>(`${this.resource}${recordType}/snapshot`, params)
   }
