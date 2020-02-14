@@ -8,13 +8,14 @@ import {
   UpdateSBKeywordParams,
   KeywordId,
 } from './types'
+import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
 export class SponsoredBrandsKeywordsOperation extends Operation {
-  protected resource = `${this.version}/sb/keywords`
+  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/keywords`
 
   @DecodeArray(SBKeyword)
-  public listKeywords(params: ListSBKeywordParams) {
-    return this.client.post<SBKeyword[]>(this.resource, params)
+  public listKeywords(params?: ListSBKeywordParams) {
+    return this.client.get<SBKeyword[]>(this.paramsFilterTransformer('', params))
   }
 
   @DecodeArray(KeywordResponse)
