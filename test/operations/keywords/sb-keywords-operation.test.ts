@@ -3,7 +3,7 @@ import { SponsoredBrandsKeywordsOperation } from '../../../src/operations/keywor
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { CreateSBKeywordParams, KeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
+import { CreateSBKeywordParams, KeywordMatchTypeEnum, KeywordResponseStatusEnum } from '../../../src/operations/keywords/types'
 
 setupPolly()
 
@@ -16,7 +16,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   const KEYWORD_TEXT = 'Pear'
   const BID = 1
 
-  describe('createKeywords', () => {
+  describe.skip('createKeywords', () => {
     it(`should create a sb keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateSBKeywordParams[] = [
         {
@@ -28,10 +28,8 @@ describe('SponsoredBrandsKeywordsOperation', () => {
         },
       ]
       const [res] = await operation.createKeywords(params)
-      console.log(res)
 
-      // TODO: replace SUCCESS string with KeywordResponseStatusEnum after merge PR #133
-      expect(res.code).toEqual('SUCCESS')
+      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
     })
   })
 })
