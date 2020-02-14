@@ -23,7 +23,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
     return this.client.put<KeywordResponse[]>(this.resource, params)
   }
 
-  // @DecodeArray(KeywordResponse)
+  @DecodeArray(KeywordResponse)
   public createKeywords(params: CreateSBKeywordParams[]) {
     return this.client.post<KeywordResponse[]>(this.resource, params)
   }
