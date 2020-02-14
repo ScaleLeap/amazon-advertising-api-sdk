@@ -1,6 +1,5 @@
 import { Operation } from '../operation'
 import { Decode, DecodeArray } from '../../decorators'
-import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 import {
   ListSBKeywordParams,
   CreateSBKeywordParams,

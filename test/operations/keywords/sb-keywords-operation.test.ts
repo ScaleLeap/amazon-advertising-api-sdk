@@ -3,7 +3,11 @@ import { SponsoredBrandsKeywordsOperation } from '../../../src/operations/keywor
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { CreateSBKeywordParams, KeywordMatchTypeEnum, KeywordResponseStatusEnum } from '../../../src/operations/keywords/types'
+import {
+  CreateSBKeywordParams,
+  KeywordMatchTypeEnum,
+  KeywordResponseStatusEnum,
+} from '../../../src/operations/keywords/types'
 
 setupPolly()
 
