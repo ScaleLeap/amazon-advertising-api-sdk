@@ -6,7 +6,8 @@ on:
       - polly-recordings
       - master
     paths:
-      - '**.test.ts'
+      - '**.ts'
+      - '**.har'
 
 jobs:
   build:
