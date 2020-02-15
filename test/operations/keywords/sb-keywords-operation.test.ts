@@ -20,14 +20,14 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   const KEYWORD_TEXT = 'Pear'
   const BID = 1
 
-  describe('listKeywords', () => {
-    it(`should return an array of keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe.skip('listKeywords', () => {
+    it(`should return an array of sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: SBKeyword[] = await operation.listKeywords()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return an array of keywords filtered by optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of sb keywords filtered by optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: ListSBKeywordParams = {
         startIndex: 0,
         count: 1,
