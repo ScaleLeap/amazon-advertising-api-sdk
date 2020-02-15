@@ -48,7 +48,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   })
 
   describe('updateKeywords', () => {
-    it(`should update sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateSBKeywordParams[] = [
         {
           keywordId: KEYWORD_ID,
@@ -65,7 +65,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   })
 
   describe.skip('createKeywords', () => {
-    it(`should create a sb keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should create one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: CreateSBKeywordParams[] = [
         {
           adGroupId: AD_GROUP_ID,
@@ -78,6 +78,28 @@ describe('SponsoredBrandsKeywordsOperation', () => {
       const [res] = await operation.createKeywords(params)
 
       expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+    })
+  })
+
+  describe('getKeyword', () => {
+    it(`should return a sb keyword by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res: SBKeyword = await operation.getKeyword(KEYWORD_ID)
+
+      expect(res.campaignId).toBe(CAMPAIGN_ID)
+      expect(res.adGroupId).toBe(AD_GROUP_ID)
+      expect(res.keywordId).toBe(KEYWORD_ID)
+      expect(res.keywordText).toBe(KEYWORD_TEXT)
+      expect(res.matchType).toBe(KeywordMatchTypeEnum.BROAD)
+      expect(res.bid).toEqual(BID)
+    })
+  })
+
+  describe('archiveKeyword', () => {
+    it(`should archive a sb keyword specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const res: SBKeywordResponse = await operation.archiveKeyword(KEYWORD_ID)
+
+      expect(res.keywordId).toBe(KEYWORD_ID)
+      expect(res.code).toBe('SUCCESS')
     })
   })
 })
