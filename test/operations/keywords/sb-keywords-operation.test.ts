@@ -9,6 +9,9 @@ import {
   SBKeyword,
   ListSBKeywordParams,
   KeywordStateEnum,
+  UpdateSBKeywordParams,
+  SBKeywordStateEnum,
+  SBKeywordResponse,
 } from '../../../src/operations/keywords/types'
 
 describe('SponsoredBrandsKeywordsOperation', () => {
@@ -17,6 +20,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   const operation = operationProvider.create(SponsoredBrandsKeywordsOperation)
   const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 149522344269714
+  const KEYWORD_ID = 123
   const KEYWORD_TEXT = 'Pear'
   const BID = 1
 
@@ -38,6 +42,23 @@ describe('SponsoredBrandsKeywordsOperation', () => {
         adGroupIdFilter: [AD_GROUP_ID],
       }
       const res: SBKeyword[] = await operation.listKeywords(params)
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+  })
+
+  describe('updateKeywords', () => {
+    it(`should update sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+      const params: UpdateSBKeywordParams[] = [
+        {
+          keywordId: KEYWORD_ID,
+          adGroupId: AD_GROUP_ID,
+          campaignId: CAMPAIGN_ID,
+          state: SBKeywordStateEnum.PAUSED,
+          bid: BID,
+        },
+      ]
+      const res: SBKeywordResponse[] = await operation.updateKeywords(params)
 
       expect(Array.isArray(res)).toBeTruthy()
     })
