@@ -854,3 +854,125 @@ export const SBKeywordResponse = t.intersection([
   }),
 ])
 export type SBKeywordResponse = t.TypeOf<typeof SBKeywordResponse>
+
+export enum SBNegativeKeywordStateEnum {
+  ENABLED = 'enabled',
+  PENDING = 'pending',
+  ARCHIVED = 'archived',
+  DRAFT = 'draft',
+}
+export const SBNegativeKeywordStateType = createEnumType<SBNegativeKeywordStateEnum>(
+  SBNegativeKeywordStateEnum,
+)
+
+export const SBNegativeKeyword = t.strict({
+  /**
+   * The identifier of the negative keyword
+   */
+  keywordId: KeywordId,
+
+  /**
+   * The identifier of the ad group to which the negative keyword is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of the campaign to which the negative keyword is associated.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The keyword text.
+   * Maximum length is ten words if 'matchType' is 'negativeExact'.
+   * Maximum length is 4 words if 'matchType' is 'negativePhrase'.
+   */
+  keywordText: t.string,
+
+  /**
+   * The negative match type.
+   * For more information, see negative keyword match types in the Amazon Advertising support center.
+   */
+  matchType: NegativeKeywordMatchType,
+
+  /**
+   * The current state of the negative keyword.
+   * Newly created SB negative keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation review.
+   * 'enabled' refers to negative keywords that are active.
+   * 'archived' refers to negative keywords that are permanently inactive and cannot be returned to the 'enabled' state.
+   */
+  state: SBNegativeKeywordStateType,
+})
+export type SBNegativeKeyword = t.TypeOf<typeof SBNegativeKeyword>
+
+export const CreateSBNegativeKeywordParams = t.strict({
+  /**
+   * The identifier of the campaign to which the negative keyword is associated.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The identifier of the ad group to which the negative keyword is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The keyword text.
+   * Maximum length is ten words if 'matchType' is 'negativeExact'.
+   * Maximum length is 4 words if 'matchType' is 'negativePhrase'.
+   */
+  keywordText: t.string,
+
+  /**
+   * The negative match type.
+   * For more information, see negative keyword match types in the Amazon Advertising support center.
+   */
+  matchType: NegativeKeywordMatchType,
+})
+export type CreateSBNegativeKeywordParams = t.TypeOf<typeof CreateSBNegativeKeywordParams>
+
+export const UpdateSBNegativeKeywordParams = t.partial({
+  /**
+   * The identifier of the campaign to which the negative keyword is associated.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The identifier of the ad group to which the negative keyword is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of the negative keyword.
+   */
+  keywordId: KeywordId,
+
+  /**
+   * The current state of the negative keyword.
+   * Newly created SB negative keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation review.
+   * 'enabled' refers to negative keywords that are active.
+   * 'archived' refers to negative keywords that are permanently inactive and cannot be returned to the 'enabled' state.
+   */
+  state: SBNegativeKeywordStateType,
+})
+export type UpdateSBNegativeKeywordParams = t.TypeOf<typeof UpdateSBNegativeKeywordParams>
+
+export const SBNegativeKeywordResponse = t.intersection([
+  t.type({
+    /**
+     * The ID of the keyword that was created/updated, if successful
+     */
+    keywordId: KeywordId,
+
+    /**
+     * An enumerated success or error code for machine use.
+     */
+    code: t.string,
+  }),
+  t.partial({
+    /**
+     * A human-readable description of the error, if unsuccessful.
+     */
+    details: t.string,
+  }),
+])
+export type SBNegativeKeywordResponse = t.TypeOf<typeof SBNegativeKeywordResponse>
