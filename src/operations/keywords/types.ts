@@ -833,3 +833,24 @@ export const CreateSBKeywordParams = t.strict({
   bid: t.number,
 })
 export type CreateSBKeywordParams = t.TypeOf<typeof CreateSBKeywordParams>
+
+export const SBKeywordResponse = t.intersection([
+  t.type({
+    /**
+     * The ID of the keyword that was created/updated, if successful
+     */
+    keywordId: KeywordId,
+
+    /**
+     * An enumerated success or error code for machine use.
+     */
+    code: t.string,
+  }),
+  t.partial({
+    /**
+     * A human-readable description of the error, if unsuccessful.
+     */
+    details: t.string,
+  }),
+])
+export type SBKeywordResponse = t.TypeOf<typeof SBKeywordResponse>
