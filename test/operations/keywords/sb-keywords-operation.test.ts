@@ -14,6 +14,7 @@ import {
   SBKeywordResponse,
 } from '../../../src/operations/keywords/types'
 
+// TODO: Need check operations again because creating sb keyword is not available for test api
 describe('SponsoredBrandsKeywordsOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
