@@ -47,7 +47,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
     })
   })
 
-  describe('updateKeywords', () => {
+  describe.skip('updateKeywords', () => {
     it(`should update one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateSBKeywordParams[] = [
         {
@@ -81,7 +81,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
     })
   })
 
-  describe('getKeyword', () => {
+  describe.skip('getKeyword', () => {
     it(`should return a sb keyword by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: SBKeyword = await operation.getKeyword(KEYWORD_ID)
 
@@ -94,7 +94,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
     })
   })
 
-  describe('archiveKeyword', () => {
+  describe.skip('archiveKeyword', () => {
     it(`should archive a sb keyword specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res: SBKeywordResponse = await operation.archiveKeyword(KEYWORD_ID)
 
