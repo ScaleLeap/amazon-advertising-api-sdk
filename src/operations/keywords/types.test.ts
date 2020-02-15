@@ -15,3 +15,56 @@ describe('Keyword', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('UpdateSBNegativeKeywordParams', () => {
+  it('should pass update sb negative keyword params', () => {
+    const res = t.UpdateSBNegativeKeywordParams.decode({
+      keywordId: 0,
+      adGroupId: 0,
+      campaignId: 0,
+      state: 'enabled',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('CreateSBNegativeKeywordParams', () => {
+  it('should pass create sb negative keyword params', () => {
+    const res = t.CreateSBNegativeKeywordParams.decode({
+      adGroupId: 0,
+      campaignId: 0,
+      keywordText: 'string',
+      matchType: 'negativeExact',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('SBKeywordResponse', () => {
+  it('should pass create, update, archive sb negative keyword response', () => {
+    const res = t.SBKeywordResponse.decode({
+      keywordId: 0,
+      code: 'string',
+      details: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('SBNegativeKeyword', () => {
+  it('should pass get sb negative keyword response', () => {
+    const res = t.SBNegativeKeyword.decode({
+      keywordId: 0,
+      adGroupId: 0,
+      campaignId: 0,
+      keywordText: 'string',
+      matchType: 'negativeExact',
+      state: 'enabled',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
