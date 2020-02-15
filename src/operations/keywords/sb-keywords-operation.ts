@@ -3,7 +3,7 @@ import { Decode, DecodeArray } from '../../decorators'
 import {
   ListSBKeywordParams,
   CreateSBKeywordParams,
-  KeywordResponse,
+  SBKeywordResponse,
   SBKeyword,
   UpdateSBKeywordParams,
   KeywordId,
@@ -18,14 +18,14 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
     return this.client.get<SBKeyword[]>(this.paramsFilterTransformer('', params))
   }
 
-  @DecodeArray(KeywordResponse)
+  @DecodeArray(SBKeywordResponse)
   public updateKeywords(params: UpdateSBKeywordParams[]) {
-    return this.client.put<KeywordResponse[]>(this.resource, params)
+    return this.client.put<SBKeywordResponse[]>(this.resource, params)
   }
 
-  @DecodeArray(KeywordResponse)
+  @DecodeArray(SBKeywordResponse)
   public createKeywords(params: CreateSBKeywordParams[]) {
-    return this.client.post<KeywordResponse[]>(this.resource, params)
+    return this.client.post<SBKeywordResponse[]>(this.resource, params)
   }
 
   @Decode(SBKeyword)
@@ -35,6 +35,6 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
 
   @Decode(SBKeyword)
   public archiveKeyword(keywordId: KeywordId) {
-    return this.client.delete<KeywordResponse>(`${this.resource}/${keywordId}`)
+    return this.client.delete<SBKeywordResponse>(`${this.resource}/${keywordId}`)
   }
 }
