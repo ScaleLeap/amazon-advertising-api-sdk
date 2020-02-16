@@ -976,3 +976,35 @@ export const SBNegativeKeywordResponse = t.intersection([
   }),
 ])
 export type SBNegativeKeywordResponse = t.TypeOf<typeof SBNegativeKeywordResponse>
+export const SBKeywordRecommendationParams = t.partial({
+  /**
+   * An array of ASINs for which keyword recommendations are generated.
+   */
+  asins: t.array(t.string),
+
+  /**
+   * Specifies the URL of a Stores page.
+   * Vendors may also specify the URL of a custom landing page.
+   * The products on the landing page are used to generate keyword recommendations.
+   */
+  url: t.string,
+})
+export type SBKeywordRecommendationParams = t.TypeOf<typeof SBKeywordRecommendationParams>
+
+export const SBKeywordRecommendation = t.strict({
+  /**
+   * A recommendation identifier that describes the suggested action for the recommendation.
+   */
+  recommendationId: t.string,
+
+  /**
+   * Recommended keyword value.
+   */
+  value: t.string,
+
+  /**
+   * The match type. For more information, see match types in the Amazon Advertising support center.
+   */
+  matchType: KeywordMatchType,
+})
+export type SBKeywordRecommendation = t.TypeOf<typeof SBKeywordRecommendation>
