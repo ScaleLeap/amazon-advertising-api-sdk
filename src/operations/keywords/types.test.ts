@@ -68,3 +68,15 @@ describe('SBNegativeKeyword', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBKeywordRecommendation', () => {
+  it('should pass getKeywordRecommendations response', () => {
+    const res = t.SBKeywordRecommendation.decode({
+      recommendationId: 'addKeyword',
+      value: 'string',
+      matchType: 'broad',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
