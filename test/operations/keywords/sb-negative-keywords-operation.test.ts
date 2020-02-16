@@ -20,10 +20,10 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
   const operation = operationProvider.create(SponsoredBrandsNegativeKeywordsOperation)
   const MANUAL_CAMPAIGN_ID = 164069484151709
   const MANUAL_AD_GROUP_ID = 149522344269714
-  const KEYWORD_ID = 262433850080632
+  const KEYWORD_ID = 123
   const KEYWORD_TEXT = 'green apple'
 
-  describe('updateNegativeKeywords', () => {
+  describe.skip('updateNegativeKeywords', () => {
     it(`should update one or more sb negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const params: UpdateSBNegativeKeywordParams[] = [
         {
@@ -55,7 +55,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('getNegativeKeyword', () => {
+  describe.skip('getNegativeKeyword', () => {
     it(`should return a sb negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.getNegativeKeyword(KEYWORD_ID)
 
@@ -67,7 +67,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('archiveNegativeKeyword', () => {
+  describe.skip('archiveNegativeKeyword', () => {
     it(`should archive a sb negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await operation.archiveNegativeKeyword(KEYWORD_ID)
 
