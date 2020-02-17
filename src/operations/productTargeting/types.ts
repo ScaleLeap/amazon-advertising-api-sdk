@@ -550,3 +550,142 @@ export const UpdateNegativeTargetingClausesParams = t.partial({
 export type UpdateNegativeTargetingClausesParams = t.TypeOf<
   typeof UpdateNegativeTargetingClausesParams
 >
+
+// Sponsored brands product targeting types
+
+export enum SBTargetStateEnum {
+  ENABLED = 'ENABLED',
+  PAUSED = 'PAUSED',
+  PENDING = 'PENDING',
+  ARCHIVED = 'ARCHIVED',
+  DRAFT = 'DRAFT',
+}
+export const SBTargetStateType = createEnumType<SBTargetStateEnum>(SBTargetStateEnum)
+
+export enum SBFilterTypeEnum {
+  STATE = 'STATE',
+  CAMPAIGN_ID = 'CAMPAIGN_ID',
+  AD_GROUP_ID = 'AD_GROUP_ID',
+}
+export const SBFilterType = createEnumType<SBFilterTypeEnum>(SBFilterTypeEnum)
+
+const SBFilterValue = t.union([SBTargetStateType, CampaignId, AdGroupId])
+
+const SBTargetFilter = t.strict({
+  filterType: SBFilterType,
+  value: t.array(SBFilterValue),
+})
+type SBTargetFilter = t.TypeOf<typeof SBTargetFilter>
+
+const SBTargetFilters = t.array(SBTargetFilter)
+type SBTargetFilters = t.TypeOf<typeof SBTargetFilters>
+
+export const SBListTargetsRequest = t.strict({
+  /**
+   * Operations that return paginated results include a pagination token in this field.
+   * To retrieve the next page of results, call the same operation and specify this token in the request.
+   * If the NextToken field is empty, there are no further results.
+   */
+  nextToken: t.string,
+
+  /**
+   * Sets a limit on the number of results returned by an operation.
+   */
+  maxResults: t.number,
+
+  /**
+   * Restricts results to targets with the specified filters.
+   * Filters are inclusive. Filters are joined using 'and' logic.
+   * Specify one type of each filter.
+   * Specifying multiples of the same type of filter results in an error.
+   */
+  filters: SBTargetFilters,
+})
+export type SBListTargetsRequest = t.TypeOf<typeof SBListTargetsRequest>
+
+export enum ProductPredicateTypeEnum {
+  ASIN_CATEGORY_SAME_AS = 'asinCategorySameAs',
+  ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
+  ASIN_PRICE_LESS_THAN = 'asinPriceLessThan',
+  ASIN_PRICE_BETWEEN = 'asinPriceBetween',
+  ASIN_PRICE_GREATER_THAN = 'asinPriceGreaterThan',
+  ASIN_REVIEW_RATING_LESS_THAN = 'asinReviewRatingLessThan',
+  ASIN_REVIEW_RATING_BETWEEN = 'asinReviewRatingBetween',
+  ASIN_REVIEW_RATING_GREATER_THAN = 'asinReviewRatingGreaterThan',
+  ASIN_SAME_AS = 'asinSameAs',
+}
+export const ProductPredicateType = createEnumType<ProductPredicateTypeEnum>(
+  ProductPredicateTypeEnum,
+)
+
+const SBExpression = t.strict({
+  type: ProductPredicateType,
+  value: t.string,
+})
+type SBExpression = t.TypeOf<typeof SBExpression>
+
+const SBExpressions = t.array(SBExpression)
+type SBExpressions = t.TypeOf<typeof SBExpressions>
+
+const SBResolvedExpression = t.strict({
+  type: ProductPredicateType,
+  value: t.string,
+})
+type SBResolvedExpression = t.TypeOf<typeof SBResolvedExpression>
+
+const SBResolvedExpressions = t.array(SBResolvedExpression)
+type SBResolvedExpressions = t.TypeOf<typeof SBResolvedExpressions>
+
+export enum SBExpressionStateEnum {
+  ENABLED = 'enabled',
+  PAUSED = 'paused',
+  PENDING = 'pending',
+  ARCHIVED = 'archived',
+  DRAFT = 'draft',
+}
+export const SBExpressionStateType = createEnumType<SBExpressionStateEnum>(SBExpressionStateEnum)
+
+const SBTargetingClause = t.strict({
+  /**
+   * The target identifier.
+   */
+  targetId: TargetId,
+
+  /**
+   * The identifier of the ad group to which the target is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of the campaign to which the target is associated.
+   */
+  campaignId: CampaignId,
+
+  expressions: SBExpressions,
+
+  resolvedExpressions: SBResolvedExpressions,
+
+  state: SBExpressionStateType,
+
+  /**
+   * The associated bid.
+   * Note that this value must be less than the budget associated with the Advertiser account.
+   * For more information, see supported features.
+   */
+  bid: t.number,
+})
+type SBTargetingClause = t.TypeOf<typeof SBTargetingClause>
+
+const SBTargetingClauses = t.array(SBTargetingClause)
+type SBTargetingClauses = t.TypeOf<typeof SBTargetingClauses>
+
+export const SBListTargetsResponse = t.strict({
+  /**
+   * Operations that return paginated results include a pagination token in this field.
+   * To retrieve the next page of results, call the same operation and specify this token in the request.
+   * If the NextToken field is empty, there are no further results.
+   */
+  nextToken: t.string,
+
+  targets: SBTargetingClauses,
+})
