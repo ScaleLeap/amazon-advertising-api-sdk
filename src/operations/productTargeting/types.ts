@@ -760,3 +760,32 @@ export const SBUpdateTargetsResponse = t.strict({
   ),
 })
 export type SBUpdateTargetsResponse = t.TypeOf<typeof SBUpdateTargetsResponse>
+
+const SBCreateTargetingClauseRequest = t.strict({
+  /**
+   * The identifier of an existing ad group.
+   * The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign.
+   * The newly created target is associated to this campaign.
+   */
+  campaignId: CampaignId,
+
+  expressions: SBExpression,
+
+  /**
+   * The associated bid.
+   * Note that this value must be less than the budget associated with the Advertiser account.
+   * For more information, see supported features.
+   */
+  bid: t.number,
+})
+type SBCreateTargetingClauseRequest = t.TypeOf<typeof SBCreateTargetingClauseRequest>
+
+export const SBCreateTargetsRequest = t.strict({
+  targets: t.array(SBCreateTargetingClauseRequest),
+})
+export type SBCreateTargetsRequest = t.TypeOf<typeof SBCreateTargetsRequest>
