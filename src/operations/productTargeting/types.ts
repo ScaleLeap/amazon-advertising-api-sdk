@@ -804,3 +804,8 @@ export const SBTargetingClauseResponse = t.partial({
   details: t.string,
 })
 export type SBTargetingClauseResponse = t.TypeOf<typeof SBTargetingClauseResponse>
+
+export const SBBatchGetTargetsRequest = t.strict({
+  targetIds: TargetIds,
+})
+export type SBBatchGetTargetsRequest = t.TypeOf<typeof SBBatchGetTargetsRequest>
