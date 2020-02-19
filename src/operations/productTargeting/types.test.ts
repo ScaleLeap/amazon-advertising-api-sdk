@@ -258,3 +258,40 @@ describe('SBBatchGetTargetsRequest', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBBatchGetTargetsReponse', () => {
+  it('should pass', () => {
+    const res = t.SBBatchGetTargetsReponse.decode({
+      batchGetTargetSuccessResults: [
+        {
+          targetingClause: {
+            targetId: 0,
+            adGroupId: 0,
+            campaignId: 0,
+            expressions: {
+              type: 'asinCategorySameAs',
+              value: 'string',
+            },
+            resolvedExpressions: {
+              type: 'asinCategorySameAs',
+              value: 'string',
+            },
+            state: 'enabled',
+            bid: 0,
+          },
+          targetRequestIndex: 0,
+        },
+      ],
+      batchGetTargetErrorResults: [
+        {
+          code: 'string',
+          details: 'string',
+          targetId: 0,
+          targetRequestIndex: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})

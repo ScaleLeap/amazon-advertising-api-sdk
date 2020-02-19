@@ -809,3 +809,36 @@ export const SBBatchGetTargetsRequest = t.strict({
   targetIds: TargetIds,
 })
 export type SBBatchGetTargetsRequest = t.TypeOf<typeof SBBatchGetTargetsRequest>
+
+export const SBBatchGetTargetsReponse = t.strict({
+  /**
+   * A list of targeting clause objects.
+   * Note that each targeting clause object is correlated to the list request by the targetRequestIndex field.
+   * This field corresponds to the order of the targeting identifier in the request.
+   */
+  batchGetTargetSuccessResults: t.array(
+    t.strict({
+      targetingClause: SBTargetingClause,
+
+      targetRequestIndex: t.number,
+    }),
+  ),
+
+  /**
+   * A list of target identifiers that were not found.
+   * Note that each target identifier is correlated to the list request by the targetRequestIndex field.
+   * This field corresponds to the order of the target identifier in the request.
+   */
+  batchGetTargetErrorResults: t.array(
+    t.strict({
+      code: t.string,
+
+      details: t.string,
+
+      targetId: TargetId,
+
+      targetRequestIndex: t.number,
+    }),
+  ),
+})
+export type SBBatchGetTargetsReponse = t.TypeOf<typeof SBBatchGetTargetsReponse>
