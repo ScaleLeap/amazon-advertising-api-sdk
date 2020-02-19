@@ -645,7 +645,7 @@ export enum SBExpressionStateEnum {
 }
 export const SBExpressionStateType = createEnumType<SBExpressionStateEnum>(SBExpressionStateEnum)
 
-const SBTargetingClause = t.strict({
+export const SBTargetingClause = t.strict({
   /**
    * The target identifier.
    */
@@ -674,10 +674,10 @@ const SBTargetingClause = t.strict({
    */
   bid: t.number,
 })
-type SBTargetingClause = t.TypeOf<typeof SBTargetingClause>
+export type SBTargetingClause = t.TypeOf<typeof SBTargetingClause>
 
-const SBTargetingClauses = t.array(SBTargetingClause)
-type SBTargetingClauses = t.TypeOf<typeof SBTargetingClauses>
+export const SBTargetingClauses = t.array(SBTargetingClause)
+export type SBTargetingClauses = t.TypeOf<typeof SBTargetingClauses>
 
 export const SBListTargetsResponse = t.strict({
   /**
