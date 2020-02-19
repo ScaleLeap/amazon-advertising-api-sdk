@@ -573,7 +573,7 @@ const SBFilterValue = t.union([SBTargetStateType, CampaignId, AdGroupId])
 
 const SBTargetFilter = t.strict({
   filterType: SBFilterType,
-  value: t.array(SBFilterValue),
+  values: t.array(SBFilterValue),
 })
 type SBTargetFilter = t.TypeOf<typeof SBTargetFilter>
 
@@ -661,9 +661,9 @@ const SBTargetingClause = t.strict({
    */
   campaignId: CampaignId,
 
-  expressions: SBExpressions,
+  expressions: SBExpression,
 
-  resolvedExpressions: SBResolvedExpressions,
+  resolvedExpressions: SBResolvedExpression,
 
   state: SBExpressionStateType,
 
@@ -689,3 +689,4 @@ export const SBListTargetsResponse = t.strict({
 
   targets: SBTargetingClauses,
 })
+export type SBListTargetsResponse = t.TypeOf<typeof SBListTargetsResponse>
