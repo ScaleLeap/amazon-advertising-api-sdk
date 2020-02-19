@@ -172,3 +172,23 @@ describe('SBUpdateTargetsResponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBCreateTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBCreateTargetsRequest.decode({
+      targets: [
+        {
+          adGroupId: 0,
+          campaignId: 0,
+          expressions: {
+            type: 'asinCategorySameAs',
+            value: 'string',
+          },
+          bid: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
