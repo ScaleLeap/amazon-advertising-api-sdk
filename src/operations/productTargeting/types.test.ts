@@ -149,3 +149,26 @@ describe('SBUpdateTargetsRequest', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBUpdateTargetsResponse', () => {
+  it('should pass', () => {
+    const res = t.SBUpdateTargetsResponse.decode({
+      updateTargetSuccessResults: [
+        {
+          targetId: 0,
+          targetRequestIndex: 0,
+        },
+      ],
+      updateTargetErrorResults: [
+        {
+          code: 'string',
+          details: 'string',
+          targetId: 0,
+          targetRequestIndex: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})

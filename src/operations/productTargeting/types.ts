@@ -720,3 +720,43 @@ export const SBUpdateTargetsRequest = t.partial({
   bid: t.number,
 })
 export type SBUpdateTargetsRequest = t.TypeOf<typeof SBUpdateTargetsRequest>
+
+export const SBUpdateTargetsResponse = t.strict({
+  /**
+   * Lists the successfully updated targets.
+   * Note that targets in the response are correlated to targets in the request using the targetRequestIndex field.
+   * For example, if targetRequestIndex is set to 2, the values correlate to the third target object in the request.
+   */
+  updateTargetSuccessResults: t.array(
+    t.strict({
+      /**
+       * The identifier of a target.
+       */
+      targetId: TargetId,
+
+      /**
+       * Correlates the target to the target array index specified in the request. Zero-based.
+       */
+      targetRequestIndex: t.number,
+    }),
+  ),
+
+  /**
+   * Lists errors that occured during target update.
+   * Note that errors are correlated to target update requests by the targetRequestIndex field.
+   * This field corresponds to the order of the target in the request.
+   * For example, if targetRequestIndex is set to 2, the values correlate to the third target object in the request array.
+   */
+  updateTargetErrorResults: t.array(
+    t.strict({
+      code: t.string,
+
+      details: t.string,
+
+      targetId: TargetId,
+
+      targetRequestIndex: t.number,
+    }),
+  ),
+})
+export type SBUpdateTargetsResponse = t.TypeOf<typeof SBUpdateTargetsResponse>
