@@ -248,3 +248,13 @@ describe('SBTargetingClauseResponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBBatchGetTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBBatchGetTargetsRequest.decode({
+      targetIds: [0],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
