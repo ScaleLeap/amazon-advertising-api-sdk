@@ -792,3 +792,15 @@ export type SBCreateTargetsRequest = t.TypeOf<typeof SBCreateTargetsRequest>
 
 export const SBCreateTargetsReponse = SBUpdateTargetsRequest
 export type SBCreateTargetsReponse = t.TypeOf<typeof SBCreateTargetsReponse>
+
+export const SBTargetingClauseResponse = t.partial({
+  /**
+   * The target identifier.
+   */
+  targetId: TargetId,
+
+  code: t.string,
+
+  details: t.string,
+})
+export type SBTargetingClauseResponse = t.TypeOf<typeof SBTargetingClauseResponse>
