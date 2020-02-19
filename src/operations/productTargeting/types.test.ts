@@ -83,3 +83,55 @@ describe('TargetingClauses', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBListTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBListTargetsRequest.decode({
+      nextToken: 'string',
+      maxResults: 0,
+      filters: [
+        {
+          filterType: 'STATE',
+          values: ['ENABLED'],
+        },
+        {
+          filterType: 'CAMPAIGN_ID',
+          values: [0],
+        },
+        {
+          filterType: 'AD_GROUP_ID',
+          values: [0],
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('SBListTargetsResponse', () => {
+  it('should pass', () => {
+    const res = t.SBListTargetsResponse.decode({
+      nextToken: 'string',
+      targets: [
+        {
+          targetId: 0,
+          adGroupId: 0,
+          campaignId: 0,
+          expressions: {
+            type: 'asinCategorySameAs',
+            value: 'string',
+          },
+          resolvedExpressions: {
+            type: 'asinCategorySameAs',
+            value: 'string',
+          },
+          state: 'enabled',
+          bid: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
