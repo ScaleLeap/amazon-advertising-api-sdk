@@ -237,3 +237,14 @@ describe('SBTargetingClause', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBTargetingClauseResponse', () => {
+  it('should pass', () => {
+    const res = t.SBTargetingClauseResponse.decode({
+      targetId: 0,
+      code: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
