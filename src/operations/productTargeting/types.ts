@@ -690,3 +690,33 @@ export const SBListTargetsResponse = t.strict({
   targets: SBTargetingClauses,
 })
 export type SBListTargetsResponse = t.TypeOf<typeof SBListTargetsResponse>
+
+export const SBUpdateTargetsRequest = t.partial({
+  /**
+   * The identifier of the target.
+   */
+  targetId: TargetId,
+
+  /**
+   * The identifier of the ad group to which the target is associated.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of the campaign to which the target is associated.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The state of the target.
+   */
+  state: SBExpressionStateType,
+
+  /**
+   * The associated bid.
+   * Note that this value must be less than the budget associated with the Advertiser account.
+   * For more information, see supported features.
+   */
+  bid: t.number,
+})
+export type SBUpdateTargetsRequest = t.TypeOf<typeof SBUpdateTargetsRequest>

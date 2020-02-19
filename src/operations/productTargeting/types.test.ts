@@ -135,3 +135,17 @@ describe('SBListTargetsResponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBUpdateTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBUpdateTargetsRequest.decode({
+      targetId: 0,
+      adGroupId: 0,
+      campaignId: 0,
+      state: 'enabled',
+      bid: 0,
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
