@@ -789,3 +789,6 @@ export const SBCreateTargetsRequest = t.strict({
   targets: t.array(SBCreateTargetingClauseRequest),
 })
 export type SBCreateTargetsRequest = t.TypeOf<typeof SBCreateTargetsRequest>
+
+export const SBCreateTargetsReponse = SBUpdateTargetsRequest
+export type SBCreateTargetsReponse = t.TypeOf<typeof SBCreateTargetsReponse>

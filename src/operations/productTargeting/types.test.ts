@@ -192,3 +192,26 @@ describe('SBCreateTargetsRequest', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBCreateTargetsReponse', () => {
+  it('should pass', () => {
+    const res = t.SBCreateTargetsReponse.decode({
+      createTargetSuccessResults: [
+        {
+          targetRequestIndex: 0,
+          targetId: 0,
+        },
+      ],
+      createTargetErrorResults: [
+        {
+          code: 'string',
+          details: 'string',
+          targetRequestIndex: 0,
+          targetId: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
