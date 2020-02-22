@@ -295,3 +295,30 @@ describe('SBBatchGetTargetsReponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBListNegativeTargetsResponse', () => {
+  it('should pass', () => {
+    const res = t.SBListNegativeTargetsResponse.decode({
+      nextToken: 'string',
+      negativeTargets: [
+        {
+          targetId: 0,
+          adGroupId: 0,
+          campaignId: 0,
+          expressions: {
+            type: 'asinCategorySameAs',
+            value: 'string',
+          },
+          resolvedExpressions: {
+            type: 'asinCategorySameAs',
+            value: 'string',
+          },
+          state: 'enabled',
+          bid: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
