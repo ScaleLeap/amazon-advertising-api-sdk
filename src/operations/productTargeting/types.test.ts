@@ -322,3 +322,19 @@ describe('SBListNegativeTargetsResponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBUpdateNegativeTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBUpdateNegativeTargetsRequest.decode({
+      negativeTargets: [
+        {
+          targetId: 0,
+          adGroupId: 0,
+          state: 'enabled',
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
