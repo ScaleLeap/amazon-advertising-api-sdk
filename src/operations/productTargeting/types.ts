@@ -790,7 +790,44 @@ export const SBCreateTargetsRequest = t.strict({
 })
 export type SBCreateTargetsRequest = t.TypeOf<typeof SBCreateTargetsRequest>
 
-export const SBCreateTargetsResponse = SBUpdateTargetsRequest
+export const SBCreateTargetsResponse = t.strict({
+  /**
+   * Lists the successfully created targets.
+   * Note that targets in the response are correlated to targets in the request using the targetRequestIndex field.
+   * For example, if targetRequestIndex is set to 2, the values correlate to the third target object in the request.
+   */
+  createTargetSuccessResults: t.array(
+    t.strict({
+      /**
+       * Correlates the target to the target array index specified in the request. Zero-based.
+       */
+      targetRequestIndex: t.number,
+
+      /**
+       * The identifier of a target.
+       */
+      targetId: TargetId,
+    }),
+  ),
+
+  /**
+   * Lists errors that occured during target creation.
+   * Note that errors are correlated to target create requests by the targetRequestIndex field.
+   * This field corresponds to the order of the target object in the request.
+   * For example, if targetRequestIndex is set to 3, an error occured during creation of the fourth target in the request.
+   */
+  createTargetErrorResults: t.array(
+    t.strict({
+      code: t.string,
+
+      details: t.string,
+
+      targetId: TargetId,
+
+      targetRequestIndex: t.number,
+    }),
+  ),
+})
 export type SBCreateTargetsResponse = t.TypeOf<typeof SBCreateTargetsResponse>
 
 export const SBTargetingClauseResponse = t.partial({
