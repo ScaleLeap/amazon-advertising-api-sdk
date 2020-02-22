@@ -842,3 +842,18 @@ export const SBBatchGetTargetsReponse = t.strict({
   ),
 })
 export type SBBatchGetTargetsReponse = t.TypeOf<typeof SBBatchGetTargetsReponse>
+
+export const SBListNegativeTargetsRequest = SBListTargetsRequest
+export type SBListNegativeTargetsRequest = t.TypeOf<typeof SBListNegativeTargetsRequest>
+
+export const SBListNegativeTargetsResponse = t.strict({
+  /**
+   * Operations that return paginated results include a pagination token in this field.
+   * To retrieve the next page of results, call the same operation and specify this token in the request.
+   * If the NextToken field is empty, there are no further results.
+   */
+  nextToken: t.string,
+
+  negativeTargets: SBTargetingClauses,
+})
+export type SBListNegativeTargetsResponse = t.TypeOf<typeof SBListNegativeTargetsResponse>
