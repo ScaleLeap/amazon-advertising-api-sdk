@@ -8,12 +8,12 @@ import {
   SBUpdateTargetsRequest,
   SBUpdateTargetsResponse,
   SBCreateTargetsRequest,
-  SBCreateTargetsReponse,
+  SBCreateTargetsResponse,
   TargetId,
   SBTargetingClause,
   SBTargetingClauseResponse,
   SBBatchGetTargetsRequest,
-  SBBatchGetTargetsReponse,
+  SBBatchGetTargetsResponse,
 } from './types'
 
 export class SponsoredBrandsProductTargetingOperation extends Operation {
@@ -29,9 +29,9 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
     return this.client.put<SBUpdateTargetsResponse>(this.targetResource, params)
   }
 
-  @Decode(SBCreateTargetsReponse)
+  @Decode(SBCreateTargetsResponse)
   public createTargets(params: SBCreateTargetsRequest) {
-    return this.client.post<SBCreateTargetsReponse>(this.targetResource, params)
+    return this.client.post<SBCreateTargetsResponse>(this.targetResource, params)
   }
 
   @Decode(SBTargetingClause)
@@ -44,8 +44,8 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
     return this.client.delete<SBTargetingClauseResponse>(`${this.targetResource}/${targetId}`)
   }
 
-  @Decode(SBBatchGetTargetsReponse)
+  @Decode(SBBatchGetTargetsResponse)
   public batchGet(params: SBBatchGetTargetsRequest) {
-    return this.client.post<SBBatchGetTargetsReponse>(this.targetResource, params)
+    return this.client.post<SBBatchGetTargetsResponse>(this.targetResource, params)
   }
 }
