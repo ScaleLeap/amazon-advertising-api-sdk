@@ -338,3 +338,22 @@ describe('SBUpdateNegativeTargetsRequest', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBCreateNegativeTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBCreateNegativeTargetsRequest.decode({
+      negativeTargets: [
+        {
+          adGroupId: 0,
+          campaignId: 0,
+          expressions: {
+            type: 'asinBrandSameAs',
+            value: 'string',
+          },
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
