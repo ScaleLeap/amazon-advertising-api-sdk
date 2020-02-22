@@ -193,9 +193,9 @@ describe('SBCreateTargetsRequest', () => {
   })
 })
 
-describe('SBCreateTargetsReponse', () => {
+describe('SBCreateTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBCreateTargetsReponse.decode({
+    const res = t.SBCreateTargetsResponse.decode({
       createTargetSuccessResults: [
         {
           targetRequestIndex: 0,
@@ -259,9 +259,9 @@ describe('SBBatchGetTargetsRequest', () => {
   })
 })
 
-describe('SBBatchGetTargetsReponse', () => {
+describe('SBBatchGetTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBBatchGetTargetsReponse.decode({
+    const res = t.SBBatchGetTargetsResponse.decode({
       batchGetTargetSuccessResults: [
         {
           targetingClause: {
