@@ -357,3 +357,26 @@ describe('SBCreateNegativeTargetsRequest', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBCreateNegativeTargetsResponse', () => {
+  it('should pass', () => {
+    const res = t.SBCreateNegativeTargetsResponse.decode({
+      createTargetSuccessResults: [
+        {
+          targetRequestIndex: 0,
+          targetId: 0,
+        },
+      ],
+      createTargetErrorResults: [
+        {
+          code: 'string',
+          details: 'string',
+          targetRequestIndex: 0,
+          targetId: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
