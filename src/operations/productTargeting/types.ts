@@ -879,3 +879,44 @@ export type SBUpdateNegativeTargetsRequest = t.TypeOf<typeof SBUpdateNegativeTar
 
 export const SBUpdateNegativeTargetsResponse = SBUpdateTargetsResponse
 export type SBUpdateNegativeTargetsResponse = t.TypeOf<typeof SBUpdateNegativeTargetsResponse>
+
+export enum SBNegativeExpressionTypeEnum {
+  ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
+  ASIN_SAME_AS = 'asinSameAs',
+}
+export const SBNegativeExpressionType = createEnumType<SBNegativeExpressionTypeEnum>(
+  SBNegativeExpressionTypeEnum,
+)
+
+const SBNegativeExpression = t.strict({
+  type: SBNegativeExpressionType,
+
+  /**
+   * The text of the negative expression.
+   */
+  value: t.string,
+})
+
+const SBCreateNegativeTargetingClauseRequest = t.strict({
+  /**
+   * The identifier of an existing ad group.
+   * The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign.
+   * The newly created target is associated to this campaign.
+   */
+  campaignId: CampaignId,
+
+  expressions: SBNegativeExpression,
+})
+
+export const SBCreateNegativeTargetsRequest = t.strict({
+  negativeTargets: t.array(SBCreateNegativeTargetingClauseRequest),
+})
+export type SBCreateNegativeTargetsRequest = t.TypeOf<typeof SBCreateNegativeTargetsRequest>
+
+export const SBCreateNegativeTargetsReponse = SBCreateTargetsReponse
+export type SBCreateNegativeTargetsReponse = t.TypeOf<typeof SBCreateNegativeTargetsReponse>
