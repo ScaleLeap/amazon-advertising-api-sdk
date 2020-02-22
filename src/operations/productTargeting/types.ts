@@ -790,8 +790,8 @@ export const SBCreateTargetsRequest = t.strict({
 })
 export type SBCreateTargetsRequest = t.TypeOf<typeof SBCreateTargetsRequest>
 
-export const SBCreateTargetsReponse = SBUpdateTargetsRequest
-export type SBCreateTargetsReponse = t.TypeOf<typeof SBCreateTargetsReponse>
+export const SBCreateTargetsResponse = SBUpdateTargetsRequest
+export type SBCreateTargetsResponse = t.TypeOf<typeof SBCreateTargetsResponse>
 
 export const SBTargetingClauseResponse = t.partial({
   /**
@@ -810,7 +810,7 @@ export const SBBatchGetTargetsRequest = t.strict({
 })
 export type SBBatchGetTargetsRequest = t.TypeOf<typeof SBBatchGetTargetsRequest>
 
-export const SBBatchGetTargetsReponse = t.strict({
+export const SBBatchGetTargetsResponse = t.strict({
   /**
    * A list of targeting clause objects.
    * Note that each targeting clause object is correlated to the list request by the targetRequestIndex field.
@@ -841,7 +841,7 @@ export const SBBatchGetTargetsReponse = t.strict({
     }),
   ),
 })
-export type SBBatchGetTargetsReponse = t.TypeOf<typeof SBBatchGetTargetsReponse>
+export type SBBatchGetTargetsResponse = t.TypeOf<typeof SBBatchGetTargetsResponse>
 
 export const SBListNegativeTargetsRequest = SBListTargetsRequest
 export type SBListNegativeTargetsRequest = t.TypeOf<typeof SBListNegativeTargetsRequest>
@@ -918,5 +918,5 @@ export const SBCreateNegativeTargetsRequest = t.strict({
 })
 export type SBCreateNegativeTargetsRequest = t.TypeOf<typeof SBCreateNegativeTargetsRequest>
 
-export const SBCreateNegativeTargetsReponse = SBCreateTargetsReponse
-export type SBCreateNegativeTargetsReponse = t.TypeOf<typeof SBCreateNegativeTargetsReponse>
+export const SBCreateNegativeTargetsResponse = SBCreateTargetsResponse
+export type SBCreateNegativeTargetsResponse = t.TypeOf<typeof SBCreateNegativeTargetsResponse>
