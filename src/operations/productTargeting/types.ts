@@ -857,3 +857,25 @@ export const SBListNegativeTargetsResponse = t.strict({
   negativeTargets: SBTargetingClauses,
 })
 export type SBListNegativeTargetsResponse = t.TypeOf<typeof SBListNegativeTargetsResponse>
+
+const SBUpdateNegativeTargetingClauseRequest = t.partial({
+  /**
+   * The target identifier.
+   */
+  targetId: TargetId,
+
+  /**
+   * The identifier of an existing ad group. The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  state: SBExpressionStateType,
+})
+
+export const SBUpdateNegativeTargetsRequest = t.strict({
+  negativeTargets: t.array(SBUpdateNegativeTargetingClauseRequest),
+})
+export type SBUpdateNegativeTargetsRequest = t.TypeOf<typeof SBUpdateNegativeTargetsRequest>
+
+export const SBUpdateNegativeTargetsResponse = SBUpdateTargetsResponse
+export type SBUpdateNegativeTargetsResponse = t.TypeOf<typeof SBUpdateNegativeTargetsResponse>
