@@ -880,6 +880,9 @@ export const SBBatchGetTargetsResponse = t.strict({
 })
 export type SBBatchGetTargetsResponse = t.TypeOf<typeof SBBatchGetTargetsResponse>
 
+export const SBNegativeTargetId = t.number
+export type SBNegativeTargetId = t.TypeOf<typeof SBNegativeTargetId>
+
 export const SBListNegativeTargetsRequest = SBListTargetsRequest
 export type SBListNegativeTargetsRequest = t.TypeOf<typeof SBListNegativeTargetsRequest>
 
@@ -899,7 +902,7 @@ const SBUpdateNegativeTargetingClauseRequest = t.partial({
   /**
    * The target identifier.
    */
-  targetId: TargetId,
+  targetId: SBNegativeTargetId,
 
   /**
    * The identifier of an existing ad group. The newly created target is associated to this ad group.
@@ -957,3 +960,29 @@ export type SBCreateNegativeTargetsRequest = t.TypeOf<typeof SBCreateNegativeTar
 
 export const SBCreateNegativeTargetsResponse = SBCreateTargetsResponse
 export type SBCreateNegativeTargetsResponse = t.TypeOf<typeof SBCreateNegativeTargetsResponse>
+
+export const SBNegativeTargetingClause = t.strict({
+  /**
+   * The target identifier.
+   */
+  targetId: SBNegativeTargetId,
+
+  /**
+   * The identifier of an existing ad group.
+   * The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign.
+   * The newly created target is associated to this campaign.
+   */
+  campaignId: CampaignId,
+
+  expressions: SBNegativeExpression,
+
+  resolvedExpressions: SBResolvedExpression,
+
+  state: SBExpressionStateType,
+})
+export type SBNegativeTargetingClause = t.TypeOf<typeof SBNegativeTargetingClause>
