@@ -986,3 +986,64 @@ export const SBNegativeTargetingClause = t.strict({
   state: SBExpressionStateType,
 })
 export type SBNegativeTargetingClause = t.TypeOf<typeof SBNegativeTargetingClause>
+
+export const SBBatchGetNegativeTargetsRequest = t.strict({
+  targetIds: t.array(SBNegativeTargetId),
+})
+export type SBBatchGetNegativeTargetsRequest = t.TypeOf<typeof SBBatchGetNegativeTargetsRequest>
+
+export const SBBatchGetNegativeTargetsResponse = t.strict({
+  /**
+   * A list of negative targeting clause objects.
+   * Note that each negative targeting clause object is correlated to the list request by the negativeTargetRequestIndex field.
+   * This field corresponds to the order of the negative targeting identifier in the request.
+   */
+  batchGetNegativeTargetSuccessResults: t.array(
+    t.strict({
+      targetingClause: t.strict({
+        /**
+         * The target identifier.
+         */
+        targetId: SBNegativeTargetId,
+
+        /**
+         * The ad group identifier.
+         */
+        adGroupId: AdGroupId,
+
+        /**
+         * The campaign identifier.
+         */
+        campaignId: CampaignId,
+
+        /**
+         * Newly created targets are in a default state of DRAFT before transitioning to a PENDING state for moderation. After moderation, the target's state is ENABLED
+         */
+        state: SBTargetStateType,
+
+        expressions: SBExpressions,
+
+        resolvedExpressions: SBResolvedExpressions,
+      }),
+      targetRequestIndex: t.number,
+    }),
+  ),
+
+  /**
+   * A list of negative target identifiers that were not found.
+   * Note that each negative target identifier is correlated to the list request by the negativeTargetRequestIndex field.
+   * This field corresponds to the order of the negative target identifier in the request.
+   */
+  batchGetNegativeTargetErrorResults: t.array(
+    t.strict({
+      code: t.string,
+
+      details: t.string,
+
+      targetId: TargetId,
+
+      targetRequestIndex: t.number,
+    }),
+  ),
+})
+export type SBBatchGetNegativeTargetsResponse = t.TypeOf<typeof SBBatchGetNegativeTargetsResponse>
