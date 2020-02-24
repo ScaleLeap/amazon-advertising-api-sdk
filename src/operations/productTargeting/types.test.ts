@@ -401,3 +401,53 @@ describe('SBNegativeTargetingClause', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBBatchGetNegativeTargetsRequest', () => {
+  it('should pass', () => {
+    const res = t.SBBatchGetNegativeTargetsRequest.decode({
+      targetIds: [0],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('SBBatchGetNegativeTargetsResponse', () => {
+  it('should pass', () => {
+    const res = t.SBBatchGetNegativeTargetsResponse.decode({
+      batchGetNegativeTargetSuccessResults: [
+        {
+          targetingClause: {
+            targetId: 0,
+            adGroupId: 0,
+            campaignId: 0,
+            state: 'ENABLED',
+            expressions: [
+              {
+                type: 'asinCategorySameAs',
+                value: 'string',
+              },
+            ],
+            resolvedExpressions: [
+              {
+                type: 'asinCategorySameAs',
+                value: 'string',
+              },
+            ],
+          },
+          targetRequestIndex: 0,
+        },
+      ],
+      batchGetNegativeTargetErrorResults: [
+        {
+          code: 'string',
+          details: 'string',
+          targetId: 0,
+          targetRequestIndex: 0,
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
