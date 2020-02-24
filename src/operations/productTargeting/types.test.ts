@@ -380,3 +380,24 @@ describe('SBCreateNegativeTargetsResponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBNegativeTargetingClause', () => {
+  it('should pass', () => {
+    const res = t.SBNegativeTargetingClause.decode({
+      targetId: 0,
+      adGroupId: 0,
+      campaignId: 0,
+      expressions: {
+        type: 'asinBrandSameAs',
+        value: 'string',
+      },
+      resolvedExpressions: {
+        type: 'asinCategorySameAs',
+        value: 'string',
+      },
+      state: 'enabled',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
