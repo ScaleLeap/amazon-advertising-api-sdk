@@ -33,7 +33,7 @@
     "@scaleleap/config": "1.2.3",
     "@types/jest": "25.1.2",
     "@types/lodash": "4.14.149",
-    "@types/node": "13.7.0",
+    "@types/node": "13.7.4",
     "@typescript-eslint/eslint-plugin": "2.19.0",
     "@typescript-eslint/parser": "2.20.0",
     "cross-env": "7.0.0",
