@@ -51,3 +51,41 @@ export const SBProductRecommendationsResponse = t.strict({
   ),
 })
 export type SBProductRecommendationsResponse = t.TypeOf<typeof SBProductRecommendationsResponse>
+
+export const SBCategoryRecommendationsRequest = t.strict({
+  /**
+   * A list of ASINs.
+   */
+  asins: t.array(t.string),
+})
+export type SBCategoryRecommendationsRequest = t.TypeOf<typeof SBCategoryRecommendationsRequest>
+
+export const CategoryId = t.number
+export type CategoryId = t.TypeOf<typeof CategoryId>
+
+const SBCategoryResponse = t.strict({
+  /**
+   * The category identifier.
+   */
+  id: CategoryId,
+
+  /**
+   * The category name.
+   */
+  name: t.string,
+
+  /**
+   * Set to true if the category can be targeted in a targeting expression, and false if not.
+   */
+  isTargetable: t.boolean,
+
+  /**
+   * The path of the category within the category catalogue.
+   */
+  path: t.string,
+})
+
+export const SBCategoryRecommendationsResponse = t.strict({
+  categoryRecommendationResults: t.array(SBCategoryResponse),
+})
+export type SBCategoryRecommendationsResponse = t.TypeOf<typeof SBCategoryRecommendationsResponse>
