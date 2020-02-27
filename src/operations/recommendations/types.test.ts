@@ -59,3 +59,18 @@ describe('SBCategoryRecommendationsResponse', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBCategoryRecommendationsResponse', () => {
+  it('should pass', () => {
+    const res = t.SBBrandRecommendationsResponse.decode({
+      brandRecommendationResults: [
+        {
+          id: 0,
+          name: 'string',
+        },
+      ],
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
