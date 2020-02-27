@@ -1,5 +1,6 @@
 import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
+import { BrandId } from '../productTargeting/types'
 
 export enum SBProductRecommendationFilterTypeEnum {
   ASINS = 'ASINS',
@@ -89,3 +90,33 @@ export const SBCategoryRecommendationsResponse = t.strict({
   categoryRecommendationResults: t.array(SBCategoryResponse),
 })
 export type SBCategoryRecommendationsResponse = t.TypeOf<typeof SBCategoryRecommendationsResponse>
+
+export const SBBrandRecommendationsRequest = t.partial({
+  /**
+   * The category identifier for which to get recommendations.
+   */
+  categoryId: CategoryId,
+
+  /**
+   * The keyword for which to get recommendations.
+   */
+  keyword: t.string,
+})
+export type SBBrandRecommendationsRequest = t.TypeOf<typeof SBBrandRecommendationsRequest>
+
+const SBBrandResponse = t.strict({
+  /**
+   * The Brand identifier.
+   */
+  id: BrandId,
+
+  /**
+   * The Brand name
+   */
+  name: t.string,
+})
+
+export const SBBrandRecommendationsResponse = t.strict({
+  brandRecommendationResults: t.array(SBBrandResponse),
+})
+export type SBBrandRecommendationsResponse = t.TypeOf<typeof SBBrandRecommendationsResponse>
