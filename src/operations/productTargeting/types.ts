@@ -618,14 +618,14 @@ export const ProductPredicateType = createEnumType<ProductPredicateTypeEnum>(
   ProductPredicateTypeEnum,
 )
 
-const SBExpression = t.strict({
+export const SBExpression = t.strict({
   type: ProductPredicateType,
   value: t.string,
 })
-type SBExpression = t.TypeOf<typeof SBExpression>
+export type SBExpression = t.TypeOf<typeof SBExpression>
 
-const SBExpressions = t.array(SBExpression)
-type SBExpressions = t.TypeOf<typeof SBExpressions>
+export const SBExpressions = t.array(SBExpression)
+export type SBExpressions = t.TypeOf<typeof SBExpressions>
 
 const SBResolvedExpression = t.strict({
   type: ProductPredicateType,
