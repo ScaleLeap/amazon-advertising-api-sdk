@@ -1,6 +1,7 @@
 import * as t from 'io-ts'
 import { ListPagination, createEnumType } from '../commons/types'
 import { PortfolioId } from '../portfolios/types'
+import { KeywordMatchType, NegativeKeywordMatchType } from '../keywords/types'
 
 export const SBDraftCampaignId = t.number
 export type SBDraftCampaignId = t.TypeOf<typeof SBDraftCampaignId>
@@ -160,3 +161,52 @@ export const SBListDraftCampaignResponse = t.intersection([
   }),
 ])
 export type SBListDraftCampaignResponse = t.TypeOf<typeof SBListDraftCampaignResponse>
+
+const SBCreateDraftCampaignPositiveKeyword = t.strict({
+  /**
+   * The keyword text. Maximum length is ten words.
+   */
+  keywordText: t.string,
+
+  /**
+   * The match type. For more information, see match types in the Amazon Advertising support center.
+   */
+  matchType: KeywordMatchType,
+
+  /**
+   * The bid associated with the keyword.
+   * For information on the maximum allowable bid, see the 'keyword bid constraints by marketplace' section of the 'supported features' document in the 'guides' section. Note that the bid cannot not be larger than the budget associated with the campaign.
+   */
+  bid: t.number,
+})
+
+const SBCreateDraftCampaignNegativeKeyword = t.strict({
+  /**
+   * The keyword text. Maximum length is ten words.
+   */
+  keywordText: t.string,
+
+  /**
+   * The negative match type.
+   * For more information, see negative keyword match types in the Amazon Advertising support center.
+   */
+  matchType: NegativeKeywordMatchType,
+})
+
+export const SBDraftCampaign = t.intersection([
+  SBListDraftCampaignResponse,
+  t.strict({
+    /**
+     * An array of keywords associated with the draft campaign.
+     */
+    keywords: t.array(SBCreateDraftCampaignPositiveKeyword),
+
+    /**
+     * An array of negative keywords associated with the draft campaign.
+     * This list must be the complete list of negative keywords for the campaign. If set to null, deletes all existing negative keywords on the draft campaign.
+     * If this property is not included in the request, negative keywords are not updated.
+     */
+    negativeKeywords: t.array(SBCreateDraftCampaignNegativeKeyword),
+  }),
+])
+export type SBDraftCampaign = t.TypeOf<typeof SBDraftCampaign>
