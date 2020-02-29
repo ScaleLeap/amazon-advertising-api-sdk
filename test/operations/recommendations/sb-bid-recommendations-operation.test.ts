@@ -10,7 +10,7 @@ import { KeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
  * TODO: Need check again on Production API. Sandbox API returns an error:
  * Could not find resource for full path: https://advertising-api-test.amazon.com/v1/hsa/recommendations/bids
  */
-describe('SponsoredBrandsBidRecommendationsOperation', () => {
+describe.skip('SponsoredBrandsBidRecommendationsOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsBidRecommendationsOperation)
