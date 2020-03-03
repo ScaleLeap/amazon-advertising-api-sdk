@@ -101,13 +101,13 @@ export const SBListDraftCampaignResponse = t.intersection([
      * For more information, see the Stores reference or Brands reference.
      */
     brandEntityId: t.string,
-  }),
-  t.strict({
+
     /**
      * The identifier of the draft campaign.
      */
     draftCampaignId: SBDraftCampaignId,
-
+  }),
+  t.strict({
     /**
      * The name of the draft campaign. Maximum 128 characters. Duplicate campaign names are not allowed.
      */
