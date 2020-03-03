@@ -73,3 +73,22 @@ describe('SBDraftCampaign', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('SBDraftCampaignResponse', () => {
+  it('should pass', () => {
+    const res = t.SBDraftCampaignResponse.decode({
+      draftCampaignId: 0,
+      keywordResponses: [
+        {
+          keywordId: 0,
+          code: 'string',
+          details: 'string',
+        },
+      ],
+      code: 'string',
+      details: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
