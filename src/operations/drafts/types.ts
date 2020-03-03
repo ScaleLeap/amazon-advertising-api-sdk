@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { ListPagination, createEnumType } from '../commons/types'
 import { PortfolioId } from '../portfolios/types'
-import { KeywordMatchType, NegativeKeywordMatchType } from '../keywords/types'
+import { KeywordMatchType, NegativeKeywordMatchType, SBKeywordResponse } from '../keywords/types'
 
 export const SBDraftCampaignId = t.number
 export type SBDraftCampaignId = t.TypeOf<typeof SBDraftCampaignId>
@@ -210,3 +210,23 @@ export const SBDraftCampaign = t.intersection([
   }),
 ])
 export type SBDraftCampaign = t.TypeOf<typeof SBDraftCampaign>
+
+export const SBDraftCampaignResponse = t.partial({
+  /**
+   * The identifier of the draft campaign.
+   */
+  draftCampaignId: SBDraftCampaignId,
+
+  keywordResponses: t.array(SBKeywordResponse),
+
+  /**
+   * The draft campaign response code.
+   */
+  code: t.string,
+
+  /**
+   * A human-readable description of the 'code' field value.
+   */
+  details: t.string,
+})
+export type SBDraftCampaignResponse = t.TypeOf<typeof SBDraftCampaignResponse>
