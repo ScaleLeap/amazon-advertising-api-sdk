@@ -1,5 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredBrandsTargetingRecommendationsOperation } from '../../../src/operations/recommendations/sb-targeting-recommendations-operation'
+import { SponsoredBrandsTargetingRecommendationsOperation } from '../../../src/operations/recommendations/sponsored-brands-targeting-recommendations-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {

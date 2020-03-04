@@ -1,7 +1,7 @@
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { SponsoredBrandsProductTargetingOperation } from '../../../src/operations/product-targeting/sb-product-targeting-operation'
+import { SponsoredBrandsProductTargetingOperation } from '../../../src/operations/product-targeting/sponsored-brands-product-targeting-operation'
 import {
   SBCreateTargetsRequest,
   ProductPredicateTypeEnum,
