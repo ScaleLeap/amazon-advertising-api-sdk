@@ -18,10 +18,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        fetch-depth: 0 ## needed by wagoid/commitlint-github-action@v1
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: npm install, lint, test and build
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
@@ -37,3 +41,5 @@ jobs:
         TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
         TEST_SCOPE: ${{ secrets.TEST_SCOPE }}
         CI: true
+
+    - uses: wagoid/commitlint-github-action@v1
