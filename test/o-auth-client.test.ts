@@ -64,8 +64,8 @@ describe(OAuthClient.name, () => {
     })
 
     const token = client.createToken(
-      config.TEST_ACCESS_TOKEN || '',
-      config.TEST_REFRESH_TOKEN || '',
+      config.TEST_ACCESS_TOKEN || 'x',
+      config.TEST_REFRESH_TOKEN || 'x',
     )
 
     const res = await token.refresh()
