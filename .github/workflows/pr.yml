@@ -1,5 +1,8 @@
 name: Pull Requests
 
+env:
+  CI: "true"
+
 on:
   pull_request:
 
@@ -23,6 +26,8 @@ jobs:
       with:
         fetch-depth: 0 ## needed by wagoid/commitlint-github-action@v1
 
+    - uses: wagoid/commitlint-github-action@v1
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -40,19 +45,14 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - name: npm install, lint, test and build
-      run: |
-        npm install
-        npm run lint
-        npm t
-        npm run build
-      env:
-        TEST_ACCESS_TOKEN: ${{ secrets.TEST_ACCESS_TOKEN }}
-        TEST_APPLICATION_ID: ${{ secrets.TEST_APPLICATION_ID }}
-        TEST_CLIENT_ID: ${{ secrets.TEST_CLIENT_ID }}
-        TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
-        TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
-        TEST_SCOPE: ${{ secrets.TEST_SCOPE }}
-        CI: "true"
+    - name: install
+      run: npm ci
 
-    - uses: wagoid/commitlint-github-action@v1
+    - name: lint
+      run: npm run lint
+
+    - name: test
+      run: npm test
+
+    - name: build
+      run: npm run build
