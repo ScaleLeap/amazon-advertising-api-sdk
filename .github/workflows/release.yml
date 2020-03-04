@@ -1,5 +1,8 @@
 name: Release
 
+env:
+  CI: "true"
+
 on:
   push:
     branches:
@@ -12,20 +15,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: Install
+
+      - name: Cache node modules
+        uses: actions/cache@v1
         env:
-          CI: true
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install
         run: npm ci
+
       - name: Build
-        if: success()
         run: npm run build
+
       - name: Semantic Release
-        if: success()
         env:
           GIT_AUTHOR_NAME: Scale Bot
           GIT_AUTHOR_EMAIL: scale-bot@scaleleap.com

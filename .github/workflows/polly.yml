@@ -15,13 +15,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+
+    - name: Cache node modules
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: install
+      run: npm ci
+
     - name: test
       run: |
-        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-        npm ci
         export TEST_ACCESS_TOKEN=$(npm -s run dev:refresh-token -)
         npm t
       env:
@@ -32,13 +47,15 @@ jobs:
         TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
         TEST_SCOPE: ${{ secrets.TEST_SCOPE }}
         POLLY_RECORD_IF_MISSING: 'true'
-        CI: true
+        CI: "true"
+
     - name: Commit files
       run: |
         git config --local user.email "scale-bot@scaleleap.com"
         git config --local user.name "Scale Bot"
         git add -A test/__recordings__
         git diff-index --quiet HEAD || git commit -m "test: adds Polly recordings [skip ci]"
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:

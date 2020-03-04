@@ -1,39 +1,54 @@
 name: Pull Requests
 
+env:
+  CI: "true"
+
 on:
   pull_request:
-    branches:
-    - master
 
 jobs:
-  build:
+  test:
+    name: Node ${{ matrix.node }} and ${{ matrix.os }}
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version:
-          # - 8.x
-          # - 10.x
-          - 12.x
+        node:
+          - 10
+          - 12
+        os:
+          - ubuntu-latest
+          - macOS-latest
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, lint, test and build
-      run: |
-        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-        npm install
-        npm run lint
-        npm t
-        npm run build
+
+    - name: Cache node modules
+      uses: actions/cache@v1
       env:
-        TEST_ACCESS_TOKEN: ${{ secrets.TEST_ACCESS_TOKEN }}
-        TEST_APPLICATION_ID: ${{ secrets.TEST_APPLICATION_ID }}
-        TEST_CLIENT_ID: ${{ secrets.TEST_CLIENT_ID }}
-        TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
-        TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
-        TEST_SCOPE: ${{ secrets.TEST_SCOPE }}
-        CI: true
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: install
+      run: npm ci
+
+    - name: lint
+      run: npm run lint
+
+    - name: test
+      run: npm test
+
+    - name: build
+      run: npm run build
