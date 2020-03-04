@@ -1,4 +1,4 @@
-import { SponsoredProductsAdGroupNegativeKeywordsOperation } from '../../../src/operations/keywords/sp-ad-group-negative-keywords-operation'
+import { SponsoredProductsAdGroupNegativeKeywordsOperation } from '../../../src/operations/keywords/sponsored-products-ad-group-negative-keywords-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'

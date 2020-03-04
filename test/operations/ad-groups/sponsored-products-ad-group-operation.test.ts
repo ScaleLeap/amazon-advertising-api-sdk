@@ -1,5 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredProductsAdGroupOperation } from '../../../src/operations/ad-groups/sp-ad-group-operation'
+import { SponsoredProductsAdGroupOperation } from '../../../src/operations/ad-groups/sponsored-products-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {

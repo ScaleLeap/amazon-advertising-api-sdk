@@ -1,5 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredBrandsBidRecommendationsOperation } from '../../../src/operations/recommendations/sb-bid-recommendations-operation'
+import { SponsoredBrandsBidRecommendationsOperation } from '../../../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { SBBidsRecommendationRequest } from '../../../src/operations/recommendations/types'

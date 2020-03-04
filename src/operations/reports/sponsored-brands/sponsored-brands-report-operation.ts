@@ -2,9 +2,9 @@ import { omit } from 'lodash'
 import { Decode } from '../../../decorators'
 import { BaseReportOperation } from '../base-report-operation'
 import { ReportResponse } from '../report-response'
-import { SponsoredBrandsAdGroupReportParams } from './sb-adgroup-report-params'
-import { SponsoredBrandsCampaignReportParams } from './sb-campaign-report-params'
-import { SponsoredBrandsKeywordReportParams } from './sb-keyword-report-params'
+import { SponsoredBrandsAdGroupReportParams } from './sponsored-brands-ad-group-report-params'
+import { SponsoredBrandsCampaignReportParams } from './sponsored-brands-campaign-report-params'
+import { SponsoredBrandsKeywordReportParams } from './sponsored-brands-keyword-report-params'
 
 type SponsoredBrandsReportParams =
   | SponsoredBrandsAdGroupReportParams

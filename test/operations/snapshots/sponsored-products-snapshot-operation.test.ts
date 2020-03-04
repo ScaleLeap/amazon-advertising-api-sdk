@@ -1,5 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredProductsSnapshotOperation } from '../../../src/operations/snapshots/sp-snapshot-operation'
+import { SponsoredProductsSnapshotOperation } from '../../../src/operations/snapshots/sponsored-products-snapshot-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {

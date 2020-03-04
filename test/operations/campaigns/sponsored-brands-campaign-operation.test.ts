@@ -1,5 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredBrandsCampaignOperation } from '../../../src/operations/campaigns/sb-campaign-operation'
+import { SponsoredBrandsCampaignOperation } from '../../../src/operations/campaigns/sponsored-brands-campaign-operation'
 import {
   CampaignTypeEnum,
   CampaignStateEnum,

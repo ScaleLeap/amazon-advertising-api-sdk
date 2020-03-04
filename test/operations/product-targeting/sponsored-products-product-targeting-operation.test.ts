@@ -1,7 +1,7 @@
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { SponsoredProductsProductTargetingOperation } from '../../../src/operations/product-targeting/sp-product-targeting-operation'
+import { SponsoredProductsProductTargetingOperation } from '../../../src/operations/product-targeting/sponsored-products-product-targeting-operation'
 import {
   CreateTargetingClausesParams,
   TargetingClauseStateEnum,

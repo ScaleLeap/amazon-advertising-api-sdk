@@ -1,4 +1,4 @@
-import { SponsoredProductsProductAdsOperation } from '../../../src/operations/product-ads/sp-product-ads-operation'
+import { SponsoredProductsProductAdsOperation } from '../../../src/operations/product-ads/sponsored-products-product-ads-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'

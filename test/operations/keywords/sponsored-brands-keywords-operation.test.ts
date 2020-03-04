@@ -1,4 +1,4 @@
-import { SponsoredBrandsKeywordsOperation } from '../../../src/operations/keywords/sb-keywords-operation'
+import { SponsoredBrandsKeywordsOperation } from '../../../src/operations/keywords/sponsored-brands-keywords-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
