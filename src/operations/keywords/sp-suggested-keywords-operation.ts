@@ -8,7 +8,7 @@ import {
   AdGroupSuggestedKeywordsExtendedResponse,
   SuggestedKeywords,
 } from './types'
-import { AdGroupId } from '../adGroups/types'
+import { AdGroupId } from '../ad-groups/types'
 
 export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   private resourcePostfix = '/suggested/keywords'

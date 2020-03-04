@@ -1,13 +1,13 @@
-import { OperationProvider } from '../../../src/operations/operation-provider'
-import { httpClientFactory } from '../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
-import { DateTimeUtils, delay } from '../../test-utils'
-import { SponsoredBrandsReportOperation } from '../../../src/operations/reports/sb/sb-report-operation'
-import { SponsoredBrandsReportTypeEnum } from '../../../src/operations/reports/report-types-enum'
-import { AdGroupReportMetricsEnum } from '../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
-import { CampaignReportMetricsEnum } from '../../../src/operations/reports/metrics/campaign-report-metrics-enum'
-import { KeywordReportMetricsEnum } from '../../../src/operations/reports/metrics/keyword-report-metrics-enum'
-import { ReportResponseStatusEnum } from '../../../src/operations/reports/report-response'
+import { OperationProvider } from '../../../../src/operations/operation-provider'
+import { httpClientFactory } from '../../../http-client-factory'
+import { POLLY_PASSTHROUGH_TAG } from '../../../constants'
+import { DateTimeUtils, delay } from '../../../test-utils'
+import { SponsoredBrandsReportOperation } from '../../../../src/operations/reports/sb/sb-report-operation'
+import { SponsoredBrandsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
+import { AdGroupReportMetricsEnum } from '../../../../src/operations/reports/metrics/adgroup-report-metrics-enum'
+import { CampaignReportMetricsEnum } from '../../../../src/operations/reports/metrics/campaign-report-metrics-enum'
+import { KeywordReportMetricsEnum } from '../../../../src/operations/reports/metrics/keyword-report-metrics-enum'
+import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
 
 jest.setTimeout(15000)
 

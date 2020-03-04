@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
-import { BrandId, SBExpressions } from '../productTargeting/types'
+import { BrandId, SBExpressions } from '../product-targeting/types'
 import { CampaignId } from '../campaigns/types'
 import { KeywordMatchType } from '../keywords/types'
 

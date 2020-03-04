@@ -1,10 +1,10 @@
-import { OperationProvider } from '../src/operations/operation-provider'
-import { ProfileOperation } from '../src/operations/profiles/profile-operation'
-import { httpClientFactory } from './http-client-factory'
-import { Profile, RegisterProfileResponseStatusEnum } from '../src/operations/profiles/types'
-import { CountryCodeEnum } from '../src/operations/commons/types'
-import { POLLY_PASSTHROUGH_TAG } from './constants'
-import { delay } from './test-utils'
+import { OperationProvider } from '../../../src/operations/operation-provider'
+import { ProfileOperation } from '../../../src/operations/profiles/profile-operation'
+import { httpClientFactory } from '../../http-client-factory'
+import { Profile, RegisterProfileResponseStatusEnum } from '../../../src/operations/profiles/types'
+import { CountryCodeEnum } from '../../../src/operations/commons/types'
+import { POLLY_PASSTHROUGH_TAG } from '../../constants'
+import { delay } from '../../test-utils'
 
 jest.setTimeout(15000)
 

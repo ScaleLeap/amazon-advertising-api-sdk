@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import { CampaignId } from '../campaigns/types'
-import { AdGroupId, AdGroupIds } from '../adGroups/types'
+import { AdGroupId, AdGroupIds } from '../ad-groups/types'
 import { createEnumType, ListPagination } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 

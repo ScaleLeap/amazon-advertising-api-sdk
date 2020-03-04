@@ -1,16 +1,16 @@
-import { OperationProvider } from '../src/operations/operation-provider'
-import { SponsoredProductsCampaignOperation } from '../src/operations/campaigns/sp-campaign-operation'
+import { OperationProvider } from '../../../src/operations/operation-provider'
+import { SponsoredProductsCampaignOperation } from '../../../src/operations/campaigns/sp-campaign-operation'
 import {
   CampaignStateEnum,
   CampaignTargetingEnum,
   CampaignTypeEnum,
   CampaignBidding,
-} from '../src/operations/campaigns/types'
-import { httpClientFactory } from './http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from './constants'
-import { DateTimeUtils } from './test-utils'
-import { CampaignBiddingStrategyEnum } from '../src/operations/bidding/campaign-bidding-strategy'
-import { CampaignBiddingAdjustmentsPredicateEnum } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
+} from '../../../src/operations/campaigns/types'
+import { httpClientFactory } from '../../http-client-factory'
+import { POLLY_PASSTHROUGH_TAG } from '../../constants'
+import { DateTimeUtils } from '../../test-utils'
+import { CampaignBiddingStrategyEnum } from '../../../src/operations/bidding/campaign-bidding-strategy'
+import { CampaignBiddingAdjustmentsPredicateEnum } from '../../../src/operations/bidding/campaign-bidding-adjustments-predicate'
 
 describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()

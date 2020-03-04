@@ -1,7 +1,10 @@
-import { httpClientFactory } from './http-client-factory'
-import { OperationProvider } from '../src/operations/operation-provider'
-import { PortfolioOperation } from '../src/operations/portfolios/portfolio-operation'
-import { PortfolioStateEnum, PortfolioResponseStatusEnum } from '../src/operations/portfolios/types'
+import { httpClientFactory } from '../../http-client-factory'
+import { OperationProvider } from '../../../src/operations/operation-provider'
+import { PortfolioOperation } from '../../../src/operations/portfolios/portfolio-operation'
+import {
+  PortfolioStateEnum,
+  PortfolioResponseStatusEnum,
+} from '../../../src/operations/portfolios/types'
 
 describe('PortfolioOperation', () => {
   const client = httpClientFactory()

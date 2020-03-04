@@ -2,7 +2,7 @@ import * as t from 'io-ts'
 import { createEnumType, ListPagination } from '../commons/types'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
-import { AdGroupId, AdGroupIds } from '../adGroups/types'
+import { AdGroupId, AdGroupIds } from '../ad-groups/types'
 
 export const KeywordId = t.number
 export type KeywordId = t.TypeOf<typeof KeywordId>

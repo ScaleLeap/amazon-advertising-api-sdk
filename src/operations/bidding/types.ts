@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
 import { KeywordId } from '../keywords/types'
-import { AdGroupId } from '../adGroups/types'
+import { AdGroupId } from '../ad-groups/types'
 
 export enum KeywordBidRecommendationsMatchTypeEnum {
   EXACT = 'exact',
