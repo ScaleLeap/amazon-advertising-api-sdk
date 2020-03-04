@@ -1,7 +1,7 @@
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { SponsoredProductsProductTargetingOperation } from '../../../src/operations/productTargeting/sp-product-targeting-operation'
+import { SponsoredProductsProductTargetingOperation } from '../../../src/operations/product-targeting/sp-product-targeting-operation'
 import {
   CreateTargetingClausesParams,
   TargetingClauseStateEnum,
@@ -13,7 +13,7 @@ import {
   CreateNegativeTargetingClausesParams,
   ListNegativeTargetingClausesParams,
   UpdateNegativeTargetingClausesParams,
-} from '../../../src/operations/productTargeting/types'
+} from '../../../src/operations/product-targeting/types'
 
 describe('SponsoredProductsProductTargetingOperation', () => {
   const client = httpClientFactory()

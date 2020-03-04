@@ -1,4 +1,4 @@
-import { SponsoredProductsProductAdsOperation } from '../../../src/operations/productAds/sp-product-ads-operation'
+import { SponsoredProductsProductAdsOperation } from '../../../src/operations/product-ads/sp-product-ads-operation'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
@@ -7,7 +7,7 @@ import {
   ProductAdStateEnum,
   UpdateProductAdParams,
   ListProductAdsParams,
-} from '../../../src/operations/productAds/types'
+} from '../../../src/operations/product-ads/types'
 
 describe('SponsoredProductsProductAdsOperation', () => {
   const client = httpClientFactory()

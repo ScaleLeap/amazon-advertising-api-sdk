@@ -1,12 +1,12 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredProductsAdGroupOperation } from '../../../src/operations/adGroups/sp-ad-group-operation'
+import { SponsoredProductsAdGroupOperation } from '../../../src/operations/ad-groups/sp-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {
   AdGroupStateEnum,
   AdGroupServingStatusEnum,
   AdGroupResponseStatusEnum,
-} from '../../../src/operations/adGroups/types'
+} from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredProductsAdGroupOperation', () => {
   const client = httpClientFactory()

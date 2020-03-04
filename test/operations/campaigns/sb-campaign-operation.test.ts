@@ -1,12 +1,12 @@
-import { OperationProvider } from '../src/operations/operation-provider'
-import { SponsoredBrandsCampaignOperation } from '../src/operations/campaigns/sb-campaign-operation'
+import { OperationProvider } from '../../../src/operations/operation-provider'
+import { SponsoredBrandsCampaignOperation } from '../../../src/operations/campaigns/sb-campaign-operation'
 import {
   CampaignTypeEnum,
   CampaignStateEnum,
   CampaignTargetingEnum,
-} from '../src/operations/campaigns/types'
-import { httpClientFactory } from './http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from './constants'
+} from '../../../src/operations/campaigns/types'
+import { httpClientFactory } from '../../http-client-factory'
+import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 
 describe('SponsoredBrandsCampaignOperation', () => {
   const client = httpClientFactory()

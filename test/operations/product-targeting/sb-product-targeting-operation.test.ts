@@ -1,7 +1,7 @@
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { SponsoredBrandsProductTargetingOperation } from '../../../src/operations/productTargeting/sb-product-targeting-operation'
+import { SponsoredBrandsProductTargetingOperation } from '../../../src/operations/product-targeting/sb-product-targeting-operation'
 import {
   SBCreateTargetsRequest,
   ProductPredicateTypeEnum,
@@ -16,7 +16,7 @@ import {
   SBCreateNegativeTargetsRequest,
   SBNegativeExpressionTypeEnum,
   SBBatchGetNegativeTargetsRequest,
-} from '../../../src/operations/productTargeting/types'
+} from '../../../src/operations/product-targeting/types'
 
 /**
  * TODO: Sandbox API returns an error. Need check again on Production API

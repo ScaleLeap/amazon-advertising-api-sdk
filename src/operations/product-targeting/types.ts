@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { createEnumType, ListPagination } from '../commons/types'
 import { CampaignId, CampaignIds } from '../campaigns/types'
-import { AdGroupId, AdGroupIds } from '../adGroups/types'
+import { AdGroupId, AdGroupIds } from '../ad-groups/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const TargetId = t.number

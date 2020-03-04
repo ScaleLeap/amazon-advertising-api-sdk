@@ -1,8 +1,8 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { SponsoredBrandsAdGroupOperation } from '../../../src/operations/adGroups/sb-ad-group-operation'
+import { SponsoredBrandsAdGroupOperation } from '../../../src/operations/ad-groups/sb-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
-import { AdGroupStateEnum } from '../../../src/operations/adGroups/types'
+import { AdGroupStateEnum } from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredBrandsAdGroupOperation', () => {
   const client = httpClientFactory()

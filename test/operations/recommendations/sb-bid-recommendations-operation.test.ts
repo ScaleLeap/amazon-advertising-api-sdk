@@ -3,7 +3,7 @@ import { SponsoredBrandsBidRecommendationsOperation } from '../../../src/operati
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { SBBidsRecommendationRequest } from '../../../src/operations/recommendations/types'
-import { ProductPredicateTypeEnum } from '../../../src/operations/productTargeting/types'
+import { ProductPredicateTypeEnum } from '../../../src/operations/product-targeting/types'
 import { KeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
 
 /**
