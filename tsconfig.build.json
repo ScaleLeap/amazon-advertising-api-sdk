@@ -1,10 +1,10 @@
 {
   "extends": "tsconfigs/nodejs-module",
   "compilerOptions": {
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "outDir": "lib"
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
+    "src/**/*.ts"
   ],
 }
