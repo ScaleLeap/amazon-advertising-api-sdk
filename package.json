@@ -2,12 +2,12 @@
   "name": "amazon-advertising-api-sdk",
   "version": "1.1.2",
   "description": "Amazon Advertising API TypeScript and Node.js Unofficial SDK",
-  "main": "./lib/index.js",
-  "files": [
-    "/lib"
-  ],
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "prebuild": "npm run clean",
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf lib",
     "lint": "eslint --ext .js,.ts src test",
     "test": "jest",
     "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'",
@@ -43,6 +43,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "jest": "25.1.0",
     "prettier": "1.19.1",
+    "rimraf": "3.0.2",
     "semantic-release": "17.0.4",
     "ts-jest": "25.2.1",
     "ts-node": "8.6.2",
