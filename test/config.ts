@@ -1,7 +1,4 @@
 import { BaseConfig } from '@scaleleap/config'
-import { Polly } from '@pollyjs/core'
-
-const POLY_MODES: Polly['mode'][] = ['record', 'passthrough', 'replay', 'stopped']
 
 export class Config extends BaseConfig {
   public readonly TEST_APPLICATION_ID = this.get('TEST_APPLICATION_ID').asString()
@@ -14,8 +11,6 @@ export class Config extends BaseConfig {
   public readonly TEST_OAUTH_REDIRECT_PORT = this.get('TEST_OAUTH_REDIRECT_PORT')
     .default(3000)
     .asIntPositive()
-
-  public readonly POLLY_MODE = this.get('POLLY_MODE', 'replay').asEnum(POLY_MODES) as Polly['mode']
 }
 
 export const config = new Config()
