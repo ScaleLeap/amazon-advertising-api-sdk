@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.4...v1.1.5) (2020-03-06)
+
+
+### Bug Fixes
+
+* moves @scaleleap/jest-polly to devDeps ([126ca47](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/126ca471e7b1ad72d77f4786651b1ba740e3fec8))
+* removes cross-env dependency as it is not used ([f9ca229](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/f9ca22938de68d27c5a67bcd0acbe5906647dd8f))
+
 ## [1.1.4](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.3...v1.1.4) (2020-03-06)
 
 
