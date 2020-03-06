@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.3...v1.1.4) (2020-03-06)
+
+
+### Bug Fixes
+
+* adds files whitelisting ([2c85f49](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/2c85f49de3aba2c6a1e5551cecebbac1c410ce9b))
+
 ## [1.1.3](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.2...v1.1.3) (2020-03-06)
 
 
