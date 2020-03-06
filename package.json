@@ -4,6 +4,9 @@
   "description": "Amazon Advertising API TypeScript and Node.js Unofficial SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc --build tsconfig.build.json",
