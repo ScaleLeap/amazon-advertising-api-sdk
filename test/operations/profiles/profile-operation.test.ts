@@ -2,7 +2,7 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { ProfileOperation } from '../../../src/operations/profiles/profile-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { Profile, RegisterProfileResponseStatusEnum } from '../../../src/operations/profiles/types'
-import { CountryCodeEnum } from '../../../src/operations/commons/types'
+import { AmazonMarketplaceAdvertisingCountryCode } from '@scaleleap/amazon-marketplaces'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { delay } from '../../test-utils'
 
@@ -83,7 +83,7 @@ describe('ProfileOperation', () => {
       await delay()
 
       const param = {
-        countryCode: CountryCodeEnum.US,
+        countryCode: AmazonMarketplaceAdvertisingCountryCode.US,
         brand: 'yay',
       }
 
