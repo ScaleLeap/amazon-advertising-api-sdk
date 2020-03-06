@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.2...v1.1.3) (2020-03-06)
+
+
+### Bug Fixes
+
+* ESLint config issue ([c9d3cfd](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/c9d3cfdcaeed7073a7ccf72055864328f4f6e2bd))
+* references to package.json ([f8b30e8](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/f8b30e8e0a456c5c69d5017a359d3352f00782cc)), closes [#249](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/issues/249)
+
 ## [1.1.2](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.1.1...v1.1.2) (2020-03-05)
 
 
