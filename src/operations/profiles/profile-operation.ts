@@ -8,7 +8,8 @@ import {
   ProfileRegistrationResponse,
 } from './types'
 import { Decode, DecodeArray } from '../../decorators'
-import { CountryCodeEnum, CountryCodeType } from '../commons/types'
+import { AmazonMarketplaceAdvertisingCountryCodeType } from '../commons/types'
+import { AmazonMarketplaceAdvertisingCountryCode } from '@scaleleap/amazon-marketplaces'
 
 export class ProfileOperation extends Operation {
   protected resource = 'profiles'
@@ -57,7 +58,9 @@ export class ProfileOperation extends Operation {
    * @memberof ProfileOperation
    */
   @Decode(RegisterProfileResponse)
-  public registerProfile(countryCode: CountryCodeType = CountryCodeEnum.US) {
+  public registerProfile(
+    countryCode: AmazonMarketplaceAdvertisingCountryCodeType = AmazonMarketplaceAdvertisingCountryCode.US,
+  ) {
     return this.client.put<RegisterProfileResponse>(`${this.version}/${this.resource}/register`, {
       countryCode,
     })

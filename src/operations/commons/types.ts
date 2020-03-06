@@ -1,5 +1,11 @@
 import * as t from 'io-ts'
 
+import {
+  AmazonMarketplaceAdvertisingCountryCode,
+  AmazonMarketplaceAdvertisingCurrency,
+  AmazonMarketplaceAdvertisingTimeZone,
+} from '@scaleleap/amazon-marketplaces'
+
 export class EnumType<A> extends t.Type<A> {
   public readonly _tag: 'EnumType' = 'EnumType'
   public enumObject!: object
@@ -17,43 +23,26 @@ export class EnumType<A> extends t.Type<A> {
 // simple helper function
 export const createEnumType = <T>(e: object, name?: string) => new EnumType<T>(e, name)
 
-export enum CountryCodeEnum {
-  AU = 'AU',
-  CA = 'CA',
-  DE = 'DE',
-  ES = 'ES',
-  FR = 'FR',
-  IT = 'IT',
-  JP = 'JP',
-  UK = 'UK',
-  US = 'US',
-}
+export const AmazonMarketplaceAdvertisingCountryCodeType = createEnumType<
+  AmazonMarketplaceAdvertisingCountryCode
+>(AmazonMarketplaceAdvertisingCountryCode)
+export type AmazonMarketplaceAdvertisingCountryCodeType = t.TypeOf<
+  typeof AmazonMarketplaceAdvertisingCountryCodeType
+>
 
-export const CountryCodeType = createEnumType<CountryCodeEnum>(CountryCodeEnum)
-export type CountryCodeType = t.TypeOf<typeof CountryCodeType>
+export const AmazonMarketplaceAdvertisingCurrencyType = createEnumType<
+  AmazonMarketplaceAdvertisingCurrency
+>(AmazonMarketplaceAdvertisingCurrency)
+export type AmazonMarketplaceAdvertisingCurrencyType = t.TypeOf<
+  typeof AmazonMarketplaceAdvertisingCurrencyType
+>
 
-export enum CurrencyCodeEnum {
-  AUD = 'AUD',
-  CAD = 'CAD',
-  EUR = 'EUR',
-  GBP = 'GBP',
-  JPY = 'JPY',
-  USD = 'USD',
-}
-
-export const CurrencyCodeType = createEnumType<CurrencyCodeEnum>(CurrencyCodeEnum)
-export type CurrencyCodeType = t.TypeOf<typeof CurrencyCodeType>
-
-export enum TimeZoneEnum {
-  AMERICA_LOS_ANGELES = 'America/Los_Angeles',
-  ASIA_TOKYO = 'Asia/Tokyo',
-  AUSTRALIA_SYDNEY = 'Australia/Sydney',
-  EUROPE_LONDON = 'Europe/London',
-  EUROPE_PARIS = 'Europe/Paris',
-}
-
-export const TimeZoneType = createEnumType<TimeZoneEnum>(TimeZoneEnum)
-export type TimeZoneType = t.TypeOf<typeof TimeZoneType>
+export const AmazonMarketplaceAdvertisingTimeZoneType = createEnumType<
+  AmazonMarketplaceAdvertisingTimeZone
+>(AmazonMarketplaceAdvertisingTimeZone)
+export type AmazonMarketplaceAdvertisingTimeZoneType = t.TypeOf<
+  typeof AmazonMarketplaceAdvertisingTimeZoneType
+>
 
 export const ListPagination = t.partial({
   /**

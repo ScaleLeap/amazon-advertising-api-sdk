@@ -1,5 +1,10 @@
 import * as t from 'io-ts'
-import { CurrencyCodeType, TimeZoneType, CountryCodeType, createEnumType } from '../commons/types'
+import {
+  AmazonMarketplaceAdvertisingCurrencyType,
+  AmazonMarketplaceAdvertisingTimeZoneType,
+  AmazonMarketplaceAdvertisingCountryCodeType,
+  createEnumType,
+} from '../commons/types'
 
 export const ProfileId = t.number
 export type ProfileId = t.TypeOf<typeof ProfileId>
@@ -73,17 +78,17 @@ export const Profile = t.intersection([
     /**
      * The country code identifying the publisher(s) on which ads will run.
      */
-    countryCode: CountryCodeType,
+    countryCode: AmazonMarketplaceAdvertisingCountryCodeType,
 
     /**
      * The currency used for all monetary values for entities under this profile.
      */
-    currencyCode: CurrencyCodeType,
+    currencyCode: AmazonMarketplaceAdvertisingCurrencyType,
 
     /**
      * The tz database time zone used for all date-based campaign management and reporting.
      */
-    timezone: TimeZoneType,
+    timezone: AmazonMarketplaceAdvertisingTimeZoneType,
 
     /**
      * Account info.
@@ -108,7 +113,7 @@ export const RegisterBrand = t.strict({
   /**
    * The country in which you wish to register the profile. Can be one of: US, CA, UK, DE, FR, IT, ES, JP, AU
    */
-  countryCode: CountryCodeType,
+  countryCode: AmazonMarketplaceAdvertisingCountryCodeType,
 
   /**
    * REQUIRED. Brand name.

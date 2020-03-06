@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { CurrencyCodeType, createEnumType } from '../commons/types'
+import { AmazonMarketplaceAdvertisingCurrencyType, createEnumType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const PortfolioId = t.number
@@ -17,7 +17,7 @@ export const PortfolioBudget = t.partial({
   /**
    * The currency code of the budget.
    */
-  currencyCode: CurrencyCodeType,
+  currencyCode: AmazonMarketplaceAdvertisingCurrencyType,
 
   /**
    * The policy of the portfolio.
