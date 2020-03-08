@@ -15,6 +15,14 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   private adGroupResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/adGroups/`
   private asinResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/asins`
 
+  /**
+   * Retrieve suggested keyword data for the specified adGroupId.
+   *
+   * @param {AdGroupId} adGroupId
+   * @param {GetAdGroupSuggestedKeywordsParams} [params]
+   * @returns
+   * @memberof SponsoredProductsSuggestedKeywordsOperation
+   */
   @Decode(AdGroupSuggestedKeywordsResponse)
   public getAdGroupSuggestedKeywords(
     adGroupId: AdGroupId,
@@ -25,6 +33,14 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
     )
   }
 
+  /**
+   * Retrieve extended suggested keyword data for the specified adGroupId.
+   *
+   * @param {AdGroupId} adGroupId
+   * @param {GetAdGroupSuggestedKeywordsExtendedParams} [params]
+   * @returns
+   * @memberof SponsoredProductsSuggestedKeywordsOperation
+   */
   @DecodeArray(AdGroupSuggestedKeywordsExtendedResponse)
   public getAdGroupSuggestedKeywordsExtended(
     adGroupId: AdGroupId,
@@ -35,6 +51,15 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
     )
   }
 
+  /**
+   * Provides suggested keywords for specified ASIN.
+   * Suggested keywords are ordered by most effective to least effective.
+   *
+   * @param {string} asinValue
+   * @param {number} [maxNumSuggestions=100]
+   * @returns
+   * @memberof SponsoredProductsSuggestedKeywordsOperation
+   */
   @Decode(SuggestedKeywords)
   public getAsinSuggestedKeywords(asinValue: string, maxNumSuggestions = 100) {
     return this.client.get<SuggestedKeywords>(
@@ -42,6 +67,15 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
     )
   }
 
+  /**
+   * Provides keyword suggestions for specified list of ASINs.
+   * Suggested keywords are ordered by most effective to least effective.
+   *
+   * @param {Array<string>} asinValue
+   * @param {number} [maxNumSuggestions]
+   * @returns
+   * @memberof SponsoredProductsSuggestedKeywordsOperation
+   */
   @Decode(SuggestedKeywords)
   public bulkGetAsinSuggestedKeywords(asinValue: Array<string>, maxNumSuggestions?: number) {
     return this.client.post<SuggestedKeywords>(`${this.asinResource}${this.resourcePostfix}`, {
