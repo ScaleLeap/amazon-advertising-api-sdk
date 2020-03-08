@@ -3,10 +3,10 @@ import { SponsoredBrandsTargetingRecommendationsOperation } from '../../../src/o
 import { httpClientFactory } from '../../http-client-factory'
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {
-  SBProductRecommendationsRequest,
-  SBProductRecommendationFilterTypeEnum,
-  SBCategoryRecommendationsRequest,
-  SBBrandRecommendationsRequest,
+  SponsoredBrandsProductRecommendationsRequest,
+  SponsoredBrandsProductRecommendationFilterTypeEnum,
+  SponsoredBrandsCategoryRecommendationsRequest,
+  SponsoredBrandsBrandRecommendationsRequest,
 } from '../../../src/operations/recommendations/types'
 
 /**
@@ -23,12 +23,12 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
     it(`should return a list of recommended products for targeting ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const MAX_RESULT = 1
 
-      const params: SBProductRecommendationsRequest = {
+      const params: SponsoredBrandsProductRecommendationsRequest = {
         nextToken: '',
         maxResults: MAX_RESULT,
         filters: [
           {
-            filterType: SBProductRecommendationFilterTypeEnum.ASINS,
+            filterType: SponsoredBrandsProductRecommendationFilterTypeEnum.ASINS,
             values: ASINS,
           },
         ],
@@ -41,7 +41,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
 
   describe('getCategoryRecommendations', () => {
     it(`should return a list of recommended categories for targeting ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBCategoryRecommendationsRequest = {
+      const params: SponsoredBrandsCategoryRecommendationsRequest = {
         asins: ASINS,
       }
       const res = await operation.getCategoryRecommendations(params)
@@ -53,7 +53,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
   describe('getBrandRecommendations', () => {
     it(`should return a list of brand suggestions base on category id ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const CATEGORY_ID = 123
-      const params: SBBrandRecommendationsRequest = {
+      const params: SponsoredBrandsBrandRecommendationsRequest = {
         categoryId: CATEGORY_ID,
       }
       const res = await operation.getBrandRecommendations(params)
@@ -63,7 +63,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
 
     it(`should return a list of brand suggestions base on keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const KEYWORD = 'Apple'
-      const params: SBBrandRecommendationsRequest = {
+      const params: SponsoredBrandsBrandRecommendationsRequest = {
         keyword: KEYWORD,
       }
       const res = await operation.getBrandRecommendations(params)

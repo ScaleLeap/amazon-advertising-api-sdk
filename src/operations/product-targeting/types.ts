@@ -553,34 +553,38 @@ export type UpdateNegativeTargetingClausesParams = t.TypeOf<
 
 // Sponsored brands product targeting types
 
-export enum SBTargetStateEnum {
+export enum SponsoredBrandsTargetStateEnum {
   ENABLED = 'ENABLED',
   PAUSED = 'PAUSED',
   PENDING = 'PENDING',
   ARCHIVED = 'ARCHIVED',
   DRAFT = 'DRAFT',
 }
-export const SBTargetStateType = createEnumType<SBTargetStateEnum>(SBTargetStateEnum)
+export const SponsoredBrandsTargetStateType = createEnumType<SponsoredBrandsTargetStateEnum>(
+  SponsoredBrandsTargetStateEnum,
+)
 
-export enum SBFilterTypeEnum {
+export enum SponsoredBrandsFilterTypeEnum {
   STATE = 'STATE',
   CAMPAIGN_ID = 'CAMPAIGN_ID',
   AD_GROUP_ID = 'AD_GROUP_ID',
 }
-export const SBFilterType = createEnumType<SBFilterTypeEnum>(SBFilterTypeEnum)
+export const SponsoredBrandsFilterType = createEnumType<SponsoredBrandsFilterTypeEnum>(
+  SponsoredBrandsFilterTypeEnum,
+)
 
-const SBFilterValue = t.union([SBTargetStateType, CampaignId, AdGroupId])
+const SponsoredBrandsFilterValue = t.union([SponsoredBrandsTargetStateType, CampaignId, AdGroupId])
 
-const SBTargetFilter = t.strict({
-  filterType: SBFilterType,
-  values: t.array(SBFilterValue),
+const SponsoredBrandsTargetFilter = t.strict({
+  filterType: SponsoredBrandsFilterType,
+  values: t.array(SponsoredBrandsFilterValue),
 })
-type SBTargetFilter = t.TypeOf<typeof SBTargetFilter>
+type SponsoredBrandsTargetFilter = t.TypeOf<typeof SponsoredBrandsTargetFilter>
 
-const SBTargetFilters = t.array(SBTargetFilter)
-type SBTargetFilters = t.TypeOf<typeof SBTargetFilters>
+const SponsoredBrandsTargetFilters = t.array(SponsoredBrandsTargetFilter)
+type SponsoredBrandsTargetFilters = t.TypeOf<typeof SponsoredBrandsTargetFilters>
 
-export const SBListTargetsRequest = t.strict({
+export const SponsoredBrandsListTargetsRequest = t.strict({
   /**
    * Operations that return paginated results include a pagination token in this field.
    * To retrieve the next page of results, call the same operation and specify this token in the request.
@@ -599,9 +603,9 @@ export const SBListTargetsRequest = t.strict({
    * Specify one type of each filter.
    * Specifying multiples of the same type of filter results in an error.
    */
-  filters: SBTargetFilters,
+  filters: SponsoredBrandsTargetFilters,
 })
-export type SBListTargetsRequest = t.TypeOf<typeof SBListTargetsRequest>
+export type SponsoredBrandsListTargetsRequest = t.TypeOf<typeof SponsoredBrandsListTargetsRequest>
 
 export enum ProductPredicateTypeEnum {
   ASIN_CATEGORY_SAME_AS = 'asinCategorySameAs',
@@ -618,34 +622,36 @@ export const ProductPredicateType = createEnumType<ProductPredicateTypeEnum>(
   ProductPredicateTypeEnum,
 )
 
-export const SBExpression = t.strict({
+export const SponsoredBrandsExpression = t.strict({
   type: ProductPredicateType,
   value: t.string,
 })
-export type SBExpression = t.TypeOf<typeof SBExpression>
+export type SponsoredBrandsExpression = t.TypeOf<typeof SponsoredBrandsExpression>
 
-export const SBExpressions = t.array(SBExpression)
-export type SBExpressions = t.TypeOf<typeof SBExpressions>
+export const SponsoredBrandsExpressions = t.array(SponsoredBrandsExpression)
+export type SponsoredBrandsExpressions = t.TypeOf<typeof SponsoredBrandsExpressions>
 
-const SBResolvedExpression = t.strict({
+const SponsoredBrandsResolvedExpression = t.strict({
   type: ProductPredicateType,
   value: t.string,
 })
-type SBResolvedExpression = t.TypeOf<typeof SBResolvedExpression>
+type SponsoredBrandsResolvedExpression = t.TypeOf<typeof SponsoredBrandsResolvedExpression>
 
-const SBResolvedExpressions = t.array(SBResolvedExpression)
-type SBResolvedExpressions = t.TypeOf<typeof SBResolvedExpressions>
+const SponsoredBrandsResolvedExpressions = t.array(SponsoredBrandsResolvedExpression)
+type SponsoredBrandsResolvedExpressions = t.TypeOf<typeof SponsoredBrandsResolvedExpressions>
 
-export enum SBExpressionStateEnum {
+export enum SponsoredBrandsExpressionStateEnum {
   ENABLED = 'enabled',
   PAUSED = 'paused',
   PENDING = 'pending',
   ARCHIVED = 'archived',
   DRAFT = 'draft',
 }
-export const SBExpressionStateType = createEnumType<SBExpressionStateEnum>(SBExpressionStateEnum)
+export const SponsoredBrandsExpressionStateType = createEnumType<
+  SponsoredBrandsExpressionStateEnum
+>(SponsoredBrandsExpressionStateEnum)
 
-export const SBTargetingClause = t.strict({
+export const SponsoredBrandsTargetingClause = t.strict({
   /**
    * The target identifier.
    */
@@ -661,11 +667,11 @@ export const SBTargetingClause = t.strict({
    */
   campaignId: CampaignId,
 
-  expressions: SBExpression,
+  expressions: SponsoredBrandsExpression,
 
-  resolvedExpressions: SBResolvedExpression,
+  resolvedExpressions: SponsoredBrandsResolvedExpression,
 
-  state: SBExpressionStateType,
+  state: SponsoredBrandsExpressionStateType,
 
   /**
    * The associated bid.
@@ -674,12 +680,12 @@ export const SBTargetingClause = t.strict({
    */
   bid: t.number,
 })
-export type SBTargetingClause = t.TypeOf<typeof SBTargetingClause>
+export type SponsoredBrandsTargetingClause = t.TypeOf<typeof SponsoredBrandsTargetingClause>
 
-export const SBTargetingClauses = t.array(SBTargetingClause)
-export type SBTargetingClauses = t.TypeOf<typeof SBTargetingClauses>
+export const SponsoredBrandsTargetingClauses = t.array(SponsoredBrandsTargetingClause)
+export type SponsoredBrandsTargetingClauses = t.TypeOf<typeof SponsoredBrandsTargetingClauses>
 
-export const SBListTargetsResponse = t.strict({
+export const SponsoredBrandsListTargetsResponse = t.strict({
   /**
    * Operations that return paginated results include a pagination token in this field.
    * To retrieve the next page of results, call the same operation and specify this token in the request.
@@ -687,11 +693,11 @@ export const SBListTargetsResponse = t.strict({
    */
   nextToken: t.string,
 
-  targets: SBTargetingClauses,
+  targets: SponsoredBrandsTargetingClauses,
 })
-export type SBListTargetsResponse = t.TypeOf<typeof SBListTargetsResponse>
+export type SponsoredBrandsListTargetsResponse = t.TypeOf<typeof SponsoredBrandsListTargetsResponse>
 
-export const SBUpdateTargetsRequest = t.partial({
+export const SponsoredBrandsUpdateTargetsRequest = t.partial({
   /**
    * The identifier of the target.
    */
@@ -710,7 +716,7 @@ export const SBUpdateTargetsRequest = t.partial({
   /**
    * The state of the target.
    */
-  state: SBExpressionStateType,
+  state: SponsoredBrandsExpressionStateType,
 
   /**
    * The associated bid.
@@ -719,9 +725,11 @@ export const SBUpdateTargetsRequest = t.partial({
    */
   bid: t.number,
 })
-export type SBUpdateTargetsRequest = t.TypeOf<typeof SBUpdateTargetsRequest>
+export type SponsoredBrandsUpdateTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsUpdateTargetsRequest
+>
 
-export const SBUpdateTargetsResponse = t.strict({
+export const SponsoredBrandsUpdateTargetsResponse = t.strict({
   /**
    * Lists the successfully updated targets.
    * Note that targets in the response are correlated to targets in the request using the targetRequestIndex field.
@@ -759,9 +767,11 @@ export const SBUpdateTargetsResponse = t.strict({
     }),
   ),
 })
-export type SBUpdateTargetsResponse = t.TypeOf<typeof SBUpdateTargetsResponse>
+export type SponsoredBrandsUpdateTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsUpdateTargetsResponse
+>
 
-const SBCreateTargetingClauseRequest = t.strict({
+const SponsoredBrandsCreateTargetingClauseRequest = t.strict({
   /**
    * The identifier of an existing ad group.
    * The newly created target is associated to this ad group.
@@ -774,7 +784,7 @@ const SBCreateTargetingClauseRequest = t.strict({
    */
   campaignId: CampaignId,
 
-  expressions: SBExpression,
+  expressions: SponsoredBrandsExpression,
 
   /**
    * The associated bid.
@@ -783,14 +793,18 @@ const SBCreateTargetingClauseRequest = t.strict({
    */
   bid: t.number,
 })
-type SBCreateTargetingClauseRequest = t.TypeOf<typeof SBCreateTargetingClauseRequest>
+type SponsoredBrandsCreateTargetingClauseRequest = t.TypeOf<
+  typeof SponsoredBrandsCreateTargetingClauseRequest
+>
 
-export const SBCreateTargetsRequest = t.strict({
-  targets: t.array(SBCreateTargetingClauseRequest),
+export const SponsoredBrandsCreateTargetsRequest = t.strict({
+  targets: t.array(SponsoredBrandsCreateTargetingClauseRequest),
 })
-export type SBCreateTargetsRequest = t.TypeOf<typeof SBCreateTargetsRequest>
+export type SponsoredBrandsCreateTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsCreateTargetsRequest
+>
 
-export const SBCreateTargetsResponse = t.strict({
+export const SponsoredBrandsCreateTargetsResponse = t.strict({
   /**
    * Lists the successfully created targets.
    * Note that targets in the response are correlated to targets in the request using the targetRequestIndex field.
@@ -828,9 +842,11 @@ export const SBCreateTargetsResponse = t.strict({
     }),
   ),
 })
-export type SBCreateTargetsResponse = t.TypeOf<typeof SBCreateTargetsResponse>
+export type SponsoredBrandsCreateTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsCreateTargetsResponse
+>
 
-export const SBTargetingClauseResponse = t.partial({
+export const SponsoredBrandsTargetingClauseResponse = t.partial({
   /**
    * The target identifier.
    */
@@ -840,14 +856,18 @@ export const SBTargetingClauseResponse = t.partial({
 
   details: t.string,
 })
-export type SBTargetingClauseResponse = t.TypeOf<typeof SBTargetingClauseResponse>
+export type SponsoredBrandsTargetingClauseResponse = t.TypeOf<
+  typeof SponsoredBrandsTargetingClauseResponse
+>
 
-export const SBBatchGetTargetsRequest = t.strict({
+export const SponsoredBrandsBatchGetTargetsRequest = t.strict({
   targetIds: TargetIds,
 })
-export type SBBatchGetTargetsRequest = t.TypeOf<typeof SBBatchGetTargetsRequest>
+export type SponsoredBrandsBatchGetTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsBatchGetTargetsRequest
+>
 
-export const SBBatchGetTargetsResponse = t.strict({
+export const SponsoredBrandsBatchGetTargetsResponse = t.strict({
   /**
    * A list of targeting clause objects.
    * Note that each targeting clause object is correlated to the list request by the targetRequestIndex field.
@@ -855,7 +875,7 @@ export const SBBatchGetTargetsResponse = t.strict({
    */
   batchGetTargetSuccessResults: t.array(
     t.strict({
-      targetingClause: SBTargetingClause,
+      targetingClause: SponsoredBrandsTargetingClause,
 
       targetRequestIndex: t.number,
     }),
@@ -878,15 +898,19 @@ export const SBBatchGetTargetsResponse = t.strict({
     }),
   ),
 })
-export type SBBatchGetTargetsResponse = t.TypeOf<typeof SBBatchGetTargetsResponse>
+export type SponsoredBrandsBatchGetTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsBatchGetTargetsResponse
+>
 
-export const SBNegativeTargetId = t.number
-export type SBNegativeTargetId = t.TypeOf<typeof SBNegativeTargetId>
+export const SponsoredBrandsNegativeTargetId = t.number
+export type SponsoredBrandsNegativeTargetId = t.TypeOf<typeof SponsoredBrandsNegativeTargetId>
 
-export const SBListNegativeTargetsRequest = SBListTargetsRequest
-export type SBListNegativeTargetsRequest = t.TypeOf<typeof SBListNegativeTargetsRequest>
+export const SponsoredBrandsListNegativeTargetsRequest = SponsoredBrandsListTargetsRequest
+export type SponsoredBrandsListNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsListNegativeTargetsRequest
+>
 
-export const SBListNegativeTargetsResponse = t.strict({
+export const SponsoredBrandsListNegativeTargetsResponse = t.strict({
   /**
    * Operations that return paginated results include a pagination token in this field.
    * To retrieve the next page of results, call the same operation and specify this token in the request.
@@ -894,42 +918,48 @@ export const SBListNegativeTargetsResponse = t.strict({
    */
   nextToken: t.string,
 
-  negativeTargets: SBTargetingClauses,
+  negativeTargets: SponsoredBrandsTargetingClauses,
 })
-export type SBListNegativeTargetsResponse = t.TypeOf<typeof SBListNegativeTargetsResponse>
+export type SponsoredBrandsListNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsListNegativeTargetsResponse
+>
 
-const SBUpdateNegativeTargetingClauseRequest = t.partial({
+const SponsoredBrandsUpdateNegativeTargetingClauseRequest = t.partial({
   /**
    * The target identifier.
    */
-  targetId: SBNegativeTargetId,
+  targetId: SponsoredBrandsNegativeTargetId,
 
   /**
    * The identifier of an existing ad group. The newly created target is associated to this ad group.
    */
   adGroupId: AdGroupId,
 
-  state: SBExpressionStateType,
+  state: SponsoredBrandsExpressionStateType,
 })
 
-export const SBUpdateNegativeTargetsRequest = t.strict({
-  negativeTargets: t.array(SBUpdateNegativeTargetingClauseRequest),
+export const SponsoredBrandsUpdateNegativeTargetsRequest = t.strict({
+  negativeTargets: t.array(SponsoredBrandsUpdateNegativeTargetingClauseRequest),
 })
-export type SBUpdateNegativeTargetsRequest = t.TypeOf<typeof SBUpdateNegativeTargetsRequest>
+export type SponsoredBrandsUpdateNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsUpdateNegativeTargetsRequest
+>
 
-export const SBUpdateNegativeTargetsResponse = SBUpdateTargetsResponse
-export type SBUpdateNegativeTargetsResponse = t.TypeOf<typeof SBUpdateNegativeTargetsResponse>
+export const SponsoredBrandsUpdateNegativeTargetsResponse = SponsoredBrandsUpdateTargetsResponse
+export type SponsoredBrandsUpdateNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsUpdateNegativeTargetsResponse
+>
 
-export enum SBNegativeExpressionTypeEnum {
+export enum SponsoredBrandsNegativeExpressionTypeEnum {
   ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
   ASIN_SAME_AS = 'asinSameAs',
 }
-export const SBNegativeExpressionType = createEnumType<SBNegativeExpressionTypeEnum>(
-  SBNegativeExpressionTypeEnum,
-)
+export const SponsoredBrandsNegativeExpressionType = createEnumType<
+  SponsoredBrandsNegativeExpressionTypeEnum
+>(SponsoredBrandsNegativeExpressionTypeEnum)
 
-const SBNegativeExpression = t.strict({
-  type: SBNegativeExpressionType,
+const SponsoredBrandsNegativeExpression = t.strict({
+  type: SponsoredBrandsNegativeExpressionType,
 
   /**
    * The text of the negative expression.
@@ -937,7 +967,7 @@ const SBNegativeExpression = t.strict({
   value: t.string,
 })
 
-const SBCreateNegativeTargetingClauseRequest = t.strict({
+const SponsoredBrandsCreateNegativeTargetingClauseRequest = t.strict({
   /**
    * The identifier of an existing ad group.
    * The newly created target is associated to this ad group.
@@ -950,22 +980,26 @@ const SBCreateNegativeTargetingClauseRequest = t.strict({
    */
   campaignId: CampaignId,
 
-  expressions: SBNegativeExpression,
+  expressions: SponsoredBrandsNegativeExpression,
 })
 
-export const SBCreateNegativeTargetsRequest = t.strict({
-  negativeTargets: t.array(SBCreateNegativeTargetingClauseRequest),
+export const SponsoredBrandsCreateNegativeTargetsRequest = t.strict({
+  negativeTargets: t.array(SponsoredBrandsCreateNegativeTargetingClauseRequest),
 })
-export type SBCreateNegativeTargetsRequest = t.TypeOf<typeof SBCreateNegativeTargetsRequest>
+export type SponsoredBrandsCreateNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsCreateNegativeTargetsRequest
+>
 
-export const SBCreateNegativeTargetsResponse = SBCreateTargetsResponse
-export type SBCreateNegativeTargetsResponse = t.TypeOf<typeof SBCreateNegativeTargetsResponse>
+export const SponsoredBrandsCreateNegativeTargetsResponse = SponsoredBrandsCreateTargetsResponse
+export type SponsoredBrandsCreateNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsCreateNegativeTargetsResponse
+>
 
-export const SBNegativeTargetingClause = t.strict({
+export const SponsoredBrandsNegativeTargetingClause = t.strict({
   /**
    * The target identifier.
    */
-  targetId: SBNegativeTargetId,
+  targetId: SponsoredBrandsNegativeTargetId,
 
   /**
    * The identifier of an existing ad group.
@@ -979,20 +1013,24 @@ export const SBNegativeTargetingClause = t.strict({
    */
   campaignId: CampaignId,
 
-  expressions: SBNegativeExpression,
+  expressions: SponsoredBrandsNegativeExpression,
 
-  resolvedExpressions: SBResolvedExpression,
+  resolvedExpressions: SponsoredBrandsResolvedExpression,
 
-  state: SBExpressionStateType,
+  state: SponsoredBrandsExpressionStateType,
 })
-export type SBNegativeTargetingClause = t.TypeOf<typeof SBNegativeTargetingClause>
+export type SponsoredBrandsNegativeTargetingClause = t.TypeOf<
+  typeof SponsoredBrandsNegativeTargetingClause
+>
 
-export const SBBatchGetNegativeTargetsRequest = t.strict({
-  targetIds: t.array(SBNegativeTargetId),
+export const SponsoredBrandsBatchGetNegativeTargetsRequest = t.strict({
+  targetIds: t.array(SponsoredBrandsNegativeTargetId),
 })
-export type SBBatchGetNegativeTargetsRequest = t.TypeOf<typeof SBBatchGetNegativeTargetsRequest>
+export type SponsoredBrandsBatchGetNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsBatchGetNegativeTargetsRequest
+>
 
-export const SBBatchGetNegativeTargetsResponse = t.strict({
+export const SponsoredBrandsBatchGetNegativeTargetsResponse = t.strict({
   /**
    * A list of negative targeting clause objects.
    * Note that each negative targeting clause object is correlated to the list request by the negativeTargetRequestIndex field.
@@ -1004,7 +1042,7 @@ export const SBBatchGetNegativeTargetsResponse = t.strict({
         /**
          * The target identifier.
          */
-        targetId: SBNegativeTargetId,
+        targetId: SponsoredBrandsNegativeTargetId,
 
         /**
          * The ad group identifier.
@@ -1019,11 +1057,11 @@ export const SBBatchGetNegativeTargetsResponse = t.strict({
         /**
          * Newly created targets are in a default state of DRAFT before transitioning to a PENDING state for moderation. After moderation, the target's state is ENABLED
          */
-        state: SBTargetStateType,
+        state: SponsoredBrandsTargetStateType,
 
-        expressions: SBExpressions,
+        expressions: SponsoredBrandsExpressions,
 
-        resolvedExpressions: SBResolvedExpressions,
+        resolvedExpressions: SponsoredBrandsResolvedExpressions,
       }),
       targetRequestIndex: t.number,
     }),
@@ -1046,4 +1084,6 @@ export const SBBatchGetNegativeTargetsResponse = t.strict({
     }),
   ),
 })
-export type SBBatchGetNegativeTargetsResponse = t.TypeOf<typeof SBBatchGetNegativeTargetsResponse>
+export type SponsoredBrandsBatchGetNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsBatchGetNegativeTargetsResponse
+>

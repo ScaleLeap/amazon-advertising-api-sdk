@@ -84,9 +84,9 @@ describe('TargetingClauses', () => {
   })
 })
 
-describe('SBListTargetsRequest', () => {
+describe('SponsoredBrandsListTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBListTargetsRequest.decode({
+    const res = t.SponsoredBrandsListTargetsRequest.decode({
       nextToken: 'string',
       maxResults: 0,
       filters: [
@@ -109,9 +109,9 @@ describe('SBListTargetsRequest', () => {
   })
 })
 
-describe('SBListTargetsResponse', () => {
+describe('SponsoredBrandsListTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBListTargetsResponse.decode({
+    const res = t.SponsoredBrandsListTargetsResponse.decode({
       nextToken: 'string',
       targets: [
         {
@@ -136,9 +136,9 @@ describe('SBListTargetsResponse', () => {
   })
 })
 
-describe('SBUpdateTargetsRequest', () => {
+describe('SponsoredBrandsUpdateTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBUpdateTargetsRequest.decode({
+    const res = t.SponsoredBrandsUpdateTargetsRequest.decode({
       targetId: 0,
       adGroupId: 0,
       campaignId: 0,
@@ -150,9 +150,9 @@ describe('SBUpdateTargetsRequest', () => {
   })
 })
 
-describe('SBUpdateTargetsResponse', () => {
+describe('SponsoredBrandsUpdateTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBUpdateTargetsResponse.decode({
+    const res = t.SponsoredBrandsUpdateTargetsResponse.decode({
       updateTargetSuccessResults: [
         {
           targetId: 0,
@@ -173,9 +173,9 @@ describe('SBUpdateTargetsResponse', () => {
   })
 })
 
-describe('SBCreateTargetsRequest', () => {
+describe('SponsoredBrandsCreateTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBCreateTargetsRequest.decode({
+    const res = t.SponsoredBrandsCreateTargetsRequest.decode({
       targets: [
         {
           adGroupId: 0,
@@ -193,9 +193,9 @@ describe('SBCreateTargetsRequest', () => {
   })
 })
 
-describe('SBCreateTargetsResponse', () => {
+describe('SponsoredBrandsCreateTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBCreateTargetsResponse.decode({
+    const res = t.SponsoredBrandsCreateTargetsResponse.decode({
       createTargetSuccessResults: [
         {
           targetRequestIndex: 0,
@@ -216,9 +216,9 @@ describe('SBCreateTargetsResponse', () => {
   })
 })
 
-describe('SBTargetingClause', () => {
+describe('SponsoredBrandsTargetingClause', () => {
   it('should pass', () => {
-    const res = t.SBTargetingClause.decode({
+    const res = t.SponsoredBrandsTargetingClause.decode({
       targetId: 0,
       adGroupId: 0,
       campaignId: 0,
@@ -238,9 +238,9 @@ describe('SBTargetingClause', () => {
   })
 })
 
-describe('SBTargetingClauseResponse', () => {
+describe('SponsoredBrandsTargetingClauseResponse', () => {
   it('should pass', () => {
-    const res = t.SBTargetingClauseResponse.decode({
+    const res = t.SponsoredBrandsTargetingClauseResponse.decode({
       targetId: 0,
       code: 'string',
     })
@@ -249,9 +249,9 @@ describe('SBTargetingClauseResponse', () => {
   })
 })
 
-describe('SBBatchGetTargetsRequest', () => {
+describe('SponsoredBrandsBatchGetTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBBatchGetTargetsRequest.decode({
+    const res = t.SponsoredBrandsBatchGetTargetsRequest.decode({
       targetIds: [0],
     })
 
@@ -259,9 +259,9 @@ describe('SBBatchGetTargetsRequest', () => {
   })
 })
 
-describe('SBBatchGetTargetsResponse', () => {
+describe('SponsoredBrandsBatchGetTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBBatchGetTargetsResponse.decode({
+    const res = t.SponsoredBrandsBatchGetTargetsResponse.decode({
       batchGetTargetSuccessResults: [
         {
           targetingClause: {
@@ -296,9 +296,9 @@ describe('SBBatchGetTargetsResponse', () => {
   })
 })
 
-describe('SBListNegativeTargetsResponse', () => {
+describe('SponsoredBrandsListNegativeTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBListNegativeTargetsResponse.decode({
+    const res = t.SponsoredBrandsListNegativeTargetsResponse.decode({
       nextToken: 'string',
       negativeTargets: [
         {
@@ -323,9 +323,9 @@ describe('SBListNegativeTargetsResponse', () => {
   })
 })
 
-describe('SBUpdateNegativeTargetsRequest', () => {
+describe('SponsoredBrandsUpdateNegativeTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBUpdateNegativeTargetsRequest.decode({
+    const res = t.SponsoredBrandsUpdateNegativeTargetsRequest.decode({
       negativeTargets: [
         {
           targetId: 0,
@@ -339,9 +339,9 @@ describe('SBUpdateNegativeTargetsRequest', () => {
   })
 })
 
-describe('SBCreateNegativeTargetsRequest', () => {
+describe('SponsoredBrandsCreateNegativeTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBCreateNegativeTargetsRequest.decode({
+    const res = t.SponsoredBrandsCreateNegativeTargetsRequest.decode({
       negativeTargets: [
         {
           adGroupId: 0,
@@ -358,9 +358,9 @@ describe('SBCreateNegativeTargetsRequest', () => {
   })
 })
 
-describe('SBCreateNegativeTargetsResponse', () => {
+describe('SponsoredBrandsCreateNegativeTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBCreateNegativeTargetsResponse.decode({
+    const res = t.SponsoredBrandsCreateNegativeTargetsResponse.decode({
       createTargetSuccessResults: [
         {
           targetRequestIndex: 0,
@@ -381,9 +381,9 @@ describe('SBCreateNegativeTargetsResponse', () => {
   })
 })
 
-describe('SBNegativeTargetingClause', () => {
+describe('SponsoredBrandsNegativeTargetingClause', () => {
   it('should pass', () => {
-    const res = t.SBNegativeTargetingClause.decode({
+    const res = t.SponsoredBrandsNegativeTargetingClause.decode({
       targetId: 0,
       adGroupId: 0,
       campaignId: 0,
@@ -402,9 +402,9 @@ describe('SBNegativeTargetingClause', () => {
   })
 })
 
-describe('SBBatchGetNegativeTargetsRequest', () => {
+describe('SponsoredBrandsBatchGetNegativeTargetsRequest', () => {
   it('should pass', () => {
-    const res = t.SBBatchGetNegativeTargetsRequest.decode({
+    const res = t.SponsoredBrandsBatchGetNegativeTargetsRequest.decode({
       targetIds: [0],
     })
 
@@ -412,9 +412,9 @@ describe('SBBatchGetNegativeTargetsRequest', () => {
   })
 })
 
-describe('SBBatchGetNegativeTargetsResponse', () => {
+describe('SponsoredBrandsBatchGetNegativeTargetsResponse', () => {
   it('should pass', () => {
-    const res = t.SBBatchGetNegativeTargetsResponse.decode({
+    const res = t.SponsoredBrandsBatchGetNegativeTargetsResponse.decode({
       batchGetNegativeTargetSuccessResults: [
         {
           targetingClause: {

@@ -1,9 +1,9 @@
 import { isRight } from 'fp-ts/lib/Either'
 import * as t from './types'
 
-describe('SBProductRecommendationsRequest', () => {
+describe('SponsoredBrandsProductRecommendationsRequest', () => {
   it('should pass', () => {
-    const res = t.SBProductRecommendationsRequest.decode({
+    const res = t.SponsoredBrandsProductRecommendationsRequest.decode({
       nextToken: 'string',
       maxResults: 0,
       filters: [
@@ -18,9 +18,9 @@ describe('SBProductRecommendationsRequest', () => {
   })
 })
 
-describe('SBProductRecommendationsResponse', () => {
+describe('SponsoredBrandsProductRecommendationsResponse', () => {
   it('should pass', () => {
-    const res = t.SBProductRecommendationsResponse.decode({
+    const res = t.SponsoredBrandsProductRecommendationsResponse.decode({
       nextToken: 'string',
       recommendedProducts: [
         {
@@ -33,9 +33,9 @@ describe('SBProductRecommendationsResponse', () => {
   })
 })
 
-describe('SBCategoryRecommendationsRequest', () => {
+describe('SponsoredBrandsCategoryRecommendationsRequest', () => {
   it('should pass', () => {
-    const res = t.SBCategoryRecommendationsRequest.decode({
+    const res = t.SponsoredBrandsCategoryRecommendationsRequest.decode({
       asins: ['string'],
     })
 
@@ -43,9 +43,9 @@ describe('SBCategoryRecommendationsRequest', () => {
   })
 })
 
-describe('SBCategoryRecommendationsResponse', () => {
+describe('SponsoredBrandsCategoryRecommendationsResponse', () => {
   it('should pass', () => {
-    const res = t.SBCategoryRecommendationsResponse.decode({
+    const res = t.SponsoredBrandsCategoryRecommendationsResponse.decode({
       categoryRecommendationResults: [
         {
           id: 0,
@@ -60,9 +60,9 @@ describe('SBCategoryRecommendationsResponse', () => {
   })
 })
 
-describe('SBCategoryRecommendationsResponse', () => {
+describe('SponsoredBrandsCategoryRecommendationsResponse', () => {
   it('should pass', () => {
-    const res = t.SBBrandRecommendationsResponse.decode({
+    const res = t.SponsoredBrandsBrandRecommendationsResponse.decode({
       brandRecommendationResults: [
         {
           id: 0,
@@ -75,9 +75,9 @@ describe('SBCategoryRecommendationsResponse', () => {
   })
 })
 
-describe('SBBidsRecommendationRequest', () => {
+describe('SponsoredBrandsBidsRecommendationRequest', () => {
   it('should pass', () => {
-    const res = t.SBBidsRecommendationRequest.decode({
+    const res = t.SponsoredBrandsBidsRecommendationRequest.decode({
       campaignId: 0,
       targets: [
         {
@@ -97,9 +97,9 @@ describe('SBBidsRecommendationRequest', () => {
   })
 })
 
-describe('SBBidsRecommendationResponse', () => {
+describe('SponsoredBrandsBidsRecommendationResponse', () => {
   it('should pass', () => {
-    const res = t.SBBidsRecommendationResponse.decode({
+    const res = t.SponsoredBrandsBidsRecommendationResponse.decode({
       keywordsBidsRecommendationSuccessResults: [
         {
           recommendationId: 'string',

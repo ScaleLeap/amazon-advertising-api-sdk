@@ -3,15 +3,15 @@ import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
-  CreateSBKeywordParams,
+  CreateSponsoredBrandsKeywordParams,
   KeywordMatchTypeEnum,
   KeywordResponseStatusEnum,
-  SBKeyword,
-  ListSBKeywordParams,
+  SponsoredBrandsKeyword,
+  ListSponsoredBrandsKeywordParams,
   KeywordStateEnum,
-  UpdateSBKeywordParams,
-  SBKeywordStateEnum,
-  SBKeywordResponse,
+  UpdateSponsoredBrandsKeywordParams,
+  SponsoredBrandsKeywordStateEnum,
+  SponsoredBrandsKeywordResponse,
 } from '../../../src/operations/keywords/types'
 
 // TODO: Need check operations again because creating sb keyword is not available for test api
@@ -27,13 +27,13 @@ describe('SponsoredBrandsKeywordsOperation', () => {
 
   describe.skip('listKeywords', () => {
     it(`should return an array of sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res: SBKeyword[] = await operation.listKeywords()
+      const res: SponsoredBrandsKeyword[] = await operation.listKeywords()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
     it(`should return an array of sb keywords filtered by optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: ListSBKeywordParams = {
+      const params: ListSponsoredBrandsKeywordParams = {
         startIndex: 0,
         count: 1,
         matchTypeFilter: [KeywordMatchTypeEnum.PHRASE],
@@ -42,7 +42,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
         campaignIdFilter: [CAMPAIGN_ID],
         adGroupIdFilter: [AD_GROUP_ID],
       }
-      const res: SBKeyword[] = await operation.listKeywords(params)
+      const res: SponsoredBrandsKeyword[] = await operation.listKeywords(params)
 
       expect(Array.isArray(res)).toBeTruthy()
     })
@@ -50,16 +50,16 @@ describe('SponsoredBrandsKeywordsOperation', () => {
 
   describe.skip('updateKeywords', () => {
     it(`should update one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: UpdateSBKeywordParams[] = [
+      const params: UpdateSponsoredBrandsKeywordParams[] = [
         {
           keywordId: KEYWORD_ID,
           adGroupId: AD_GROUP_ID,
           campaignId: CAMPAIGN_ID,
-          state: SBKeywordStateEnum.PAUSED,
+          state: SponsoredBrandsKeywordStateEnum.PAUSED,
           bid: BID,
         },
       ]
-      const res: SBKeywordResponse[] = await operation.updateKeywords(params)
+      const res: SponsoredBrandsKeywordResponse[] = await operation.updateKeywords(params)
 
       expect(Array.isArray(res)).toBeTruthy()
     })
@@ -67,7 +67,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
 
   describe.skip('createKeywords', () => {
     it(`should create one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: CreateSBKeywordParams[] = [
+      const params: CreateSponsoredBrandsKeywordParams[] = [
         {
           adGroupId: AD_GROUP_ID,
           campaignId: CAMPAIGN_ID,
@@ -84,7 +84,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
 
   describe.skip('getKeyword', () => {
     it(`should return a sb keyword by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res: SBKeyword = await operation.getKeyword(KEYWORD_ID)
+      const res: SponsoredBrandsKeyword = await operation.getKeyword(KEYWORD_ID)
 
       expect(res.campaignId).toBe(CAMPAIGN_ID)
       expect(res.adGroupId).toBe(AD_GROUP_ID)
@@ -97,7 +97,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
 
   describe.skip('archiveKeyword', () => {
     it(`should archive a sb keyword specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res: SBKeywordResponse = await operation.archiveKeyword(KEYWORD_ID)
+      const res: SponsoredBrandsKeywordResponse = await operation.archiveKeyword(KEYWORD_ID)
 
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.code).toBe('SUCCESS')

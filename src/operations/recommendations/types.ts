@@ -1,17 +1,17 @@
 import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
-import { BrandId, SBExpressions } from '../product-targeting/types'
+import { BrandId, SponsoredBrandsExpressions } from '../product-targeting/types'
 import { CampaignId } from '../campaigns/types'
 import { KeywordMatchType } from '../keywords/types'
 
-export enum SBProductRecommendationFilterTypeEnum {
+export enum SponsoredBrandsProductRecommendationFilterTypeEnum {
   ASINS = 'ASINS',
 }
-export const SBProductRecommendationFilterType = createEnumType<
-  SBProductRecommendationFilterTypeEnum
->(SBProductRecommendationFilterTypeEnum)
+export const SponsoredBrandsProductRecommendationFilterType = createEnumType<
+  SponsoredBrandsProductRecommendationFilterTypeEnum
+>(SponsoredBrandsProductRecommendationFilterTypeEnum)
 
-export const SBProductRecommendationsRequest = t.strict({
+export const SponsoredBrandsProductRecommendationsRequest = t.strict({
   /**
    * Operations that return paginated results include a pagination token in this field.
    * To retrieve the next page of results, call the same operation and specify this token in the request.
@@ -29,14 +29,16 @@ export const SBProductRecommendationsRequest = t.strict({
    */
   filters: t.array(
     t.strict({
-      filterType: SBProductRecommendationFilterType,
+      filterType: SponsoredBrandsProductRecommendationFilterType,
       values: t.array(t.string),
     }),
   ),
 })
-export type SBProductRecommendationsRequest = t.TypeOf<typeof SBProductRecommendationsRequest>
+export type SponsoredBrandsProductRecommendationsRequest = t.TypeOf<
+  typeof SponsoredBrandsProductRecommendationsRequest
+>
 
-export const SBProductRecommendationsResponse = t.strict({
+export const SponsoredBrandsProductRecommendationsResponse = t.strict({
   /**
    * Operations that return paginated results include a pagination token in this field.
    * To retrieve the next page of results, call the same operation and specify this token in the request.
@@ -53,20 +55,24 @@ export const SBProductRecommendationsResponse = t.strict({
     }),
   ),
 })
-export type SBProductRecommendationsResponse = t.TypeOf<typeof SBProductRecommendationsResponse>
+export type SponsoredBrandsProductRecommendationsResponse = t.TypeOf<
+  typeof SponsoredBrandsProductRecommendationsResponse
+>
 
-export const SBCategoryRecommendationsRequest = t.strict({
+export const SponsoredBrandsCategoryRecommendationsRequest = t.strict({
   /**
    * A list of ASINs.
    */
   asins: t.array(t.string),
 })
-export type SBCategoryRecommendationsRequest = t.TypeOf<typeof SBCategoryRecommendationsRequest>
+export type SponsoredBrandsCategoryRecommendationsRequest = t.TypeOf<
+  typeof SponsoredBrandsCategoryRecommendationsRequest
+>
 
 export const CategoryId = t.number
 export type CategoryId = t.TypeOf<typeof CategoryId>
 
-const SBCategoryResponse = t.strict({
+const SponsoredBrandsCategoryResponse = t.strict({
   /**
    * The category identifier.
    */
@@ -88,12 +94,14 @@ const SBCategoryResponse = t.strict({
   path: t.string,
 })
 
-export const SBCategoryRecommendationsResponse = t.strict({
-  categoryRecommendationResults: t.array(SBCategoryResponse),
+export const SponsoredBrandsCategoryRecommendationsResponse = t.strict({
+  categoryRecommendationResults: t.array(SponsoredBrandsCategoryResponse),
 })
-export type SBCategoryRecommendationsResponse = t.TypeOf<typeof SBCategoryRecommendationsResponse>
+export type SponsoredBrandsCategoryRecommendationsResponse = t.TypeOf<
+  typeof SponsoredBrandsCategoryRecommendationsResponse
+>
 
-export const SBBrandRecommendationsRequest = t.partial({
+export const SponsoredBrandsBrandRecommendationsRequest = t.partial({
   /**
    * The category identifier for which to get recommendations.
    */
@@ -104,9 +112,11 @@ export const SBBrandRecommendationsRequest = t.partial({
    */
   keyword: t.string,
 })
-export type SBBrandRecommendationsRequest = t.TypeOf<typeof SBBrandRecommendationsRequest>
+export type SponsoredBrandsBrandRecommendationsRequest = t.TypeOf<
+  typeof SponsoredBrandsBrandRecommendationsRequest
+>
 
-const SBBrandResponse = t.strict({
+const SponsoredBrandsBrandResponse = t.strict({
   /**
    * The Brand identifier.
    */
@@ -118,16 +128,18 @@ const SBBrandResponse = t.strict({
   name: t.string,
 })
 
-export const SBBrandRecommendationsResponse = t.strict({
-  brandRecommendationResults: t.array(SBBrandResponse),
+export const SponsoredBrandsBrandRecommendationsResponse = t.strict({
+  brandRecommendationResults: t.array(SponsoredBrandsBrandResponse),
 })
-export type SBBrandRecommendationsResponse = t.TypeOf<typeof SBBrandRecommendationsResponse>
+export type SponsoredBrandsBrandRecommendationsResponse = t.TypeOf<
+  typeof SponsoredBrandsBrandRecommendationsResponse
+>
 
 /**
  * Bid recommendations types
  */
 
-const SBBidRecommendationKeyword = t.strict({
+const SponsoredBrandsBidRecommendationKeyword = t.strict({
   /**
    * The match type.
    * For more information, see match types in the Amazon Advertising support center.
@@ -140,7 +152,7 @@ const SBBidRecommendationKeyword = t.strict({
   keywordText: t.string,
 })
 
-const SBRecommendedBid = t.strict({
+const SponsoredBrandsRecommendedBid = t.strict({
   rangeStart: t.number,
 
   rangeEnd: t.number,
@@ -148,31 +160,33 @@ const SBRecommendedBid = t.strict({
   recommended: t.number,
 })
 
-export enum SBKeywordExpressionTypeEnum {
+export enum SponsoredBrandsKeywordExpressionTypeEnum {
   BROAD = 'broad',
   EXACT = 'exact',
   PHRASE = 'phrase',
 }
-export const SBKeywordExpressionType = createEnumType<SBKeywordExpressionTypeEnum>(
-  SBKeywordExpressionTypeEnum,
-)
+export const SponsoredBrandsKeywordExpressionType = createEnumType<
+  SponsoredBrandsKeywordExpressionTypeEnum
+>(SponsoredBrandsKeywordExpressionTypeEnum)
 
 export const RecommendationId = t.string
 export type RecommendationId = t.TypeOf<typeof RecommendationId>
 
-export const SBBidsRecommendationRequest = t.strict({
+export const SponsoredBrandsBidsRecommendationRequest = t.strict({
   /**
    * The identifier of the campaign for which bid recommendations are created.
    */
   campaignId: CampaignId,
 
-  targets: SBExpressions,
+  targets: SponsoredBrandsExpressions,
 
-  keywords: t.array(SBBidRecommendationKeyword),
+  keywords: t.array(SponsoredBrandsBidRecommendationKeyword),
 })
-export type SBBidsRecommendationRequest = t.TypeOf<typeof SBBidsRecommendationRequest>
+export type SponsoredBrandsBidsRecommendationRequest = t.TypeOf<
+  typeof SponsoredBrandsBidsRecommendationRequest
+>
 
-export const SBBidsRecommendationResponse = t.strict({
+export const SponsoredBrandsBidsRecommendationResponse = t.strict({
   /**
    * Lists the bid recommendations for the keywords specified in the request.
    */
@@ -183,9 +197,9 @@ export const SBBidsRecommendationResponse = t.strict({
        */
       recommendationId: RecommendationId,
 
-      recommendedBid: SBRecommendedBid,
+      recommendedBid: SponsoredBrandsRecommendedBid,
 
-      keyword: SBBidRecommendationKeyword,
+      keyword: SponsoredBrandsBidRecommendationKeyword,
 
       keywordIndex: t.number,
     }),
@@ -209,7 +223,7 @@ export const SBBidsRecommendationResponse = t.strict({
         /**
          * The match type. For more information, see match types in the Amazon Advertising support center.
          */
-        type: SBKeywordExpressionType,
+        type: SponsoredBrandsKeywordExpressionType,
       }),
 
       keywordIndex: t.number,
@@ -226,9 +240,9 @@ export const SBBidsRecommendationResponse = t.strict({
        */
       recommendationId: RecommendationId,
 
-      recommendedBid: SBRecommendedBid,
+      recommendedBid: SponsoredBrandsRecommendedBid,
 
-      targets: SBExpressions,
+      targets: SponsoredBrandsExpressions,
 
       /**
        * Correlates the keyword to the keyword array index specified in the request. Zero-based.
@@ -246,7 +260,7 @@ export const SBBidsRecommendationResponse = t.strict({
 
       details: t.string,
 
-      targets: SBExpressions,
+      targets: SponsoredBrandsExpressions,
 
       /**
        * Correlates the keyword to the keyword array index specified in the request. Zero-based.
@@ -255,4 +269,6 @@ export const SBBidsRecommendationResponse = t.strict({
     }),
   ),
 })
-export type SBBidsRecommendationResponse = t.TypeOf<typeof SBBidsRecommendationResponse>
+export type SponsoredBrandsBidsRecommendationResponse = t.TypeOf<
+  typeof SponsoredBrandsBidsRecommendationResponse
+>
