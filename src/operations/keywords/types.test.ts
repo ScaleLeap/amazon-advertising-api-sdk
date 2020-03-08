@@ -16,9 +16,9 @@ describe('Keyword', () => {
   })
 })
 
-describe('UpdateSBNegativeKeywordParams', () => {
+describe('UpdateSponsoredBrandsNegativeKeywordParams', () => {
   it('should pass update sb negative keyword params', () => {
-    const res = t.UpdateSBNegativeKeywordParams.decode({
+    const res = t.UpdateSponsoredBrandsNegativeKeywordParams.decode({
       keywordId: 0,
       adGroupId: 0,
       campaignId: 0,
@@ -29,9 +29,9 @@ describe('UpdateSBNegativeKeywordParams', () => {
   })
 })
 
-describe('CreateSBNegativeKeywordParams', () => {
+describe('CreateSponsoredBrandsNegativeKeywordParams', () => {
   it('should pass create sb negative keyword params', () => {
-    const res = t.CreateSBNegativeKeywordParams.decode({
+    const res = t.CreateSponsoredBrandsNegativeKeywordParams.decode({
       adGroupId: 0,
       campaignId: 0,
       keywordText: 'string',
@@ -42,9 +42,9 @@ describe('CreateSBNegativeKeywordParams', () => {
   })
 })
 
-describe('SBKeywordResponse', () => {
+describe('SponsoredBrandsKeywordResponse', () => {
   it('should pass create, update, archive sb negative keyword response', () => {
-    const res = t.SBKeywordResponse.decode({
+    const res = t.SponsoredBrandsKeywordResponse.decode({
       keywordId: 0,
       code: 'string',
       details: 'string',
@@ -54,9 +54,9 @@ describe('SBKeywordResponse', () => {
   })
 })
 
-describe('SBNegativeKeyword', () => {
+describe('SponsoredBrandsNegativeKeyword', () => {
   it('should pass get sb negative keyword response', () => {
-    const res = t.SBNegativeKeyword.decode({
+    const res = t.SponsoredBrandsNegativeKeyword.decode({
       keywordId: 0,
       adGroupId: 0,
       campaignId: 0,
@@ -69,9 +69,9 @@ describe('SBNegativeKeyword', () => {
   })
 })
 
-describe('SBKeywordRecommendation', () => {
+describe('SponsoredBrandsKeywordRecommendation', () => {
   it('should pass getKeywordRecommendations response', () => {
-    const res = t.SBKeywordRecommendation.decode({
+    const res = t.SponsoredBrandsKeywordRecommendation.decode({
       recommendationId: 'addKeyword',
       value: 'string',
       matchType: 'broad',

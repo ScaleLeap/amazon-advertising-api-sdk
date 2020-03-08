@@ -11,7 +11,7 @@ describe('SponsoredBrandsAdGroupOperation', () => {
   const CAMPAIGN_ID = 31299234922913
   const ARCHIVED_AD_GROUP_ID = 138818764235694
 
-  // Skip: SB Ad Group list is empty
+  // Skip: SponsoredBrands Ad Group list is empty
   describe.skip('getAdGroup', () => {
     it(`should return a single adgroup ${POLLY_PASSTHROUGH_TAG}`, async () => {
       const res = await adGroupOperation.getAdGroup(ARCHIVED_AD_GROUP_ID)
@@ -32,7 +32,7 @@ describe('SponsoredBrandsAdGroupOperation', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    // Skip: SB Ad Group list is empty
+    // Skip: SponsoredBrands Ad Group list is empty
     it.skip('should accept params', async () => {
       const res = await adGroupOperation.listAdGroups({
         adGroupIdFilter: [ARCHIVED_AD_GROUP_ID],

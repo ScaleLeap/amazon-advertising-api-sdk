@@ -3,11 +3,11 @@ import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
-  CreateSBNegativeKeywordParams,
+  CreateSponsoredBrandsNegativeKeywordParams,
   NegativeKeywordMatchTypeEnum,
   NegativeKeywordResponseStatusEnum,
-  UpdateSBNegativeKeywordParams,
-  SBNegativeKeywordStateEnum,
+  UpdateSponsoredBrandsNegativeKeywordParams,
+  SponsoredBrandsNegativeKeywordStateEnum,
 } from '../../../src/operations/keywords/types'
 
 /**
@@ -25,12 +25,12 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
 
   describe.skip('updateNegativeKeywords', () => {
     it(`should update one or more sb negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: UpdateSBNegativeKeywordParams[] = [
+      const params: UpdateSponsoredBrandsNegativeKeywordParams[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
           adGroupId: MANUAL_AD_GROUP_ID,
           keywordId: KEYWORD_ID,
-          state: SBNegativeKeywordStateEnum.ARCHIVED,
+          state: SponsoredBrandsNegativeKeywordStateEnum.ARCHIVED,
         },
       ]
       const [res] = await operation.updateNegativeKeywords(params)
@@ -41,7 +41,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
 
   describe.skip('createNegativeKeywords', () => {
     it(`should create one or more sb negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: CreateSBNegativeKeywordParams[] = [
+      const params: CreateSponsoredBrandsNegativeKeywordParams[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
           adGroupId: MANUAL_AD_GROUP_ID,

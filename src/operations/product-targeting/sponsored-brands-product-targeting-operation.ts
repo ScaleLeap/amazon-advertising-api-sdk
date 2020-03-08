@@ -3,94 +3,108 @@ import { Decode } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
 import {
-  SBListTargetsRequest,
-  SBListTargetsResponse,
-  SBUpdateTargetsRequest,
-  SBUpdateTargetsResponse,
-  SBCreateTargetsRequest,
-  SBCreateTargetsResponse,
+  SponsoredBrandsListTargetsRequest,
+  SponsoredBrandsListTargetsResponse,
+  SponsoredBrandsUpdateTargetsRequest,
+  SponsoredBrandsUpdateTargetsResponse,
+  SponsoredBrandsCreateTargetsRequest,
+  SponsoredBrandsCreateTargetsResponse,
   TargetId,
-  SBTargetingClause,
-  SBTargetingClauseResponse,
-  SBBatchGetTargetsRequest,
-  SBBatchGetTargetsResponse,
-  SBListNegativeTargetsRequest,
-  SBListNegativeTargetsResponse,
-  SBUpdateNegativeTargetsRequest,
-  SBUpdateNegativeTargetsResponse,
-  SBCreateNegativeTargetsResponse,
-  SBCreateNegativeTargetsRequest,
-  SBNegativeTargetingClause,
-  SBNegativeTargetId,
-  SBBatchGetNegativeTargetsResponse,
-  SBBatchGetNegativeTargetsRequest,
+  SponsoredBrandsTargetingClause,
+  SponsoredBrandsTargetingClauseResponse,
+  SponsoredBrandsBatchGetTargetsRequest,
+  SponsoredBrandsBatchGetTargetsResponse,
+  SponsoredBrandsListNegativeTargetsRequest,
+  SponsoredBrandsListNegativeTargetsResponse,
+  SponsoredBrandsUpdateNegativeTargetsRequest,
+  SponsoredBrandsUpdateNegativeTargetsResponse,
+  SponsoredBrandsCreateNegativeTargetsResponse,
+  SponsoredBrandsCreateNegativeTargetsRequest,
+  SponsoredBrandsNegativeTargetingClause,
+  SponsoredBrandsNegativeTargetId,
+  SponsoredBrandsBatchGetNegativeTargetsResponse,
+  SponsoredBrandsBatchGetNegativeTargetsRequest,
 } from './types'
 
 export class SponsoredBrandsProductTargetingOperation extends Operation {
   protected targetResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/targets`
   protected negativeTargetResource = `sb/negativeTargets`
 
-  @Decode(SBListTargetsResponse)
-  public listTargets(params: SBListTargetsRequest) {
-    return this.client.post<SBListTargetsResponse>(this.targetResource, params)
+  @Decode(SponsoredBrandsListTargetsResponse)
+  public listTargets(params: SponsoredBrandsListTargetsRequest) {
+    return this.client.post<SponsoredBrandsListTargetsResponse>(this.targetResource, params)
   }
 
-  @Decode(SBUpdateTargetsResponse)
-  public updateTargets(params: SBUpdateTargetsRequest[]) {
-    return this.client.put<SBUpdateTargetsResponse>(this.targetResource, params)
+  @Decode(SponsoredBrandsUpdateTargetsResponse)
+  public updateTargets(params: SponsoredBrandsUpdateTargetsRequest[]) {
+    return this.client.put<SponsoredBrandsUpdateTargetsResponse>(this.targetResource, params)
   }
 
-  @Decode(SBCreateTargetsResponse)
-  public createTargets(params: SBCreateTargetsRequest) {
-    return this.client.post<SBCreateTargetsResponse>(this.targetResource, params)
+  @Decode(SponsoredBrandsCreateTargetsResponse)
+  public createTargets(params: SponsoredBrandsCreateTargetsRequest) {
+    return this.client.post<SponsoredBrandsCreateTargetsResponse>(this.targetResource, params)
   }
 
-  @Decode(SBTargetingClause)
+  @Decode(SponsoredBrandsTargetingClause)
   public getTarget(targetId: TargetId) {
-    return this.client.get<SBTargetingClause>(`${this.targetResource}/${targetId}`)
+    return this.client.get<SponsoredBrandsTargetingClause>(`${this.targetResource}/${targetId}`)
   }
 
-  @Decode(SBTargetingClauseResponse)
+  @Decode(SponsoredBrandsTargetingClauseResponse)
   public archiveTarget(targetId: TargetId) {
-    return this.client.delete<SBTargetingClauseResponse>(`${this.targetResource}/${targetId}`)
+    return this.client.delete<SponsoredBrandsTargetingClauseResponse>(
+      `${this.targetResource}/${targetId}`,
+    )
   }
 
-  @Decode(SBBatchGetTargetsResponse)
-  public batchGetTargets(params: SBBatchGetTargetsRequest) {
-    return this.client.post<SBBatchGetTargetsResponse>(this.targetResource, params)
+  @Decode(SponsoredBrandsBatchGetTargetsResponse)
+  public batchGetTargets(params: SponsoredBrandsBatchGetTargetsRequest) {
+    return this.client.post<SponsoredBrandsBatchGetTargetsResponse>(this.targetResource, params)
   }
 
-  @Decode(SBListNegativeTargetsResponse)
-  public listNegativeTargets(params: SBListNegativeTargetsRequest) {
-    return this.client.post<SBListNegativeTargetsResponse>(this.negativeTargetResource, params)
+  @Decode(SponsoredBrandsListNegativeTargetsResponse)
+  public listNegativeTargets(params: SponsoredBrandsListNegativeTargetsRequest) {
+    return this.client.post<SponsoredBrandsListNegativeTargetsResponse>(
+      this.negativeTargetResource,
+      params,
+    )
   }
 
-  @Decode(SBUpdateNegativeTargetsResponse)
-  public updateNegativeTargets(params: SBUpdateNegativeTargetsRequest) {
-    return this.client.put<SBUpdateNegativeTargetsResponse>(this.negativeTargetResource, params)
+  @Decode(SponsoredBrandsUpdateNegativeTargetsResponse)
+  public updateNegativeTargets(params: SponsoredBrandsUpdateNegativeTargetsRequest) {
+    return this.client.put<SponsoredBrandsUpdateNegativeTargetsResponse>(
+      this.negativeTargetResource,
+      params,
+    )
   }
 
-  @Decode(SBCreateNegativeTargetsResponse)
-  public createNegativeTargets(params: SBCreateNegativeTargetsRequest) {
-    return this.client.post<SBCreateNegativeTargetsResponse>(this.negativeTargetResource, params)
+  @Decode(SponsoredBrandsCreateNegativeTargetsResponse)
+  public createNegativeTargets(params: SponsoredBrandsCreateNegativeTargetsRequest) {
+    return this.client.post<SponsoredBrandsCreateNegativeTargetsResponse>(
+      this.negativeTargetResource,
+      params,
+    )
   }
 
-  @Decode(SBNegativeTargetingClause)
-  public getNegativeTarget(negativeTargetId: SBNegativeTargetId) {
-    return this.client.get<SBNegativeTargetingClause>(
+  @Decode(SponsoredBrandsNegativeTargetingClause)
+  public getNegativeTarget(negativeTargetId: SponsoredBrandsNegativeTargetId) {
+    return this.client.get<SponsoredBrandsNegativeTargetingClause>(
       `${this.negativeTargetResource}/${negativeTargetId}`,
     )
   }
 
-  @Decode(SBTargetingClauseResponse)
-  public archiveNegativeTarget(negativeTargetId: SBNegativeTargetId) {
-    return this.client.delete<SBTargetingClauseResponse>(
+  @Decode(SponsoredBrandsTargetingClauseResponse)
+  public archiveNegativeTarget(negativeTargetId: SponsoredBrandsNegativeTargetId) {
+    return this.client.delete<SponsoredBrandsTargetingClauseResponse>(
       `${this.negativeTargetResource}/${negativeTargetId}`,
     )
   }
 
-  @Decode(SBBatchGetNegativeTargetsResponse)
-  public batchGetNegativeTargets(params: SBBatchGetNegativeTargetsRequest) {
-    return this.client.post<SBBatchGetNegativeTargetsResponse>(this.negativeTargetResource, params)
+  @Decode(SponsoredBrandsBatchGetNegativeTargetsResponse)
+  public batchGetNegativeTargets(params: SponsoredBrandsBatchGetNegativeTargetsRequest) {
+    return this.client.post<SponsoredBrandsBatchGetNegativeTargetsResponse>(
+      this.negativeTargetResource,
+      params,
+    )
   }
 }

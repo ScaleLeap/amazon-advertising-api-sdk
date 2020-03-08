@@ -4,32 +4,34 @@ import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
 import {
   KeywordId,
-  SBNegativeKeywordResponse,
-  UpdateSBNegativeKeywordParams,
-  CreateSBNegativeKeywordParams,
-  SBNegativeKeyword,
+  SponsoredBrandsNegativeKeywordResponse,
+  UpdateSponsoredBrandsNegativeKeywordParams,
+  CreateSponsoredBrandsNegativeKeywordParams,
+  SponsoredBrandsNegativeKeyword,
 } from './types'
 
 export class SponsoredBrandsNegativeKeywordsOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/negativeKeywords`
 
-  @DecodeArray(SBNegativeKeywordResponse)
-  public updateNegativeKeywords(params: UpdateSBNegativeKeywordParams[]) {
-    return this.client.put<SBNegativeKeywordResponse[]>(this.resource, params)
+  @DecodeArray(SponsoredBrandsNegativeKeywordResponse)
+  public updateNegativeKeywords(params: UpdateSponsoredBrandsNegativeKeywordParams[]) {
+    return this.client.put<SponsoredBrandsNegativeKeywordResponse[]>(this.resource, params)
   }
 
-  @DecodeArray(SBNegativeKeywordResponse)
-  public createNegativeKeywords(params: CreateSBNegativeKeywordParams[]) {
-    return this.client.post<SBNegativeKeywordResponse[]>(this.resource, params)
+  @DecodeArray(SponsoredBrandsNegativeKeywordResponse)
+  public createNegativeKeywords(params: CreateSponsoredBrandsNegativeKeywordParams[]) {
+    return this.client.post<SponsoredBrandsNegativeKeywordResponse[]>(this.resource, params)
   }
 
-  @Decode(SBNegativeKeyword)
+  @Decode(SponsoredBrandsNegativeKeyword)
   public getNegativeKeyword(keywordId: KeywordId) {
-    return this.client.get<SBNegativeKeyword>(`${this.resource}/${keywordId}`)
+    return this.client.get<SponsoredBrandsNegativeKeyword>(`${this.resource}/${keywordId}`)
   }
 
-  @Decode(SBNegativeKeywordResponse)
+  @Decode(SponsoredBrandsNegativeKeywordResponse)
   public archiveNegativeKeyword(keywordId: KeywordId) {
-    return this.client.delete<SBNegativeKeywordResponse>(`${this.resource}/${keywordId}`)
+    return this.client.delete<SponsoredBrandsNegativeKeywordResponse>(
+      `${this.resource}/${keywordId}`,
+    )
   }
 }

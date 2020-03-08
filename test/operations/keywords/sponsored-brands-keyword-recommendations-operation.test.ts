@@ -2,7 +2,7 @@ import { SponsoredBrandsKeywordRecommendationsOperation } from '../../../src/ope
 import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { SBKeywordRecommendationParams } from '../../../src/operations/keywords/types'
+import { SponsoredBrandsKeywordRecommendationParams } from '../../../src/operations/keywords/types'
 
 /**
  * TODO: Sandbox API returns an error. Need check again on Production API
@@ -18,7 +18,7 @@ describe.skip('SponsoredBrandsKeywordRecommendationsOperation', () => {
 
   describe('getKeywordRecommendations', () => {
     it(`should return an array of keyword recommendations for a set of ASINs ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBKeywordRecommendationParams = {
+      const params: SponsoredBrandsKeywordRecommendationParams = {
         asins: ASINS,
       }
       const res = await operation.getKeywordRecommendations(params)
@@ -27,7 +27,7 @@ describe.skip('SponsoredBrandsKeywordRecommendationsOperation', () => {
     })
 
     it(`should return an array of keyword recommendations for a Store page ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBKeywordRecommendationParams = {
+      const params: SponsoredBrandsKeywordRecommendationParams = {
         url: STORE_PAGE_URL,
       }
       const res = await operation.getKeywordRecommendations(params)

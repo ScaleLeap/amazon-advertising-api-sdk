@@ -2,32 +2,38 @@ import { Operation } from '../operation'
 import { Decode } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 import {
-  SBProductRecommendationsRequest,
-  SBProductRecommendationsResponse,
-  SBCategoryRecommendationsRequest,
-  SBCategoryRecommendationsResponse,
-  SBBrandRecommendationsRequest,
-  SBBrandRecommendationsResponse,
+  SponsoredBrandsProductRecommendationsRequest,
+  SponsoredBrandsProductRecommendationsResponse,
+  SponsoredBrandsCategoryRecommendationsRequest,
+  SponsoredBrandsCategoryRecommendationsResponse,
+  SponsoredBrandsBrandRecommendationsRequest,
+  SponsoredBrandsBrandRecommendationsResponse,
 } from './types'
 
 export class SponsoredBrandsTargetingRecommendationsOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/recommendations/targets`
 
-  @Decode(SBProductRecommendationsResponse)
-  public getProductRecommendations(params: SBProductRecommendationsRequest) {
-    return this.client.post<SBProductRecommendationsResponse>(
+  @Decode(SponsoredBrandsProductRecommendationsResponse)
+  public getProductRecommendations(params: SponsoredBrandsProductRecommendationsRequest) {
+    return this.client.post<SponsoredBrandsProductRecommendationsResponse>(
       `${this.resource}/product/list`,
       params,
     )
   }
 
-  @Decode(SBCategoryRecommendationsResponse)
-  public getCategoryRecommendations(params: SBCategoryRecommendationsRequest) {
-    return this.client.post<SBCategoryRecommendationsResponse>(`${this.resource}/category`, params)
+  @Decode(SponsoredBrandsCategoryRecommendationsResponse)
+  public getCategoryRecommendations(params: SponsoredBrandsCategoryRecommendationsRequest) {
+    return this.client.post<SponsoredBrandsCategoryRecommendationsResponse>(
+      `${this.resource}/category`,
+      params,
+    )
   }
 
-  @Decode(SBBrandRecommendationsResponse)
-  public getBrandRecommendations(params: SBBrandRecommendationsRequest) {
-    return this.client.post<SBBrandRecommendationsResponse>(`${this.resource}/brand`, params)
+  @Decode(SponsoredBrandsBrandRecommendationsResponse)
+  public getBrandRecommendations(params: SponsoredBrandsBrandRecommendationsRequest) {
+    return this.client.post<SponsoredBrandsBrandRecommendationsResponse>(
+      `${this.resource}/brand`,
+      params,
+    )
   }
 }

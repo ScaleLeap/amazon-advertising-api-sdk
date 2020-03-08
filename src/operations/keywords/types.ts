@@ -687,16 +687,16 @@ export type GetAdGroupSuggestedKeywordsExtendedParams = t.TypeOf<
   typeof GetAdGroupSuggestedKeywordsExtendedParams
 >
 
-export enum SBKeywordStateEnum {
+export enum SponsoredBrandsKeywordStateEnum {
   ENABLED = 'enabled',
   PAUSED = 'paused',
   PENDING = 'pending',
   ARCHIVED = 'archived',
   DRAFT = 'draft',
 }
-export const SBKeywordStateType = createEnumType(SBKeywordStateEnum)
+export const SponsoredBrandsKeywordStateType = createEnumType(SponsoredBrandsKeywordStateEnum)
 
-export const SBKeyword = t.strict({
+export const SponsoredBrandsKeyword = t.strict({
   /**
    * The keyword identifier.
    */
@@ -723,10 +723,10 @@ export const SBKeyword = t.strict({
   matchType: KeywordMatchType,
 
   /**
-   * Newly created SB keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
+   * Newly created SponsoredBrands keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
    * After moderation, the keyword will be in an enabled state.
    */
-  state: SBKeywordStateType,
+  state: SponsoredBrandsKeywordStateType,
 
   /**
    * The bid associated with the keyword.
@@ -735,9 +735,9 @@ export const SBKeyword = t.strict({
    */
   bid: t.number,
 })
-export type SBKeyword = t.TypeOf<typeof SBKeyword>
+export type SponsoredBrandsKeyword = t.TypeOf<typeof SponsoredBrandsKeyword>
 
-export const ListSBKeywordParams = t.intersection([
+export const ListSponsoredBrandsKeywordParams = t.intersection([
   ListPagination,
   t.partial({
     /**
@@ -771,9 +771,9 @@ export const ListSBKeywordParams = t.intersection([
     keywordIdFilter: KeywordIds,
   }),
 ])
-export type ListSBKeywordParams = t.TypeOf<typeof ListSBKeywordParams>
+export type ListSponsoredBrandsKeywordParams = t.TypeOf<typeof ListSponsoredBrandsKeywordParams>
 
-export const UpdateSBKeywordParams = t.strict({
+export const UpdateSponsoredBrandsKeywordParams = t.strict({
   /**
    * The identifier of the keyword.
    */
@@ -790,10 +790,10 @@ export const UpdateSBKeywordParams = t.strict({
   campaignId: CampaignId,
 
   /**
-   * Newly created SB keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
+   * Newly created SponsoredBrands keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
    * After moderation, the keyword will be in an enabled state.
    */
-  state: SBKeywordStateType,
+  state: SponsoredBrandsKeywordStateType,
 
   /**
    * The bid associated with the keyword.
@@ -802,9 +802,9 @@ export const UpdateSBKeywordParams = t.strict({
    */
   bid: t.number,
 })
-export type UpdateSBKeywordParams = t.TypeOf<typeof UpdateSBKeywordParams>
+export type UpdateSponsoredBrandsKeywordParams = t.TypeOf<typeof UpdateSponsoredBrandsKeywordParams>
 
-export const CreateSBKeywordParams = t.strict({
+export const CreateSponsoredBrandsKeywordParams = t.strict({
   /**
    * The identifier of an existing ad group to which the keyword is associated.
    */
@@ -832,9 +832,9 @@ export const CreateSBKeywordParams = t.strict({
    */
   bid: t.number,
 })
-export type CreateSBKeywordParams = t.TypeOf<typeof CreateSBKeywordParams>
+export type CreateSponsoredBrandsKeywordParams = t.TypeOf<typeof CreateSponsoredBrandsKeywordParams>
 
-export const SBKeywordResponse = t.intersection([
+export const SponsoredBrandsKeywordResponse = t.intersection([
   t.type({
     /**
      * The ID of the keyword that was created/updated, if successful
@@ -853,19 +853,19 @@ export const SBKeywordResponse = t.intersection([
     details: t.string,
   }),
 ])
-export type SBKeywordResponse = t.TypeOf<typeof SBKeywordResponse>
+export type SponsoredBrandsKeywordResponse = t.TypeOf<typeof SponsoredBrandsKeywordResponse>
 
-export enum SBNegativeKeywordStateEnum {
+export enum SponsoredBrandsNegativeKeywordStateEnum {
   ENABLED = 'enabled',
   PENDING = 'pending',
   ARCHIVED = 'archived',
   DRAFT = 'draft',
 }
-export const SBNegativeKeywordStateType = createEnumType<SBNegativeKeywordStateEnum>(
-  SBNegativeKeywordStateEnum,
-)
+export const SponsoredBrandsNegativeKeywordStateType = createEnumType<
+  SponsoredBrandsNegativeKeywordStateEnum
+>(SponsoredBrandsNegativeKeywordStateEnum)
 
-export const SBNegativeKeyword = t.strict({
+export const SponsoredBrandsNegativeKeyword = t.strict({
   /**
    * The identifier of the negative keyword
    */
@@ -896,15 +896,15 @@ export const SBNegativeKeyword = t.strict({
 
   /**
    * The current state of the negative keyword.
-   * Newly created SB negative keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation review.
+   * Newly created SponsoredBrands negative keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation review.
    * 'enabled' refers to negative keywords that are active.
    * 'archived' refers to negative keywords that are permanently inactive and cannot be returned to the 'enabled' state.
    */
-  state: SBNegativeKeywordStateType,
+  state: SponsoredBrandsNegativeKeywordStateType,
 })
-export type SBNegativeKeyword = t.TypeOf<typeof SBNegativeKeyword>
+export type SponsoredBrandsNegativeKeyword = t.TypeOf<typeof SponsoredBrandsNegativeKeyword>
 
-export const CreateSBNegativeKeywordParams = t.strict({
+export const CreateSponsoredBrandsNegativeKeywordParams = t.strict({
   /**
    * The identifier of the campaign to which the negative keyword is associated.
    */
@@ -928,9 +928,11 @@ export const CreateSBNegativeKeywordParams = t.strict({
    */
   matchType: NegativeKeywordMatchType,
 })
-export type CreateSBNegativeKeywordParams = t.TypeOf<typeof CreateSBNegativeKeywordParams>
+export type CreateSponsoredBrandsNegativeKeywordParams = t.TypeOf<
+  typeof CreateSponsoredBrandsNegativeKeywordParams
+>
 
-export const UpdateSBNegativeKeywordParams = t.partial({
+export const UpdateSponsoredBrandsNegativeKeywordParams = t.partial({
   /**
    * The identifier of the campaign to which the negative keyword is associated.
    */
@@ -948,15 +950,17 @@ export const UpdateSBNegativeKeywordParams = t.partial({
 
   /**
    * The current state of the negative keyword.
-   * Newly created SB negative keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation review.
+   * Newly created SponsoredBrands negative keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation review.
    * 'enabled' refers to negative keywords that are active.
    * 'archived' refers to negative keywords that are permanently inactive and cannot be returned to the 'enabled' state.
    */
-  state: SBNegativeKeywordStateType,
+  state: SponsoredBrandsNegativeKeywordStateType,
 })
-export type UpdateSBNegativeKeywordParams = t.TypeOf<typeof UpdateSBNegativeKeywordParams>
+export type UpdateSponsoredBrandsNegativeKeywordParams = t.TypeOf<
+  typeof UpdateSponsoredBrandsNegativeKeywordParams
+>
 
-export const SBNegativeKeywordResponse = t.intersection([
+export const SponsoredBrandsNegativeKeywordResponse = t.intersection([
   t.type({
     /**
      * The ID of the keyword that was created/updated, if successful
@@ -975,8 +979,10 @@ export const SBNegativeKeywordResponse = t.intersection([
     details: t.string,
   }),
 ])
-export type SBNegativeKeywordResponse = t.TypeOf<typeof SBNegativeKeywordResponse>
-export const SBKeywordRecommendationParams = t.partial({
+export type SponsoredBrandsNegativeKeywordResponse = t.TypeOf<
+  typeof SponsoredBrandsNegativeKeywordResponse
+>
+export const SponsoredBrandsKeywordRecommendationParams = t.partial({
   /**
    * An array of ASINs for which keyword recommendations are generated.
    */
@@ -989,9 +995,11 @@ export const SBKeywordRecommendationParams = t.partial({
    */
   url: t.string,
 })
-export type SBKeywordRecommendationParams = t.TypeOf<typeof SBKeywordRecommendationParams>
+export type SponsoredBrandsKeywordRecommendationParams = t.TypeOf<
+  typeof SponsoredBrandsKeywordRecommendationParams
+>
 
-export const SBKeywordRecommendation = t.strict({
+export const SponsoredBrandsKeywordRecommendation = t.strict({
   /**
    * A recommendation identifier that describes the suggested action for the recommendation.
    */
@@ -1007,4 +1015,6 @@ export const SBKeywordRecommendation = t.strict({
    */
   matchType: KeywordMatchType,
 })
-export type SBKeywordRecommendation = t.TypeOf<typeof SBKeywordRecommendation>
+export type SponsoredBrandsKeywordRecommendation = t.TypeOf<
+  typeof SponsoredBrandsKeywordRecommendation
+>

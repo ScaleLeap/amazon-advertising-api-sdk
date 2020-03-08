@@ -3,19 +3,19 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import { SponsoredBrandsProductTargetingOperation } from '../../../src/operations/product-targeting/sponsored-brands-product-targeting-operation'
 import {
-  SBCreateTargetsRequest,
+  SponsoredBrandsCreateTargetsRequest,
   ProductPredicateTypeEnum,
-  SBListTargetsRequest,
-  SBTargetStateEnum,
-  SBFilterTypeEnum,
-  SBUpdateTargetsRequest,
-  SBExpressionStateEnum,
-  SBBatchGetTargetsRequest,
-  SBListNegativeTargetsRequest,
-  SBUpdateNegativeTargetsRequest,
-  SBCreateNegativeTargetsRequest,
-  SBNegativeExpressionTypeEnum,
-  SBBatchGetNegativeTargetsRequest,
+  SponsoredBrandsListTargetsRequest,
+  SponsoredBrandsTargetStateEnum,
+  SponsoredBrandsFilterTypeEnum,
+  SponsoredBrandsUpdateTargetsRequest,
+  SponsoredBrandsExpressionStateEnum,
+  SponsoredBrandsBatchGetTargetsRequest,
+  SponsoredBrandsListNegativeTargetsRequest,
+  SponsoredBrandsUpdateNegativeTargetsRequest,
+  SponsoredBrandsCreateNegativeTargetsRequest,
+  SponsoredBrandsNegativeExpressionTypeEnum,
+  SponsoredBrandsBatchGetNegativeTargetsRequest,
 } from '../../../src/operations/product-targeting/types'
 
 /**
@@ -34,20 +34,20 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('listTargets', () => {
     it(`should return a list of sb targets filtered by specified criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBListTargetsRequest = {
+      const params: SponsoredBrandsListTargetsRequest = {
         nextToken: 'string',
         maxResults: 1,
         filters: [
           {
-            filterType: SBFilterTypeEnum.STATE,
-            values: [SBTargetStateEnum.PAUSED],
+            filterType: SponsoredBrandsFilterTypeEnum.STATE,
+            values: [SponsoredBrandsTargetStateEnum.PAUSED],
           },
           {
-            filterType: SBFilterTypeEnum.CAMPAIGN_ID,
+            filterType: SponsoredBrandsFilterTypeEnum.CAMPAIGN_ID,
             values: [CAMPAIGN_ID],
           },
           {
-            filterType: SBFilterTypeEnum.AD_GROUP_ID,
+            filterType: SponsoredBrandsFilterTypeEnum.AD_GROUP_ID,
             values: [AD_GROUP_ID],
           },
         ],
@@ -60,12 +60,12 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('updateTargets', () => {
     it(`should update one or more sb targets ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBUpdateTargetsRequest[] = [
+      const params: SponsoredBrandsUpdateTargetsRequest[] = [
         {
           targetId: TARGET_ID,
           adGroupId: AD_GROUP_ID,
           campaignId: CAMPAIGN_ID,
-          state: SBExpressionStateEnum.ARCHIVED,
+          state: SponsoredBrandsExpressionStateEnum.ARCHIVED,
           bid: BID,
         },
       ]
@@ -78,7 +78,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('createTargets', () => {
     it(`should create one or more sb targets ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBCreateTargetsRequest = {
+      const params: SponsoredBrandsCreateTargetsRequest = {
         targets: [
           {
             adGroupId: AD_GROUP_ID,
@@ -118,7 +118,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('archiveTarget', () => {
     it(`should archive a sb target specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBBatchGetTargetsRequest = {
+      const params: SponsoredBrandsBatchGetTargetsRequest = {
         targetIds: [TARGET_ID],
       }
       const res = await operation.batchGetTargets(params)
@@ -130,20 +130,20 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('listNegativeTargets', () => {
     it(`should return a list of sb negative targets filtered by specified criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBListNegativeTargetsRequest = {
+      const params: SponsoredBrandsListNegativeTargetsRequest = {
         nextToken: 'string',
         maxResults: 1,
         filters: [
           {
-            filterType: SBFilterTypeEnum.STATE,
-            values: [SBTargetStateEnum.PAUSED],
+            filterType: SponsoredBrandsFilterTypeEnum.STATE,
+            values: [SponsoredBrandsTargetStateEnum.PAUSED],
           },
           {
-            filterType: SBFilterTypeEnum.CAMPAIGN_ID,
+            filterType: SponsoredBrandsFilterTypeEnum.CAMPAIGN_ID,
             values: [CAMPAIGN_ID],
           },
           {
-            filterType: SBFilterTypeEnum.AD_GROUP_ID,
+            filterType: SponsoredBrandsFilterTypeEnum.AD_GROUP_ID,
             values: [AD_GROUP_ID],
           },
         ],
@@ -156,12 +156,12 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('updateNegativeTargets', () => {
     it(`should update one or more sb negative targets ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBUpdateNegativeTargetsRequest = {
+      const params: SponsoredBrandsUpdateNegativeTargetsRequest = {
         negativeTargets: [
           {
             targetId: NEGATIVE_TARGET_ID,
             adGroupId: AD_GROUP_ID,
-            state: SBExpressionStateEnum.ARCHIVED,
+            state: SponsoredBrandsExpressionStateEnum.ARCHIVED,
           },
         ],
       }
@@ -174,13 +174,13 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('createNegativeTargets', () => {
     it(`should create one or more sb negative targets ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBCreateNegativeTargetsRequest = {
+      const params: SponsoredBrandsCreateNegativeTargetsRequest = {
         negativeTargets: [
           {
             adGroupId: AD_GROUP_ID,
             campaignId: CAMPAIGN_ID,
             expressions: {
-              type: SBNegativeExpressionTypeEnum.ASIN_BRAND_SAME_AS,
+              type: SponsoredBrandsNegativeExpressionTypeEnum.ASIN_BRAND_SAME_AS,
               value: 'Apple',
             },
           },
@@ -213,7 +213,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
 
   describe('archiveNegativeTarget', () => {
     it(`should archive a sb negative target specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBBatchGetNegativeTargetsRequest = {
+      const params: SponsoredBrandsBatchGetNegativeTargetsRequest = {
         targetIds: [NEGATIVE_TARGET_ID],
       }
       const res = await operation.batchGetNegativeTargets(params)

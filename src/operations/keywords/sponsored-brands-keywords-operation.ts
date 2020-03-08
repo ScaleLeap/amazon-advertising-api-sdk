@@ -1,11 +1,11 @@
 import { Operation } from '../operation'
 import { Decode, DecodeArray } from '../../decorators'
 import {
-  ListSBKeywordParams,
-  CreateSBKeywordParams,
-  SBKeywordResponse,
-  SBKeyword,
-  UpdateSBKeywordParams,
+  ListSponsoredBrandsKeywordParams,
+  CreateSponsoredBrandsKeywordParams,
+  SponsoredBrandsKeywordResponse,
+  SponsoredBrandsKeyword,
+  UpdateSponsoredBrandsKeywordParams,
   KeywordId,
 } from './types'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
@@ -13,28 +13,28 @@ import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 export class SponsoredBrandsKeywordsOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/keywords`
 
-  @DecodeArray(SBKeyword)
-  public listKeywords(params?: ListSBKeywordParams) {
-    return this.client.get<SBKeyword[]>(this.paramsFilterTransformer('', params))
+  @DecodeArray(SponsoredBrandsKeyword)
+  public listKeywords(params?: ListSponsoredBrandsKeywordParams) {
+    return this.client.get<SponsoredBrandsKeyword[]>(this.paramsFilterTransformer('', params))
   }
 
-  @DecodeArray(SBKeywordResponse)
-  public updateKeywords(params: UpdateSBKeywordParams[]) {
-    return this.client.put<SBKeywordResponse[]>(this.resource, params)
+  @DecodeArray(SponsoredBrandsKeywordResponse)
+  public updateKeywords(params: UpdateSponsoredBrandsKeywordParams[]) {
+    return this.client.put<SponsoredBrandsKeywordResponse[]>(this.resource, params)
   }
 
-  @DecodeArray(SBKeywordResponse)
-  public createKeywords(params: CreateSBKeywordParams[]) {
-    return this.client.post<SBKeywordResponse[]>(this.resource, params)
+  @DecodeArray(SponsoredBrandsKeywordResponse)
+  public createKeywords(params: CreateSponsoredBrandsKeywordParams[]) {
+    return this.client.post<SponsoredBrandsKeywordResponse[]>(this.resource, params)
   }
 
-  @Decode(SBKeyword)
+  @Decode(SponsoredBrandsKeyword)
   public getKeyword(keywordId: KeywordId) {
-    return this.client.get<SBKeyword>(`${this.resource}/${keywordId}`)
+    return this.client.get<SponsoredBrandsKeyword>(`${this.resource}/${keywordId}`)
   }
 
-  @Decode(SBKeyword)
+  @Decode(SponsoredBrandsKeyword)
   public archiveKeyword(keywordId: KeywordId) {
-    return this.client.delete<SBKeywordResponse>(`${this.resource}/${keywordId}`)
+    return this.client.delete<SponsoredBrandsKeywordResponse>(`${this.resource}/${keywordId}`)
   }
 }
