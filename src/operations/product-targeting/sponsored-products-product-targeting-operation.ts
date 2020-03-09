@@ -29,16 +29,37 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   protected targetResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/targets`
   protected negativeTargetsResource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/negativeTargets`
 
+  /**
+   * Retrieve a targeting clause with a specific target ID.
+   *
+   * @param {TargetId} targetId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(TargetingClause)
   public getTargetingClause(targetId: TargetId) {
     return this.client.get<TargetingClause>(`${this.targetResource}/${targetId}`)
   }
 
+  /**
+   * Retrieve a targeting clause with additional attributes using a specific target ID.
+   *
+   * @param {TargetId} targetId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(TargetingClauseExtended)
   public getTargetingClauseExtended(targetId: TargetId) {
     return this.client.get<TargetingClauseExtended>(`${this.targetResource}/extended/${targetId}`)
   }
 
+  /**
+   * Retrieves a list of targeting clauses.
+   *
+   * @param {ListTargetingClausesParams} [params]
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(TargetingClause)
   public listTargetingClauses(params?: ListTargetingClausesParams) {
     return this.client.get<TargetingClause[]>(
@@ -46,6 +67,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Retrieve a list of targeting clauses with extended properties.
+   *
+   * @param {ListTargetingClausesParams} [params]
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(TargetingClauseExtended)
   public listTargetingClausesExtended(params?: ListTargetingClausesParams) {
     return this.client.get<TargetingClauseExtended[]>(
@@ -53,21 +81,52 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Creates one or more targeting expressions.
+   *
+   * @param {CreateTargetingClausesParams[]} params
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(TargetingClauseResponse)
   public createTargetingClauses(params: CreateTargetingClausesParams[]) {
     return this.client.post<TargetingClauseResponse[]>(this.targetResource, params)
   }
 
+  /**
+   * Update one or more targeting clauses.
+   *
+   * @param {UpdateTargetingClausesParams[]} params
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(TargetingClauseResponse)
   public updateTargetingClauses(params: UpdateTargetingClausesParams[]) {
     return this.client.put<TargetingClauseResponse[]>(this.targetResource, params)
   }
 
+  /**
+   * Set the status of targeting clauses to archived.
+   * This same operation can also be performed via an update (PUT method), but is included for completeness.
+   * Archived entities cannot be made active again.
+   *
+   * @param {TargetId} targetId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(TargetingClauseResponse)
   public archiveTargetingClause(targetId: TargetId) {
     return this.client.delete<TargetingClauseResponse>(`${this.targetResource}/${targetId}`)
   }
 
+  /**
+   * Generate list of recommended products to target, based on the ASIN that is input.
+   * Successful response will be a list of recommended ASINs to target.
+   *
+   * @param {ProductRecommendationRequest} params
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(ProductRecommendationResponse)
   public createTargetRecommendations(params: ProductRecommendationRequest) {
     return this.client.post<ProductRecommendationResponse>(
@@ -76,6 +135,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Gets the list of targeting categories.
+   *
+   * @param {string[]} asins
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(CategoryResponse)
   public getTargetingCategories(asins: string[]) {
     return this.client.get<CategoryResponse[]>(
@@ -83,6 +149,15 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Get refinements for a single category.
+   * Categories and Refinements are determined based on marketplaceId of the profile in the request.
+   * Note that refinements will differ between marketplaces.
+   *
+   * @param {CategoryId} categoryId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(RefinementsResponse)
   public getRefinementsForCategory(categoryId: CategoryId) {
     return this.client.get<RefinementsResponse>(
@@ -90,6 +165,14 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Get recommended brands for Sponsored Products.
+   * Only one parameter (keyword or categoryId) per request is allowed.
+   *
+   * @param {GetBrandRecommendationsParams} params
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(BrandResponse)
   public getBrandRecommendations(params: GetBrandRecommendationsParams) {
     return this.client.get<BrandResponse>(
@@ -99,11 +182,25 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
 
   // Negative targeting clauses operations
 
+  /**
+   * Get a specific negative targeting clause by targetId.
+   *
+   * @param {TargetId} targetId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(NegativeTargetingClause)
   public getNegativeTargetingClause(targetId: TargetId) {
     return this.client.get<NegativeTargetingClause>(`${this.negativeTargetsResource}/${targetId}`)
   }
 
+  /**
+   * Retrieve a negative targeting clause with additional attributes using a specific target ID.
+   *
+   * @param {TargetId} targetId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(NegativeTargetingClauseExtended)
   public getNegativeTargetingClauseExtended(targetId: TargetId) {
     return this.client.get<NegativeTargetingClauseExtended>(
@@ -111,11 +208,25 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Create negative targeting clauses at the campaign level.
+   *
+   * @param {CreateNegativeTargetingClausesParams[]} params
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(NegativeTargetingClauseResponse)
   public createNegativeTargetingClauses(params: CreateNegativeTargetingClausesParams[]) {
     return this.client.post<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
   }
 
+  /**
+   * Retrieves a list of negative targeting clauses.
+   *
+   * @param {ListNegativeTargetingClausesParams} [params]
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(NegativeTargetingClause)
   public listNegativeTargetingClauses(params?: ListNegativeTargetingClausesParams) {
     return this.client.get<NegativeTargetingClause[]>(
@@ -123,6 +234,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Retrieve a list of targeting clauses with extended properties.
+   *
+   * @param {ListNegativeTargetingClausesParams} [params]
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(NegativeTargetingClauseExtended)
   public listNegativeTargetingClausesExtended(params?: ListNegativeTargetingClausesParams) {
     return this.client.get<NegativeTargetingClauseExtended[]>(
@@ -130,6 +248,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Archive negative targeting clauses.
+   *
+   * @param {TargetId} targetId
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @Decode(NegativeTargetingClauseResponse)
   public archiveNegativeTargetingClause(targetId: TargetId) {
     return this.client.delete<NegativeTargetingClauseResponse>(
@@ -137,6 +262,13 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     )
   }
 
+  /**
+   * Update negative targeting clauses.
+   *
+   * @param {UpdateNegativeTargetingClausesParams[]} params
+   * @returns
+   * @memberof SponsoredProductsProductTargetingOperation
+   */
   @DecodeArray(NegativeTargetingClauseResponse)
   public updateNegativeTargetingClauses(params: UpdateNegativeTargetingClausesParams[]) {
     return this.client.put<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
