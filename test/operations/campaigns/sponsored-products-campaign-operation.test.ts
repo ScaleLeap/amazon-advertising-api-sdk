@@ -63,7 +63,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     it(`should create a campaign`, async () => {
       const res = await campaignOperation.createCampaigns([
         {
-          name: 'test campaign 4',
+          name: 'test campaign 2020/03/10 22:26:01',
           campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
           dailyBudget: 1,
           state: CampaignStateEnum.ENABLED,
@@ -88,7 +88,7 @@ describe('SponsoredProductsCampaignOperation', () => {
 
       const [createdCampaignResponse] = await campaignOperation.createCampaigns([
         {
-          name: `test campaign ${startDate + 1}`,
+          name: `test campaign 2020/03/10 22:26:02`,
           campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
           dailyBudget: 1,
           state: CampaignStateEnum.PAUSED,
