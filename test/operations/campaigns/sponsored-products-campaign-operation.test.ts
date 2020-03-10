@@ -59,7 +59,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     })
   })
 
-  describe('createCampaigns', () => {
+  describe.skip('createCampaigns', () => {
     it(`should create a campaign`, async () => {
       const res = await campaignOperation.createCampaigns([
         {
