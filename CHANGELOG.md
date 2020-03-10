@@ -1,5 +1,18 @@
 # Changelog
 
+          All notable changes to this project will be documented in this file.
+          See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.3.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.2.0...v1.3.0) (2020-03-10)
+
+
+### Features
+
+* upgrade @scaleleap/amazon-marketplaces lib ([71425d8](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/71425d888cf9e25287daa49efb8ba332b4638791))
+* use @scaleleap/amazon-marketplaces for enums and data ([eae7e5e](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/eae7e5efb2f2156a76cb434498880026dc41d59b))
+
+# Changelog
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
