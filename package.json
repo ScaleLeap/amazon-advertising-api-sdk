@@ -31,9 +31,9 @@
     "ts-error": "1.0.4"
   },
   "devDependencies": {
-    "@jedmao/semantic-release-npm-github-config": "1.0.9",
     "@scaleleap/config": "1.4.1",
     "@scaleleap/jest-polly": "1.2.3",
+    "@scaleleap/semantic-release-config": "1.0.2",
     "@types/jest": "25.1.4",
     "@types/lodash": "4.14.149",
     "@types/node": "13.9.0",
@@ -47,7 +47,6 @@
     "package-json-type": "1.0.3",
     "prettier": "1.19.1",
     "rimraf": "3.0.2",
-    "semantic-release": "17.0.4",
     "ts-jest": "25.2.1",
     "ts-node": "8.6.2",
     "tsconfigs": "4.0.2",
@@ -57,7 +56,7 @@
     "tag": "next"
   },
   "release": {
-    "extends": "@jedmao/semantic-release-npm-github-config",
+    "extends": "@scaleleap/semantic-release-config",
     "branch": "master"
   }
 }
