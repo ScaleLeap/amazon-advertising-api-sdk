@@ -7,7 +7,6 @@ import {
   CampaignBidding,
 } from '../../../src/operations/campaigns/types'
 import { httpClientFactory } from '../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { DateTimeUtils } from '../../test-utils'
 import { CampaignBiddingStrategyEnum } from '../../../src/operations/bidding/campaign-bidding-strategy'
 import { CampaignBiddingAdjustmentsPredicateEnum } from '../../../src/operations/bidding/campaign-bidding-adjustments-predicate'
@@ -20,7 +19,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
-    it(`should return an array of campaigns ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaigns`, async () => {
       const res = await campaignOperation.listCampaigns()
       expect(Array.isArray(res)).toBeTruthy()
       expect(typeof res[0].name).toBe('string')
@@ -29,14 +28,14 @@ describe('SponsoredProductsCampaignOperation', () => {
   })
 
   describe('listCampaignsEx', () => {
-    it(`should return an array of expanded campaigns ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of expanded campaigns`, async () => {
       const res = await campaignOperation.listCampaignsEx()
       expect(Array.isArray(res)).toBeTruthy()
       expect(typeof res[0].name).toBe('string')
       expect(res[0]).toHaveProperty('bidding')
     })
 
-    it(`should return a filtered list of results ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a filtered list of results`, async () => {
       const res = await campaignOperation.listCampaignsEx({
         campaignIdFilter: [CAMPAIGN_ID],
       })
@@ -46,7 +45,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   })
 
   describe('getCampaign', () => {
-    it(`should return a single campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a single campaign`, async () => {
       const res = await campaignOperation.getCampaign(CAMPAIGN_ID)
       expect(res.campaignId).toBe(CAMPAIGN_ID)
       expect(res).toHaveProperty('bidding')
@@ -54,14 +53,14 @@ describe('SponsoredProductsCampaignOperation', () => {
   })
 
   describe('getCampaignEx', () => {
-    it(`should return a single extended campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a single extended campaign`, async () => {
       const res = await campaignOperation.getCampaignEx(CAMPAIGN_ID)
       expect(res).toBeTruthy()
     })
   })
 
-  describe.skip('createCampaigns', () => {
-    it(`should create a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('createCampaigns', () => {
+    it(`should create a campaign`, async () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
@@ -76,7 +75,7 @@ describe('SponsoredProductsCampaignOperation', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should create a campaign with auto bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should create a campaign with auto bidding controls`, async () => {
       const bidding: CampaignBidding = {
         strategy: CampaignBiddingStrategyEnum.AUTO_FOR_SALES,
         adjustments: [
@@ -114,7 +113,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     const state = CampaignStateEnum.PAUSED
     const dailyBudget = 7
 
-    it(`should update a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update a campaign`, async () => {
       const [updateCampaignResponse] = await campaignOperation.updateCampaigns([
         {
           campaignId: CAMPAIGN_ID,
@@ -132,7 +131,7 @@ describe('SponsoredProductsCampaignOperation', () => {
       expect(campaign.dailyBudget).toBe(dailyBudget)
     })
 
-    it(`should update a campaign with manual bidding controls ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update a campaign with manual bidding controls`, async () => {
       const bidding: CampaignBidding = {
         strategy: CampaignBiddingStrategyEnum.MANUAL,
         adjustments: [
@@ -163,7 +162,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   })
 
   describe('archiveCampaign', () => {
-    it(`should set the campaign to archived state ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should set the campaign to archived state`, async () => {
       const ARCHIVED_CAMPAIGN_ID = 60376914769424
       const res = await campaignOperation.archiveCampaign(ARCHIVED_CAMPAIGN_ID)
       expect(res.code).toBe('SUCCESS')

@@ -6,7 +6,6 @@ import {
   CampaignTargetingEnum,
 } from '../../../src/operations/campaigns/types'
 import { httpClientFactory } from '../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 
 describe('SponsoredBrandsCampaignOperation', () => {
   const client = httpClientFactory()
@@ -15,19 +14,19 @@ describe('SponsoredBrandsCampaignOperation', () => {
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
-    it(`should return an array of campaigns ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaigns`, async () => {
       const res = await campaignOperation.listCampaigns()
       expect(Array.isArray(res)).toBeTruthy()
     })
   })
 
-  describe.skip('listCampaignsEx', () => {
-    it(`should return an array of expanded campaigns ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('listCampaignsEx', () => {
+    it(`should return an array of expanded campaigns`, async () => {
       const res = await campaignOperation.listCampaignsEx()
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return a filtered list of results ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a filtered list of results`, async () => {
       const res = await campaignOperation.listCampaignsEx({
         campaignIdFilter: [CAMPAIGN_ID],
       })
@@ -37,7 +36,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
 
   // Skip: Sponsored brand campaign list is empty
   describe.skip('getCampaign', () => {
-    it(`should return a single campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a single campaign`, async () => {
       const res = await campaignOperation.getCampaign(CAMPAIGN_ID)
       expect(res).toBeTruthy()
     })
@@ -45,7 +44,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
 
   // Skip: Sponsored brand campaign list is empty
   describe.skip('getCampaignEx', () => {
-    it(`should return a single extended campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a single extended campaign`, async () => {
       const res = await campaignOperation.getCampaignEx(CAMPAIGN_ID)
       expect(res).toBeTruthy()
     })
@@ -53,7 +52,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
 
   // Return an error: No resource method found for POST, return 405 with Allow header
   describe.skip('createCampaigns', () => {
-    it(`should create a campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should create a campaign`, async () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
@@ -72,7 +71,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
 
   // Skip: Sponsored brand campaign list is empty
   describe.skip('archiveCampaign', () => {
-    it(`should set the campaign to archived state ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should set the campaign to archived state`, async () => {
       const ARCHIVED_CAMPAIGN_ID = 60376914769424
       const res = await campaignOperation.archiveCampaign(ARCHIVED_CAMPAIGN_ID)
       expect(res.code).toBe('SUCCESS')
