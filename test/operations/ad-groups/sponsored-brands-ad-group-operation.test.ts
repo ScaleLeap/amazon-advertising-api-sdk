@@ -1,7 +1,6 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsAdGroupOperation } from '../../../src/operations/ad-groups/sponsored-brands-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { AdGroupStateEnum } from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredBrandsAdGroupOperation', () => {
@@ -13,7 +12,7 @@ describe('SponsoredBrandsAdGroupOperation', () => {
 
   // Skip: SponsoredBrands Ad Group list is empty
   describe.skip('getAdGroup', () => {
-    it(`should return a single adgroup ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a single adgroup`, async () => {
       const res = await adGroupOperation.getAdGroup(ARCHIVED_AD_GROUP_ID)
 
       expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
