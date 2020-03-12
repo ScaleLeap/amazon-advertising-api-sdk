@@ -17,7 +17,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
   const SKU = 'AB-RED-8675309'
   const AD_ID = 192944752071234
 
-  describe('createProductAds', () => {
+  describe.skip('createProductAds', () => {
     it(`should creates one or more product ads`, async () => {
       const params: CreateProductAdParams[] = [
         {
