@@ -1,5 +1,4 @@
 import { SponsoredBrandsNegativeKeywordsOperation } from '../../../src/operations/keywords/sponsored-brands-negative-keywords-operation'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
@@ -24,7 +23,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
   const KEYWORD_TEXT = 'green apple'
 
   describe.skip('updateNegativeKeywords', () => {
-    it(`should update one or more sb negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update one or more sb negative keywords`, async () => {
       const params: UpdateSponsoredBrandsNegativeKeywordParams[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
@@ -40,7 +39,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
   })
 
   describe.skip('createNegativeKeywords', () => {
-    it(`should create one or more sb negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should create one or more sb negative keywords`, async () => {
       const params: CreateSponsoredBrandsNegativeKeywordParams[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
@@ -56,7 +55,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
   })
 
   describe.skip('getNegativeKeyword', () => {
-    it(`should return a sb negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a sb negative keyword`, async () => {
       const res = await operation.getNegativeKeyword(KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
@@ -68,7 +67,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
   })
 
   describe.skip('archiveNegativeKeyword', () => {
-    it(`should archive a sb negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should archive a sb negative keyword`, async () => {
       const res = await operation.archiveNegativeKeyword(KEYWORD_ID)
 
       expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
