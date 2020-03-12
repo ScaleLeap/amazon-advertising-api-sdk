@@ -1,5 +1,4 @@
 import { SponsoredProductsSuggestedKeywordsOperation } from '../../../src/operations/keywords/sponsored-products-suggested-keywords-operation'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
@@ -19,13 +18,13 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
   const DEFAULT_SUGGESTION_KEYWORDS_NUMBER = 100
 
   describe('getAdGroupSuggestedKeywords', () => {
-    it(`should return suggested keyword data for the specified adGroupId ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return suggested keyword data for the specified adGroupId`, async () => {
       const res = await operation.getAdGroupSuggestedKeywords(AD_GROUP_ID)
 
       expect(res.adGroupId).toBe(AD_GROUP_ID)
     })
 
-    it(`should return suggested keyword data for the specified adGroupId, adStateFilter ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return suggested keyword data for the specified adGroupId, adStateFilter`, async () => {
       const params: GetAdGroupSuggestedKeywordsParams = {
         maxNumSuggestions: 1,
         adStateFilter: [AdGroupStateEnum.ENABLED, AdGroupStateEnum.PAUSED, AdGroupStateEnum.PAUSED],
@@ -38,13 +37,13 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
 
   // TODO: response is empty. Need check again.
   describe('getAdGroupSuggestedKeywordsExtended', () => {
-    it(`should return extended suggested keyword data for the specified adGroupId ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return extended suggested keyword data for the specified adGroupId`, async () => {
       const res = await operation.getAdGroupSuggestedKeywordsExtended(AD_GROUP_ID)
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return extended suggested keyword data for the specified adGroupId, suggestBids, adStateFilter ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return extended suggested keyword data for the specified adGroupId, suggestBids, adStateFilter`, async () => {
       const params: GetAdGroupSuggestedKeywordsExtendedParams = {
         maxNumSuggestions: 1000,
         suggestBids: SuggestBidsEnum.YES,
@@ -61,13 +60,13 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
    * Response only return suggested keyword. Doesn't return ASIN
    */
   describe('getAsinSuggestedKeywords', () => {
-    it(`should return suggested keywords for specified ASIN ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return suggested keywords for specified ASIN`, async () => {
       const res = await operation.getAsinSuggestedKeywords(ASIN)
 
       expect(res.length).toEqual(DEFAULT_SUGGESTION_KEYWORDS_NUMBER)
     })
 
-    it(`should return suggested keywords for specified ASIN, max suggestion keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return suggested keywords for specified ASIN, max suggestion keyword`, async () => {
       const SUGGESTION_KEYWORD_NUMBER = 1
       const res = await operation.getAsinSuggestedKeywords(ASIN, SUGGESTION_KEYWORD_NUMBER)
 
@@ -76,12 +75,12 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
   })
 
   describe('bulkGetAsinSuggestedKeywords', () => {
-    it(`should return keyword suggestions for specified list of ASINs ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return keyword suggestions for specified list of ASINs`, async () => {
       const res = await operation.bulkGetAsinSuggestedKeywords(ASINS)
 
       expect(res.length).toEqual(DEFAULT_SUGGESTION_KEYWORDS_NUMBER)
     })
-    it(`should return keyword suggestions for specified list of ASINs, max suggestion keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return keyword suggestions for specified list of ASINs, max suggestion keyword`, async () => {
       const SUGGESTION_KEYWORD_NUMBER = 1
       const res = await operation.bulkGetAsinSuggestedKeywords(ASINS, SUGGESTION_KEYWORD_NUMBER)
 
