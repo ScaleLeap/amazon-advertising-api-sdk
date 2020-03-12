@@ -18,8 +18,23 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   const operation = operationProvider.create(SponsoredProductsCampaignNegativeKeywordsOperation)
   const MANUAL_CAMPAIGN_ID = 164069484151709
   const KEYWORD_ID = 271800073719731
-  const DELETED_KEYWORD_ID = 38353327298089
   const KEYWORD_TEXT = 'banana'
+
+  describe('createCampaignNegativeKeywords', () => {
+    it(`should create a negative keyword for campaign`, async () => {
+      const params: CreateCampaignNegativeKeywordsParam[] = [
+        {
+          campaignId: MANUAL_CAMPAIGN_ID,
+          keywordText: KEYWORD_TEXT,
+          matchType: CampaignNegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
+          state: CampaignNegativeKeywordStateEnum.ENABLED,
+        },
+      ]
+      const [res] = await operation.createCampaignNegativeKeywords(params)
+
+      expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
+    })
+  })
 
   describe('getCampaignNegativeKeyword', () => {
     it(`should return a campaign negative keyword`, async () => {
@@ -43,22 +58,6 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('createCampaignNegativeKeywords', () => {
-    it(`should create a negative keyword for campaign`, async () => {
-      const params: CreateCampaignNegativeKeywordsParam[] = [
-        {
-          campaignId: MANUAL_CAMPAIGN_ID,
-          keywordText: KEYWORD_TEXT,
-          matchType: CampaignNegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
-          state: CampaignNegativeKeywordStateEnum.ENABLED,
-        },
-      ]
-      const [res] = await operation.createCampaignNegativeKeywords(params)
-
-      expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
-    })
-  })
-
   describe('updateCampaignNegativeKeywords', () => {
     it(`should update a campaign negative keyword`, async () => {
       const params: UpdateCampaignNegativeKeywordsParam[] = [
@@ -68,14 +67,6 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
         },
       ]
       const [res] = await operation.updateCampaignNegativeKeywords(params)
-
-      expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
-    })
-  })
-
-  describe.skip('archiveCampaignNegativeKeyword', () => {
-    it(`should archive a campaign negative keyword`, async () => {
-      const res = await operation.archiveCampaignNegativeKeyword(DELETED_KEYWORD_ID)
 
       expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
     })
@@ -126,6 +117,14 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
       expect(res.matchType).toBe(CampaignNegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
+    })
+  })
+
+  describe('archiveCampaignNegativeKeyword', () => {
+    it(`should archive a campaign negative keyword`, async () => {
+      const res = await operation.archiveCampaignNegativeKeyword(KEYWORD_ID)
+
+      expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
     })
   })
 })
