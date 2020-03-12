@@ -45,7 +45,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
     })
   })
 
-  describe('createNegativeKeywords', () => {
+  describe.skip('createNegativeKeywords', () => {
     it(`should create a negative keyword`, async () => {
       const params: CreateNegativeKeywordsParam[] = [
         {
