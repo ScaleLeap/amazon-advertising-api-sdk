@@ -1,4 +1,3 @@
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import { SponsoredProductsProductTargetingOperation } from '../../../src/operations/product-targeting/sponsored-products-product-targeting-operation'
@@ -29,74 +28,8 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const PAGE_SIZE = 10
   const KEYWORD = 'Apple'
 
-  describe('getTargetingClause', () => {
-    it(`should retrieve a targeting clause with a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.getTargetingClause(TARGET_ID)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(TARGET_ID)
-    })
-  })
-
-  describe('getTargetingClauseExtended', () => {
-    it(`should retrieve a targeting clause with additional attributes using a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.getTargetingClauseExtended(TARGET_ID)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(TARGET_ID)
-    })
-  })
-
-  describe('listTargetingClauses', () => {
-    it(`should retrieve a list of targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.listTargetingClauses()
-
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-
-    it(`should retrieve a list of targeting clauses satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: ListTargetingClausesParams = {
-        startIndex: 0,
-        count: 1,
-        campaignIdFilter: [CAMPAIGN_ID],
-        adGroupIdFilter: [AD_GROUP_ID],
-        targetIdFilter: [TARGET_ID],
-      }
-      const [res] = await operation.listTargetingClauses(params)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(TARGET_ID)
-    })
-  })
-
-  describe('listTargetingClausesExtended', () => {
-    it(`should retrieve a list of targeting clauses with additional attributes ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.listTargetingClausesExtended()
-
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-
-    it(`should retrieve a list of targeting clauses with additional attributes satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: ListTargetingClausesParams = {
-        startIndex: 0,
-        count: 1,
-        campaignIdFilter: [CAMPAIGN_ID],
-        adGroupIdFilter: [AD_GROUP_ID],
-        targetIdFilter: [TARGET_ID],
-      }
-      const [res] = await operation.listTargetingClausesExtended(params)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(TARGET_ID)
-    })
-  })
-
-  describe.skip('createTargetingClauses', () => {
-    it(`should create one or more targeting expressions ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('createTargetingClauses', () => {
+    it(`should create one or more targeting expressions`, async () => {
       const params: CreateTargetingClausesParams[] = [
         {
           campaignId: CAMPAIGN_ID,
@@ -118,8 +51,74 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
+  describe('getTargetingClause', () => {
+    it(`should retrieve a targeting clause with a specific target ID`, async () => {
+      const res = await operation.getTargetingClause(TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
+  describe('getTargetingClauseExtended', () => {
+    it(`should retrieve a targeting clause with additional attributes using a specific target ID`, async () => {
+      const res = await operation.getTargetingClauseExtended(TARGET_ID)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
+  describe('listTargetingClauses', () => {
+    it(`should retrieve a list of targeting clauses`, async () => {
+      const res = await operation.listTargetingClauses()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it(`should retrieve a list of targeting clauses satisfying optional criteria`, async () => {
+      const params: ListTargetingClausesParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        targetIdFilter: [TARGET_ID],
+      }
+      const [res] = await operation.listTargetingClauses(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
+  describe('listTargetingClausesExtended', () => {
+    it(`should retrieve a list of targeting clauses with additional attributes`, async () => {
+      const res = await operation.listTargetingClausesExtended()
+
+      expect(Array.isArray(res)).toBeTruthy()
+    })
+
+    it(`should retrieve a list of targeting clauses with additional attributes satisfying optional criteria`, async () => {
+      const params: ListTargetingClausesParams = {
+        startIndex: 0,
+        count: 1,
+        campaignIdFilter: [CAMPAIGN_ID],
+        adGroupIdFilter: [AD_GROUP_ID],
+        targetIdFilter: [TARGET_ID],
+      }
+      const [res] = await operation.listTargetingClausesExtended(params)
+
+      expect(res.campaignId).toEqual(CAMPAIGN_ID)
+      expect(res.adGroupId).toEqual(AD_GROUP_ID)
+      expect(res.targetId).toEqual(TARGET_ID)
+    })
+  })
+
   describe('updateTargetingClauses', () => {
-    it(`should updates one or more targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should updates one or more targeting clauses`, async () => {
       const params: UpdateTargetingClausesParams[] = [
         {
           campaignId: CAMPAIGN_ID,
@@ -142,8 +141,8 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe.skip('archiveTargetingClause', () => {
-    it(`should set the status of targeting clauses to archived ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('archiveTargetingClause', () => {
+    it(`should set the status of targeting clauses to archived`, async () => {
       const res = await operation.archiveTargetingClause(TARGET_ID)
 
       expect(res).toHaveProperty('targetId')
@@ -151,7 +150,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('createTargetRecommendations', () => {
-    it(`should return list of recommended products to target ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return list of recommended products to target`, async () => {
       const params: ProductRecommendationRequest = {
         pageSize: PAGE_SIZE,
         pageNumber: 1,
@@ -165,7 +164,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('getTargetingCategories', () => {
-    it(`should return a list of targeting categories ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a list of targeting categories`, async () => {
       const res = await operation.getTargetingCategories(ASINS)
 
       expect(Array.isArray(res)).toBeTruthy()
@@ -173,7 +172,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('getRefinementsForCategory', () => {
-    it(`should return refinements for a single category ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return refinements for a single category`, async () => {
       const res = await operation.getRefinementsForCategory(CATEGORY_ID)
 
       expect(res.categoryId).toEqual(CATEGORY_ID)
@@ -181,21 +180,21 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('getBrandRecommendations', () => {
-    it(`should return recommended brands for the specified keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return recommended brands for the specified keyword`, async () => {
       const res = await operation.getBrandRecommendations({ keyword: KEYWORD })
 
       expect(res).toBeTruthy()
     })
 
-    it(`should return recommended brands for the specified category id ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return recommended brands for the specified category id`, async () => {
       const res = await operation.getBrandRecommendations({ categoryId: CATEGORY_ID })
 
       expect(res).toBeTruthy()
     })
   })
 
-  describe.skip('createNegativeTargetingClauses', () => {
-    it(`should create one or more negative targeting clauses at the campaign level ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('createNegativeTargetingClauses', () => {
+    it(`should create one or more negative targeting clauses at the campaign level`, async () => {
       const params: CreateNegativeTargetingClausesParams[] = [
         {
           campaignId: CAMPAIGN_ID,
@@ -217,7 +216,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('getNegativeTargetingClause', () => {
-    it(`should retrieve a negative targeting clause with a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should retrieve a negative targeting clause with a specific target ID`, async () => {
       const res = await operation.getNegativeTargetingClause(NEGATIVE_TARGET_ID)
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
@@ -227,7 +226,7 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('getNegativeTargetingClauseExtended', () => {
-    it(`should retrieve a negative targeting clause with additional attributes using a specific target ID ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should retrieve a negative targeting clause with additional attributes using a specific target ID`, async () => {
       const res = await operation.getNegativeTargetingClauseExtended(NEGATIVE_TARGET_ID)
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
@@ -237,13 +236,13 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('listNegativeTargetingClauses', () => {
-    it(`should retrieve a list of negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should retrieve a list of negative targeting clauses`, async () => {
       const res = await operation.listNegativeTargetingClauses()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should retrieve a list of negative targeting clauses satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should retrieve a list of negative targeting clauses satisfying optional criteria`, async () => {
       const params: ListNegativeTargetingClausesParams = {
         startIndex: 0,
         count: 1,
@@ -260,13 +259,13 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   })
 
   describe('listNegativeTargetingClausesExtended', () => {
-    it(`should retrieve a list of negative targeting clauses with additional attributes ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should retrieve a list of negative targeting clauses with additional attributes`, async () => {
       const res = await operation.listNegativeTargetingClausesExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should retrieve a list of negative targeting clauses with additional attributes satisfying optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should retrieve a list of negative targeting clauses with additional attributes satisfying optional criteria`, async () => {
       const params: ListNegativeTargetingClausesParams = {
         startIndex: 0,
         count: 1,
@@ -282,16 +281,8 @@ describe('SponsoredProductsProductTargetingOperation', () => {
     })
   })
 
-  describe.skip('archiveNegativeTargetingClause', () => {
-    it(`should archive negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const res = await operation.archiveNegativeTargetingClause(NEGATIVE_TARGET_ID)
-
-      expect(res).toHaveProperty('targetId')
-    })
-  })
-
   describe('updateNegativeTargetingClauses', () => {
-    it(`should updates one or more negative targeting clauses ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should updates one or more negative targeting clauses`, async () => {
       const params: UpdateNegativeTargetingClausesParams[] = [
         {
           campaignId: CAMPAIGN_ID,
@@ -308,6 +299,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
         },
       ]
       const [res] = await operation.updateNegativeTargetingClauses(params)
+
+      expect(res).toHaveProperty('targetId')
+    })
+  })
+
+  describe('archiveNegativeTargetingClause', () => {
+    it(`should archive negative targeting clauses`, async () => {
+      const res = await operation.archiveNegativeTargetingClause(NEGATIVE_TARGET_ID)
 
       expect(res).toHaveProperty('targetId')
     })
