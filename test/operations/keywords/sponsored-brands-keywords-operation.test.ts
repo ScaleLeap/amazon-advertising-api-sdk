@@ -1,5 +1,4 @@
 import { SponsoredBrandsKeywordsOperation } from '../../../src/operations/keywords/sponsored-brands-keywords-operation'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
@@ -26,13 +25,13 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   const BID = 1
 
   describe.skip('listKeywords', () => {
-    it(`should return an array of sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of sb keywords`, async () => {
       const res: SponsoredBrandsKeyword[] = await operation.listKeywords()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return an array of sb keywords filtered by optional criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of sb keywords filtered by optional criteria`, async () => {
       const params: ListSponsoredBrandsKeywordParams = {
         startIndex: 0,
         count: 1,
@@ -49,7 +48,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   })
 
   describe.skip('updateKeywords', () => {
-    it(`should update one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update one or more sb keywords`, async () => {
       const params: UpdateSponsoredBrandsKeywordParams[] = [
         {
           keywordId: KEYWORD_ID,
@@ -66,7 +65,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   })
 
   describe.skip('createKeywords', () => {
-    it(`should create one or more sb keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should create one or more sb keywords`, async () => {
       const params: CreateSponsoredBrandsKeywordParams[] = [
         {
           adGroupId: AD_GROUP_ID,
@@ -83,7 +82,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   })
 
   describe.skip('getKeyword', () => {
-    it(`should return a sb keyword by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a sb keyword by identifier`, async () => {
       const res: SponsoredBrandsKeyword = await operation.getKeyword(KEYWORD_ID)
 
       expect(res.campaignId).toBe(CAMPAIGN_ID)
@@ -96,7 +95,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
   })
 
   describe.skip('archiveKeyword', () => {
-    it(`should archive a sb keyword specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should archive a sb keyword specified by identifier`, async () => {
       const res: SponsoredBrandsKeywordResponse = await operation.archiveKeyword(KEYWORD_ID)
 
       expect(res.keywordId).toBe(KEYWORD_ID)

@@ -1,5 +1,4 @@
 import { SponsoredBrandsKeywordRecommendationsOperation } from '../../../src/operations/keywords/sponsored-brands-keyword-recommendations-operation'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import { SponsoredBrandsKeywordRecommendationParams } from '../../../src/operations/keywords/types'
@@ -17,7 +16,7 @@ describe.skip('SponsoredBrandsKeywordRecommendationsOperation', () => {
     'https://www.amazon.com/Amazon-Renewed/b/ref=bl_dp_s_web_12653393011?ie=UTF8&node=12653393011&field-lbr_brands_browse-bin=Amazon+Renewed&nocache=1581845842261'
 
   describe('getKeywordRecommendations', () => {
-    it(`should return an array of keyword recommendations for a set of ASINs ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of keyword recommendations for a set of ASINs`, async () => {
       const params: SponsoredBrandsKeywordRecommendationParams = {
         asins: ASINS,
       }
@@ -26,7 +25,7 @@ describe.skip('SponsoredBrandsKeywordRecommendationsOperation', () => {
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return an array of keyword recommendations for a Store page ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of keyword recommendations for a Store page`, async () => {
       const params: SponsoredBrandsKeywordRecommendationParams = {
         url: STORE_PAGE_URL,
       }
