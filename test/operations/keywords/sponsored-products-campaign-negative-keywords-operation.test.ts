@@ -1,5 +1,4 @@
 import { SponsoredProductsCampaignNegativeKeywordsOperation } from '../../../src/operations/keywords/sponsored-products-campaign-negative-keywords-operation'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
@@ -23,7 +22,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   const KEYWORD_TEXT = 'banana'
 
   describe('getCampaignNegativeKeyword', () => {
-    it(`should return a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a campaign negative keyword`, async () => {
       const res = await operation.getCampaignNegativeKeyword(KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
@@ -34,7 +33,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   })
 
   describe('getCampaignNegativeKeywordExtended', () => {
-    it(`should return a campaign negative keyword extended ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a campaign negative keyword extended`, async () => {
       const res = await operation.getCampaignNegativeKeywordExtended(KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
@@ -44,8 +43,8 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
     })
   })
 
-  describe.skip('createCampaignNegativeKeywords', () => {
-    it(`should create a negative keyword for campaign ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('createCampaignNegativeKeywords', () => {
+    it(`should create a negative keyword for campaign`, async () => {
       const params: CreateCampaignNegativeKeywordsParam[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
@@ -61,7 +60,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   })
 
   describe('updateCampaignNegativeKeywords', () => {
-    it(`should update a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update a campaign negative keyword`, async () => {
       const params: UpdateCampaignNegativeKeywordsParam[] = [
         {
           keywordId: KEYWORD_ID,
@@ -75,7 +74,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   })
 
   describe.skip('archiveCampaignNegativeKeyword', () => {
-    it(`should archive a campaign negative keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should archive a campaign negative keyword`, async () => {
       const res = await operation.archiveCampaignNegativeKeyword(DELETED_KEYWORD_ID)
 
       expect(res.code).toEqual(CampaignNegativeKeywordResponseStatusEnum.SUCCESS)
@@ -83,13 +82,13 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   })
 
   describe('listCampaignNegativeKeywords', () => {
-    it(`should return an array of campaign negative keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaign negative keywords`, async () => {
       const res: CampaignNegativeKeyword[] = await operation.listCampaignNegativeKeywords()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return an array of campaign negative keywords when filter additional properties ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaign negative keywords when filter additional properties`, async () => {
       const params: ListCampaignNegativeKeywordsParam = {
         startIndex: 0,
         count: 1,
@@ -107,13 +106,13 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   })
 
   describe('listCampaignNegativeKeywordsExtended', () => {
-    it(`should return an array of campaign negative keywords extendeds ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaign negative keywords extendeds`, async () => {
       const res: CampaignNegativeKeywordExtended[] = await operation.listCampaignNegativeKeywordsExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
 
-    it(`should return an array of campaign negative keywords extendeds when filter additional properties ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of campaign negative keywords extendeds when filter additional properties`, async () => {
       const params: ListCampaignNegativeKeywordsParam = {
         startIndex: 0,
         count: 1,
