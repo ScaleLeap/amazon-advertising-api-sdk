@@ -49,7 +49,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
-  describe('createKeywords', () => {
+  describe.skip('createKeywords', () => {
     it(`should create a keyword`, async () => {
       const params: CreateKeywordsParam[] = [
         {
