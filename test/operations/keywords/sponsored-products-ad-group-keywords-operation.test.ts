@@ -1,5 +1,4 @@
 import { SponsoredProductsAdGroupKeywordsOperation } from '../../../src/operations/keywords/sponsored-products-ad-group-keywords-operation'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
@@ -22,7 +21,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   const PAUSED_KEYWORD_ID = 239748696088896
 
   describe('getBiddableKeyword', () => {
-    it(`should return a Keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a Keyword`, async () => {
       const res: Keyword = await operation.getBiddableKeyword(ARCHIVED_KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
@@ -35,7 +34,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   })
 
   describe('getBiddableKeywordExtended', () => {
-    it(`should return a KeywordExtended ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a KeywordExtended`, async () => {
       const res: KeywordExtended = await operation.getBiddableKeywordExtended(ARCHIVED_KEYWORD_ID)
 
       expect(res.campaignId).toBe(MANUAL_CAMPAIGN_ID)
@@ -50,8 +49,8 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     })
   })
 
-  describe.skip('createKeywords', () => {
-    it(`should create a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  describe('createKeywords', () => {
+    it(`should create a keyword`, async () => {
       const params: CreateKeywordsParam[] = [
         {
           campaignId: MANUAL_CAMPAIGN_ID,
@@ -68,7 +67,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   })
 
   describe('updateKeywords', () => {
-    it(`should update a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update a keyword`, async () => {
       const params: UpdateKeywordsParam[] = [
         {
           keywordId: PAUSED_KEYWORD_ID,
@@ -83,7 +82,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   })
 
   describe('archiveBiddableKeyword', () => {
-    it(`should archive a keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should archive a keyword`, async () => {
       const res = await operation.archiveBiddableKeyword(ARCHIVED_KEYWORD_ID)
 
       expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
@@ -91,7 +90,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   })
 
   describe('listBiddableKeywords', () => {
-    it(`should return an array of Keywords ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of Keywords`, async () => {
       const res: Keyword[] = await operation.listBiddableKeywords()
 
       expect(Array.isArray(res)).toBeTruthy()
@@ -99,7 +98,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
   })
 
   describe('listBiddableKeywordsExtended', () => {
-    it(`should return an array of KeywordExtendeds ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return an array of KeywordExtendeds`, async () => {
       const res: KeywordExtended[] = await operation.listBiddableKeywordsExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
