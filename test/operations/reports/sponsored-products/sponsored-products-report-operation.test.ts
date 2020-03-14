@@ -4,7 +4,7 @@ import { SponsoredProductsReportOperation } from '../../../../src/operations/rep
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { CampaignReportMetricsEnum } from '../../../../src/operations/reports/metrics/campaign-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
-import { DateTimeUtils, delay } from '../../../test-utils'
+import { delay } from '../../../test-utils'
 import { AdGroupReportMetricsEnum } from '../../../../src/operations/reports/metrics/ad-group-report-metrics-enum'
 import { KeywordReportMetricsEnum } from '../../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
@@ -23,7 +23,7 @@ describe('SponsoredProductsReportOperation', () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES14D],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -43,7 +43,7 @@ describe('SponsoredProductsReportOperation', () => {
           AdGroupReportMetricsEnum.COST,
           AdGroupReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -62,7 +62,7 @@ describe('SponsoredProductsReportOperation', () => {
           AsinsReportMetricsEnum.KEYWORD_ID,
           AsinsReportMetricsEnum.SKU,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -80,7 +80,7 @@ describe('SponsoredProductsReportOperation', () => {
           KeywordReportMetricsEnum.COST,
           KeywordReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -99,7 +99,7 @@ describe('SponsoredProductsReportOperation', () => {
           ProductAdsReportMetricsEnum.SKU,
           ProductAdsReportMetricsEnum.ASIN,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -117,7 +117,7 @@ describe('SponsoredProductsReportOperation', () => {
           ProductTargetingReportMetricsEnum.COST,
           ProductTargetingReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -135,7 +135,7 @@ describe('SponsoredProductsReportOperation', () => {
           ProductTargetingReportMetricsEnum.COST,
           ProductTargetingReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       await delay()
@@ -161,7 +161,7 @@ describe('SponsoredProductsReportOperation', () => {
           CampaignReportMetricsEnum.COST,
           CampaignReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       await delay()

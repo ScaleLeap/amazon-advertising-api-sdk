@@ -1,6 +1,6 @@
 import { OperationProvider } from '../../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../../http-client-factory'
-import { DateTimeUtils, delay } from '../../../test-utils'
+import { delay } from '../../../test-utils'
 import { SponsoredBrandsReportOperation } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { AdGroupReportMetricsEnum } from '../../../../src/operations/reports/metrics/ad-group-report-metrics-enum'
@@ -20,7 +20,7 @@ describe('SponsoredBrandsReportOperation', () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.CAMPAIGNS,
         metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES14D],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -40,7 +40,7 @@ describe('SponsoredBrandsReportOperation', () => {
           AdGroupReportMetricsEnum.COST,
           AdGroupReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -58,7 +58,7 @@ describe('SponsoredBrandsReportOperation', () => {
           KeywordReportMetricsEnum.COST,
           KeywordReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       expect(res.reportId).toBeDefined()
@@ -78,7 +78,7 @@ describe('SponsoredBrandsReportOperation', () => {
           KeywordReportMetricsEnum.COST,
           KeywordReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       await delay()
@@ -103,7 +103,7 @@ describe('SponsoredBrandsReportOperation', () => {
           CampaignReportMetricsEnum.COST,
           CampaignReportMetricsEnum.IMPRESSIONS,
         ],
-        reportDate: DateTimeUtils.getCurrentISODate(),
+        reportDate: '20200314',
       })
 
       await delay()

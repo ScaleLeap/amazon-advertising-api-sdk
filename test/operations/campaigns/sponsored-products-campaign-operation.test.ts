@@ -7,7 +7,6 @@ import {
   CampaignBidding,
 } from '../../../src/operations/campaigns/types'
 import { httpClientFactory } from '../../http-client-factory'
-import { DateTimeUtils } from '../../test-utils'
 import { CampaignBiddingStrategyEnum } from '../../../src/operations/bidding/campaign-bidding-strategy'
 import { CampaignBiddingAdjustmentsPredicateEnum } from '../../../src/operations/bidding/campaign-bidding-adjustments-predicate'
 
@@ -15,7 +14,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const campaignOperation = operationProvider.create(SponsoredProductsCampaignOperation)
-  const startDate = DateTimeUtils.getCurrentISODate()
+  const startDate = '20200310'
   const CAMPAIGN_ID = 31299234922913
 
   describe('listCampaigns', () => {
