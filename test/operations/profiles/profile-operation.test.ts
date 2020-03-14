@@ -3,7 +3,6 @@ import { ProfileOperation } from '../../../src/operations/profiles/profile-opera
 import { httpClientFactory } from '../../http-client-factory'
 import { Profile, RegisterProfileResponseStatusEnum } from '../../../src/operations/profiles/types'
 import { AmazonMarketplaceAdvertisingCountryCode } from '@scaleleap/amazon-marketplaces'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { delay } from '../../test-utils'
 
 jest.setTimeout(15000)
@@ -15,9 +14,7 @@ describe('ProfileOperation', () => {
   const TEST_PROFILE_ID = 2984328618318898
 
   describe('listProfiles', () => {
-    it(`should return an array or profiles ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return an array or profiles`, async () => {
       const res: Profile[] = await profileOperation.listProfiles()
 
       expect(Array.isArray(res)).toBeTruthy()
@@ -25,9 +22,7 @@ describe('ProfileOperation', () => {
   })
 
   describe('getProfile', () => {
-    it(`should return a profile object ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a profile object`, async () => {
       expect.assertions(2)
       const profile = await profileOperation.getProfile(TEST_PROFILE_ID)
 
@@ -40,11 +35,8 @@ describe('ProfileOperation', () => {
   })
 
   describe('updateProfiles', () => {
-    it(`should update the profile ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should update the profile`, async () => {
       expect.assertions(5)
-
-      await delay()
-
       const dailyBudget = 340
 
       const res = await profileOperation.updateProfiles([
@@ -69,19 +61,15 @@ describe('ProfileOperation', () => {
     })
   })
 
-  describe.skip('registerProfile', () => {
-    it(`should work with default params ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+  describe('registerProfile', () => {
+    it(`should work with default params`, async () => {
       const profile = await profileOperation.registerProfile()
       expect(profile).toBeTruthy()
     })
   })
 
-  describe.skip('registerBrand', () => {
-    it(`should return success ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+  describe('registerBrand', () => {
+    it(`should return success`, async () => {
       const param = {
         countryCode: AmazonMarketplaceAdvertisingCountryCode.US,
         brand: 'yay',
