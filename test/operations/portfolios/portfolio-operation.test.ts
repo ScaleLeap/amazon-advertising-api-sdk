@@ -60,7 +60,7 @@ describe('PortfolioOperation', () => {
       expect.assertions(3)
       const res = await portfolioOperation.createPortfolios([
         {
-          name: `My Portfolio ${Date.now() + 1}`,
+          name: `My Portfolio 1574180631864`,
           state: PortfolioStateEnum.ENABLED,
         },
       ])
@@ -75,18 +75,14 @@ describe('PortfolioOperation', () => {
 
     it('should create a portfolio with a budget', async () => {
       expect.assertions(3)
-      const today = new Date()
-        .toISOString()
-        .slice(0, 10)
-        .replace(/-/g, '')
       const res = await portfolioOperation.createPortfolios([
         {
-          name: `My Portfolio ${Date.now() + 2}`,
+          name: `My Portfolio 1574180632035`,
           budget: {
             amount: 100.0,
             policy: 'dateRange',
-            startDate: today,
-            endDate: today,
+            startDate: '20191119',
+            endDate: '20191119',
           },
           state: PortfolioStateEnum.ENABLED,
         },
@@ -127,7 +123,7 @@ describe('PortfolioOperation', () => {
       const res = await portfolioOperation.updatePortfolios([
         {
           portfolioId: portfolioId,
-          name: `My Portfolio ${Date.now() + 2}`,
+          name: `My Portfolio 1581513368211`,
           state: PortfolioStateEnum.ENABLED,
         },
       ])
