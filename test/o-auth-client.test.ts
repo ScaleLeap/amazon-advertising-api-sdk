@@ -2,7 +2,6 @@ import { OAuthClient } from '../src/o-auth-client'
 import { Token } from 'client-oauth2'
 import { config } from './config'
 import { parse, stringify } from 'querystring'
-import { POLLY_PASSTHROUGH_TAG } from './constants'
 import { jestPollyContext } from '@scaleleap/jest-polly'
 
 const URI = 'https://example.com'
@@ -56,7 +55,7 @@ describe(OAuthClient.name, () => {
     expect(token).toBeInstanceOf(Token)
   })
 
-  it(`refresh an existing token ${POLLY_PASSTHROUGH_TAG}`, async () => {
+  it(`refresh an existing token`, async () => {
     client = new OAuthClient({
       clientId: config.TEST_CLIENT_ID,
       clientSecret: config.TEST_CLIENT_SECRET,
