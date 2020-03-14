@@ -1,7 +1,6 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsTargetingRecommendationsOperation } from '../../../src/operations/recommendations/sponsored-brands-targeting-recommendations-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import {
   SponsoredBrandsProductRecommendationsRequest,
   SponsoredBrandsProductRecommendationFilterTypeEnum,
@@ -20,7 +19,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
 
   describe('getProductRecommendations', () => {
-    it(`should return a list of recommended products for targeting ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a list of recommended products for targeting`, async () => {
       const MAX_RESULT = 1
 
       const params: SponsoredBrandsProductRecommendationsRequest = {
@@ -40,7 +39,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
   })
 
   describe('getCategoryRecommendations', () => {
-    it(`should return a list of recommended categories for targeting ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a list of recommended categories for targeting`, async () => {
       const params: SponsoredBrandsCategoryRecommendationsRequest = {
         asins: ASINS,
       }
@@ -51,7 +50,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
   })
 
   describe('getBrandRecommendations', () => {
-    it(`should return a list of brand suggestions base on category id ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a list of brand suggestions base on category id`, async () => {
       const CATEGORY_ID = 123
       const params: SponsoredBrandsBrandRecommendationsRequest = {
         categoryId: CATEGORY_ID,
@@ -61,7 +60,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
       expect(res).toHaveProperty('brandRecommendationResults')
     })
 
-    it(`should return a list of brand suggestions base on keyword ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a list of brand suggestions base on keyword`, async () => {
       const KEYWORD = 'Apple'
       const params: SponsoredBrandsBrandRecommendationsRequest = {
         keyword: KEYWORD,
