@@ -80,8 +80,10 @@ describe('SponsoredBrandsReportOperation', () => {
         ],
         reportDate: DateTimeUtils.getCurrentISODate(),
       })
-      const res = await reportOperation.getReport(requestReportResult.reportId)
 
+      await delay()
+
+      const res = await reportOperation.getReport(requestReportResult.reportId)
       expect(res.reportId).toBeDefined()
       expect(res.statusDetails).toBeDefined()
 
