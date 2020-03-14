@@ -77,7 +77,7 @@ describe('ProfileOperation', () => {
 
       const res = await profileOperation.registerBrand(param)
       expect(res).toBeTruthy()
-      expect(res.code).toBe(RegisterProfileResponseStatusEnum.IN_PROGRESS)
+      expect(res.code).toBe(RegisterProfileResponseStatusEnum.SUCCESS)
     })
   })
 })
