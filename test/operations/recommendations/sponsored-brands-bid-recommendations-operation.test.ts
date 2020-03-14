@@ -1,7 +1,6 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsBidRecommendationsOperation } from '../../../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { SponsoredBrandsBidsRecommendationRequest } from '../../../src/operations/recommendations/types'
 import { ProductPredicateTypeEnum } from '../../../src/operations/product-targeting/types'
 import { KeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
@@ -16,7 +15,7 @@ describe.skip('SponsoredBrandsBidRecommendationsOperation', () => {
   const operation = operationProvider.create(SponsoredBrandsBidRecommendationsOperation)
 
   describe('getBidRecommendations', () => {
-    it(`should return a list of bid recommendation for keywords or products ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a list of bid recommendation for keywords or products`, async () => {
       const params: SponsoredBrandsBidsRecommendationRequest = {
         campaignId: 0,
         targets: [
