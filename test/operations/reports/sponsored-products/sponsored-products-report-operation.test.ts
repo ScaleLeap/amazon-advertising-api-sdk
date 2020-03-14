@@ -1,6 +1,5 @@
 import { OperationProvider } from '../../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../../http-client-factory'
-import { POLLY_PASSTHROUGH_TAG } from '../../../constants'
 import { SponsoredProductsReportOperation } from '../../../../src/operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { CampaignReportMetricsEnum } from '../../../../src/operations/reports/metrics/campaign-report-metrics-enum'
@@ -20,9 +19,7 @@ describe('SponsoredProductsReportOperation', () => {
   const reportOperation = operationProvider.create(SponsoredProductsReportOperation)
 
   describe('requestReport', () => {
-    it(`should return a in progress status ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a in progress status`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES14D],
@@ -35,9 +32,7 @@ describe('SponsoredProductsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with adgroups report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a in progress status with adgroups report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.AD_GROUPS,
         metrics: [
@@ -57,9 +52,7 @@ describe('SponsoredProductsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with asins report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a in progress status with asins report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.ASINS,
         metrics: [
@@ -78,9 +71,7 @@ describe('SponsoredProductsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with keywords report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a in progress status with keywords report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.KEYWORDS,
         metrics: [
@@ -98,9 +89,7 @@ describe('SponsoredProductsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with product ads report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a in progress status with product ads report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.PRODUCT_ADS,
         metrics: [
@@ -119,9 +108,7 @@ describe('SponsoredProductsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with targets report ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`should return a in progress status with targets report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.PRODUCT_ATTRIBUTE_TARGETING,
         metrics: [
@@ -141,9 +128,7 @@ describe('SponsoredProductsReportOperation', () => {
   })
 
   describe('getReport', () => {
-    it(`only return report location when report status is SUCCESS ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      await delay()
-
+    it(`only return report location when report status is SUCCESS`, async () => {
       const requestReportResponse = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.PRODUCT_ATTRIBUTE_TARGETING,
         metrics: [
@@ -168,7 +153,7 @@ describe('SponsoredProductsReportOperation', () => {
   })
 
   describe('downloadReport', () => {
-    it(`should return the report uncompressed ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return the report uncompressed`, async () => {
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
         metrics: [
