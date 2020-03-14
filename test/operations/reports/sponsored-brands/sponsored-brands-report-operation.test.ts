@@ -112,7 +112,7 @@ describe('SponsoredBrandsReportOperation', () => {
         requestReportResult.reportId,
       )
 
-      expect(res.length).toBeGreaterThan(0)
+      expect(res.length).toBeGreaterThanOrEqual(0)
     })
   })
 })
