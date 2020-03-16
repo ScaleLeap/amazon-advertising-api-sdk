@@ -22,3 +22,4 @@ export * from './operations/recommendations/sponsored-brands-targeting-recommend
 export * from './operations/reports/sponsored-brands/sponsored-brands-report-operation'
 export * from './operations/reports/sponsored-products/sponsored-products-report-operation'
 export * from './operations/snapshots/sponsored-products-snapshot-operation'
+export * from './operations/drafts/sponsored-brands-drafts-operation'
