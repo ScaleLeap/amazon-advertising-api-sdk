@@ -18,6 +18,15 @@ export enum RecordTypeRequestEnum {
 export const RecordTypeRequest = createEnumType<RecordTypeRequestEnum>(RecordTypeRequestEnum)
 export type RecordTypeRequest = t.TypeOf<typeof RecordTypeRequest>
 
+export enum SponsoredBrandsRecordTypeEnum {
+  CAMPAIGNS = 'campaigns',
+  KEYWORDS = 'keywords',
+}
+export const SponsoredBrandsRecordType = createEnumType<SponsoredBrandsRecordTypeEnum>(
+  SponsoredBrandsRecordTypeEnum,
+)
+export type SponsoredBrandsRecordType = t.TypeOf<typeof SponsoredBrandsRecordType>
+
 export enum RecordTypeEnum {
   CAMPAIGN = 'campaign',
   AD_GROUP = 'adGroup',

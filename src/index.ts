@@ -23,3 +23,4 @@ export * from './operations/reports/sponsored-brands/sponsored-brands-report-ope
 export * from './operations/reports/sponsored-products/sponsored-products-report-operation'
 export * from './operations/snapshots/sponsored-products-snapshot-operation'
 export * from './operations/drafts/sponsored-brands-drafts-operation'
+export * from './operations/snapshots/sponsored-brands-snapshot-operation'
