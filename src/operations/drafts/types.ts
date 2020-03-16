@@ -1,13 +1,17 @@
 import * as t from 'io-ts'
 import { ListPagination, createEnumType } from '../commons/types'
 import { PortfolioId } from '../portfolios/types'
-import { KeywordMatchType, NegativeKeywordMatchType, SBKeywordResponse } from '../keywords/types'
+import {
+  KeywordMatchType,
+  NegativeKeywordMatchType,
+  SponsoredBrandsKeywordResponse,
+} from '../keywords/types'
 
-export const SBDraftCampaignId = t.number
-export type SBDraftCampaignId = t.TypeOf<typeof SBDraftCampaignId>
+export const SponsoredBrandsDraftCampaignId = t.number
+export type SponsoredBrandsDraftCampaignId = t.TypeOf<typeof SponsoredBrandsDraftCampaignId>
 
-export const SBDraftCampaignName = t.string
-export type SBDraftCampaignName = t.TypeOf<typeof SBDraftCampaignName>
+export const SponsoredBrandsDraftCampaignName = t.string
+export type SponsoredBrandsDraftCampaignName = t.TypeOf<typeof SponsoredBrandsDraftCampaignName>
 
 export enum BudgetTypeEnum {
   LIFETIME = 'lifetime',
@@ -15,7 +19,7 @@ export enum BudgetTypeEnum {
 }
 export const BudgetType = createEnumType<BudgetTypeEnum>(BudgetTypeEnum)
 
-const SBCreative = t.strict({
+const SponsoredBrandsCreative = t.strict({
   /**
    * A brand name. Maximum length is 30 characters.
    */
@@ -52,7 +56,7 @@ const SBCreative = t.strict({
   shouldOptimizeAsins: t.boolean,
 })
 
-const SBLandingPage = t.intersection([
+const SponsoredBrandsLandingPage = t.intersection([
   t.partial({
     /**
      * An array of ASINs used to generate a simple landing page.
@@ -72,18 +76,18 @@ const SBLandingPage = t.intersection([
   }),
 ])
 
-export const SBListDraftCampaignRequest = t.intersection([
+export const SponsoredBrandsListDraftCampaignRequest = t.intersection([
   ListPagination,
   t.partial({
     /**
      * The returned array only includes draft campaigns with the specified name.
      */
-    name: SBDraftCampaignName,
+    name: SponsoredBrandsDraftCampaignName,
 
     /**
      * The returned array includes only draft campaigns with identifiers matching those specified in the comma-delimited string.
      */
-    draftCampaignIdFilter: SBDraftCampaignId,
+    draftCampaignIdFilter: SponsoredBrandsDraftCampaignId,
 
     /**
      * The returned array includes only campaigns associated with Portfolio identifiers matching those specified in the comma-delimited string.
@@ -91,9 +95,11 @@ export const SBListDraftCampaignRequest = t.intersection([
     portfolioIdFilter: PortfolioId,
   }),
 ])
-export type SBListDraftCampaignRequest = t.TypeOf<typeof SBListDraftCampaignRequest>
+export type SponsoredBrandsListDraftCampaignRequest = t.TypeOf<
+  typeof SponsoredBrandsListDraftCampaignRequest
+>
 
-export const SBListDraftCampaignResponse = t.intersection([
+export const SponsoredBrandsListDraftCampaignResponse = t.intersection([
   t.partial({
     /**
      * The brand entity identifier.
@@ -105,13 +111,13 @@ export const SBListDraftCampaignResponse = t.intersection([
     /**
      * The identifier of the draft campaign.
      */
-    draftCampaignId: SBDraftCampaignId,
+    draftCampaignId: SponsoredBrandsDraftCampaignId,
   }),
   t.strict({
     /**
      * The name of the draft campaign. Maximum 128 characters. Duplicate campaign names are not allowed.
      */
-    name: SBDraftCampaignName,
+    name: SponsoredBrandsDraftCampaignName,
 
     /**
      * The budget associated with the draft campaign.
@@ -155,14 +161,16 @@ export const SBListDraftCampaignResponse = t.intersection([
      */
     portfolioId: PortfolioId,
 
-    creative: SBCreative,
+    creative: SponsoredBrandsCreative,
 
-    landingPage: SBLandingPage,
+    landingPage: SponsoredBrandsLandingPage,
   }),
 ])
-export type SBListDraftCampaignResponse = t.TypeOf<typeof SBListDraftCampaignResponse>
+export type SponsoredBrandsListDraftCampaignResponse = t.TypeOf<
+  typeof SponsoredBrandsListDraftCampaignResponse
+>
 
-const SBCreateDraftCampaignPositiveKeyword = t.strict({
+const SponsoredBrandsCreateDraftCampaignPositiveKeyword = t.strict({
   /**
    * The keyword text. Maximum length is ten words.
    */
@@ -180,7 +188,7 @@ const SBCreateDraftCampaignPositiveKeyword = t.strict({
   bid: t.number,
 })
 
-const SBCreateDraftCampaignNegativeKeyword = t.strict({
+const SponsoredBrandsCreateDraftCampaignNegativeKeyword = t.strict({
   /**
    * The keyword text. Maximum length is ten words.
    */
@@ -193,31 +201,31 @@ const SBCreateDraftCampaignNegativeKeyword = t.strict({
   matchType: NegativeKeywordMatchType,
 })
 
-export const SBDraftCampaign = t.intersection([
-  SBListDraftCampaignResponse,
+export const SponsoredBrandsDraftCampaign = t.intersection([
+  SponsoredBrandsListDraftCampaignResponse,
   t.strict({
     /**
      * An array of keywords associated with the draft campaign.
      */
-    keywords: t.array(SBCreateDraftCampaignPositiveKeyword),
+    keywords: t.array(SponsoredBrandsCreateDraftCampaignPositiveKeyword),
 
     /**
      * An array of negative keywords associated with the draft campaign.
      * This list must be the complete list of negative keywords for the campaign. If set to null, deletes all existing negative keywords on the draft campaign.
      * If this property is not included in the request, negative keywords are not updated.
      */
-    negativeKeywords: t.array(SBCreateDraftCampaignNegativeKeyword),
+    negativeKeywords: t.array(SponsoredBrandsCreateDraftCampaignNegativeKeyword),
   }),
 ])
-export type SBDraftCampaign = t.TypeOf<typeof SBDraftCampaign>
+export type SponsoredBrandsDraftCampaign = t.TypeOf<typeof SponsoredBrandsDraftCampaign>
 
-export const SBDraftCampaignResponse = t.partial({
+export const SponsoredBrandsDraftCampaignResponse = t.partial({
   /**
    * The identifier of the draft campaign.
    */
-  draftCampaignId: SBDraftCampaignId,
+  draftCampaignId: SponsoredBrandsDraftCampaignId,
 
-  keywordResponses: t.array(SBKeywordResponse),
+  keywordResponses: t.array(SponsoredBrandsKeywordResponse),
 
   /**
    * The draft campaign response code.
@@ -229,4 +237,6 @@ export const SBDraftCampaignResponse = t.partial({
    */
   details: t.string,
 })
-export type SBDraftCampaignResponse = t.TypeOf<typeof SBDraftCampaignResponse>
+export type SponsoredBrandsDraftCampaignResponse = t.TypeOf<
+  typeof SponsoredBrandsDraftCampaignResponse
+>
