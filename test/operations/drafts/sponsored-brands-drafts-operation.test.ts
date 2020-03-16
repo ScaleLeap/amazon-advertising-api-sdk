@@ -1,12 +1,11 @@
-import { POLLY_PASSTHROUGH_TAG } from '../../constants'
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
-import { SponsoredBrandsDraftsOperation } from '../../../src/operations/drafts/sb-drafts-operation'
+import { SponsoredBrandsDraftsOperation } from '../../../src/operations/drafts/sponsored-brands-drafts-operation'
 import {
-  SBDraftCampaign,
+  SponsoredBrandsDraftCampaign,
   BudgetTypeEnum,
-  SBListDraftCampaignRequest,
-  SBDraftCampaignId,
+  SponsoredBrandsListDraftCampaignRequest,
+  SponsoredBrandsDraftCampaignId,
 } from '../../../src/operations/drafts/types'
 import {
   KeywordMatchTypeEnum,
@@ -27,8 +26,8 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
   const DRAFT_CAMPAIGN_NAME = 'Draft Campaign 1'
 
   describe('listDraftCampaigns', () => {
-    it(`should return an array draft campaigns filtered by specified criteria ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBListDraftCampaignRequest = {
+    it(`should return an array draft campaigns filtered by specified criteria`, async () => {
+      const params: SponsoredBrandsListDraftCampaignRequest = {
         startIndex: 1,
         count: 10,
         name: DRAFT_CAMPAIGN_NAME,
@@ -40,8 +39,8 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
   })
 
   describe('createDraftCampaigns', () => {
-    it(`should create one or more draft campaigns ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBDraftCampaign[] = [
+    it(`should create one or more draft campaigns`, async () => {
+      const params: SponsoredBrandsDraftCampaign[] = [
         {
           name: DRAFT_CAMPAIGN_NAME,
           budget: 1,
@@ -85,8 +84,8 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
   })
 
   describe('updateDraftCampaigns', () => {
-    it(`should update draft campaigns with updated values ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBDraftCampaign[] = [
+    it(`should update draft campaigns with updated values`, async () => {
+      const params: SponsoredBrandsDraftCampaign[] = [
         {
           draftCampaignId: DRAFT_CAMPAIGN_ID,
           name: DRAFT_CAMPAIGN_NAME,
@@ -132,7 +131,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
   })
 
   describe('getDraftCampaign', () => {
-    it(`should return a draft campaign specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should return a draft campaign specified by identifier`, async () => {
       const res = await operation.getDraftCampaign(DRAFT_CAMPAIGN_ID)
 
       expect(res).toHaveProperty('draftCampaignId')
@@ -141,7 +140,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
   })
 
   describe('archiveDraftCampaign', () => {
-    it(`should archive a draft campaign specified by identifier ${POLLY_PASSTHROUGH_TAG}`, async () => {
+    it(`should archive a draft campaign specified by identifier`, async () => {
       const res = await operation.archiveDraftCampaign(DRAFT_CAMPAIGN_ID)
 
       expect(res).toHaveProperty('draftCampaignId')
@@ -150,8 +149,8 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
   })
 
   describe('submitDraftCampaigns', () => {
-    it(`should submit one or more existing draft campaigns to the moderation approval queue ${POLLY_PASSTHROUGH_TAG}`, async () => {
-      const params: SBDraftCampaignId[] = [DRAFT_CAMPAIGN_ID]
+    it(`should submit one or more existing draft campaigns to the moderation approval queue`, async () => {
+      const params: SponsoredBrandsDraftCampaignId[] = [DRAFT_CAMPAIGN_ID]
       const [res] = await operation.submitDraftCampaigns(params)
 
       expect(res).toHaveProperty('draftCampaignId')

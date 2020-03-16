@@ -1,9 +1,9 @@
 import { isRight } from 'fp-ts/lib/Either'
 import * as t from './types'
 
-describe('SBListDraftCampaignResponse', () => {
+describe('SponsoredBrandsListDraftCampaignResponse', () => {
   it('should pass', () => {
-    const res = t.SBListDraftCampaignResponse.decode({
+    const res = t.SponsoredBrandsListDraftCampaignResponse.decode({
       draftCampaignId: 0,
       name: 'string',
       budget: 0,
@@ -30,9 +30,9 @@ describe('SBListDraftCampaignResponse', () => {
   })
 })
 
-describe('SBDraftCampaign', () => {
+describe('SponsoredBrandsDraftCampaign', () => {
   it('should pass', () => {
-    const res = t.SBDraftCampaign.decode({
+    const res = t.SponsoredBrandsDraftCampaign.decode({
       draftCampaignId: 0,
       name: 'string',
       budget: 0,
@@ -74,9 +74,9 @@ describe('SBDraftCampaign', () => {
   })
 })
 
-describe('SBDraftCampaignResponse', () => {
+describe('SponsoredBrandsDraftCampaignResponse', () => {
   it('should pass', () => {
-    const res = t.SBDraftCampaignResponse.decode({
+    const res = t.SponsoredBrandsDraftCampaignResponse.decode({
       draftCampaignId: 0,
       keywordResponses: [
         {
