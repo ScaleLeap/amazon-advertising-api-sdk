@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.3.0...v1.4.0) (2020-03-18)
+
+
+### Features
+
+* use full name and get rid of Polly tags ([62ad52d](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/62ad52d6152e37bc3eabe8c8e30d20826c20672b))
+
 # [1.3.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.2.0...v1.3.0) (2020-03-10)
 
 
