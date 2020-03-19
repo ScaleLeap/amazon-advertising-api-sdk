@@ -11,10 +11,6 @@ import { HttpClient } from '../../../src'
 
 jest.setTimeout(15000)
 
-/**
- * TODO: Need check again on Production API. Sandbox API returns error:
- * BadRequestError: Snapshot cannot be generated
- */
 describe('SponsoredBrandsSnapshotOperation', () => {
   const client = new HttpClient(SANDBOX_URI, { ...auth, scope: 2973802954634317 }, true)
   const operationProvider = new OperationProvider(client)
