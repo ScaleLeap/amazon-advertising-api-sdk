@@ -1,12 +1,13 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsSnapshotOperation } from '../../../src/operations/snapshots/sponsored-brands-snapshot-operation'
-import { httpClientFactory } from '../../http-client-factory'
+import { SANDBOX_URI, auth } from '../../http-client-factory'
 import {
   RecordTypeEnum,
   SnapshotStateEnum,
   SnapshotStatusEnum,
   SponsoredBrandsRecordTypeEnum,
 } from '../../../src/operations/snapshots/types'
+import { HttpClient } from '../../../src'
 
 jest.setTimeout(15000)
 
@@ -14,8 +15,8 @@ jest.setTimeout(15000)
  * TODO: Need check again on Production API. Sandbox API returns error:
  * BadRequestError: Snapshot cannot be generated
  */
-describe.skip('SponsoredBrandsSnapshotOperation', () => {
-  const client = httpClientFactory()
+describe('SponsoredBrandsSnapshotOperation', () => {
+  const client = new HttpClient(SANDBOX_URI, { ...auth, scope: 2973802954634317 }, true)
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsSnapshotOperation)
 
