@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.4.0...v1.5.0) (2020-03-19)
+
+
+### Features
+
+* implment sponsored brands snapshots operation ([ab44b88](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/ab44b88e42614e766fb2fd5454ed25bab8a24418))
+
 # [1.4.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.3.0...v1.4.0) (2020-03-18)
 
 
