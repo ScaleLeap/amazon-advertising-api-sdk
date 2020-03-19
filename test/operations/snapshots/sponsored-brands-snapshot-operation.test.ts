@@ -7,7 +7,6 @@ import {
   SnapshotStatusEnum,
   SponsoredBrandsRecordTypeEnum,
 } from '../../../src/operations/snapshots/types'
-import { delay } from '../../test-utils'
 
 jest.setTimeout(15000)
 
@@ -42,8 +41,6 @@ describe.skip('SponsoredBrandsSnapshotOperation', () => {
         SponsoredBrandsRecordTypeEnum.CAMPAIGNS,
         {},
       )
-
-      await delay()
 
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 
