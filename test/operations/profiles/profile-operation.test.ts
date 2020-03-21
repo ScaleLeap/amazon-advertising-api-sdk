@@ -80,4 +80,17 @@ describe('ProfileOperation', () => {
       expect(res.code).toBe(RegisterProfileResponseStatusEnum.SUCCESS)
     })
   })
+
+  /**
+   * TODO: Need check again on Production API. Sandbox API return an error:
+   * ResourceNotFoundError: Could not find resource for full path: https://advertising-api-test.amazon.com/v2/brands
+   */
+  describe.skip('getBrands', () => {
+    it(`should return an array of brands`, async () => {
+      const [brand] = await profileOperation.getBrands()
+
+      expect(brand.brandId).toBe('2973802954634317')
+      expect(brand.brandRegistryName).toBe('yay')
+    })
+  })
 })

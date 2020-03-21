@@ -6,6 +6,7 @@ import {
   ProfileResponse,
   RegisterProfileResponse,
   ProfileRegistrationResponse,
+  Brand,
 } from './types'
 import { Decode, DecodeArray } from '../../decorators'
 import { AmazonMarketplaceAdvertisingCountryCodeType } from '../commons/types'
@@ -79,5 +80,17 @@ export class ProfileOperation extends Operation {
       `${this.version}/${this.resource}/registerBrand`,
       registerBrand,
     )
+  }
+
+  /**
+   * Gets an array of Brand data objects for the Brand associated with the profile ID passed in the header.
+   * For more information about Brands, see Brand Services.
+   *
+   * @returns
+   * @memberof ProfileOperation
+   */
+  @DecodeArray(Brand)
+  public getBrands() {
+    return this.client.get<Brand[]>(`${this.version}/brands`)
   }
 }
