@@ -77,3 +77,15 @@ describe('ProfileRegistrationResponse', () => {
     expect(isRight(res)).toBeFalsy()
   })
 })
+
+describe('Brand', () => {
+  it('should pass', () => {
+    const res = t.Brand.decode({
+      brandId: 'string',
+      brandEntityId: 'string',
+      brandRegistryName: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})

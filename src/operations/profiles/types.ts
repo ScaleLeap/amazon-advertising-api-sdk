@@ -156,3 +156,21 @@ export const RegisterProfileResponse = t.intersection([
 ])
 
 export type RegisterProfileResponse = t.TypeOf<typeof RegisterProfileResponse>
+
+export const Brand = t.strict({
+  /**
+   * The Brand identifier.
+   */
+  brandId: t.string,
+
+  /**
+   * The Brand entity identifier.
+   */
+  brandEntityId: t.string,
+
+  /**
+   * The Brand name.
+   */
+  brandRegistryName: t.string,
+})
+export type Brand = t.TypeOf<typeof Brand>
