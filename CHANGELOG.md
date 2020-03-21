@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.5.0...v1.6.0) (2020-03-21)
+
+
+### Features
+
+* implement getBrands method ([fe0b780](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/fe0b780034b110cc8f6ef49fa721e33017fdf803))
+
 # [1.5.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.4.0...v1.5.0) (2020-03-19)
 
 
