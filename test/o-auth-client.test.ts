@@ -3,6 +3,7 @@ import { Token } from 'client-oauth2'
 import { config } from './config'
 import { parse, stringify } from 'querystring'
 import { jestPollyContext } from '@scaleleap/jest-polly'
+import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 
 const URI = 'https://example.com'
 const PLACEHOLDER = 'x'
@@ -72,5 +73,20 @@ describe(OAuthClient.name, () => {
     expect(res.accessToken).toBe(PLACEHOLDER)
     expect(res.refreshToken).toBe(PLACEHOLDER)
     expect(res.tokenType).toBe('bearer')
+  })
+
+  it(`should provide a correct uri for FE region`, () => {
+    const clientFE = new OAuthClient(
+      {
+        clientId: config.TEST_CLIENT_ID,
+        clientSecret: config.TEST_CLIENT_SECRET,
+        redirectUri: URI,
+      },
+      amazonMarketplaces.JP,
+    )
+    const uri = clientFE.getUri()
+    console.warn(uri)
+
+    expect(uri).toMatch(new RegExp('^https://apac.account.amazon.com/'))
   })
 })
