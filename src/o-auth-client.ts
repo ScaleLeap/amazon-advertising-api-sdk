@@ -3,6 +3,7 @@ import { Options } from 'client-oauth2'
 import fetch, { Headers } from 'cross-fetch'
 import { defaultsDeep } from 'lodash'
 import { USER_AGENT } from './constants'
+import { AmazonMarketplace, amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 
 const request: ClientOAuth2.Request = async (
   method,
@@ -31,18 +32,26 @@ const request: ClientOAuth2.Request = async (
 
 export class OAuthClient {
   // https://advertising.amazon.com/API/docs/v2/guides/authorization
-  private readonly amazonOptions: Options = {
+  private amazonOptions: Options = {
     accessTokenUri: 'https://api.amazon.com/auth/o2/token',
     authorizationUri: 'https://www.amazon.com/ap/oa',
     scopes: ['cpc_advertising:campaign_management'],
   }
 
-  private readonly client = new ClientOAuth2(
-    defaultsDeep({}, this.opts, this.amazonOptions),
-    request,
-  )
+  private client = new ClientOAuth2(defaultsDeep({}, this.opts, this.amazonOptions), request)
 
-  public constructor(private readonly opts: Options) {}
+  public constructor(
+    private readonly opts: Options,
+    amazonMarketPlace: AmazonMarketplace = amazonMarketplaces.US,
+  ) {
+    if (amazonMarketPlace.advertising) {
+      this.amazonOptions = {
+        ...this.amazonOptions,
+        accessTokenUri: amazonMarketPlace.advertising.region.accessTokenUri,
+        authorizationUri: amazonMarketPlace.advertising.region.authorizationUri,
+      }
+    }
+  }
 
   public get getUri() {
     return this.client.code.getUri.bind(this)
