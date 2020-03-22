@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.6.0...v1.7.0) (2020-03-22)
+
+
+### Features
+
+* implement sb stores info operation ([b0eb848](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/b0eb848aa85575eb35075c49a7611f7a0a17e70b))
+
 # [1.6.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.5.0...v1.6.0) (2020-03-21)
 
 
