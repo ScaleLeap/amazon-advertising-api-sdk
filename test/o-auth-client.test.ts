@@ -78,14 +78,14 @@ describe(OAuthClient.name, () => {
   it(`should provide a correct uri for FE region`, () => {
     const clientFE = new OAuthClient(
       {
-        clientId: config.TEST_CLIENT_ID,
-        clientSecret: config.TEST_CLIENT_SECRET,
+        clientId: 'foo',
+        clientSecret: 'foo',
         redirectUri: URI,
       },
       amazonMarketplaces.JP,
     )
+
     const uri = clientFE.getUri()
-    console.warn(uri)
 
     expect(uri).toMatch(new RegExp('^https://apac.account.amazon.com/'))
   })
