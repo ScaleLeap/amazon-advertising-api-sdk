@@ -2,10 +2,7 @@ export class DateTimeUtils {
   static date = new Date()
 
   static getCurrentISODate() {
-    return this.date
-      .toISOString()
-      .slice(0, 10)
-      .replace(/-/g, '')
+    return this.date.toISOString().slice(0, 10).replace(/-/g, '')
   }
 }
 
@@ -16,5 +13,5 @@ export class Random {
 }
 
 export async function delay(time: number = Random.getRandomTimeout()) {
-  return await new Promise(resolve => setTimeout(resolve, time))
+  return await new Promise((resolve) => setTimeout(resolve, time))
 }

@@ -13,7 +13,7 @@ const request: ClientOAuth2.Request = async (
   const headers = new Headers()
   headers.append('Accept-Encoding', 'application/json') // disable compression
   headers.append('User-Agent', USER_AGENT)
-  Object.keys(headerRecord).map(key => headers.append(key, headerRecord[key] as string))
+  Object.keys(headerRecord).map((key) => headers.append(key, headerRecord[key] as string))
 
   const req: RequestInit = {
     method,
