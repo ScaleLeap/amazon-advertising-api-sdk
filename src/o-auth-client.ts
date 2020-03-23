@@ -38,19 +38,22 @@ export class OAuthClient {
     scopes: ['cpc_advertising:campaign_management'],
   }
 
-  private client = new ClientOAuth2(defaultsDeep({}, this.opts, this.amazonOptions), request)
+  private client: ClientOAuth2
 
   public constructor(
     private readonly opts: Options,
     amazonMarketPlace: AmazonMarketplace = amazonMarketplaces.US,
   ) {
-    if (amazonMarketPlace.advertising) {
+    const { advertising } = amazonMarketPlace
+    if (advertising) {
       this.amazonOptions = {
         ...this.amazonOptions,
-        accessTokenUri: amazonMarketPlace.advertising.region.accessTokenUri,
-        authorizationUri: amazonMarketPlace.advertising.region.authorizationUri,
+        accessTokenUri: advertising.region.accessTokenUri,
+        authorizationUri: advertising.region.authorizationUri,
       }
     }
+
+    this.client = new ClientOAuth2(defaultsDeep({}, this.opts, this.amazonOptions), request)
   }
 
   public get getUri() {
