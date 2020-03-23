@@ -48,7 +48,7 @@ if (!config.TEST_REFRESH_TOKEN) {
 client
   .createToken(config.TEST_ACCESS_TOKEN, config.TEST_REFRESH_TOKEN)
   .refresh()
-  .then(tokens => {
+  .then((tokens) => {
     if (isOutputStdout(OUTPUT)) {
       process.stdout.write(tokens.accessToken)
     } else {
@@ -61,4 +61,4 @@ client
       writeFileSync(OUTPUT, res, { encoding: 'utf8' })
     }
   })
-  .catch(err => console.error(err))
+  .catch((err) => console.error(err))

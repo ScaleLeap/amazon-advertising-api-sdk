@@ -58,7 +58,7 @@ export class Operation {
     keys?: string[],
   ): WithOperationParameterKeys<T> {
     const clone: WithOperationParameterKeys<T> = cloneDeep(params)
-    const k = keys || Object.keys(clone).filter(key => endsWith(key, 'Filter'))
+    const k = keys || Object.keys(clone).filter((key) => endsWith(key, 'Filter'))
 
     return k.reduce((ret, key) => {
       if (this.hasKey(ret, key) && Array.isArray(ret[key])) {

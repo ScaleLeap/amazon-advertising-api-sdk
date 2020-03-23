@@ -183,7 +183,7 @@ export class HttpClient {
       throw new InvalidProgramStateError(`Expected OK HTTP status, but got: ${res.statusText}`)
     }
 
-    const buffer = await download.arrayBuffer().then(res => Buffer.from(res))
+    const buffer = await download.arrayBuffer().then((res) => Buffer.from(res))
     const contentType = download.headers.get('Content-Type')
 
     const bufferToJson = (buf: Buffer): T => {

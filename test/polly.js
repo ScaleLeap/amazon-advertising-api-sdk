@@ -26,7 +26,7 @@ beforeEach(() => {
       'x-amz-rid',
     ]
 
-    rec.request.headers = rec.request.headers.filter(h => !headers.includes(h.name))
-    rec.response.headers = rec.response.headers.filter(h => !headers.includes(h.name))
+    rec.request.headers = rec.request.headers.filter((h) => !headers.includes(h.name))
+    rec.response.headers = rec.response.headers.filter((h) => !headers.includes(h.name))
   })
 })

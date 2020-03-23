@@ -18,7 +18,7 @@ export function Decode(decoder: Decoder): Function {
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       value: function value(...args: any[]) {
-        return Promise.resolve(originalMethod.apply(this, args)).then(res =>
+        return Promise.resolve(originalMethod.apply(this, args)).then((res) =>
           tPromise.decode(decoder, res),
         )
       },
