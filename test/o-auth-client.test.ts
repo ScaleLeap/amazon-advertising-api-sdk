@@ -12,11 +12,14 @@ describe(OAuthClient.name, () => {
   let client: OAuthClient
 
   beforeEach(() => {
-    client = new OAuthClient({
-      clientId: 'foo',
-      clientSecret: 'foo',
-      redirectUri: URI,
-    })
+    client = new OAuthClient(
+      {
+        clientId: 'foo',
+        clientSecret: 'foo',
+        redirectUri: URI,
+      },
+      amazonMarketplaces.US,
+    )
 
     jestPollyContext.polly.server
       .post('https://api.amazon.com/auth/o2/token')
@@ -57,11 +60,14 @@ describe(OAuthClient.name, () => {
   })
 
   it(`refresh an existing token`, async () => {
-    client = new OAuthClient({
-      clientId: config.TEST_CLIENT_ID,
-      clientSecret: config.TEST_CLIENT_SECRET,
-      redirectUri: URI,
-    })
+    client = new OAuthClient(
+      {
+        clientId: config.TEST_CLIENT_ID,
+        clientSecret: config.TEST_CLIENT_SECRET,
+        redirectUri: URI,
+      },
+      amazonMarketplaces.US,
+    )
 
     const token = client.createToken(
       config.TEST_ACCESS_TOKEN || 'x',
@@ -88,5 +94,22 @@ describe(OAuthClient.name, () => {
     const uri = clientFE.getUri()
 
     expect(uri).toMatch(new RegExp('^https://apac.account.amazon.com/'))
+  })
+
+  it(`should throw an exception if marketplace doesn't have advertising`, () => {
+    const clientFE = () => {
+      new OAuthClient(
+        {
+          clientId: 'foo',
+          clientSecret: 'foo',
+          redirectUri: URI,
+        },
+        amazonMarketplaces.BR,
+      )
+    }
+
+    expect(clientFE).toThrowError(
+      `${amazonMarketplaces.BR.name} marketplace does not have Amazon Advertising.`,
+    )
   })
 })
