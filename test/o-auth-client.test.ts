@@ -97,7 +97,7 @@ describe(OAuthClient.name, () => {
   })
 
   it(`should throw an exception if marketplace doesn't have advertising`, () => {
-    const clientFE = () => {
+    const clientBR = () => {
       new OAuthClient(
         {
           clientId: 'foo',
@@ -108,7 +108,7 @@ describe(OAuthClient.name, () => {
       )
     }
 
-    expect(clientFE).toThrowError(
+    expect(clientBR).toThrowError(
       `${amazonMarketplaces.BR.name} marketplace does not have Amazon Advertising.`,
     )
   })
