@@ -32,11 +32,6 @@ const request: ClientOAuth2.Request = async (
 
 export class OAuthClient {
   // https://advertising.amazon.com/API/docs/v2/guides/authorization
-  private amazonOptions: Options = {
-    accessTokenUri: 'https://api.amazon.com/auth/o2/token',
-    authorizationUri: 'https://www.amazon.com/ap/oa',
-    scopes: ['cpc_advertising:campaign_management'],
-  }
 
   private client: ClientOAuth2
 
@@ -46,13 +41,13 @@ export class OAuthClient {
     if (!advertising)
       throw new Error(`${amazonMarketPlace.name} marketplace does not have Amazon Advertising.`)
 
-    this.amazonOptions = {
-      ...this.amazonOptions,
+    const amazonOptions = {
       accessTokenUri: advertising.region.accessTokenUri,
       authorizationUri: advertising.region.authorizationUri,
+      scopes: ['cpc_advertising:campaign_management'],
     }
 
-    this.client = new ClientOAuth2(defaultsDeep({}, this.opts, this.amazonOptions), request)
+    this.client = new ClientOAuth2(defaultsDeep({}, this.opts, amazonOptions), request)
   }
 
   public get getUri() {
