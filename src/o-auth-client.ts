@@ -35,11 +35,11 @@ export class OAuthClient {
 
   private client: ClientOAuth2
 
-  public constructor(private readonly opts: Options, amazonMarketPlace: AmazonMarketplace) {
-    const { advertising } = amazonMarketPlace
+  public constructor(private readonly opts: Options, amazonMarketplace: AmazonMarketplace) {
+    const { advertising } = amazonMarketplace
 
     if (!advertising)
-      throw new Error(`${amazonMarketPlace.name} marketplace does not have Amazon Advertising.`)
+      throw new Error(`${amazonMarketplace.name} marketplace does not have Amazon Advertising.`)
 
     const amazonOptions = {
       accessTokenUri: advertising.region.accessTokenUri,
