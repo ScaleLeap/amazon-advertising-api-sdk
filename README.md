@@ -1,15 +1,15 @@
-# amazon-advertising-api-sdk
+# @scaleleap/amazon-advertising-api-sdk
 
 > Amazon Advertising API TypeScript and Node.js Unofficial SDK
 
-## Alpha Release 🚨
+## Beta Release 🚨
 
-This is an alpha release and is not meant for public consumption.
+This is a beta release and be careful when using this package.
 
 ## Install
 
 ```
-npm i -s amazon-advertising-api-sdk@next
+npm i -s @scaleleap/amazon-advertising-api-sdk
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ Mandatory reading: [Amazon Advertising API docs](https://advertising.amazon.com/
 Inherits from, and implements similar interface to `client-oauth2` package.
 
 ```ts
-import { OAuthClient } from 'amazon-advertising-api-sdk'
+import { OAuthClient } from '@scaleleap/amazon-advertising-api-sdk'
 
 const client = new OAuthClient({
   clientId: '...',
@@ -46,7 +46,7 @@ The library is split into "operations", which are closely mapped to the operatio
 API.
 
 ```ts
-import { HttpClient, OperationProvider, ProfileOperation } from 'amazon-advertising-api-sdk'
+import { HttpClient, OperationProvider, ProfileOperation } from '@scaleleap/amazon-advertising-api-sdk'
 
 // HTTP Client, tailored for the Amazon Advertising API
 // See other endpoints: https://advertising.amazon.com/API/docs/en-us/get-started/how-to-use-api
