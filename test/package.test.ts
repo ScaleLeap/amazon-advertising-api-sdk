@@ -2,7 +2,7 @@ import pkg from '../src/package'
 
 describe('package', () => {
   it('should have package name', () => {
-    expect(pkg.name).toBe('amazon-advertising-api-sdk')
+    expect(pkg.name).toBe('@scaleleap/amazon-advertising-api-sdk')
   })
 
   it('should have package version', () => {
