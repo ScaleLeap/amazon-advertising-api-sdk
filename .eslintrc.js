@@ -27,6 +27,7 @@ module.exports =  {
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/camelcase': ['warn', { 'properties': 'always' }],
-    'no-console': [1, { allow: ['warn', 'error'] }]
+    'no-console': [1, { allow: ['warn', 'error'] }],
+    'curly': 'error'
   }
 };
