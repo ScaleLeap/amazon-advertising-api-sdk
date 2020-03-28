@@ -1,0 +1,15 @@
+{
+  "mode": "file",
+  "inputFiles": [
+    "./src"
+  ],
+  "exclude": [
+    "**/*.test.ts"
+  ],
+  "out": "docs",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeNotExported": true,
+  "theme": "default",
+  "hideGenerator": true
+}
