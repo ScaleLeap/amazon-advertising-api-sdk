@@ -1,9 +1,8 @@
 import { SponsoredProductsSuggestedKeywordsOperation } from '../../../src/operations/keywords/sponsored-products-suggested-keywords-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { OperationProvider } from '../../../src'
+import { OperationProvider, AdGroupStateEnum } from '../../../src'
 import {
   GetAdGroupSuggestedKeywordsParams,
-  AdGroupStateEnum,
   GetAdGroupSuggestedKeywordsExtendedParams,
   SuggestBidsEnum,
 } from '../../../src/operations/keywords/types'
