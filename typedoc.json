@@ -1,12 +1,15 @@
 {
-  "name": "Amazon Advertising API TypeScript and Node.js Unofficial SDK",
-  "mode": "modules",
+  "mode": "file",
   "inputFiles": [
     "./src"
   ],
-  "exclude": ["**/*.test.ts"],
+  "exclude": [
+    "**/*.test.ts"
+  ],
   "out": "docs",
+  "excludePrivate": true,
   "excludeProtected": true,
+  "excludeNotExported": true,
   "theme": "default",
   "hideGenerator": true
 }
