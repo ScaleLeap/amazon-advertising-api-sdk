@@ -2,7 +2,7 @@ import * as t from 'io-ts'
 import { createEnumType, ListPagination } from '../commons/types'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
-import { AdGroupId, AdGroupIds } from '../ad-groups/types'
+import { AdGroupId, AdGroupIds, AdGroupStateType } from '../ad-groups/types'
 
 export const KeywordId = t.number
 export type KeywordId = t.TypeOf<typeof KeywordId>
@@ -638,17 +638,6 @@ export type AsinSuggestedKeywordsResponse = t.TypeOf<typeof AsinSuggestedKeyword
 export const BulkAsinSuggestedKeywordsResponse = t.array(SuggestedKeywords)
 export type BulkAsinSuggestedKeywordsResponse = t.TypeOf<typeof BulkAsinSuggestedKeywordsResponse>
 
-/**
- * Advertiser-specified state of the ad group
- */
-export enum AdGroupStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const AdGroupStateType = createEnumType<AdGroupStateEnum>(AdGroupStateEnum)
-export type AdGroupStateType = t.TypeOf<typeof AdGroupStateType>
-
 export enum SuggestBidsEnum {
   YES = 'yes',
   NO = 'no',
@@ -666,7 +655,6 @@ export const GetAdGroupSuggestedKeywordsParams = t.strict({
    * Ad state filter (values are comma separated), to filter out the Ads to get suggested keywords for their ASINs.
    * Valid values are: enabled, paused, and archived.
    * Default values are enabled and paused
-   * TODO: use AdGroupStateType of AdGroup type
    */
   adStateFilter: t.array(AdGroupStateType),
 })

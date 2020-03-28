@@ -2,6 +2,7 @@ import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
 import { KeywordId } from '../keywords/types'
 import { AdGroupId } from '../ad-groups/types'
+import { ProductPredicateType } from '../product-targeting/types'
 
 export enum KeywordBidRecommendationsMatchTypeEnum {
   EXACT = 'exact',
@@ -120,19 +121,19 @@ export type BidRecommendationsResponse = t.TypeOf<typeof BidRecommendationsRespo
 /**
  * Keyword Predicate Type
  */
-export enum KeywordPredicateTypeEnum {
+export enum BiddingKeywordPredicateTypeEnum {
   QUERY_BROAD_MATCHES = 'queryBroadMatches',
   QUERY_PHRASE_MATCHES = 'queryPhraseMatches',
   QUERY_EXACT_MATCHES = 'queryExactMatches',
 }
-export const KeywordPredicateType = createEnumType<KeywordPredicateTypeEnum>(
-  KeywordPredicateTypeEnum,
+export const BiddingKeywordPredicateType = createEnumType<BiddingKeywordPredicateTypeEnum>(
+  BiddingKeywordPredicateTypeEnum,
 )
 
 /**
  * Product Predicate Type
  */
-export enum ProductPredicateTypeEnum {
+export enum BiddingProductPredicateTypeEnum {
   ASIN_CATEGORY_SAME_AS = 'asinCategorySameAs',
   ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
   ASIN_PRICE_LESS_THAN = 'asinPriceLessThan',
@@ -143,33 +144,35 @@ export enum ProductPredicateTypeEnum {
   ASIN_REVIEW_RATING_GREATER_THAN = 'asinReviewRatingGreaterThan',
   ASIN_SAME_AS = 'asinSameAs',
 }
-export const ProductPredicateType = createEnumType<ProductPredicateTypeEnum>(
-  ProductPredicateTypeEnum,
+export const BiddingProductPredicateType = createEnumType<BiddingProductPredicateTypeEnum>(
+  BiddingProductPredicateTypeEnum,
 )
 
 /**
  * Keyword Predicate Type
  */
-export enum AutoPredicateTypeEnum {
+export enum BiddingAutoPredicateTypeEnum {
   QUERY_BROAD_REL_MATCHES = 'queryBroadRelMatches',
   QUERY_HIGH_REL_MATCHES = 'queryHighRelMatches',
   ASIN_SUBSTITUTE_RELATED = 'asinSubstituteRelated',
 }
-export const AutoPredicateType = createEnumType<AutoPredicateTypeEnum>(AutoPredicateTypeEnum)
+export const BiddingAutoPredicateType = createEnumType<BiddingAutoPredicateTypeEnum>(
+  BiddingAutoPredicateTypeEnum,
+)
 
 /**
  * Targeting Expression
  */
-export const TargetingExpression = t.strict({
+export const BiddingTargetingExpression = t.strict({
   /**
    * The expression value
    */
   value: t.string,
 
-  type: t.union([KeywordPredicateType, ProductPredicateType, AutoPredicateType]),
+  type: t.union([BiddingKeywordPredicateType, ProductPredicateType, BiddingAutoPredicateType]),
 })
 
-export const TargetingExpressions = t.array(TargetingExpression)
+export const BiddingTargetingExpressions = t.array(BiddingTargetingExpression)
 
 export const BidRecommendationRequest = t.strict({
   /**
@@ -180,7 +183,7 @@ export const BidRecommendationRequest = t.strict({
   /**
    * List of targeting expressions to generate recommendations for
    */
-  expressions: TargetingExpressions,
+  expressions: BiddingTargetingExpressions,
 })
 export type BidRecommendationRequest = t.TypeOf<typeof BidRecommendationRequest>
 
@@ -193,7 +196,7 @@ export const BidRecommendationList = t.strict({
   /**
    * The targeting expression
    */
-  expression: TargetingExpression,
+  expression: BiddingTargetingExpression,
 
   /**
    * The response code

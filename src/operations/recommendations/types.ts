@@ -69,14 +69,14 @@ export type SponsoredBrandsCategoryRecommendationsRequest = t.TypeOf<
   typeof SponsoredBrandsCategoryRecommendationsRequest
 >
 
-export const CategoryId = t.number
-export type CategoryId = t.TypeOf<typeof CategoryId>
+export const SponsoredBrandsCategoryId = t.number
+export type SponsoredBrandsCategoryId = t.TypeOf<typeof SponsoredBrandsCategoryId>
 
 const SponsoredBrandsCategoryResponse = t.strict({
   /**
    * The category identifier.
    */
-  id: CategoryId,
+  id: SponsoredBrandsCategoryId,
 
   /**
    * The category name.
@@ -105,7 +105,7 @@ export const SponsoredBrandsBrandRecommendationsRequest = t.partial({
   /**
    * The category identifier for which to get recommendations.
    */
-  categoryId: CategoryId,
+  categoryId: SponsoredBrandsCategoryId,
 
   /**
    * The keyword for which to get recommendations.
