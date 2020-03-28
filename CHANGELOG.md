@@ -3,6 +3,16 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.7.2...v1.8.0) (2020-03-28)
+
+
+### Features
+
+* create amazonOptions on OAuthClient's constructor ([5748d5d](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/5748d5d20d9e8e6b6ce5f3c15bce2e55939f591a))
+* create client on OAuthClient's constructor ([c3cd82c](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/c3cd82c0e9786562fb749c28693e436052efcd8f))
+* implement muliple regions authorization ([9c3fbe0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/9c3fbe0437dd67a12301519aea2976a69b8454c9))
+* throw an error when marketplace doesn't have advertising ([6af0332](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/commit/6af033214b7d02bbb63080f5fa47bb3248aefdd4))
+
 ## [1.7.2](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.7.1...v1.7.2) (2020-03-25)
 
 
