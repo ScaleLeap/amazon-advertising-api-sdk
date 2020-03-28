@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
+import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 import { OAuthClient } from '../src/o-auth-client'
 import { config } from './config'
 
@@ -32,10 +33,13 @@ if (!isOutputStdout(OUTPUT) && !existsSync(OUTPUT)) {
   throw new Error(`The "${OUTPUT}" file does not exist.`)
 }
 
-const client = new OAuthClient({
-  clientId: config.TEST_CLIENT_ID,
-  clientSecret: config.TEST_CLIENT_SECRET,
-})
+const client = new OAuthClient(
+  {
+    clientId: config.TEST_CLIENT_ID,
+    clientSecret: config.TEST_CLIENT_SECRET,
+  },
+  amazonMarketplaces.US,
+)
 
 if (!config.TEST_ACCESS_TOKEN) {
   throw new Error('Missing `TEST_ACCESS_TOKEN` environment variable.')
