@@ -1,4 +1,4 @@
-export const enum AdGroupReportMetricsEnum {
+export enum AdGroupReportMetricsEnum {
   /**
    * Unique name of the campaign
    */

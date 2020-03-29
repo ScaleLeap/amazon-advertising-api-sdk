@@ -253,7 +253,7 @@ export const NegativeKeywordServingStatusType = createEnumType<NegativeKeywordSe
   NegativeKeywordServingStatusEnum,
 )
 
-export const enum NegativeKeywordResponseStatusEnum {
+export enum NegativeKeywordResponseStatusEnum {
   SUCCESS = 'SUCCESS',
   INVALID_ARGUMENT = 'INVALID_ARGUMENT',
   NOT_FOUND = 'NOT_FOUND',
@@ -434,7 +434,7 @@ export const CampaignNegativeKeywordServingStatusType = createEnumType<
   CampaignNegativeKeywordServingStatusEnum
 >(CampaignNegativeKeywordServingStatusEnum)
 
-export const enum CampaignNegativeKeywordResponseStatusEnum {
+export enum CampaignNegativeKeywordResponseStatusEnum {
   SUCCESS = 'SUCCESS',
   INVALID_ARGUMENT = 'INVALID_ARGUMENT',
   NOT_FOUND = 'NOT_FOUND',
