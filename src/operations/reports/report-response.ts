@@ -7,10 +7,10 @@ export enum ReportResponseStatusEnum {
   FAILURE = 'FAILURE',
 }
 
-export const ReportResponseStatusEnumType = createEnumType<ReportResponseStatusEnum>(
+export const ReportResponseStatusType = createEnumType<ReportResponseStatusEnum>(
   ReportResponseStatusEnum,
 )
-export type ReportResponseStatusEnumType = t.TypeOf<typeof ReportResponseStatusEnumType>
+export type ReportResponseStatusType = t.TypeOf<typeof ReportResponseStatusType>
 
 export const ReportId = t.string
 export type ReportId = t.TypeOf<typeof ReportId>
@@ -25,7 +25,7 @@ export const ReportResponse = t.intersection([
     /**
      * The status of the generation of the report, it can be IN_PROGRESS, SUCCESS or FAILURE.
      */
-    status: ReportResponseStatusEnumType,
+    status: ReportResponseStatusType,
 
     /**
      * Description of the status.
