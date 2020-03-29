@@ -16,6 +16,8 @@ npm i -s @scaleleap/amazon-advertising-api-sdk
 
 Mandatory reading: [Amazon Advertising API docs](https://advertising.amazon.com/API/docs/en-us)
 
+[Full docs](https://amazon-advertising-api-sdk.scaleleap.org).
+
 ### OAuth Client
 
 Inherits from, and implements similar interface to `client-oauth2` package.
