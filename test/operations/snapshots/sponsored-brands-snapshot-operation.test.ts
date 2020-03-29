@@ -2,7 +2,6 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsSnapshotOperation } from '../../../src/operations/snapshots/sponsored-brands-snapshot-operation'
 import { SANDBOX_URI, auth } from '../../http-client-factory'
 import {
-  RecordTypeEnum,
   SnapshotStateEnum,
   SnapshotStatusEnum,
   SponsoredBrandsRecordTypeEnum,
@@ -20,7 +19,8 @@ describe('SponsoredBrandsSnapshotOperation', () => {
     it(`should return a snapshot report for all entities of a single record type`, async () => {
       const res = await operation.requestSnapshot(SponsoredBrandsRecordTypeEnum.CAMPAIGNS, {})
 
-      expect(res.recordType).toBe(RecordTypeEnum.CAMPAIGN)
+      expect(res).toHaveProperty('recordType')
+      expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
     })
 
     it(`should return a snapshot report for all entities of a single record type with additional attributes satisfying optional criteria`, async () => {
@@ -28,7 +28,8 @@ describe('SponsoredBrandsSnapshotOperation', () => {
         stateFilter: SnapshotStateEnum.ARCHIVED,
       })
 
-      expect(res.recordType).toBe(RecordTypeEnum.KEYWORD)
+      expect(res).toHaveProperty('recordType')
+      expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
     })
   })
 

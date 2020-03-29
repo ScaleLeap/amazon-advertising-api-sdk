@@ -54,28 +54,25 @@ export enum SnapshotStateEnum {
 }
 export const SnapshotStateType = createEnumType<SnapshotStateEnum>(SnapshotStateEnum)
 
-export const SnapshotResponse = t.intersection([
-  t.strict({
-    /**
-     * The ID of the snapshot that was requested.
-     */
-    snapshotId: SnapshotId,
+const BaseSnapshotResponse = t.strict({
+  /**
+   * The ID of the snapshot that was requested.
+   */
+  snapshotId: SnapshotId,
 
-    /**
-     * The status of the generation of the snapshot.
-     */
-    status: SnapshotStatusType,
-  }),
-  t.partial({
+  /**
+   * The status of the generation of the snapshot.
+   */
+  status: SnapshotStatusType,
+})
+
+export const SuccessSnapshotResponse = t.intersection([
+  BaseSnapshotResponse,
+  t.strict({
     /**
      * The record type of the report.
      */
     recordType: RecordType,
-
-    /**
-     * Description of the status.
-     */
-    statusDetails: t.string,
 
     /**
      * The URI for the snapshot. It's only available if status is SUCCESS.
@@ -93,7 +90,39 @@ export const SnapshotResponse = t.intersection([
     expiration: DateFromNumber,
   }),
 ])
-export type SnapshotResponse = t.TypeOf<typeof SnapshotResponse>
+export type SuccessSnapshotResponse = t.TypeOf<typeof SuccessSnapshotResponse>
+
+export const InProgressSnapshotResponse = t.intersection([
+  BaseSnapshotResponse,
+  t.strict({
+    /**
+     * The record type of the report.
+     */
+    recordType: RecordType,
+  }),
+])
+export type InProgressSnapshotResponse = t.TypeOf<typeof InProgressSnapshotResponse>
+
+export const FailureSnapshotResponse = t.intersection([
+  BaseSnapshotResponse,
+  t.strict({
+    /**
+     * Description of the status.
+     */
+    statusDetails: t.string,
+  }),
+])
+export type FailureSnapshotResponse = t.TypeOf<typeof FailureSnapshotResponse>
+
+export const SnapshotResponse = t.union([
+  SuccessSnapshotResponse,
+  InProgressSnapshotResponse,
+  FailureSnapshotResponse,
+])
+export type SnapshotResponse =
+  | SuccessSnapshotResponse
+  | InProgressSnapshotResponse
+  | FailureSnapshotResponse
 
 export const RequestSnapshotParams = t.partial({
   /**
