@@ -3,6 +3,18 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.9.0...v1.10.0) (2020-03-29)
+
+
+### Features
+
+* export all types ([bc38715](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/bc3871583b31cf37fc0faf9c69294f4c163df6bf))
+* export bidding and campaign type ([d15db98](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d15db98a8b7c3fb0f01db456ac5fe9b8814bb4e0))
+* remove duplicate CampaignTypeEnum ([64d71a2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/64d71a2ce6575dfeb6b3797a4aaab8ac8b827d29))
+* rename duplicate types ([4d12028](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/4d12028db64644799120be6f6c748d1591bb6098))
+* replace const enum with enum ([d48595f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d48595f50a9fe78cf4e3582c76868168d0e45165))
+* standardize enum name ([9c88ed7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/9c88ed784f6a1dfc2e8979e90859247ac911f3d2))
+
 # [1.9.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.8.0...v1.9.0) (2020-03-29)
 
 
