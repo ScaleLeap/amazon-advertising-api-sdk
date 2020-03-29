@@ -1,5 +1,3 @@
-![](https://raw.githubusercontent.com/ScaleLeap/amazon-advertising-api-sdk/master/assets/header.png)
-
 📦 @scaleleap/amazon-advertising-api-sdk
 ========================================
 
