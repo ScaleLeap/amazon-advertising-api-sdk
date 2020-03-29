@@ -2,10 +2,6 @@
 
 > Amazon Advertising API TypeScript and Node.js Unofficial SDK
 
-## Beta Release 🚨
-
-This is a beta release and be careful when using this package.
-
 ## Install
 
 ```
