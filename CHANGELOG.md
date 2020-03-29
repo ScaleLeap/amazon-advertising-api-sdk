@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.8.0...v1.9.0) (2020-03-29)
+
+
+### Features
+
+* adds typedoc and GitHub pages ([#305](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/305)) ([a92fb61](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a92fb612be9221c86c15ea3612f7bc48aa03ea6e))
+
 # [1.8.0](https://github.com/ScaleLeap/amazon-advertising-api-nodejs-sdk-2/compare/v1.7.2...v1.8.0) (2020-03-28)
 
 
