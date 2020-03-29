@@ -34,7 +34,6 @@
     "ts-error": "1.0.4"
   },
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "1.15.9",
     "@scaleleap/config": "1.5.0",
     "@scaleleap/jest-polly": "1.2.3",
     "@scaleleap/semantic-release-config": "1.1.3",
@@ -62,15 +61,6 @@
   },
   "release": {
     "extends": "@scaleleap/semantic-release-config",
-    "branch": "master",
-    "plugins": [
-      [
-        "@qiwi/semantic-release-gh-pages-plugin",
-        {
-          "msg": "docs: updates docs v{{=it.nextRelease.gitTag}}",
-          "branch": "master"
-        }
-      ]
-    ]
+    "branch": "master"
   }
 }
