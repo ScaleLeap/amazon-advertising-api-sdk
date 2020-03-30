@@ -70,9 +70,9 @@ export const SuccessSnapshotResponse = t.intersection([
   BaseSnapshotResponse,
   t.strict({
     /**
-     * The record type of the report.
+     * Description of the status.
      */
-    recordType: RecordType,
+    statusDetails: t.string,
 
     /**
      * The URI for the snapshot. It's only available if status is SUCCESS.

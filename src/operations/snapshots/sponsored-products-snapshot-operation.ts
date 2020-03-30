@@ -1,10 +1,27 @@
 import { Operation } from '../operation'
 import { Decode } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
-import { SnapshotResponse, RequestSnapshotParams, SnapshotId, RecordTypeRequest } from './types'
+import {
+  SnapshotResponse,
+  RequestSnapshotParams,
+  SnapshotId,
+  RecordTypeRequest,
+  SuccessSnapshotResponse,
+} from './types'
 
 export class SponsoredProductsSnapshotOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/`
+
+  /**
+   * Downloads the snapshot corresponding to the success snapshot response specified
+   *
+   * @param {SuccessSnapshotResponse} snapshot
+   * @returns
+   * @memberof SponsoredProductsSnapshotOperation
+   */
+  public async downloadSnapshot<T extends string | number>(snapshot: SuccessSnapshotResponse) {
+    return this.client.download<T>(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
+  }
 
   /**
    * Request a file-based snapshot of all entities of the specified type in the account satisfying the filtering criteria
