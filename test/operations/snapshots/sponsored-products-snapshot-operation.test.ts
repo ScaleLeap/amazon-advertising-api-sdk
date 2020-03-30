@@ -8,7 +8,6 @@ import {
   SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
 import { delay } from '../../test-utils'
-import { string, number } from 'io-ts'
 
 describe('SponsoredProductsSnapshotOperation', () => {
   const client = httpClientFactory()
@@ -29,23 +28,7 @@ describe('SponsoredProductsSnapshotOperation', () => {
 
       const res = await operation.downloadSnapshot<string>(param)
 
-      expect(res).toBeInstanceOf(string)
-    })
-
-    it(`should return a snapshot compressed`, async () => {
-      const param: SuccessSnapshotResponse = {
-        snapshotId: 'amzn1.clicksAPI.v1.p1.5E820B56.b56140e7-dae5-4188-b8d6-001bb9845843',
-        status: SnapshotStatusEnum.SUCCESS,
-        statusDetails: 'Snapshot has been successfully generated.',
-        location:
-          'https://advertising-api-test.amazon.com/v1/snapshots/amzn1.clicksAPI.v1.p1.5E820B56.b56140e7-dae5-4188-b8d6-001bb9845843/download',
-        fileSize: 148,
-        expiration: new Date(),
-      }
-
-      const res = await operation.downloadSnapshot<number>(param)
-
-      expect(res).toBeInstanceOf(number)
+      expect(res.length).toBeGreaterThan(0)
     })
   })
 

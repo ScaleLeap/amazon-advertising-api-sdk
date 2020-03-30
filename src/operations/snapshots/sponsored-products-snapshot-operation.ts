@@ -19,7 +19,7 @@ export class SponsoredProductsSnapshotOperation extends Operation {
    * @returns
    * @memberof SponsoredProductsSnapshotOperation
    */
-  public async downloadSnapshot<T extends string | number>(snapshot: SuccessSnapshotResponse) {
+  public async downloadSnapshot<T extends string>(snapshot: SuccessSnapshotResponse) {
     return this.client.download<T>(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
   }
 
