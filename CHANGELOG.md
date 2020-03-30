@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.10.0...v1.11.0) (2020-03-30)
+
+
+### Features
+
+* make discriminated union type for SnapshotResponse ([059d57c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/059d57c9be995808f8c68dce901b94c0a7e4fbad))
+
 # [1.10.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.9.0...v1.10.0) (2020-03-29)
 
 
