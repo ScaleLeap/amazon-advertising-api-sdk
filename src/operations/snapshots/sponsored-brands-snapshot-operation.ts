@@ -6,10 +6,24 @@ import {
   RequestSnapshotParams,
   SnapshotId,
   SponsoredBrandsRecordType,
+  SuccessSnapshotResponse,
 } from './types'
 
 export class SponsoredBrandsSnapshotOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/`
+
+  /**
+   * Downloads the snapshot corresponding to the success snapshot response specified
+   *
+   * @param {SuccessSnapshotResponse} snapshot
+   * @returns
+   * @memberof SponsoredBrandsSnapshotOperation
+   */
+  public async downloadSnapshot<T extends string>(
+    snapshot: SuccessSnapshotResponse,
+  ): Promise<Partial<Record<T, 'number' | 'string'>>[]> {
+    return this.client.download(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
+  }
 
   /**
    * Request a file-based snapshot of all entities of the specified type in the account satisfying the filtering criteria
