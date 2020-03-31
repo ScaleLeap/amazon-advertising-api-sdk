@@ -16,7 +16,7 @@ describe('SponsoredBrandsSnapshotOperation', () => {
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsSnapshotOperation)
 
-  describe('downloadSnapshot', () => {
+  describe.skip('downloadSnapshot', () => {
     it(`should return a snapshot uncompressed`, async () => {
       const param: SuccessSnapshotResponse = {
         snapshotId: 'amzn1.clicksAPI.v1.p1.5E738857.1c2be957-493d-4495-85e6-2530da68c5f6',
