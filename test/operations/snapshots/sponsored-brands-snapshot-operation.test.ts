@@ -5,6 +5,7 @@ import {
   SnapshotStateEnum,
   SnapshotStatusEnum,
   SponsoredBrandsRecordTypeEnum,
+  SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
 import { HttpClient } from '../../../src'
 
@@ -14,6 +15,24 @@ describe('SponsoredBrandsSnapshotOperation', () => {
   const client = new HttpClient(SANDBOX_URI, { ...auth, scope: 2973802954634317 }, true)
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsSnapshotOperation)
+
+  describe('downloadSnapshot', () => {
+    it(`should return a snapshot uncompressed`, async () => {
+      const param: SuccessSnapshotResponse = {
+        snapshotId: 'amzn1.clicksAPI.v1.p1.5E738857.1c2be957-493d-4495-85e6-2530da68c5f6',
+        status: SnapshotStatusEnum.SUCCESS,
+        statusDetails: 'Snapshot has been successfully generated.',
+        location:
+          'https://advertising-api-test.amazon.com/v1/snapshots/amzn1.clicksAPI.v1.p1.5E738857.1c2be957-493d-4495-85e6-2530da68c5f6/download',
+        fileSize: 148,
+        expiration: new Date(),
+      }
+
+      const res = await operation.downloadSnapshot(param)
+
+      expect(res.length).toBeGreaterThan(0)
+    })
+  })
 
   describe('requestSnapshot', () => {
     it(`should return a snapshot report for all entities of a single record type`, async () => {
