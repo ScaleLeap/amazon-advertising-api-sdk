@@ -26,7 +26,7 @@ describe('SponsoredProductsSnapshotOperation', () => {
         expiration: new Date(),
       }
 
-      const res = await operation.downloadSnapshot<string>(param)
+      const res = await operation.downloadSnapshot(param)
 
       expect(res.length).toBeGreaterThan(0)
     })

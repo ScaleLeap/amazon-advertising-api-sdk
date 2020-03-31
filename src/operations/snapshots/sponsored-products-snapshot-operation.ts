@@ -19,8 +19,10 @@ export class SponsoredProductsSnapshotOperation extends Operation {
    * @returns
    * @memberof SponsoredProductsSnapshotOperation
    */
-  public async downloadSnapshot<T extends string>(snapshot: SuccessSnapshotResponse) {
-    return this.client.download<T>(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
+  public async downloadSnapshot<T extends string>(
+    snapshot: SuccessSnapshotResponse,
+  ): Promise<Partial<Record<T, 'number' | 'string'>>[]> {
+    return this.client.download(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
   }
 
   /**
