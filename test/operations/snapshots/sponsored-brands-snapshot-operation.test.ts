@@ -16,14 +16,14 @@ describe('SponsoredBrandsSnapshotOperation', () => {
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsSnapshotOperation)
 
-  describe.skip('downloadSnapshot', () => {
+  describe('downloadSnapshot', () => {
     it(`should return a snapshot uncompressed`, async () => {
       const param: SuccessSnapshotResponse = {
-        snapshotId: 'amzn1.clicksAPI.v1.p1.5E738857.1c2be957-493d-4495-85e6-2530da68c5f6',
+        snapshotId: 'amzn1.clicksAPI.v1.p1.5E82F8C3.b1095870-c8b5-47c2-b4ef-0c404c3e4fc9',
         status: SnapshotStatusEnum.SUCCESS,
         statusDetails: 'Snapshot has been successfully generated.',
         location:
-          'https://advertising-api-test.amazon.com/v1/snapshots/amzn1.clicksAPI.v1.p1.5E738857.1c2be957-493d-4495-85e6-2530da68c5f6/download',
+          'https://advertising-api-test.amazon.com/v1/snapshots/amzn1.clicksAPI.v1.p1.5E82F8C3.b1095870-c8b5-47c2-b4ef-0c404c3e4fc9/download',
         fileSize: 148,
         expiration: new Date(),
       }
