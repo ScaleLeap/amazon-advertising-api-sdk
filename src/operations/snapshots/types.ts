@@ -64,18 +64,18 @@ const BaseSnapshotResponse = t.strict({
    * The ID of the snapshot that was requested.
    */
   snapshotId: SnapshotId,
-
-  /**
-   * The status of the generation of the snapshot.
-   */
-  status: SnapshotStatusType,
 })
 
 export const SuccessSnapshotResponse = t.intersection([
   BaseSnapshotResponse,
   t.strict({
     /**
-     * Description of the status.
+     * The status of the generation of the snapshot.
+     */
+    status: t.literal(SnapshotStatusEnum.SUCCESS),
+
+    /**
+     * The record type of the report.
      */
     statusDetails: t.string,
 
@@ -101,6 +101,11 @@ export const InProgressSnapshotResponse = t.intersection([
   BaseSnapshotResponse,
   t.strict({
     /**
+     * The status of the generation of the snapshot.
+     */
+    status: t.literal(SnapshotStatusEnum.IN_PROGRESS),
+
+    /**
      * The record type of the report.
      */
     recordType: RecordType,
@@ -111,6 +116,11 @@ export type InProgressSnapshotResponse = t.TypeOf<typeof InProgressSnapshotRespo
 export const FailureSnapshotResponse = t.intersection([
   BaseSnapshotResponse,
   t.strict({
+    /**
+     * The status of the generation of the snapshot.
+     */
+    status: t.literal(SnapshotStatusEnum.FAILURE),
+
     /**
      * Description of the status.
      */

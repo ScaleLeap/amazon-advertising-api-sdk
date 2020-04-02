@@ -67,6 +67,7 @@ describe('SponsoredBrandsSnapshotOperation', () => {
 
       expect(res.snapshotId).toBe(requestSnapshotResponse.snapshotId)
       if (res.status == SnapshotStatusEnum.SUCCESS) {
+        expect(res.location).toBeTruthy()
         expect(res).toHaveProperty('location')
         expect(res).toHaveProperty('fileSize')
       }
