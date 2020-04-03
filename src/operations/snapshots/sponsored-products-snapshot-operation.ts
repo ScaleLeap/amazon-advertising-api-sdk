@@ -7,6 +7,7 @@ import {
   SnapshotId,
   RecordTypeRequest,
   SuccessSnapshotResponse,
+  SnapshotResultType,
 } from './types'
 
 export class SponsoredProductsSnapshotOperation extends Operation {
@@ -19,9 +20,9 @@ export class SponsoredProductsSnapshotOperation extends Operation {
    * @returns
    * @memberof SponsoredProductsSnapshotOperation
    */
-  public async downloadSnapshot<T extends string>(
+  public async downloadSnapshot<T extends SnapshotResultType[]>(
     snapshot: SuccessSnapshotResponse,
-  ): Promise<Partial<Record<T, 'number' | 'string'>>[]> {
+  ): Promise<T> {
     return this.client.download(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
   }
 

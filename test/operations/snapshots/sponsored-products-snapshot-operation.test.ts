@@ -8,6 +8,7 @@ import {
   SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
 import { delay } from '../../test-utils'
+import { Keyword, KeywordMatchTypeEnum, KeywordStateEnum } from '../../../src'
 
 describe('SponsoredProductsSnapshotOperation', () => {
   const client = httpClientFactory()
@@ -26,9 +27,14 @@ describe('SponsoredProductsSnapshotOperation', () => {
         expiration: new Date(),
       }
 
-      const res = await operation.downloadSnapshot(param)
+      const [res] = await operation.downloadSnapshot<Keyword[]>(param)
 
-      expect(res.length).toBeGreaterThan(0)
+      expect(res.adGroupId).toEqual(149522344269714)
+      expect(res.campaignId).toEqual(164069484151709)
+      expect(res.keywordId).toEqual(239748696088896)
+      expect(res.keywordText).toEqual('Apple')
+      expect(res.matchType).toEqual(KeywordMatchTypeEnum.BROAD)
+      expect(res.state).toEqual(KeywordStateEnum.PAUSED)
     })
   })
 
