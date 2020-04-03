@@ -73,9 +73,15 @@ export const SuccessSnapshotResponse = t.intersection([
      * The status of the generation of the snapshot.
      */
     status: t.literal(SnapshotStatusEnum.SUCCESS),
-
+  }),
+  t.partial({
     /**
      * The record type of the report.
+     */
+    statusDetails: t.string,
+
+    /**
+     * Description of the status.
      */
     statusDetails: t.string,
 
@@ -104,6 +110,12 @@ export const InProgressSnapshotResponse = t.intersection([
      * The status of the generation of the snapshot.
      */
     status: t.literal(SnapshotStatusEnum.IN_PROGRESS),
+  }),
+  t.partial({
+    /**
+     * Description of the status.
+     */
+    statusDetails: t.string,
 
     /**
      * The record type of the report.

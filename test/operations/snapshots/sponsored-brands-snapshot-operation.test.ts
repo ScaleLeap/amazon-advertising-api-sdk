@@ -42,7 +42,6 @@ describe('SponsoredBrandsSnapshotOperation', () => {
     it(`should return a snapshot report for all entities of a single record type`, async () => {
       const res = await operation.requestSnapshot(SponsoredBrandsRecordTypeEnum.CAMPAIGNS, {})
 
-      expect(res).toHaveProperty('recordType')
       expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
     })
 
@@ -51,7 +50,6 @@ describe('SponsoredBrandsSnapshotOperation', () => {
         stateFilter: SnapshotStateEnum.ARCHIVED,
       })
 
-      expect(res).toHaveProperty('recordType')
       expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
     })
   })
@@ -66,11 +64,6 @@ describe('SponsoredBrandsSnapshotOperation', () => {
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 
       expect(res.snapshotId).toBe(requestSnapshotResponse.snapshotId)
-      if (res.status == SnapshotStatusEnum.SUCCESS) {
-        expect(res.location).toBeTruthy()
-        expect(res).toHaveProperty('location')
-        expect(res).toHaveProperty('fileSize')
-      }
     })
   })
 })
