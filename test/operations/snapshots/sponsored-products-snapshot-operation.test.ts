@@ -7,7 +7,6 @@ import {
   SnapshotStatusEnum,
   SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
-import { delay } from '../../test-utils'
 import { Keyword, KeywordMatchTypeEnum, KeywordStateEnum } from '../../../src'
 
 describe('SponsoredProductsSnapshotOperation', () => {
@@ -42,7 +41,6 @@ describe('SponsoredProductsSnapshotOperation', () => {
     it(`should return a snapshot report for all entities of a single record type`, async () => {
       const res = await operation.requestSnapshot(RecordTypeRequestEnum.CAMPAIGNS, {})
 
-      expect(res).toHaveProperty('recordType')
       expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
     })
 
@@ -51,7 +49,6 @@ describe('SponsoredProductsSnapshotOperation', () => {
         stateFilter: SnapshotStateEnum.ARCHIVED,
       })
 
-      expect(res).toHaveProperty('recordType')
       expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
     })
   })
@@ -63,15 +60,9 @@ describe('SponsoredProductsSnapshotOperation', () => {
         {},
       )
 
-      await delay()
-
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 
       expect(res.snapshotId).toBe(requestSnapshotResponse.snapshotId)
-      if (res.status == SnapshotStatusEnum.SUCCESS) {
-        expect(res).toHaveProperty('location')
-        expect(res).toHaveProperty('fileSize')
-      }
     })
   })
 })
