@@ -1,6 +1,11 @@
 import * as t from 'io-ts'
 import { createEnumType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
+import { Campaign } from '../campaigns/types'
+import { AdGroup } from '../ad-groups/types'
+import { Keyword, NegativeKeyword, CampaignNegativeKeyword } from '../keywords/types'
+import { ProductAd } from '../product-ads/types'
+import { TargetingClause, NegativeTargetingClause } from '../product-targeting/types'
 
 export const SnapshotId = t.string
 export type SnapshotId = t.TypeOf<typeof SnapshotId>
@@ -133,3 +138,15 @@ export const RequestSnapshotParams = t.partial({
   stateFilter: SnapshotStateType,
 })
 export type RequestSnapshotParams = t.TypeOf<typeof RequestSnapshotParams>
+
+export const SnapshotResultType = t.union([
+  Campaign,
+  AdGroup,
+  Keyword,
+  NegativeKeyword,
+  CampaignNegativeKeyword,
+  ProductAd,
+  TargetingClause,
+  NegativeTargetingClause,
+])
+export type SnapshotResultType = t.TypeOf<typeof SnapshotResultType>
