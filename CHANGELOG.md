@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.11.0...v1.11.1) (2020-04-03)
+
+
+### Bug Fixes
+
+* application/x-gzip content type handling ([183a719](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/183a7195290319dcae68be20c27db95cc6b88ac6))
+
 # [1.11.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.10.0...v1.11.0) (2020-03-30)
 
 
