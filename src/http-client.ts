@@ -193,6 +193,7 @@ export class HttpClient {
     switch (contentType) {
       case JSON_CONTENT_TYPE:
         return bufferToJson(buffer)
+      case 'application/x-gzip':
       case 'application/octet-stream':
         return gunzip(buffer)
           .then(bufferToJson)
