@@ -23,10 +23,9 @@ export class BaseReportOperation extends Operation {
    * @returns {(Promise<Partial<Record<T, 'number' | 'string'>>[]>)}
    * @memberof BaseReportOperation
    */
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  public async downloadReport<T extends string>(
+  public async downloadReport<T extends Record<string, string | number | null>>(
     reportId: ReportId,
-  ): Promise<Partial<Record<T, 'number' | 'string'>>[]> {
+  ): Promise<T[]> {
     return this.client.download(`${this.version}/reports/${reportId}/download`)
   }
 }
