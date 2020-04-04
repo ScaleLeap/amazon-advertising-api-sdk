@@ -5,7 +5,7 @@ const SANDBOX = true
 export const SANDBOX_URI = 'https://advertising-api-test.amazon.com'
 
 export const auth: HttpClientAuth = {
-  authorizationToken: config.TEST_ACCESS_TOKEN || '',
+  accessToken: config.TEST_ACCESS_TOKEN || '',
   clientId: config.TEST_CLIENT_ID || '',
   scope: config.TEST_SCOPE || -1,
 }
