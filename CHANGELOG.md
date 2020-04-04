@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.11.2...v1.12.0) (2020-04-04)
+
+
+### Features
+
+* rename http client auth authorizationToken to accessToken ([7a230da](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7a230dadc9074fba721706cb07313d037a692dba))
+
 ## [1.11.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.11.1...v1.11.2) (2020-04-03)
 
 
