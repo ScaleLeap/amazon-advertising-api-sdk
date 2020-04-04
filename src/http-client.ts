@@ -202,10 +202,7 @@ export class HttpClient {
             return gunzip(bufferHex).then(bufferToJson)
           })
       default:
-        throw new InvalidProgramStateError(`
-        Unknown Content-Type: ${contentType} 
-        Body: ${buffer.toString()}
-        `)
+        throw new InvalidProgramStateError(`Unknown Content-Type: ${contentType}`)
     }
   }
 }
