@@ -6,7 +6,7 @@ import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
 
 export interface HttpClientAuth {
-  authorizationToken: string
+  accessToken: string
   clientId: string
   scope: number
 }
@@ -32,7 +32,7 @@ export class HttpClient {
     const headers = new Headers({
       'Content-Type': JSON_CONTENT_TYPE,
       Accept: JSON_CONTENT_TYPE,
-      Authorization: `Bearer ${this.auth.authorizationToken}`,
+      Authorization: `Bearer ${this.auth.accessToken}`,
       'Amazon-Advertising-API-ClientId': this.auth.clientId,
       'User-Agent': USER_AGENT,
     })
