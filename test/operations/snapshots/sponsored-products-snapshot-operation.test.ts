@@ -8,6 +8,7 @@ import {
   SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
 import { Keyword, KeywordMatchTypeEnum, KeywordStateEnum } from '../../../src'
+import { delay } from '../../test-utils'
 
 describe('SponsoredProductsSnapshotOperation', () => {
   const client = httpClientFactory()
@@ -55,14 +56,23 @@ describe('SponsoredProductsSnapshotOperation', () => {
 
   describe('getSnapshot', () => {
     it(`should return a snapshot with a specific snapshot id`, async () => {
+      expect.assertions(5)
       const requestSnapshotResponse = await operation.requestSnapshot(
         RecordTypeRequestEnum.KEYWORDS,
         {},
       )
 
+      await delay(60000)
+
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 
       expect(res.snapshotId).toBe(requestSnapshotResponse.snapshotId)
+      if (res.status == SnapshotStatusEnum.SUCCESS) {
+        expect(res.location).toBeDefined
+        expect(res.fileSize).toBeDefined
+        expect(res.statusDetails).toBeDefined
+        expect(res.expiration).toBeDefined
+      }
     })
   })
 })
