@@ -58,7 +58,7 @@ describe('SponsoredProductsSnapshotOperation', () => {
 
   describe('getSnapshot', () => {
     it(`should return a snapshot with a specific snapshot id`, async () => {
-      expect.assertions(5)
+      expect.assertions(4)
       const requestSnapshotResponse = await operation.requestSnapshot(
         RecordTypeRequestEnum.KEYWORDS,
         {},
@@ -73,7 +73,6 @@ describe('SponsoredProductsSnapshotOperation', () => {
         expect(res).toHaveProperty('location')
         expect(res).toHaveProperty('fileSize')
         expect(res).toHaveProperty('statusDetails')
-        expect(res).toHaveProperty('expiration')
       }
     })
   })
