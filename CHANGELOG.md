@@ -3,6 +3,22 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.12.0...v1.13.0) (2020-04-04)
+
+
+### Features
+
+* cast download snapshot result to TypeScript objects ([8ca0586](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8ca05867d69b3ccbbb5dd8bfb0d52f70983b27fc))
+* change generic type of downloadSnapshot ([b7bcb52](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b7bcb52119ce8e673ba71882c9c91b780879f57c))
+* implement download sponsored products snapshot ([3bfa91a](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/3bfa91a4ca4333eab237b237ec096d96598ad3dd))
+* implement sb downloadSnapshot method ([a38bbc2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a38bbc2cfa824d882545837d30a81aecef86b2ca))
+* refactor generic type of downloadSnapshot method ([ef19362](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/ef19362e6cbe10f024e29f11e5ba28be71b4dc35))
+
+
+### Reverts
+
+* Revert "test: log body of download request" ([4518311](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/4518311fad007a0e2f69c73f9bfc0cdcb2186fee))
+
 # [1.12.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.11.2...v1.12.0) (2020-04-04)
 
 
