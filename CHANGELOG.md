@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.13.0...v1.14.0) (2020-04-04)
+
+
+### Features
+
+* add sponsored brands headline search report type ([1ae1c5f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1ae1c5fb1c07fd07af2ab566dc18b54834d28da0))
+
 # [1.13.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.12.0...v1.13.0) (2020-04-04)
 
 
