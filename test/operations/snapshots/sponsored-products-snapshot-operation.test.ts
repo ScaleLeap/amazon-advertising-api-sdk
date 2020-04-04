@@ -8,9 +8,6 @@ import {
   SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
 import { Keyword, KeywordMatchTypeEnum, KeywordStateEnum } from '../../../src'
-import { delay } from '../../test-utils'
-
-jest.setTimeout(90000)
 
 describe('SponsoredProductsSnapshotOperation', () => {
   const client = httpClientFactory()
@@ -63,8 +60,6 @@ describe('SponsoredProductsSnapshotOperation', () => {
         RecordTypeRequestEnum.KEYWORDS,
         {},
       )
-
-      await delay(60000)
 
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 
