@@ -10,6 +10,8 @@ import {
 import { Keyword, KeywordMatchTypeEnum, KeywordStateEnum } from '../../../src'
 import { delay } from '../../test-utils'
 
+jest.setTimeout(90000)
+
 describe('SponsoredProductsSnapshotOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
@@ -68,10 +70,10 @@ describe('SponsoredProductsSnapshotOperation', () => {
 
       expect(res.snapshotId).toBe(requestSnapshotResponse.snapshotId)
       if (res.status == SnapshotStatusEnum.SUCCESS) {
-        expect(res.location).toBeDefined
-        expect(res.fileSize).toBeDefined
-        expect(res.statusDetails).toBeDefined
-        expect(res.expiration).toBeDefined
+        expect(res).toHaveProperty('location')
+        expect(res).toHaveProperty('fileSize')
+        expect(res).toHaveProperty('statusDetails')
+        expect(res).toHaveProperty('expiration')
       }
     })
   })
