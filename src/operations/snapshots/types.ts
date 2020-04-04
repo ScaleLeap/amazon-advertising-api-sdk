@@ -81,11 +81,6 @@ export const SuccessSnapshotResponse = t.intersection([
     statusDetails: t.string,
 
     /**
-     * Description of the status.
-     */
-    statusDetails: t.string,
-
-    /**
      * The URI for the snapshot. It's only available if status is SUCCESS.
      */
     location: t.string,
