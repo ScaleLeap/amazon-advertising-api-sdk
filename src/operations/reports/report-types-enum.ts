@@ -17,4 +17,5 @@ export enum SponsoredBrandsReportTypeEnum {
   CAMPAIGNS = 'campaigns',
   AD_GROUPS = 'adGroups',
   KEYWORDS = 'keywords',
+  HEADLINE_SEARCH = 'headlineSearch',
 }

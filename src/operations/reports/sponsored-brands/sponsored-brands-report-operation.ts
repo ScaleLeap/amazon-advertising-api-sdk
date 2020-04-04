@@ -5,11 +5,13 @@ import { ReportResponse } from '../report-response'
 import { SponsoredBrandsAdGroupReportParams } from './sponsored-brands-ad-group-report-params'
 import { SponsoredBrandsCampaignReportParams } from './sponsored-brands-campaign-report-params'
 import { SponsoredBrandsKeywordReportParams } from './sponsored-brands-keyword-report-params'
+import { SponsoredBrandsHeadlineSearchReportParams } from './sponsored-brands-headline-search-report-params'
 
 type SponsoredBrandsReportParams =
   | SponsoredBrandsAdGroupReportParams
   | SponsoredBrandsCampaignReportParams
   | SponsoredBrandsKeywordReportParams
+  | SponsoredBrandsHeadlineSearchReportParams
 
 export class SponsoredBrandsReportOperation<
   ReportParams extends SponsoredBrandsReportParams
