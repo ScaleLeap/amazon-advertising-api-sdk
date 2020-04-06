@@ -3,6 +3,18 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.14.0...v1.15.0) (2020-04-06)
+
+
+### Bug Fixes
+
+* snapshot type guarding ([c40b9d6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c40b9d67592942978c3b5e4412480bb14125ce43))
+
+
+### Features
+
+* update type guarding of SnapshotResponse ([3b05d7a](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/3b05d7af6ebe4271471198aa931f091c6113013f))
+
 # [1.14.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.13.0...v1.14.0) (2020-04-04)
 
 
