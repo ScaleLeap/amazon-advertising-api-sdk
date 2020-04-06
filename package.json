@@ -34,7 +34,7 @@
     "ts-error": "1.0.4"
   },
   "devDependencies": {
-    "@scaleleap/config": "1.5.0",
+    "@scaleleap/config": "1.5.1",
     "@scaleleap/jest-polly": "1.2.3",
     "@scaleleap/semantic-release-config": "1.1.4",
     "@types/jest": "25.2.1",
