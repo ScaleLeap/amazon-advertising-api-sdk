@@ -77,10 +77,12 @@ describe('SponsoredProductsAdGroupOperation', () => {
 
   describe('archiveAdGroup', () => {
     it('should archive the ad group', async () => {
+      expect.assertions(2)
+
       const res = await adGroupOperation.archiveAdGroup(ARCHIVED_AD_GROUP_ID)
       expect(res.code).toBe('SUCCESS')
 
-      if (res.code === '') {
+      if (res.code === 'SUCCESS') {
         expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       }
     })
