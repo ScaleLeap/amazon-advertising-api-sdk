@@ -29,14 +29,12 @@ export type AdGroupStatesType = t.TypeOf<typeof AdGroupStatesType>
 /**
  * The mutation status of the portfolio.
  */
-export enum AdGroupResponseStatusEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-}
-export const AdGroupResponseStatusType = createEnumType<AdGroupResponseStatusEnum>(
-  AdGroupResponseStatusEnum,
-)
+export const AdGroupResponseStatus = t.union([
+  t.literal('SUCCESS'),
+  t.literal('INVALID_ARGUMENT'),
+  t.literal('NOT_FOUND'),
+])
+export type AdGroupResponseStatus = t.TypeOf<typeof AdGroupResponseStatus>
 
 /**
  * The computed status, accounting for out of budget, policy violations, etc. See Developer notes for more information.

@@ -1,11 +1,7 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredProductsAdGroupOperation } from '../../../src/operations/ad-groups/sponsored-products-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import {
-  AdGroupStateEnum,
-  AdGroupServingStatusEnum,
-  AdGroupResponseStatusEnum,
-} from '../../../src/operations/ad-groups/types'
+import { AdGroupStateEnum, AdGroupServingStatusEnum } from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredProductsAdGroupOperation', () => {
   const client = httpClientFactory()
@@ -57,7 +53,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       ])
 
       expect(res).toHaveLength(1)
-      expect(res[0].code).toBe(AdGroupResponseStatusEnum.SUCCESS)
+      expect(res[0].code).toBe('SUCCESS')
       expect(res[0]).toHaveProperty('adGroupId')
     })
   })
@@ -74,7 +70,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       ])
 
       expect(res).toHaveLength(1)
-      expect(res[0].code).toBe(AdGroupResponseStatusEnum.SUCCESS)
+      expect(res[0].code).toBe('SUCCESS')
       expect(res[0]).toHaveProperty('adGroupId')
     })
   })
@@ -82,9 +78,9 @@ describe('SponsoredProductsAdGroupOperation', () => {
   describe('archiveAdGroup', () => {
     it('should archive the ad group', async () => {
       const res = await adGroupOperation.archiveAdGroup(ARCHIVED_AD_GROUP_ID)
-      expect(res.code).toBe(AdGroupResponseStatusEnum.SUCCESS)
+      expect(res.code).toBe('SUCCESS')
 
-      if (res.code === AdGroupResponseStatusEnum.SUCCESS) {
+      if (res.code === 'SUCCESS') {
         expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       }
     })

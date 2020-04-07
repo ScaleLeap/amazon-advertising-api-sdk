@@ -18,7 +18,7 @@ describe('index', () => {
   describe('ad group', () => {
     it('should export all enums', () => {
       expect(index.AdGroupStateEnum).toEqual(adGroupEnums.AdGroupStateEnum)
-      expect(index.AdGroupResponseStatusEnum).toEqual(adGroupEnums.AdGroupResponseStatusEnum)
+      expect(index.AdGroupResponseStatus).toEqual(adGroupEnums.AdGroupResponseStatus)
       expect(index.AdGroupServingStatusEnum).toEqual(adGroupEnums.AdGroupServingStatusEnum)
     })
   })
