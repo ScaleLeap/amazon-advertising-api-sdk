@@ -1,7 +1,11 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredProductsAdGroupOperation } from '../../../src/operations/ad-groups/sponsored-products-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { AdGroupState, AdGroupServingStatusEnum } from '../../../src/operations/ad-groups/types'
+import {
+  AdGroupState,
+  AdGroupResponseStatus,
+  AdGroupServingStatusEnum,
+} from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredProductsAdGroupOperation', () => {
   const client = httpClientFactory()
@@ -80,7 +84,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       expect.assertions(2)
 
       const res = await adGroupOperation.archiveAdGroup(ARCHIVED_AD_GROUP_ID)
-      expect(res.code).toBe('SUCCESS')
+      expect(res.code).toBe<AdGroupResponseStatus>('SUCCESS')
 
       if (res.code === 'SUCCESS') {
         expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
