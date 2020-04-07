@@ -13,18 +13,14 @@ export const AdGroupName = t.string
 export type AdGroupName = t.TypeOf<typeof AdGroupName>
 
 /**
- * Advertiser-specified state of the ad group
+ * Advertiser-specified state of the ad group.
  */
-export enum AdGroupStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const AdGroupStateType = createEnumType<AdGroupStateEnum>(AdGroupStateEnum)
-export type AdGroupStateType = t.TypeOf<typeof AdGroupStateType>
-
-export const AdGroupStatesType = t.array(AdGroupStateType)
-export type AdGroupStatesType = t.TypeOf<typeof AdGroupStatesType>
+export const AdGroupState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type AdGroupState = t.TypeOf<typeof AdGroupState>
 
 /**
  * The mutation status of the portfolio.
@@ -72,7 +68,7 @@ export const AdGroup = t.intersection([
     /**
      * Advertiser-specified state of the ad group
      */
-    state: AdGroupStateType,
+    state: AdGroupState,
   }),
 
   t.partial({
@@ -153,7 +149,7 @@ export const ListAdGroupsParams = t.intersection([
      * Must be one of: enabled, paused, or archived.
      * Default behavior is to include all.
      */
-    stateFilter: AdGroupStatesType,
+    stateFilter: t.array(AdGroupState),
 
     /**
      * Optional. Restricts results to ad groups with the specified name.

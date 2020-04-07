@@ -1,7 +1,7 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredProductsAdGroupOperation } from '../../../src/operations/ad-groups/sponsored-products-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { AdGroupStateEnum, AdGroupServingStatusEnum } from '../../../src/operations/ad-groups/types'
+import { AdGroupState, AdGroupServingStatusEnum } from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredProductsAdGroupOperation', () => {
   const client = httpClientFactory()
@@ -20,7 +20,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       expect(res).toHaveProperty('campaignId')
       expect(res).toHaveProperty('defaultBid')
       expect(res.defaultBid).toBeGreaterThan(0.02)
-      expect(res.state).toBe(AdGroupStateEnum.ARCHIVED)
+      expect(res.state).toBe<AdGroupState>('archived')
     })
   })
 
@@ -33,7 +33,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       expect(res).toHaveProperty('campaignId')
       expect(res).toHaveProperty('defaultBid')
       expect(res.defaultBid).toBeGreaterThan(0.02)
-      expect(res.state).toBe(AdGroupStateEnum.ARCHIVED)
+      expect(res.state).toBe<AdGroupState>('archived')
 
       expect(res).toHaveProperty('creationDate')
       expect(res).toHaveProperty('lastUpdatedDate')
@@ -46,7 +46,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       const res = await adGroupOperation.createAdGroups([
         {
           name: 'Foo Ad Group',
-          state: AdGroupStateEnum.PAUSED,
+          state: 'paused',
           defaultBid: 1,
           campaignId: CAMPAIGN_ID,
         },
@@ -64,7 +64,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
         {
           adGroupId: ENABLED_AD_GROUP_ID,
           name: 'New Name',
-          state: AdGroupStateEnum.ENABLED,
+          state: 'enabled',
           defaultBid: 1,
         },
       ])
@@ -80,7 +80,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       const res = await adGroupOperation.archiveAdGroup(ARCHIVED_AD_GROUP_ID)
       expect(res.code).toBe('SUCCESS')
 
-      if (res.code === 'SUCCESS') {
+      if (res.code === '') {
         expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       }
     })
@@ -96,7 +96,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
       expect(res[0]).toHaveProperty('name')
       expect(res[0]).toHaveProperty('defaultBid')
       expect(res[0].defaultBid).toBeGreaterThan(0.02)
-      expect(res[0].state).toBe(AdGroupStateEnum.ARCHIVED)
+      expect(res[0].state).toBe<AdGroupState>('archived')
     })
 
     it('should accept params', async () => {
@@ -104,7 +104,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
         adGroupIdFilter: [ARCHIVED_AD_GROUP_ID],
         campaignIdFilter: [CAMPAIGN_ID],
         count: 1,
-        stateFilter: [AdGroupStateEnum.ARCHIVED],
+        stateFilter: ['archived'],
       })
 
       expect(res).toHaveLength(1)
