@@ -122,7 +122,7 @@ export const AdGroupResponse = t.intersection([
     /**
      * An enumerated success or error code for machine use.
      */
-    code: t.string,
+    code: AdGroupResponseStatus,
   }),
 
   t.partial({
