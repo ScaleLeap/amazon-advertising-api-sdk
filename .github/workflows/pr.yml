@@ -48,7 +48,25 @@ jobs:
       run: npm run lint
 
     - name: test
-      run: npm test
+      run: npm test -- --coverage
 
     - name: build
       run: npm run build
+
+    - name: Coveralls Parallel
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel: "true"
+
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: "true"
