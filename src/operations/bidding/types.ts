@@ -4,14 +4,12 @@ import { KeywordId } from '../keywords/types'
 import { AdGroupId } from '../ad-groups/types'
 import { ProductPredicateType } from '../product-targeting/types'
 
-export enum KeywordBidRecommendationsMatchTypeEnum {
-  EXACT = 'exact',
-  PHRASE = 'phrase',
-  BROAD = 'broad',
-}
-export const KeywordBidRecommendationsMatchType = createEnumType<
-  KeywordBidRecommendationsMatchTypeEnum
->(KeywordBidRecommendationsMatchTypeEnum)
+export const KeywordBidRecommendationsMatchType = t.union([
+  t.literal('exact'),
+  t.literal('phrase'),
+  t.literal('broad'),
+])
+export type KeywordBidRecommendationsMatchType = t.TypeOf<typeof KeywordBidRecommendationsMatchType>
 
 /**
  * The resulting status code for retrieving the bid.
