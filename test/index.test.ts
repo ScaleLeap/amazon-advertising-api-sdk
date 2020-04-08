@@ -32,13 +32,9 @@ describe('index', () => {
       expect(index.BidRecommendationsResponseCode).toEqual(
         biddingEnums.BidRecommendationsResponseCode,
       )
-      expect(index.BiddingAutoPredicateTypeEnum).toEqual(biddingEnums.BiddingAutoPredicateTypeEnum)
-      expect(index.BiddingKeywordPredicateTypeEnum).toEqual(
-        biddingEnums.BiddingKeywordPredicateTypeEnum,
-      )
-      expect(index.BiddingProductPredicateTypeEnum).toEqual(
-        biddingEnums.BiddingProductPredicateTypeEnum,
-      )
+      expect(index.BiddingAutoPredicateType).toEqual(biddingEnums.BiddingAutoPredicateType)
+      expect(index.BiddingKeywordPredicateType).toEqual(biddingEnums.BiddingKeywordPredicateType)
+      expect(index.BiddingProductPredicateType).toEqual(biddingEnums.BiddingProductPredicateType)
       expect(index.KeywordBidRecommendationsMatchType).toEqual(
         biddingEnums.KeywordBidRecommendationsMatchType,
       )
