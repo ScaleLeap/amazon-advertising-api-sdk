@@ -49,59 +49,62 @@ export const CampaignBidding = t.type({
 })
 export type CampaignBidding = t.TypeOf<typeof CampaignBidding>
 
-export const Campaign = t.partial({
-  /**
-   * The ID of the portfolio.
-   */
-  portfolioId: PortfolioId,
+export const Campaign = t.intersection([
+  t.strict({
+    /**
+     * The ID of the campaign.
+     */
+    campaignId: CampaignId,
 
-  /**
-   * The ID of the campaign.
-   */
-  campaignId: CampaignId,
+    /**
+     * The name of the campaign.
+     */
+    name: CampaignName,
 
-  /**
-   * The name of the campaign.
-   */
-  name: CampaignName,
+    /**
+     * Specifies the advertising product managed by this campaign.
+     */
+    campaignType: CampaignType,
 
-  /**
-   * Specifies the advertising product managed by this campaign.
-   */
-  campaignType: CampaignType,
+    /**
+     * Differentiates between a keyword-targeted and automatically targeted campaign.
+     */
+    targetingType: CampaignTargetingType,
 
-  /**
-   * Differentiates between a keyword-targeted and automatically targeted campaign.
-   */
-  targetingType: CampaignTargetingType,
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignState,
 
-  /**
-   * The state of the campaign.
-   */
-  state: CampaignState,
+    /**
+     * Daily budget for the campaign.
+     */
+    dailyBudget: t.number,
 
-  /**
-   * Daily budget for the campaign.
-   */
-  dailyBudget: t.number,
+    /**
+     * The date the campaign will go or went live as YYYYMMDD.
+     */
+    startDate: t.string,
+  }),
+  t.partial({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
 
-  /**
-   * The date the campaign will go or went live as YYYYMMDD.
-   */
-  startDate: t.string,
+    /**
+     * The optional date the campaign will stop running as YYYYMMDD.
+     */
+    endDate: t.string,
 
-  /**
-   * The optional date the campaign will stop running as YYYYMMDD.
-   */
-  endDate: t.string,
+    /**
+     * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
+     */
+    premiumBidAdjustment: t.boolean,
 
-  /**
-   * When enabled, Amazon will increase the default bid for your ads that are eligible to appear in this placement. See developer notes for more information.
-   */
-  premiumBidAdjustment: t.boolean,
-
-  bidding: CampaignBidding,
-})
+    bidding: CampaignBidding,
+  }),
+])
 export type Campaign = t.TypeOf<typeof Campaign>
 
 export const SponsoredProductsCampaignCreateParams = t.intersection([
