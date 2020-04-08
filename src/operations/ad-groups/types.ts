@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { CampaignId, CampaignIds } from '../campaigns/types'
-import { createEnumType, ListPagination } from '../commons/types'
+import { ListPagination } from '../commons/types'
 
 export const AdGroupId = t.number
 export type AdGroupId = t.TypeOf<typeof AdGroupId>
@@ -35,23 +35,20 @@ export type AdGroupResponseStatus = t.TypeOf<typeof AdGroupResponseStatus>
 /**
  * The computed status, accounting for out of budget, policy violations, etc. See Developer notes for more information.
  */
-export enum AdGroupServingStatusEnum {
-  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
-  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
-  AD_GROUP_STATUS_ENABLED = 'AD_GROUP_STATUS_ENABLED',
-  AD_POLICING_SUSPENDED = 'AD_POLICING_SUSPENDED',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  CAMPAIGN_INCOMPLETE = 'CAMPAIGN_INCOMPLETE',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-  PORTFOLIO_PENDING_START_DATE = 'PORTFOLIO_PENDING_START_DATE', // The docs don't mention about this type
-  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED', // The docs don't mention about this type
-}
-export const AdGroupServingStatusType = createEnumType<AdGroupServingStatusEnum>(
-  AdGroupServingStatusEnum,
-)
-export type AdGroupServingStatusType = t.TypeOf<typeof AdGroupServingStatusType>
+export const AdGroupServingStatus = t.union([
+  t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('AD_GROUP_PAUSED'),
+  t.literal('AD_GROUP_STATUS_ENABLED'),
+  t.literal('AD_POLICING_SUSPENDED'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('CAMPAIGN_INCOMPLETE'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+  t.literal('PORTFOLIO_PENDING_START_DATE'), // The docs don't mention about this type
+  t.literal('PORTFOLIO_ENDED'), // The docs don't mention about this type
+])
+export type AdGroupServingStatus = t.TypeOf<typeof AdGroupServingStatus>
 
 export const AdGroup = t.intersection([
   t.type({
@@ -103,7 +100,7 @@ export const AdGroupExtended = t.intersection([
     /**
      * The computed status, accounting for out of budget, policy violations, etc. See Developer notes for more information.
      */
-    servingStatus: AdGroupServingStatusType,
+    servingStatus: AdGroupServingStatus,
   }),
 ])
 export type AdGroupExtended = t.TypeOf<typeof AdGroupExtended>
