@@ -4,7 +4,7 @@ import { httpClientFactory } from '../../http-client-factory'
 import {
   AdGroupState,
   AdGroupResponseStatus,
-  AdGroupServingStatusEnum,
+  AdGroupServingStatus,
 } from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredProductsAdGroupOperation', () => {
@@ -41,7 +41,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
 
       expect(res).toHaveProperty('creationDate')
       expect(res).toHaveProperty('lastUpdatedDate')
-      expect(res.servingStatus).toBe(AdGroupServingStatusEnum.PORTFOLIO_ENDED)
+      expect(res.servingStatus).toBe<AdGroupServingStatus>('PORTFOLIO_ENDED')
     })
   })
 
@@ -132,7 +132,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
 
       expect(res[0]).toHaveProperty('creationDate')
       expect(res[0]).toHaveProperty('lastUpdatedDate')
-      expect(res[0].servingStatus).toBe(AdGroupServingStatusEnum.PORTFOLIO_ENDED)
+      expect(res[0].servingStatus).toBe<AdGroupServingStatus>('PORTFOLIO_ENDED')
     })
   })
 })

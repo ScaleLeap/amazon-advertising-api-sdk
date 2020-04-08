@@ -19,7 +19,7 @@ describe('index', () => {
     it('should export all enums', () => {
       expect(index.AdGroupState).toEqual(adGroupEnums.AdGroupState)
       expect(index.AdGroupResponseStatus).toEqual(adGroupEnums.AdGroupResponseStatus)
-      expect(index.AdGroupServingStatusEnum).toEqual(adGroupEnums.AdGroupServingStatusEnum)
+      expect(index.AdGroupServingStatus).toEqual(adGroupEnums.AdGroupServingStatus)
     })
   })
 
