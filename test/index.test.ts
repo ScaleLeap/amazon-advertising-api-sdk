@@ -29,8 +29,8 @@ describe('index', () => {
         CampaignBiddingAdjustmentsPredicateEnum,
       )
       expect(index.CampaignBiddingStrategyEnum).toEqual(CampaignBiddingStrategyEnum)
-      expect(index.BidRecommendationsResponseCodeEnum).toEqual(
-        biddingEnums.BidRecommendationsResponseCodeEnum,
+      expect(index.BidRecommendationsResponseCode).toEqual(
+        biddingEnums.BidRecommendationsResponseCode,
       )
       expect(index.BiddingAutoPredicateTypeEnum).toEqual(biddingEnums.BiddingAutoPredicateTypeEnum)
       expect(index.BiddingKeywordPredicateTypeEnum).toEqual(

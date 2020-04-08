@@ -14,17 +14,15 @@ export type KeywordBidRecommendationsMatchType = t.TypeOf<typeof KeywordBidRecom
 /**
  * The resulting status code for retrieving the bid.
  */
-export enum BidRecommendationsResponseCodeEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-  INTERNAL_ERROR = 'INTERNAL_ERROR',
-  SERVER_IS_BUSY = 'SERVER_IS_BUSY',
-  UNAUTHORIZED = 'UNAUTHORIZED',
-}
-export const BidRecommendationsResponseCodeType = createEnumType<
-  BidRecommendationsResponseCodeEnum
->(BidRecommendationsResponseCodeEnum)
+export const BidRecommendationsResponseCode = t.union([
+  t.literal('SUCCESS'),
+  t.literal('INVALID_ARGUMENT'),
+  t.literal('NOT_FOUND'),
+  t.literal('INTERNAL_ERROR'),
+  t.literal('SERVER_IS_BUSY'),
+  t.literal('UNAUTHORIZED'),
+])
+export type BidRecommendationsResponseCode = t.TypeOf<typeof BidRecommendationsResponseCode>
 
 export const BidRecommendationsKeyword = t.strict({
   /**
@@ -105,7 +103,7 @@ export const BidRecommendationsResponse = t.strict({
         /**
          * The resulting status code for retrieving the bid.
          */
-        code: BidRecommendationsResponseCodeType,
+        code: BidRecommendationsResponseCode,
 
         suggestedBid: SuggestedBid,
       }),
@@ -199,7 +197,7 @@ export const BidRecommendationList = t.strict({
   /**
    * The response code
    */
-  code: BidRecommendationsResponseCodeType,
+  code: BidRecommendationsResponseCode,
 })
 
 export const BidRecommendationLists = t.array(BidRecommendationList)
