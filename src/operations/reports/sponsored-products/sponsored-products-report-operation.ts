@@ -9,7 +9,6 @@ import { SponsoredProductsKeywordReportParams } from './sponsored-products-keywo
 import { SponsoredProductsProductAdsReportParams } from './sponsored-products-product-ads-report-params'
 import { SponsoredProductsTargetsReportParams } from './sponsored-products-targets-report-params'
 import { SponsoredProductsReportTypeEnum } from '../report-types-enum'
-import { CampaignTypeEnum } from '../../campaigns/types'
 
 type SponsoredProductsReportParams =
   | SponsoredProductsAdGroupReportParams
@@ -75,7 +74,7 @@ export class SponsoredProductsReportOperation<
     return this.requestReportByUri(
       `${this.version}/${params.recordType}/report`,
       // add undocumented param `campaignType`, without it the request fails
-      Object.assign({ campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS }, params),
+      Object.assign({ campaignType: 'sponsoredProducts' }, params),
     )
   }
 
