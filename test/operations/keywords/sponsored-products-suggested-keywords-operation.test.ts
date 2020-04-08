@@ -1,6 +1,6 @@
 import { SponsoredProductsSuggestedKeywordsOperation } from '../../../src/operations/keywords/sponsored-products-suggested-keywords-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { OperationProvider, AdGroupStateEnum } from '../../../src'
+import { OperationProvider } from '../../../src'
 import {
   GetAdGroupSuggestedKeywordsParams,
   GetAdGroupSuggestedKeywordsExtendedParams,
@@ -26,7 +26,7 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
     it(`should return suggested keyword data for the specified adGroupId, adStateFilter`, async () => {
       const params: GetAdGroupSuggestedKeywordsParams = {
         maxNumSuggestions: 1,
-        adStateFilter: [AdGroupStateEnum.ENABLED, AdGroupStateEnum.PAUSED, AdGroupStateEnum.PAUSED],
+        adStateFilter: ['enabled', 'paused', 'archived'],
       }
       const res = await operation.getAdGroupSuggestedKeywords(AD_GROUP_ID, params)
 
@@ -46,7 +46,7 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
       const params: GetAdGroupSuggestedKeywordsExtendedParams = {
         maxNumSuggestions: 1000,
         suggestBids: SuggestBidsEnum.YES,
-        adStateFilter: [AdGroupStateEnum.ENABLED, AdGroupStateEnum.PAUSED, AdGroupStateEnum.PAUSED],
+        adStateFilter: ['enabled', 'paused', 'archived'],
       }
       const res = await operation.getAdGroupSuggestedKeywordsExtended(AD_GROUP_ID, params)
 

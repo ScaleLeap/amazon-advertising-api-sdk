@@ -17,7 +17,7 @@ import * as snapshotEnum from '../src/operations/snapshots/types'
 describe('index', () => {
   describe('ad group', () => {
     it('should export all enums', () => {
-      expect(index.AdGroupStateEnum).toEqual(adGroupEnums.AdGroupStateEnum)
+      expect(index.AdGroupState).toEqual(adGroupEnums.AdGroupState)
       expect(index.AdGroupResponseStatus).toEqual(adGroupEnums.AdGroupResponseStatus)
       expect(index.AdGroupServingStatusEnum).toEqual(adGroupEnums.AdGroupServingStatusEnum)
     })

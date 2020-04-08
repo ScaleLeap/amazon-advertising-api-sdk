@@ -2,7 +2,7 @@ import * as t from 'io-ts'
 import { createEnumType, ListPagination } from '../commons/types'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
-import { AdGroupId, AdGroupIds, AdGroupStateType } from '../ad-groups/types'
+import { AdGroupId, AdGroupIds, AdGroupState } from '../ad-groups/types'
 
 export const KeywordId = t.number
 export type KeywordId = t.TypeOf<typeof KeywordId>
@@ -656,7 +656,7 @@ export const GetAdGroupSuggestedKeywordsParams = t.strict({
    * Valid values are: enabled, paused, and archived.
    * Default values are enabled and paused
    */
-  adStateFilter: t.array(AdGroupStateType),
+  adStateFilter: t.array(AdGroupState),
 })
 export type GetAdGroupSuggestedKeywordsParams = t.TypeOf<typeof GetAdGroupSuggestedKeywordsParams>
 

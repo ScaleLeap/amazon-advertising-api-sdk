@@ -1,7 +1,6 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsAdGroupOperation } from '../../../src/operations/ad-groups/sponsored-brands-ad-group-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { AdGroupStateEnum } from '../../../src/operations/ad-groups/types'
 
 describe('SponsoredBrandsAdGroupOperation', () => {
   const client = httpClientFactory()
@@ -20,7 +19,7 @@ describe('SponsoredBrandsAdGroupOperation', () => {
       expect(res).toHaveProperty('campaignId')
       expect(res).toHaveProperty('defaultBid')
       expect(res.defaultBid).toBeGreaterThan(0.02)
-      expect(res.state).toBe(AdGroupStateEnum.ARCHIVED)
+      expect(res.state).toBe('archived')
     })
   })
 
@@ -37,7 +36,7 @@ describe('SponsoredBrandsAdGroupOperation', () => {
         adGroupIdFilter: [ARCHIVED_AD_GROUP_ID],
         campaignIdFilter: [CAMPAIGN_ID],
         count: 1,
-        stateFilter: [AdGroupStateEnum.ARCHIVED],
+        stateFilter: ['archived'],
       })
 
       expect(res).toHaveLength(1)
