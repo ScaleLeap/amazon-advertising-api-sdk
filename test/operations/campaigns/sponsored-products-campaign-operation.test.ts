@@ -1,11 +1,6 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredProductsCampaignOperation } from '../../../src/operations/campaigns/sponsored-products-campaign-operation'
-import {
-  CampaignStateEnum,
-  CampaignTargetingEnum,
-  CampaignTypeEnum,
-  CampaignBidding,
-} from '../../../src/operations/campaigns/types'
+import { CampaignBidding, CampaignState } from '../../../src/operations/campaigns/types'
 import { httpClientFactory } from '../../http-client-factory'
 import { CampaignBiddingStrategyEnum } from '../../../src/operations/bidding/campaign-bidding-strategy'
 import { CampaignBiddingAdjustmentsPredicateEnum } from '../../../src/operations/bidding/campaign-bidding-adjustments-predicate'
@@ -63,10 +58,10 @@ describe('SponsoredProductsCampaignOperation', () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 2020/03/10 22:26:01',
-          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
+          campaignType: 'sponsoredProducts',
           dailyBudget: 1,
-          state: CampaignStateEnum.ENABLED,
-          targetingType: CampaignTargetingEnum.MANUAL,
+          state: 'enabled',
+          targetingType: 'manual',
           startDate,
         },
       ])
@@ -75,6 +70,7 @@ describe('SponsoredProductsCampaignOperation', () => {
     })
 
     it(`should create a campaign with auto bidding controls`, async () => {
+      expect.assertions(2)
       const bidding: CampaignBidding = {
         strategy: CampaignBiddingStrategyEnum.AUTO_FOR_SALES,
         adjustments: [
@@ -88,10 +84,10 @@ describe('SponsoredProductsCampaignOperation', () => {
       const [createdCampaignResponse] = await campaignOperation.createCampaigns([
         {
           name: `test campaign 2020/03/10 22:26:02`,
-          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
+          campaignType: 'sponsoredProducts',
           dailyBudget: 1,
-          state: CampaignStateEnum.PAUSED,
-          targetingType: CampaignTargetingEnum.MANUAL,
+          state: 'paused',
+          targetingType: 'manual',
           startDate,
           bidding,
         },
@@ -109,7 +105,7 @@ describe('SponsoredProductsCampaignOperation', () => {
   describe('updateCampaigns', () => {
     const portfolioId = 77985496739778
     const name = 'new name'
-    const state = CampaignStateEnum.PAUSED
+    const state = 'paused'
     const dailyBudget = 7
 
     it(`should update a campaign`, async () => {
@@ -167,7 +163,7 @@ describe('SponsoredProductsCampaignOperation', () => {
       expect(res.code).toBe('SUCCESS')
 
       const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
-      expect(campaign.state).toBe(CampaignStateEnum.ARCHIVED)
+      expect(campaign.state).toBe<CampaignState>('archived')
     })
   })
 })

@@ -43,10 +43,10 @@ describe('index', () => {
 
   describe('campaigns', () => {
     it('should export all enums', () => {
-      expect(index.CampaignServingStatusEnum).toEqual(campaignEnums.CampaignServingStatusEnum)
-      expect(index.CampaignStateEnum).toEqual(campaignEnums.CampaignStateEnum)
-      expect(index.CampaignTargetingEnum).toEqual(campaignEnums.CampaignTargetingEnum)
-      expect(index.CampaignTypeEnum).toEqual(campaignEnums.CampaignTypeEnum)
+      expect(index.CampaignServingStatus).toEqual(campaignEnums.CampaignServingStatus)
+      expect(index.CampaignState).toEqual(campaignEnums.CampaignState)
+      expect(index.CampaignTargetingType).toEqual(campaignEnums.CampaignTargetingType)
+      expect(index.CampaignType).toEqual(campaignEnums.CampaignType)
     })
   })
 

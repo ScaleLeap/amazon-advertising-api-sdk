@@ -1,11 +1,7 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsCampaignOperation } from '../../../src/operations/campaigns/sponsored-brands-campaign-operation'
-import {
-  CampaignTypeEnum,
-  CampaignStateEnum,
-  CampaignTargetingEnum,
-} from '../../../src/operations/campaigns/types'
 import { httpClientFactory } from '../../http-client-factory'
+import { CampaignState } from '../../../src'
 
 describe('SponsoredBrandsCampaignOperation', () => {
   const client = httpClientFactory()
@@ -57,10 +53,10 @@ describe('SponsoredBrandsCampaignOperation', () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
-          campaignType: CampaignTypeEnum.SPONSORED_PRODUCTS,
+          campaignType: 'sponsoredProducts',
           dailyBudget: 1,
-          state: CampaignStateEnum.ENABLED,
-          targetingType: CampaignTargetingEnum.MANUAL,
+          state: 'enabled',
+          targetingType: 'manual',
           startDate: '20190301',
           premiumBidAdjustment: true,
         },
@@ -78,7 +74,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
       expect(res.code).toBe('SUCCESS')
 
       const campaign = await campaignOperation.getCampaign(ARCHIVED_CAMPAIGN_ID)
-      expect(campaign.state).toBe(CampaignStateEnum.ARCHIVED)
+      expect(campaign.state).toBe<CampaignState>('archived')
     })
   })
 })

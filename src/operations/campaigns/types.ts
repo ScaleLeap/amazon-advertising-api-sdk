@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 
-import { ResponseStatus, ListPagination, createEnumType } from '../commons/types'
+import { ResponseStatus, ListPagination } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { PortfolioId } from '../portfolios/types'
 import { CampaignBiddingStrategyType } from '../bidding/campaign-bidding-strategy'
@@ -24,36 +24,24 @@ export type CampaignName = t.TypeOf<typeof CampaignName>
 /**
  * Specifies the advertising product managed by this campaign.
  */
-export enum CampaignTypeEnum {
-  SPONSORED_PRODUCTS = 'sponsoredProducts',
-}
-
-export const CampaignType = createEnumType<CampaignTypeEnum>(CampaignTypeEnum)
+export const CampaignType = t.union([t.literal('sponsoredProducts'), t.undefined])
 export type CampaignType = t.TypeOf<typeof CampaignType>
 
 /**
  * Differentiates between a keyword-targeted and automatically targeted campaign.
  */
-export enum CampaignTargetingEnum {
-  MANUAL = 'manual',
-  AUTO = 'auto',
-}
-
-export const CampaignTargetingType = createEnumType<CampaignTargetingEnum>(CampaignTargetingEnum)
+export const CampaignTargetingType = t.union([t.literal('manual'), t.literal('auto')])
 export type CampaignTargetingType = t.TypeOf<typeof CampaignTargetingType>
 
 /**
  * Advertiser-specified state of the campaign.
  */
-
-export enum CampaignStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-
-export const CampaignStateType = createEnumType<CampaignStateEnum>(CampaignStateEnum)
-export type CampaignStateType = t.TypeOf<typeof CampaignStateType>
+export const CampaignState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type CampaignState = t.TypeOf<typeof CampaignState>
 
 export const CampaignBidding = t.type({
   strategy: CampaignBiddingStrategyType,
@@ -90,7 +78,7 @@ export const Campaign = t.partial({
   /**
    * The state of the campaign.
    */
-  state: CampaignStateType,
+  state: CampaignState,
 
   /**
    * Daily budget for the campaign.
@@ -134,7 +122,7 @@ export const SponsoredProductsCampaignCreateParams = t.intersection([
     /**
      * The state of the campaign.
      */
-    state: CampaignStateType,
+    state: CampaignState,
 
     /**
      * Daily budget for the campaign.
@@ -175,7 +163,7 @@ export const SponsoredProductsCampaignUpdateParams = t.intersection([
     /**
      * Advertiser-specified state of the campaign.
      */
-    state: CampaignStateType,
+    state: CampaignState,
     /**
      * Daily budget for the campaign.
      */
@@ -230,7 +218,7 @@ export const SponsoredBrandsCampaignUpdateParams = t.intersection([
     /**
      * Advertiser-specified state of the campaign.
      */
-    state: CampaignStateType,
+    state: CampaignState,
 
     /**
      * Allow Amazon to automatically optimize bids for placements below top of search.
@@ -251,21 +239,17 @@ export type SponsoredBrandsCampaignUpdateParams = t.TypeOf<
 /**
  * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
  */
-export enum CampaignServingStatusEnum {
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_STATUS_ENABLED = 'CAMPAIGN_STATUS_ENABLED',
-  ADVERTISER_PAYMENT_FAILURE = 'ADVERTISER_PAYMENT_FAILURE',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED', // The docs don't say about this type
-  CAMPAIGN_INCOMPLETE = 'CAMPAIGN_INCOMPLETE',
-}
-
-export const CampaignServingStatusType = createEnumType<CampaignServingStatusEnum>(
-  CampaignServingStatusEnum,
-)
-export type CampaignServingStatusType = t.TypeOf<typeof CampaignServingStatusType>
+export const CampaignServingStatus = t.union([
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_STATUS_ENABLED'),
+  t.literal('ADVERTISER_PAYMENT_FAILURE'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+  t.literal('PORTFOLIO_ENDED'), // The docs don't say about this type
+  t.literal('CAMPAIGN_INCOMPLETE'), // The docs don't say about this type
+])
+export type CampaignServingStatus = t.TypeOf<typeof CampaignServingStatus>
 
 export const CampaignExtended = t.intersection([
   Campaign,
@@ -288,7 +272,7 @@ export const CampaignExtended = t.intersection([
     /**
      * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: CampaignServingStatusType,
+    servingStatus: CampaignServingStatus,
   }),
 ])
 export type CampaignExtended = t.TypeOf<typeof CampaignExtended>
@@ -336,7 +320,7 @@ export const SponsoredBrandsCampaign = t.strict({
   /**
    * The state of the campaign.
    */
-  state: CampaignStateType,
+  state: CampaignState,
 
   /**
    * asinNotBuyable: associated ASIN cannot be purchased due to eligibility or availability.
@@ -505,7 +489,7 @@ export const ListCampaignsParams = t.intersection([
      * Restricts results to campaigns with state within the specified comma-separated list. Valid states are enabled, paused, or archived.
      * Default behavior is to include enabled and paused. Rejected campaigns will show under “archived” enum.
      */
-    stateFilter: CampaignStateType,
+    stateFilter: CampaignState,
 
     /**
      * Restricts results to campaigns with exactly matching name.

@@ -4,7 +4,6 @@ import { SponsoredProductsReportOperation } from '../../../../src/operations/rep
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { CampaignReportMetricsEnum } from '../../../../src/operations/reports/metrics/campaign-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
-import { delay } from '../../../test-utils'
 import { AdGroupReportMetricsEnum } from '../../../../src/operations/reports/metrics/ad-group-report-metrics-enum'
 import { KeywordReportMetricsEnum } from '../../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
@@ -138,8 +137,6 @@ describe('SponsoredProductsReportOperation', () => {
         reportDate: '20200314',
       })
 
-      await delay()
-
       const res = await reportOperation.getReport(requestReportResponse.reportId)
 
       expect(res.reportId).toBeDefined()
@@ -163,8 +160,6 @@ describe('SponsoredProductsReportOperation', () => {
         ],
         reportDate: '20200314',
       })
-
-      await delay()
 
       const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
         requestReportResult.reportId,
