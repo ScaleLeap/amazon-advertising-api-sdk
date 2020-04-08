@@ -1,5 +1,4 @@
 import * as t from 'io-ts'
-import { createEnumType } from '../commons/types'
 import { KeywordId } from '../keywords/types'
 import { AdGroupId } from '../ad-groups/types'
 import { ProductPredicateType } from '../product-targeting/types'
@@ -117,44 +116,39 @@ export type BidRecommendationsResponse = t.TypeOf<typeof BidRecommendationsRespo
 /**
  * Keyword Predicate Type
  */
-export enum BiddingKeywordPredicateTypeEnum {
-  QUERY_BROAD_MATCHES = 'queryBroadMatches',
-  QUERY_PHRASE_MATCHES = 'queryPhraseMatches',
-  QUERY_EXACT_MATCHES = 'queryExactMatches',
-}
-export const BiddingKeywordPredicateType = createEnumType<BiddingKeywordPredicateTypeEnum>(
-  BiddingKeywordPredicateTypeEnum,
-)
+export const BiddingKeywordPredicateType = t.union([
+  t.literal('queryBroadMatches'),
+  t.literal('queryPhraseMatches'),
+  t.literal('queryExactMatches'),
+])
+export type BiddingKeywordPredicateType = t.TypeOf<typeof BiddingKeywordPredicateType>
 
 /**
  * Product Predicate Type
  */
-export enum BiddingProductPredicateTypeEnum {
-  ASIN_CATEGORY_SAME_AS = 'asinCategorySameAs',
-  ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
-  ASIN_PRICE_LESS_THAN = 'asinPriceLessThan',
-  ASIN_PRICE_BETWEEN = 'asinPriceBetween',
-  ASIN_PRICE_GREATER_THAN = 'asinPriceGreaterThan',
-  ASIN_REVIEW_RATING_LESS_THAN = 'asinReviewRatingLessThan',
-  ASIN_REVIEW_RATING_BETWEEN = 'asinReviewRatingBetween',
-  ASIN_REVIEW_RATING_GREATER_THAN = 'asinReviewRatingGreaterThan',
-  ASIN_SAME_AS = 'asinSameAs',
-}
-export const BiddingProductPredicateType = createEnumType<BiddingProductPredicateTypeEnum>(
-  BiddingProductPredicateTypeEnum,
-)
+export const BiddingProductPredicateType = t.union([
+  t.literal('asinCategorySameAs'),
+  t.literal('asinBrandSameAs'),
+  t.literal('asinPriceLessThan'),
+  t.literal('asinPriceBetween'),
+  t.literal('asinPriceGreaterThan'),
+  t.literal('asinReviewRatingLessThan'),
+  t.literal('asinReviewRatingBetween'),
+  t.literal('asinReviewRatingGreaterThan'),
+  t.literal('asinSameAs'),
+])
+export type BiddingProductPredicateType = t.TypeOf<typeof BiddingProductPredicateType>
 
 /**
  * Keyword Predicate Type
  */
-export enum BiddingAutoPredicateTypeEnum {
-  QUERY_BROAD_REL_MATCHES = 'queryBroadRelMatches',
-  QUERY_HIGH_REL_MATCHES = 'queryHighRelMatches',
-  ASIN_SUBSTITUTE_RELATED = 'asinSubstituteRelated',
-}
-export const BiddingAutoPredicateType = createEnumType<BiddingAutoPredicateTypeEnum>(
-  BiddingAutoPredicateTypeEnum,
-)
+export const BiddingAutoPredicateType = t.union([
+  t.literal('queryBroadRelMatches'),
+  t.literal('queryHighRelMatches'),
+  t.literal('asinSubstituteRelated'),
+  t.literal('asinAccessoryRelated'),
+])
+export type BiddingAutoPredicateType = t.TypeOf<typeof BiddingAutoPredicateType>
 
 /**
  * Targeting Expression
