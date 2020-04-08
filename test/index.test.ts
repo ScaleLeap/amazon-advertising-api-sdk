@@ -39,8 +39,8 @@ describe('index', () => {
       expect(index.BiddingProductPredicateTypeEnum).toEqual(
         biddingEnums.BiddingProductPredicateTypeEnum,
       )
-      expect(index.KeywordBidRecommendationsMatchTypeEnum).toEqual(
-        biddingEnums.KeywordBidRecommendationsMatchTypeEnum,
+      expect(index.KeywordBidRecommendationsMatchType).toEqual(
+        biddingEnums.KeywordBidRecommendationsMatchType,
       )
     })
   })
