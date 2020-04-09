@@ -4,7 +4,7 @@ import { CampaignBiddingAdjustmentsPredicateEnum } from '../src/operations/biddi
 import { CampaignBiddingStrategyEnum } from '../src/operations/bidding/campaign-bidding-strategy'
 import * as biddingEnums from '../src/operations/bidding/types'
 import * as campaignEnums from '../src/operations/campaigns/types'
-import { BudgetTypeEnum } from '../src/operations/drafts/types'
+import { BudgetType } from '../src/operations/drafts/types'
 import * as keywordEnum from '../src/operations/keywords/types'
 import * as portfolioEnum from '../src/operations/portfolios/types'
 import * as productAdsEnum from '../src/operations/product-ads/types'
@@ -52,7 +52,7 @@ describe('index', () => {
 
   describe('draft', () => {
     it('should export all enums', () => {
-      expect(index.BudgetTypeEnum).toEqual(BudgetTypeEnum)
+      expect(index.BudgetType).toEqual(BudgetType)
     })
   })
 

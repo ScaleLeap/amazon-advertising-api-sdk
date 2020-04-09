@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { ListPagination, createEnumType } from '../commons/types'
+import { ListPagination } from '../commons/types'
 import { PortfolioId } from '../portfolios/types'
 import {
   KeywordMatchType,
@@ -13,11 +13,8 @@ export type SponsoredBrandsDraftCampaignId = t.TypeOf<typeof SponsoredBrandsDraf
 export const SponsoredBrandsDraftCampaignName = t.string
 export type SponsoredBrandsDraftCampaignName = t.TypeOf<typeof SponsoredBrandsDraftCampaignName>
 
-export enum BudgetTypeEnum {
-  LIFETIME = 'lifetime',
-  DAILY = 'daily',
-}
-export const BudgetType = createEnumType<BudgetTypeEnum>(BudgetTypeEnum)
+export const BudgetType = t.union([t.literal('lifetime'), t.literal('daily')])
+export type BudgetType = t.TypeOf<typeof BudgetType>
 
 const SponsoredBrandsCreative = t.strict({
   /**

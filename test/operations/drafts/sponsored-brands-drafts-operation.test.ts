@@ -3,7 +3,6 @@ import { OperationProvider } from '../../../src'
 import { SponsoredBrandsDraftsOperation } from '../../../src/operations/drafts/sponsored-brands-drafts-operation'
 import {
   SponsoredBrandsDraftCampaign,
-  BudgetTypeEnum,
   SponsoredBrandsListDraftCampaignRequest,
   SponsoredBrandsDraftCampaignId,
 } from '../../../src/operations/drafts/types'
@@ -44,7 +43,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
         {
           name: DRAFT_CAMPAIGN_NAME,
           budget: 1,
-          budgetType: BudgetTypeEnum.LIFETIME,
+          budgetType: 'lifetime',
           startDate: '20201001',
           endDate: '20201031',
           bidOptimization: true,
@@ -90,7 +89,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
           draftCampaignId: DRAFT_CAMPAIGN_ID,
           name: DRAFT_CAMPAIGN_NAME,
           budget: 1,
-          budgetType: BudgetTypeEnum.LIFETIME,
+          budgetType: 'lifetime',
           startDate: '20201001',
           endDate: '20201031',
           bidOptimization: true,
