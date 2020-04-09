@@ -16,33 +16,10 @@ describe('SponsoredBrandsCampaignOperation', () => {
     })
   })
 
-  // Error: Unable to extract parameter from http request for javax.ws.rs.PathParam("campaignId") value is 'extended' for public abstract com.amazon.adapi.model.hsa.ExternalCampaign com.amazon.adapi.resource.HsaCampaignInterface.getCampaign(long)
-  describe.skip('listCampaignsEx', () => {
-    it(`should return an array of expanded campaigns`, async () => {
-      const res = await campaignOperation.listCampaignsEx()
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-
-    it(`should return a filtered list of results`, async () => {
-      const res = await campaignOperation.listCampaignsEx({
-        campaignIdFilter: [CAMPAIGN_ID],
-      })
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-  })
-
   // Skip: Sponsored brand campaign list is empty
   describe.skip('getCampaign', () => {
     it(`should return a single campaign`, async () => {
       const res = await campaignOperation.getCampaign(CAMPAIGN_ID)
-      expect(res).toBeTruthy()
-    })
-  })
-
-  // Skip: Sponsored brand campaign list is empty
-  describe.skip('getCampaignEx', () => {
-    it(`should return a single extended campaign`, async () => {
-      const res = await campaignOperation.getCampaignEx(CAMPAIGN_ID)
       expect(res).toBeTruthy()
     })
   })
@@ -53,12 +30,10 @@ describe('SponsoredBrandsCampaignOperation', () => {
       const res = await campaignOperation.createCampaigns([
         {
           name: 'test campaign 4',
-          campaignType: 'sponsoredProducts',
-          dailyBudget: 1,
-          state: 'enabled',
           targetingType: 'manual',
+          state: 'enabled',
+          dailyBudget: 1,
           startDate: '20190301',
-          premiumBidAdjustment: true,
         },
       ])
 

@@ -3,40 +3,16 @@ import { Decode, DecodeArray } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
 import {
-  Campaign,
   ListCampaignsParams,
   CampaignId,
   CampaignResponse,
   SponsoredBrandsCampaignUpdateParams,
-  CampaignExtended,
+  SponsoredBrandsCampaignCreateParams,
+  SponsoredBrandsCampaign,
 } from './types'
 
 export class SponsoredBrandsCampaignOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/campaigns`
-
-  /**
-   * Gets an array of all campaigns associated with the client identifier passed in the authorization header, filtered by specified criteria.
-   *
-   * @param {ListCampaignsParams} [params]
-   * @returns
-   * @memberof SponsoredBrandsCampaignOperation
-   */
-  @DecodeArray(Campaign)
-  public listCampaigns(params?: ListCampaignsParams) {
-    return this.client.get<Campaign[]>(this.paramsFilterTransformer('', params))
-  }
-
-  /**
-   * Gets an array of all campaigns with extended fields associated with the client identifier passed in the authorization header, filtered by specified criteria.
-   *
-   * @param {ListCampaignsParams} [params]
-   * @returns
-   * @memberof SponsoredBrandsCampaignOperation
-   */
-  @DecodeArray(CampaignExtended)
-  public listCampaignsEx(params?: ListCampaignsParams) {
-    return this.client.get<CampaignExtended[]>(this.paramsFilterTransformer('/extended', params))
-  }
 
   /**
    * Gets a campaign specified by identifier
@@ -45,32 +21,32 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    * @returns
    * @memberof SponsoredBrandsCampaignOperation
    */
-  @Decode(Campaign)
+  @Decode(SponsoredBrandsCampaign)
   public getCampaign(campaignId: CampaignId) {
-    return this.client.get<Campaign>(`${this.resource}/${campaignId}`)
+    return this.client.get<SponsoredBrandsCampaign>(`${this.resource}/${campaignId}`)
   }
 
   /**
-   * Gets a campaign with extended fields specified by identifier
+   * Gets an array of all campaigns associated with the client identifier passed in the authorization header, filtered by specified criteria.
    *
-   * @param {CampaignId} campaignId
+   * @param {ListCampaignsParams} [params]
    * @returns
    * @memberof SponsoredBrandsCampaignOperation
    */
-  @Decode(CampaignExtended)
-  public getCampaignEx(campaignId: CampaignId) {
-    return this.client.get<CampaignExtended>(`${this.resource}/extended/${campaignId}`)
+  @DecodeArray(SponsoredBrandsCampaign)
+  public listCampaigns(params?: ListCampaignsParams) {
+    return this.client.get<SponsoredBrandsCampaign[]>(this.paramsFilterTransformer('', params))
   }
 
   /**
    * Creates one or more new Campaigns
    *
-   * @param {Campaign[]} campaigns
+   * @param {SponsoredBrandsCampaignCreateParams[]} campaigns
    * @returns
    * @memberof SponsoredBrandsCampaignOperation
    */
   @DecodeArray(CampaignResponse)
-  public createCampaigns(campaigns: Campaign[]) {
+  public createCampaigns(campaigns: SponsoredBrandsCampaignCreateParams[]) {
     return this.client.post<CampaignResponse[]>(this.resource, campaigns)
   }
 
