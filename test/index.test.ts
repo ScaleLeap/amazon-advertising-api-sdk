@@ -70,10 +70,10 @@ describe('index', () => {
       expect(index.CampaignNegativeKeywordStateEnum).toEqual(
         keywordEnum.CampaignNegativeKeywordStateEnum,
       )
-      expect(index.KeywordMatchTypeEnum).toEqual(keywordEnum.KeywordMatchTypeEnum)
-      expect(index.KeywordResponseStatusEnum).toEqual(keywordEnum.KeywordResponseStatusEnum)
-      expect(index.KeywordServingStatusEnum).toEqual(keywordEnum.KeywordServingStatusEnum)
-      expect(index.KeywordStateEnum).toEqual(keywordEnum.KeywordStateEnum)
+      expect(index.KeywordMatchType).toEqual(keywordEnum.KeywordMatchType)
+      expect(index.KeywordResponseStatus).toEqual(keywordEnum.KeywordResponseStatus)
+      expect(index.KeywordServingStatus).toEqual(keywordEnum.KeywordServingStatus)
+      expect(index.KeywordState).toEqual(keywordEnum.KeywordState)
       expect(index.NegativeKeywordMatchTypeEnum).toEqual(keywordEnum.NegativeKeywordMatchTypeEnum)
       expect(index.NegativeKeywordResponseStatusEnum).toEqual(
         keywordEnum.NegativeKeywordResponseStatusEnum,

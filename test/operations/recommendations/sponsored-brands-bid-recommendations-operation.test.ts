@@ -3,7 +3,6 @@ import { SponsoredBrandsBidRecommendationsOperation } from '../../../src/operati
 import { httpClientFactory } from '../../http-client-factory'
 import { SponsoredBrandsBidsRecommendationRequest } from '../../../src/operations/recommendations/types'
 import { ProductPredicateTypeEnum } from '../../../src/operations/product-targeting/types'
-import { KeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
 
 /**
  * TODO: Need check again on Production API. Sandbox API returns an error:
@@ -26,7 +25,7 @@ describe.skip('SponsoredBrandsBidRecommendationsOperation', () => {
         ],
         keywords: [
           {
-            matchType: KeywordMatchTypeEnum.BROAD,
+            matchType: 'broad',
             keywordText: 'string',
           },
         ],

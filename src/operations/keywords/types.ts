@@ -13,48 +13,47 @@ export type KeywordIds = t.TypeOf<typeof KeywordIds>
 /**
  * Advertiser-specified state of the keyword
  */
-export enum KeywordStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const KeywordStateType = createEnumType<KeywordStateEnum>(KeywordStateEnum)
+export const KeywordState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type KeywordState = t.TypeOf<typeof KeywordState>
 
 /**
  * The match type used to match the keyword to search query
  */
-export enum KeywordMatchTypeEnum {
-  EXACT = 'exact',
-  PHRASE = 'phrase',
-  BROAD = 'broad',
-}
-export const KeywordMatchType = createEnumType<KeywordMatchTypeEnum>(KeywordMatchTypeEnum)
+export const KeywordMatchType = t.union([
+  t.literal('exact'),
+  t.literal('phrase'),
+  t.literal('broad'),
+])
+export type KeywordMatchType = t.TypeOf<typeof KeywordMatchType>
 
 /**
  * The computed status, accounting for out of budget, policy violations, etc.
  * See developer notes for more information.
  */
-export enum KeywordServingStatusEnum {
-  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
-  TARGETING_CLAUSE_PAUSED = 'TARGETING_CLAUSE_PAUSED',
-  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
-  TARGETING_CLAUSE_POLICING_SUSPENDED = 'TARGETING_CLAUSE_POLICING_SUSPENDED',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
-  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-}
-export const KeywordServingStatusType = createEnumType<KeywordServingStatusEnum>(
-  KeywordServingStatusEnum,
-)
+export const KeywordServingStatus = t.union([
+  t.literal('TARGETING_CLAUSE_ARCHIVED'),
+  t.literal('TARGETING_CLAUSE_PAUSED'),
+  t.literal('TARGETING_CLAUSE_STATUS_LIVE'),
+  t.literal('TARGETING_CLAUSE_POLICING_SUSPENDED'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('AD_GROUP_PAUSED'),
+  t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+])
+export type KeywordServingStatus = t.TypeOf<typeof KeywordServingStatus>
 
-export enum KeywordResponseStatusEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-}
+export const KeywordResponseStatus = t.union([
+  t.literal('SUCCESS'),
+  t.literal('INVALID_ARGUMENT'),
+  t.literal('NOT_FOUND'),
+])
+export type KeywordResponseStatus = t.TypeOf<typeof KeywordResponseStatus>
 
 export const Keyword = t.intersection([
   t.strict({
@@ -76,7 +75,7 @@ export const Keyword = t.intersection([
     /**
      * Advertiser-specified state of the keyword
      */
-    state: KeywordStateType,
+    state: KeywordState,
 
     /**
      * The expression to match against search queries
@@ -114,7 +113,7 @@ export const KeywordExtended = t.intersection([
     /**
      * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: KeywordServingStatusType,
+    servingStatus: KeywordServingStatus,
   }),
 ])
 export type KeywordExtended = t.TypeOf<typeof KeywordExtended>
@@ -129,7 +128,7 @@ export const KeywordResponse = t.intersection([
     /**
      * An enumerated success or error code for machine use.
      */
-    code: t.string,
+    code: KeywordResponseStatus,
   }),
   t.partial({
     /**
@@ -149,14 +148,14 @@ export const CreateKeywordsParam = t.strict({
 
   matchType: KeywordMatchType,
 
-  state: KeywordStateType,
+  state: KeywordState,
 })
 export type CreateKeywordsParam = t.TypeOf<typeof CreateKeywordsParam>
 
 export const UpdateKeywordsParam = t.strict({
   keywordId: KeywordId,
 
-  state: KeywordStateType,
+  state: KeywordState,
 
   bid: t.number,
 })
@@ -180,7 +179,7 @@ export const ListBiddableKeywordsParam = t.intersection([
      * Optional. Restricts results to keywords with state within the specified comma-separated list.
      * Must be one of: enabled, paused, or archived. Default behavior is to include all.
      */
-    stateFilter: KeywordStateType,
+    stateFilter: KeywordState,
 
     /**
      * Optional. Restricts results to keywords within campaigns specified in comma-separated list.
@@ -741,7 +740,7 @@ export const ListSponsoredBrandsKeywordParams = t.intersection([
     /**
      * The returned array includes only keywords with state set to the specified value.
      */
-    stateFilter: KeywordStateType,
+    stateFilter: KeywordState,
 
     /**
      * The returned array includes only keywords associated with campaigns matching those specified by identifier in the comma-delimited string.

@@ -7,7 +7,7 @@ import {
   SnapshotStatusEnum,
   SuccessSnapshotResponse,
 } from '../../../src/operations/snapshots/types'
-import { Keyword, KeywordMatchTypeEnum, KeywordStateEnum } from '../../../src'
+import { Keyword, KeywordMatchType, KeywordState } from '../../../src'
 
 describe('SponsoredProductsSnapshotOperation', () => {
   const client = httpClientFactory()
@@ -32,8 +32,8 @@ describe('SponsoredProductsSnapshotOperation', () => {
       expect(res.campaignId).toEqual(164069484151709)
       expect(res.keywordId).toEqual(239748696088896)
       expect(res.keywordText).toEqual('Apple')
-      expect(res.matchType).toEqual(KeywordMatchTypeEnum.BROAD)
-      expect(res.state).toEqual(KeywordStateEnum.PAUSED)
+      expect(res.matchType).toEqual<KeywordMatchType>('broad')
+      expect(res.state).toEqual<KeywordState>('paused')
     })
   })
 

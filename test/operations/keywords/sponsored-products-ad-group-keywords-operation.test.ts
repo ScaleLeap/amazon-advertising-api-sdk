@@ -4,11 +4,9 @@ import { OperationProvider } from '../../../src'
 import {
   Keyword,
   CreateKeywordsParam,
-  KeywordMatchTypeEnum,
-  KeywordStateEnum,
-  KeywordResponseStatusEnum,
   KeywordExtended,
   UpdateKeywordsParam,
+  KeywordResponseStatus,
 } from '../../../src/operations/keywords/types'
 
 describe('SponsoredProductsAdGroupKeywordsOperation', () => {
@@ -56,13 +54,13 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
           campaignId: MANUAL_CAMPAIGN_ID,
           adGroupId: MANUAL_AD_GROUP_ID,
           keywordText: 'Apple',
-          matchType: KeywordMatchTypeEnum.BROAD,
-          state: KeywordStateEnum.PAUSED,
+          matchType: 'broad',
+          state: 'paused',
         },
       ]
       const [res] = await operation.createKeywords(params)
 
-      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<KeywordResponseStatus>('SUCCESS')
     })
   })
 
@@ -71,13 +69,13 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
       const params: UpdateKeywordsParam[] = [
         {
           keywordId: PAUSED_KEYWORD_ID,
-          state: KeywordStateEnum.PAUSED,
+          state: 'paused',
           bid: 1,
         },
       ]
       const [res] = await operation.updateKeywords(params)
 
-      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<KeywordResponseStatus>('SUCCESS')
     })
   })
 
@@ -85,7 +83,7 @@ describe('SponsoredProductsAdGroupKeywordsOperation', () => {
     it(`should archive a keyword`, async () => {
       const res = await operation.archiveBiddableKeyword(ARCHIVED_KEYWORD_ID)
 
-      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<KeywordResponseStatus>('SUCCESS')
     })
   })
 

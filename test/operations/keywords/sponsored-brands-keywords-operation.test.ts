@@ -3,14 +3,13 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateSponsoredBrandsKeywordParams,
-  KeywordMatchTypeEnum,
-  KeywordResponseStatusEnum,
   SponsoredBrandsKeyword,
   ListSponsoredBrandsKeywordParams,
-  KeywordStateEnum,
   UpdateSponsoredBrandsKeywordParams,
   SponsoredBrandsKeywordStateEnum,
   SponsoredBrandsKeywordResponse,
+  KeywordResponseStatus,
+  KeywordMatchType,
 } from '../../../src/operations/keywords/types'
 
 // TODO: Need check operations again because creating sb keyword is not available for test api
@@ -35,9 +34,9 @@ describe('SponsoredBrandsKeywordsOperation', () => {
       const params: ListSponsoredBrandsKeywordParams = {
         startIndex: 0,
         count: 1,
-        matchTypeFilter: [KeywordMatchTypeEnum.PHRASE],
+        matchTypeFilter: ['phrase'],
         keywordText: KEYWORD_TEXT,
-        stateFilter: KeywordStateEnum.PAUSED,
+        stateFilter: 'paused',
         campaignIdFilter: [CAMPAIGN_ID],
         adGroupIdFilter: [AD_GROUP_ID],
       }
@@ -71,13 +70,13 @@ describe('SponsoredBrandsKeywordsOperation', () => {
           adGroupId: AD_GROUP_ID,
           campaignId: CAMPAIGN_ID,
           keywordText: KEYWORD_TEXT,
-          matchType: KeywordMatchTypeEnum.BROAD,
+          matchType: 'broad',
           bid: BID,
         },
       ]
       const [res] = await operation.createKeywords(params)
 
-      expect(res.code).toEqual(KeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<KeywordResponseStatus>('SUCCESS')
     })
   })
 
@@ -89,7 +88,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
       expect(res.adGroupId).toBe(AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
-      expect(res.matchType).toBe(KeywordMatchTypeEnum.BROAD)
+      expect(res.matchType).toBe<KeywordMatchType>('broad')
       expect(res.bid).toEqual(BID)
     })
   })
