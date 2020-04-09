@@ -6,10 +6,7 @@ import {
   SponsoredBrandsListDraftCampaignRequest,
   SponsoredBrandsDraftCampaignId,
 } from '../../../src/operations/drafts/types'
-import {
-  KeywordMatchTypeEnum,
-  NegativeKeywordMatchTypeEnum,
-} from '../../../src/operations/keywords/types'
+import { NegativeKeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
 
 /**
  * TODO: Need check on Production API again. Sandbox API return error:
@@ -64,7 +61,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
           keywords: [
             {
               keywordText: 'string1',
-              matchType: KeywordMatchTypeEnum.BROAD,
+              matchType: 'broad',
               bid: 1,
             },
           ],
@@ -110,7 +107,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
           keywords: [
             {
               keywordText: 'string1',
-              matchType: KeywordMatchTypeEnum.BROAD,
+              matchType: 'broad',
               bid: 1,
             },
           ],
