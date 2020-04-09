@@ -146,6 +146,37 @@ export type SponsoredProductsCampaignCreateParams = t.TypeOf<
   typeof SponsoredProductsCampaignCreateParams
 >
 
+export const SponsoredBrandsCampaignCreateParams = t.strict({
+  /**
+   * Campaign name limit is 128 characters.
+   * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
+   */
+  name: CampaignName,
+
+  /**
+   * Differentiates between a keyword-targeted and automatically targeted campaign.
+   */
+  targetingType: CampaignTargetingType,
+
+  /**
+   * The state of the campaign.
+   */
+  state: CampaignState,
+
+  /**
+   * Daily budget for the campaign.
+   */
+  dailyBudget: t.number,
+
+  /**
+   * The date the campaign will go or went live as YYYYMMDD.
+   */
+  startDate: t.string,
+})
+export type SponsoredBrandsCampaignCreateParams = t.TypeOf<
+  typeof SponsoredBrandsCampaignCreateParams
+>
+
 export const SponsoredProductsCampaignUpdateParams = t.intersection([
   t.type({
     /**
