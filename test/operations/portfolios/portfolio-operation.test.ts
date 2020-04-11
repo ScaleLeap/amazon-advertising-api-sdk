@@ -1,10 +1,6 @@
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { PortfolioOperation } from '../../../src/operations/portfolios/portfolio-operation'
-import {
-  PortfolioStateEnum,
-  PortfolioResponseStatusEnum,
-} from '../../../src/operations/portfolios/types'
 
 describe('PortfolioOperation', () => {
   const client = httpClientFactory()
@@ -61,14 +57,14 @@ describe('PortfolioOperation', () => {
       const res = await portfolioOperation.createPortfolios([
         {
           name: `My Portfolio 1574180631864`,
-          state: PortfolioStateEnum.ENABLED,
+          state: 'enabled',
         },
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].code).toBe(PortfolioResponseStatusEnum.SUCCESS)
+      expect(res[0].code).toBe('SUCCESS')
 
-      if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
+      if (res[0].code === 'SUCCESS') {
         expect(res[0].portfolioId).toBeDefined()
       }
     })
@@ -84,14 +80,14 @@ describe('PortfolioOperation', () => {
             startDate: '20191119',
             endDate: '20191119',
           },
-          state: PortfolioStateEnum.ENABLED,
+          state: 'enabled',
         },
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].code).toBe(PortfolioResponseStatusEnum.SUCCESS)
+      expect(res[0].code).toBe('SUCCESS')
 
-      if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
+      if (res[0].code === 'SUCCESS') {
         expect(res[0].portfolioId).toBeDefined()
       }
     })
@@ -108,9 +104,9 @@ describe('PortfolioOperation', () => {
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].code).toBe(PortfolioResponseStatusEnum.NOT_FOUND)
+      expect(res[0].code).toBe('NOT_FOUND')
 
-      if (res[0].code === PortfolioResponseStatusEnum.NOT_FOUND) {
+      if (res[0].code === 'NOT_FOUND') {
         // TODO: figure out why TypeScript is not properly discriminating this type
         // and not suggesting PortfoliosResponseNotFound's property `description`.
         expect(res[0].code).toBeTruthy()
@@ -124,14 +120,14 @@ describe('PortfolioOperation', () => {
         {
           portfolioId: portfolioId,
           name: `My Portfolio 1581513368211`,
-          state: PortfolioStateEnum.ENABLED,
+          state: 'enabled',
         },
       ])
 
       expect(Array.isArray(res)).toBeTruthy()
-      expect(res[0].code).toBe(PortfolioResponseStatusEnum.SUCCESS)
+      expect(res[0].code).toBe('SUCCESS')
 
-      if (res[0].code === PortfolioResponseStatusEnum.SUCCESS) {
+      if (res[0].code === 'SUCCESS') {
         expect(res[0]).toHaveProperty('portfolioId')
       }
     })

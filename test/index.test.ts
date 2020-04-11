@@ -86,8 +86,8 @@ describe('index', () => {
 
   describe('portfolio', () => {
     it('should export all enums', () => {
-      expect(index.PortfolioStateEnum).toEqual(portfolioEnum.PortfolioStateEnum)
-      expect(index.PortfolioResponseStatusEnum).toEqual(portfolioEnum.PortfolioResponseStatusEnum)
+      expect(index.PortfolioState).toEqual(portfolioEnum.PortfolioState)
+      expect(index.PortfolioResponseStatus).toEqual(portfolioEnum.PortfolioResponseStatus)
     })
   })
 
