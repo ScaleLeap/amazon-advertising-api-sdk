@@ -3,13 +3,12 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateNegativeKeywordsParam,
-  NegativeKeywordStateEnum,
-  NegativeKeywordResponseStatusEnum,
-  NegativeKeywordMatchTypeEnum,
   UpdateNegativeKeywordsParam,
   NegativeKeyword,
   NegativeKeywordExtended,
   ListNegativeKeywordsParam,
+  NegativeKeywordMatchType,
+  NegativeKeywordResponseStatus,
 } from '../../../src/operations/keywords/types'
 
 describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
@@ -29,7 +28,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
-      expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
+      expect(res.matchType).toBe<NegativeKeywordMatchType>('negativeExact')
     })
   })
 
@@ -41,7 +40,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
-      expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
+      expect(res.matchType).toBe<NegativeKeywordMatchType>('negativeExact')
     })
   })
 
@@ -52,13 +51,13 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
           campaignId: MANUAL_CAMPAIGN_ID,
           adGroupId: MANUAL_AD_GROUP_ID,
           keywordText: KEYWORD_TEXT,
-          matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
-          state: NegativeKeywordStateEnum.PAUSED,
+          matchType: 'negativeExact',
+          state: 'paused',
         },
       ]
       const [res] = await operation.createNegativeKeywords(params)
 
-      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<NegativeKeywordResponseStatus>('SUCCESS')
     })
   })
 
@@ -67,12 +66,12 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       const params: UpdateNegativeKeywordsParam[] = [
         {
           keywordId: KEYWORD_ID,
-          state: NegativeKeywordStateEnum.ARCHIVED,
+          state: 'archived',
         },
       ]
       const [res] = await operation.updateNegativeKeywords(params)
 
-      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<NegativeKeywordResponseStatus>('SUCCESS')
     })
   })
 
@@ -80,7 +79,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
     it(`should archive a negative keyword`, async () => {
       const res = await operation.archiveNegativeKeyword(KEYWORD_ID)
 
-      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual<NegativeKeywordResponseStatus>('SUCCESS')
     })
   })
 
@@ -95,7 +94,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       const params: ListNegativeKeywordsParam = {
         startIndex: 0,
         count: 1,
-        matchTypeFilter: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
+        matchTypeFilter: 'negativeExact',
         keywordText: KEYWORD_TEXT,
         campaignIdFilter: [MANUAL_CAMPAIGN_ID],
         adGroupIdFilter: [MANUAL_AD_GROUP_ID],
@@ -106,7 +105,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
-      expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
+      expect(res.matchType).toBe<NegativeKeywordMatchType>('negativeExact')
     })
   })
 
@@ -121,7 +120,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       const params: ListNegativeKeywordsParam = {
         startIndex: 0,
         count: 1,
-        matchTypeFilter: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
+        matchTypeFilter: 'negativeExact',
         keywordText: KEYWORD_TEXT,
         campaignIdFilter: [MANUAL_CAMPAIGN_ID],
         adGroupIdFilter: [MANUAL_AD_GROUP_ID],
@@ -132,7 +131,7 @@ describe('SponsoredProductsAdGroupNegativeKeywordsOperation', () => {
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
-      expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
+      expect(res.matchType).toBe<NegativeKeywordMatchType>('negativeExact')
     })
   })
 })
