@@ -3,9 +3,6 @@ import { OperationProvider } from '../../../src'
 import { SponsoredProductsProductTargetingOperation } from '../../../src/operations/product-targeting/sponsored-products-product-targeting-operation'
 import {
   CreateTargetingClausesParams,
-  TargetingClauseStateEnum,
-  TargetingExpressionTypeEnum,
-  ExpressionTypeEnum,
   ListTargetingClausesParams,
   UpdateTargetingClausesParams,
   ProductRecommendationRequest,
@@ -34,14 +31,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
         {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
-          state: TargetingClauseStateEnum.PAUSED,
+          state: 'paused',
           expression: [
             {
-              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              type: 'asinSameAs',
               value: ASIN,
             },
           ],
-          expressionType: ExpressionTypeEnum.MANUAL,
+          expressionType: 'manual',
           bid: 10,
         },
       ]
@@ -124,14 +121,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           targetId: TARGET_ID,
-          state: TargetingClauseStateEnum.ARCHIVED,
+          state: 'archived',
           expression: [
             {
-              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              type: 'asinSameAs',
               value: ASIN,
             },
           ],
-          expressionType: ExpressionTypeEnum.MANUAL,
+          expressionType: 'manual',
           bid: 10,
         },
       ]
@@ -199,14 +196,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
         {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
-          state: TargetingClauseStateEnum.PAUSED,
+          state: 'paused',
           expression: [
             {
-              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              type: 'asinSameAs',
               value: ASIN,
             },
           ],
-          expressionType: ExpressionTypeEnum.MANUAL,
+          expressionType: 'manual',
         },
       ]
       const res = await operation.createNegativeTargetingClauses(params)
@@ -288,14 +285,14 @@ describe('SponsoredProductsProductTargetingOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           targetId: NEGATIVE_TARGET_ID,
-          state: TargetingClauseStateEnum.ARCHIVED,
+          state: 'archived',
           expression: [
             {
-              type: TargetingExpressionTypeEnum.ASIN_SAME_AS,
+              type: 'asinSameAs',
               value: ASIN,
             },
           ],
-          expressionType: ExpressionTypeEnum.MANUAL,
+          expressionType: 'manual',
         },
       ]
       const [res] = await operation.updateNegativeTargetingClauses(params)

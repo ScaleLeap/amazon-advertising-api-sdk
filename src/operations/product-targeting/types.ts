@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { createEnumType, ListPagination } from '../commons/types'
+import { ListPagination } from '../commons/types'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { AdGroupId, AdGroupIds } from '../ad-groups/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
@@ -10,36 +10,32 @@ export type TargetId = t.TypeOf<typeof TargetId>
 export const TargetIds = t.array(TargetId)
 export type TargetIds = t.TypeOf<typeof TargetIds>
 
-export enum TargetingClauseStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const TargetingClauseStateType = createEnumType<TargetingClauseStateEnum>(
-  TargetingClauseStateEnum,
-)
+export const TargetingClauseState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type TargetingClauseState = t.TypeOf<typeof TargetingClauseState>
 
-export enum TargetingExpressionTypeEnum {
-  ASIN_CATEGORY_SAME_AS = 'asinCategorySameAs',
-  ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
-  ASIN_PRICE_LESS_THAN = 'asinPriceLessThan',
-  ASIN_PRICE_BETWEEN = 'asinPriceBetween',
-  ASIN_PRICE_GREATER_THAN = 'asinPriceGreaterThan',
-  ASIN_REVIEW_RATING_LESS_THAN = 'asinReviewRatingLessThan',
-  ASIN_REVIEW_RATING_BETWEEN = 'asinReviewRatingBetween',
-  ASIN_REVIEW_RATING_GREATER_THAN = 'asinReviewRatingGreaterThan',
-  ASIN_SAME_AS = 'asinSameAs',
-  ASIN_IS_PRIME_SHIPPING_ELIGIBLE = 'asinIsPrimeShippingEligible',
-  ASIN_AGE_RANGE_SAME_AS = 'asinAgeRangeSameAs',
-  ASIN_GENRE_SAME_AS = 'asinGenreSameAs',
-  QUERY_HIGH_REL_MATCHES = 'queryHighRelMatches',
-  QUERY_BROAD_REL_MATCHES = 'queryBroadRelMatches',
-  ASIN_SUBSTITUTE_RELATED = 'asinSubstituteRelated',
-  ASIN_ACCESSORY_RELATED = 'asinAccessoryRelated',
-}
-export const TargetingExpressionType = createEnumType<TargetingExpressionTypeEnum>(
-  TargetingExpressionTypeEnum,
-)
+export const TargetingExpressionType = t.union([
+  t.literal('asinCategorySameAs'),
+  t.literal('asinBrandSameAs'),
+  t.literal('asinPriceLessThan'),
+  t.literal('asinPriceBetween'),
+  t.literal('asinPriceGreaterThan'),
+  t.literal('asinReviewRatingLessThan'),
+  t.literal('asinReviewRatingBetween'),
+  t.literal('asinReviewRatingGreaterThan'),
+  t.literal('asinSameAs'),
+  t.literal('asinIsPrimeShippingEligible'),
+  t.literal('asinAgeRangeSameAs'),
+  t.literal('asinGenreSameAs'),
+  t.literal('queryHighRelMatches'),
+  t.literal('queryBroadRelMatches'),
+  t.literal('asinSubstituteRelated'),
+  t.literal('asinAccessoryRelated'),
+])
+export type TargetingExpressionType = t.TypeOf<typeof TargetingExpressionType>
 
 export const TargetingExpression = t.intersection([
   t.strict({
@@ -55,34 +51,35 @@ export const TargetingExpression = t.intersection([
     value: t.string,
   }),
 ])
-
 export type TargetingExpression = t.TypeOf<typeof TargetingExpression>
 
 export const TargetingExpressions = t.array(TargetingExpression)
 export type TargetingExpressions = t.TypeOf<typeof TargetingExpressions>
 
-export enum ExpressionTypeEnum {
-  AUTO = 'auto',
-  MANUAL = 'manual',
-}
-export const ExpressionType = createEnumType<ExpressionTypeEnum>(ExpressionTypeEnum)
+/**
+ * The type of expression
+ */
+export const ExpressionType = t.union([t.literal('auto'), t.literal('manual')])
+export type ExpressionType = t.TypeOf<typeof ExpressionType>
 
-export enum TargetingClauseServingStatusEnum {
-  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
-  TARGETING_CLAUSE_PAUSED = 'TARGETING_CLAUSE_PAUSED',
-  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
-  TARGETING_CLAUSE_POLICING_SUSPENDED = 'TARGETING_CLAUSE_POLICING_SUSPENDED',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
-  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED',
-}
-export const TargetingClauseServingStatusType = createEnumType<TargetingClauseServingStatusEnum>(
-  TargetingClauseServingStatusEnum,
-)
+/**
+ * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
+ */
+export const TargetingClauseServingStatus = t.union([
+  t.literal('TARGETING_CLAUSE_ARCHIVED'),
+  t.literal('TARGETING_CLAUSE_PAUSED'),
+  t.literal('TARGETING_CLAUSE_STATUS_LIVE'),
+  t.literal('TARGETING_CLAUSE_POLICING_SUSPENDED'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('AD_GROUP_PAUSED'),
+  t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+  t.literal('PORTFOLIO_ENDED'), // the docs don't mention to this type
+])
+export type TargetingClauseServingStatus = t.TypeOf<typeof TargetingClauseServingStatus>
+
 export const TargetingClause = t.intersection([
   t.strict({
     /**
@@ -103,7 +100,7 @@ export const TargetingClause = t.intersection([
     /**
      * Advertiser-specified state of the target
      */
-    state: TargetingClauseStateType,
+    state: TargetingClauseState,
 
     /**
      * The expression to match against search queries
@@ -143,7 +140,7 @@ export const TargetingClauseExtended = t.intersection([
     /**
      * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: TargetingClauseServingStatusType,
+    servingStatus: TargetingClauseServingStatus,
   }),
 ])
 export type TargetingClauseExtended = t.TypeOf<typeof TargetingClauseExtended>
@@ -296,7 +293,7 @@ export const CreateTargetingClausesParams = t.partial({
   /**
    * Advertiser-specified state of the target
    */
-  state: TargetingClauseStateType,
+  state: TargetingClauseState,
 
   /**
    * The expression to match against search queries
@@ -322,7 +319,7 @@ export const ListTargetingClausesParams = t.intersection([
      * Restricts results to targets with state within the specified comma-separated list.
      * Possible filter types are: enabled, paused, or archived
      */
-    stateFilter: TargetingClauseStateType,
+    stateFilter: TargetingClauseState,
 
     /**
      * Restricts results to targets within campaigns specified in comma-separated list
@@ -361,7 +358,7 @@ export const UpdateTargetingClausesParams = t.partial({
   /**
    * Advertiser-specified state of the target
    */
-  state: TargetingClauseStateType,
+  state: TargetingClauseState,
 
   /**
    * The expression to match against search queries
@@ -419,7 +416,7 @@ export const CreateNegativeTargetingClausesParams = t.strict({
   /**
    * Advertiser-specified state of the negative target
    */
-  state: TargetingClauseStateType,
+  state: TargetingClauseState,
 
   /**
    * The expression to match against search queries
@@ -454,7 +451,7 @@ export const NegativeTargetingClause = t.strict({
   /**
    * Advertiser-specified state of the negative target
    */
-  state: TargetingClauseStateType,
+  state: TargetingClauseState,
 
   /**
    * The expression to match against search queries
@@ -484,7 +481,7 @@ export const NegativeTargetingClauseExtended = t.intersection([
     /**
      * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: TargetingClauseServingStatusType,
+    servingStatus: TargetingClauseServingStatus,
   }),
 ])
 export type NegativeTargetingClauseExtended = t.TypeOf<typeof NegativeTargetingClauseExtended>
@@ -496,7 +493,7 @@ export const ListNegativeTargetingClausesParams = t.intersection([
      * Restricts results to targets with state within the specified comma-separated list.
      * Possible filter types are: enabled, paused, or archived
      */
-    stateFilter: TargetingClauseStateType,
+    stateFilter: TargetingClauseState,
 
     /**
      * Restricts results to targets within campaigns specified in comma-separated list.
@@ -535,7 +532,7 @@ export const UpdateNegativeTargetingClausesParams = t.partial({
   /**
    * Advertiser-specified state of the negative target.
    */
-  state: TargetingClauseStateType,
+  state: TargetingClauseState,
 
   /**
    * The expression to match against search queries.
@@ -553,27 +550,26 @@ export type UpdateNegativeTargetingClausesParams = t.TypeOf<
 
 // Sponsored brands product targeting types
 
-export enum SponsoredBrandsTargetStateEnum {
-  ENABLED = 'ENABLED',
-  PAUSED = 'PAUSED',
-  PENDING = 'PENDING',
-  ARCHIVED = 'ARCHIVED',
-  DRAFT = 'DRAFT',
-}
-export const SponsoredBrandsTargetStateType = createEnumType<SponsoredBrandsTargetStateEnum>(
-  SponsoredBrandsTargetStateEnum,
-)
+/**
+ * A list of target states.
+ */
+export const SponsoredBrandsTargetState = t.union([
+  t.literal('ENABLED'),
+  t.literal('PAUSED'),
+  t.literal('PENDING'),
+  t.literal('ARCHIVED'),
+  t.literal('DRAFT'),
+])
+export type SponsoredBrandsTargetState = t.TypeOf<typeof SponsoredBrandsTargetState>
 
-export enum SponsoredBrandsFilterTypeEnum {
-  STATE = 'STATE',
-  CAMPAIGN_ID = 'CAMPAIGN_ID',
-  AD_GROUP_ID = 'AD_GROUP_ID',
-}
-export const SponsoredBrandsFilterType = createEnumType<SponsoredBrandsFilterTypeEnum>(
-  SponsoredBrandsFilterTypeEnum,
-)
+export const SponsoredBrandsFilterType = t.union([
+  t.literal('STATE'),
+  t.literal('CAMPAIGN_ID'),
+  t.literal('AD_GROUP_ID'),
+])
+export type SponsoredBrandsFilterType = t.TypeOf<typeof SponsoredBrandsFilterType>
 
-const SponsoredBrandsFilterValue = t.union([SponsoredBrandsTargetStateType, CampaignId, AdGroupId])
+const SponsoredBrandsFilterValue = t.union([SponsoredBrandsTargetState, CampaignId, AdGroupId])
 
 const SponsoredBrandsTargetFilter = t.strict({
   filterType: SponsoredBrandsFilterType,
@@ -607,23 +603,23 @@ export const SponsoredBrandsListTargetsRequest = t.strict({
 })
 export type SponsoredBrandsListTargetsRequest = t.TypeOf<typeof SponsoredBrandsListTargetsRequest>
 
-export enum ProductPredicateTypeEnum {
-  ASIN_CATEGORY_SAME_AS = 'asinCategorySameAs',
-  ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
-  ASIN_PRICE_LESS_THAN = 'asinPriceLessThan',
-  ASIN_PRICE_BETWEEN = 'asinPriceBetween',
-  ASIN_PRICE_GREATER_THAN = 'asinPriceGreaterThan',
-  ASIN_REVIEW_RATING_LESS_THAN = 'asinReviewRatingLessThan',
-  ASIN_REVIEW_RATING_BETWEEN = 'asinReviewRatingBetween',
-  ASIN_REVIEW_RATING_GREATER_THAN = 'asinReviewRatingGreaterThan',
-  ASIN_SAME_AS = 'asinSameAs',
-}
-export const ProductPredicateType = createEnumType<ProductPredicateTypeEnum>(
-  ProductPredicateTypeEnum,
-)
+export const SponsoredBrandsProductPredicateType = t.union([
+  t.literal('asinCategorySameAs'),
+  t.literal('asinBrandSameAs'),
+  t.literal('asinPriceLessThan'),
+  t.literal('asinPriceBetween'),
+  t.literal('asinPriceGreaterThan'),
+  t.literal('asinReviewRatingLessThan'),
+  t.literal('asinReviewRatingBetween'),
+  t.literal('asinReviewRatingGreaterThan'),
+  t.literal('asinSameAs'),
+])
+export type SponsoredBrandsProductPredicateType = t.TypeOf<
+  typeof SponsoredBrandsProductPredicateType
+>
 
 export const SponsoredBrandsExpression = t.strict({
-  type: ProductPredicateType,
+  type: SponsoredBrandsProductPredicateType,
   value: t.string,
 })
 export type SponsoredBrandsExpression = t.TypeOf<typeof SponsoredBrandsExpression>
@@ -632,7 +628,7 @@ export const SponsoredBrandsExpressions = t.array(SponsoredBrandsExpression)
 export type SponsoredBrandsExpressions = t.TypeOf<typeof SponsoredBrandsExpressions>
 
 const SponsoredBrandsResolvedExpression = t.strict({
-  type: ProductPredicateType,
+  type: SponsoredBrandsProductPredicateType,
   value: t.string,
 })
 type SponsoredBrandsResolvedExpression = t.TypeOf<typeof SponsoredBrandsResolvedExpression>
@@ -640,16 +636,14 @@ type SponsoredBrandsResolvedExpression = t.TypeOf<typeof SponsoredBrandsResolved
 const SponsoredBrandsResolvedExpressions = t.array(SponsoredBrandsResolvedExpression)
 type SponsoredBrandsResolvedExpressions = t.TypeOf<typeof SponsoredBrandsResolvedExpressions>
 
-export enum SponsoredBrandsExpressionStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  PENDING = 'pending',
-  ARCHIVED = 'archived',
-  DRAFT = 'draft',
-}
-export const SponsoredBrandsExpressionStateType = createEnumType<
-  SponsoredBrandsExpressionStateEnum
->(SponsoredBrandsExpressionStateEnum)
+export const SponsoredBrandsExpressionState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('pending'),
+  t.literal('archived'),
+  t.literal('draft'),
+])
+export type SponsoredBrandsExpressionState = t.TypeOf<typeof SponsoredBrandsExpressionState>
 
 export const SponsoredBrandsTargetingClause = t.strict({
   /**
@@ -671,7 +665,7 @@ export const SponsoredBrandsTargetingClause = t.strict({
 
   resolvedExpressions: SponsoredBrandsResolvedExpression,
 
-  state: SponsoredBrandsExpressionStateType,
+  state: SponsoredBrandsExpressionState,
 
   /**
    * The associated bid.
@@ -716,7 +710,7 @@ export const SponsoredBrandsUpdateTargetsRequest = t.partial({
   /**
    * The state of the target.
    */
-  state: SponsoredBrandsExpressionStateType,
+  state: SponsoredBrandsExpressionState,
 
   /**
    * The associated bid.
@@ -935,7 +929,7 @@ const SponsoredBrandsUpdateNegativeTargetingClauseRequest = t.partial({
    */
   adGroupId: AdGroupId,
 
-  state: SponsoredBrandsExpressionStateType,
+  state: SponsoredBrandsExpressionState,
 })
 
 export const SponsoredBrandsUpdateNegativeTargetsRequest = t.strict({
@@ -950,13 +944,13 @@ export type SponsoredBrandsUpdateNegativeTargetsResponse = t.TypeOf<
   typeof SponsoredBrandsUpdateNegativeTargetsResponse
 >
 
-export enum SponsoredBrandsNegativeExpressionTypeEnum {
-  ASIN_BRAND_SAME_AS = 'asinBrandSameAs',
-  ASIN_SAME_AS = 'asinSameAs',
-}
-export const SponsoredBrandsNegativeExpressionType = createEnumType<
-  SponsoredBrandsNegativeExpressionTypeEnum
->(SponsoredBrandsNegativeExpressionTypeEnum)
+export const SponsoredBrandsNegativeExpressionType = t.union([
+  t.literal('asinBrandSameAs'),
+  t.literal('asinSameAs'),
+])
+export type SponsoredBrandsNegativeExpressionType = t.TypeOf<
+  typeof SponsoredBrandsNegativeExpressionType
+>
 
 const SponsoredBrandsNegativeExpression = t.strict({
   type: SponsoredBrandsNegativeExpressionType,
@@ -1017,7 +1011,7 @@ export const SponsoredBrandsNegativeTargetingClause = t.strict({
 
   resolvedExpressions: SponsoredBrandsResolvedExpression,
 
-  state: SponsoredBrandsExpressionStateType,
+  state: SponsoredBrandsExpressionState,
 })
 export type SponsoredBrandsNegativeTargetingClause = t.TypeOf<
   typeof SponsoredBrandsNegativeTargetingClause
@@ -1057,7 +1051,7 @@ export const SponsoredBrandsBatchGetNegativeTargetsResponse = t.strict({
         /**
          * Newly created targets are in a default state of DRAFT before transitioning to a PENDING state for moderation. After moderation, the target's state is ENABLED
          */
-        state: SponsoredBrandsTargetStateType,
+        state: SponsoredBrandsTargetState,
 
         expressions: SponsoredBrandsExpressions,
 

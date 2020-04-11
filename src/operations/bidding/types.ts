@@ -1,7 +1,6 @@
 import * as t from 'io-ts'
 import { KeywordId } from '../keywords/types'
 import { AdGroupId } from '../ad-groups/types'
-import { ProductPredicateType } from '../product-targeting/types'
 
 export const KeywordBidRecommendationsMatchType = t.union([
   t.literal('exact'),
@@ -159,7 +158,11 @@ export const BiddingTargetingExpression = t.strict({
    */
   value: t.string,
 
-  type: t.union([BiddingKeywordPredicateType, ProductPredicateType, BiddingAutoPredicateType]),
+  type: t.union([
+    BiddingKeywordPredicateType,
+    BiddingProductPredicateType,
+    BiddingAutoPredicateType,
+  ]),
 })
 
 export const BiddingTargetingExpressions = t.array(BiddingTargetingExpression)

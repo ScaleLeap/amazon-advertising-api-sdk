@@ -100,27 +100,27 @@ describe('index', () => {
 
   describe('product targeting', () => {
     it('should export all enums', () => {
-      expect(index.ExpressionTypeEnum).toEqual(productTargetingEnum.ExpressionTypeEnum)
-      expect(index.ProductPredicateTypeEnum).toEqual(productTargetingEnum.ProductPredicateTypeEnum)
-      expect(index.SponsoredBrandsExpressionStateEnum).toEqual(
-        productTargetingEnum.SponsoredBrandsExpressionStateEnum,
+      expect(index.ExpressionType).toEqual(productTargetingEnum.ExpressionType)
+      expect(index.SponsoredBrandsProductPredicateType).toEqual(
+        productTargetingEnum.SponsoredBrandsProductPredicateType,
       )
-      expect(index.SponsoredBrandsFilterTypeEnum).toEqual(
-        productTargetingEnum.SponsoredBrandsFilterTypeEnum,
+      expect(index.SponsoredBrandsExpressionState).toEqual(
+        productTargetingEnum.SponsoredBrandsExpressionState,
       )
-      expect(index.SponsoredBrandsNegativeExpressionTypeEnum).toEqual(
-        productTargetingEnum.SponsoredBrandsNegativeExpressionTypeEnum,
+      expect(index.SponsoredBrandsFilterType).toEqual(
+        productTargetingEnum.SponsoredBrandsFilterType,
       )
-      expect(index.SponsoredBrandsTargetStateEnum).toEqual(
-        productTargetingEnum.SponsoredBrandsTargetStateEnum,
+      expect(index.SponsoredBrandsNegativeExpressionType).toEqual(
+        productTargetingEnum.SponsoredBrandsNegativeExpressionType,
       )
-      expect(index.TargetingClauseServingStatusEnum).toEqual(
-        productTargetingEnum.TargetingClauseServingStatusEnum,
+      expect(index.SponsoredBrandsTargetState).toEqual(
+        productTargetingEnum.SponsoredBrandsTargetState,
       )
-      expect(index.TargetingClauseStateEnum).toEqual(productTargetingEnum.TargetingClauseStateEnum)
-      expect(index.TargetingExpressionTypeEnum).toEqual(
-        productTargetingEnum.TargetingExpressionTypeEnum,
+      expect(index.TargetingClauseServingStatus).toEqual(
+        productTargetingEnum.TargetingClauseServingStatus,
       )
+      expect(index.TargetingClauseState).toEqual(productTargetingEnum.TargetingClauseState)
+      expect(index.TargetingExpressionType).toEqual(productTargetingEnum.TargetingExpressionType)
     })
   })
 
