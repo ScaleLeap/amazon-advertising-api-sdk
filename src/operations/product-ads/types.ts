@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import { CampaignId } from '../campaigns/types'
 import { AdGroupId, AdGroupIds } from '../ad-groups/types'
-import { createEnumType, ListPagination } from '../commons/types'
+import { ListPagination } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
 export const AdId = t.number
@@ -10,30 +10,28 @@ export type AdId = t.TypeOf<typeof AdId>
 export const AdIds = t.array(AdId)
 export type AdIds = t.TypeOf<typeof AdIds>
 
-export enum ProductAdStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const ProductAdStateType = createEnumType<ProductAdStateEnum>(ProductAdStateEnum)
+export const ProductAdState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type ProductAdState = t.TypeOf<typeof ProductAdState>
 
-export enum ProductAdServingStatusEnum {
-  AD_ARCHIVED = 'AD_ARCHIVED',
-  AD_PAUSED = 'AD_PAUSED',
-  AD_STATUS_LIVE = 'AD_STATUS_LIVE',
-  AD_POLICING_SUSPENDED = 'AD_POLICING_SUSPENDED',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
-  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-  MISSING_DECORATION = 'MISSING_DECORATION',
-  PORTFOLIO_ENDED = 'PORTFOLIO_ENDED',
-}
-export const ProductAdServingStatusType = createEnumType<ProductAdServingStatusEnum>(
-  ProductAdServingStatusEnum,
-)
+export const ProductAdServingStatus = t.union([
+  t.literal('AD_ARCHIVED'),
+  t.literal('AD_PAUSED'),
+  t.literal('AD_STATUS_LIVE'),
+  t.literal('AD_POLICING_SUSPENDED'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('AD_GROUP_PAUSED'),
+  t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+  t.literal('MISSING_DECORATION'),
+  t.literal('PORTFOLIO_ENDED'),
+])
+export type ProductAdServingStatus = t.TypeOf<typeof ProductAdServingStatus>
 
 const ProductAdBase = t.strict({
   /**
@@ -55,7 +53,7 @@ const ProductAdBase = t.strict({
    * Advertiser-specified state of the product ad.
    * Value of state for asin can only be enabled or paused, archived state not available.
    */
-  state: ProductAdStateType,
+  state: ProductAdState,
 })
 
 const ProductAdSeller = t.intersection([
@@ -99,7 +97,7 @@ export const ProductAdExtended = t.intersection([
     /**
      * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: ProductAdServingStatusType,
+    servingStatus: ProductAdServingStatus,
   }),
 ])
 export type ProductAdExtended = t.TypeOf<typeof ProductAdExtended>
@@ -125,7 +123,7 @@ export type AdResponse = t.TypeOf<typeof AdResponse>
 const CreateProductAdParamsBase = t.strict({
   campaignId: CampaignId,
   adGroupId: AdGroupId,
-  state: ProductAdStateType,
+  state: ProductAdState,
 })
 
 const CreateProductAdParamsSeller = t.intersection([
@@ -148,7 +146,7 @@ export type CreateProductAdParams = CreateProductAdParamsVendor | CreateProductA
 
 export const UpdateProductAdParams = t.strict({
   adId: AdId,
-  state: ProductAdStateType,
+  state: ProductAdState,
 })
 export type UpdateProductAdParams = t.TypeOf<typeof UpdateProductAdParams>
 
@@ -174,7 +172,7 @@ export const ListProductAdsParams = t.intersection([
      * Optional. Restricts results to ads with state within the specified comma-separated list.
      * Must be one of: enabled, paused, archived. Default behavior is to include all.
      */
-    stateFilter: ProductAdStateType,
+    stateFilter: ProductAdState,
   }),
 ])
 export type ListProductAdsParams = t.TypeOf<typeof ListProductAdsParams>

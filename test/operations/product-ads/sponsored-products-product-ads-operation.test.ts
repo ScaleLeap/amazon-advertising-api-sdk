@@ -3,7 +3,6 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateProductAdParams,
-  ProductAdStateEnum,
   UpdateProductAdParams,
   ListProductAdsParams,
 } from '../../../src/operations/product-ads/types'
@@ -23,7 +22,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
         {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
-          state: ProductAdStateEnum.ENABLED,
+          state: 'enabled',
           sku: SKU,
         },
       ]
@@ -58,7 +57,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
       const params: UpdateProductAdParams[] = [
         {
           adId: AD_ID,
-          state: ProductAdStateEnum.PAUSED,
+          state: 'paused',
         },
       ]
       const res = await operation.updateProductAds(params)

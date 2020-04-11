@@ -93,8 +93,8 @@ describe('index', () => {
 
   describe('product ads', () => {
     it('should export all enums', () => {
-      expect(index.ProductAdServingStatusEnum).toEqual(productAdsEnum.ProductAdServingStatusEnum)
-      expect(index.ProductAdStateEnum).toEqual(productAdsEnum.ProductAdStateEnum)
+      expect(index.ProductAdServingStatus).toEqual(productAdsEnum.ProductAdServingStatus)
+      expect(index.ProductAdState).toEqual(productAdsEnum.ProductAdState)
     })
   })
 
