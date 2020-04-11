@@ -1,5 +1,5 @@
 import * as t from 'io-ts'
-import { createEnumType, ListPagination } from '../commons/types'
+import { ListPagination } from '../commons/types'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { AdGroupId, AdGroupIds, AdGroupState } from '../ad-groups/types'
@@ -210,53 +210,46 @@ export type ListBiddableKeywordsExtendedParam = t.TypeOf<typeof ListBiddableKeyw
 /**
  * Advertiser-specified state of the keyword
  */
-export enum NegativeKeywordStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const NegativeKeywordStateType = createEnumType<NegativeKeywordStateEnum>(
-  NegativeKeywordStateEnum,
-)
+export const NegativeKeywordState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type NegativeKeywordState = t.TypeOf<typeof NegativeKeywordState>
 
 /**
  * The match type used to match the keyword to search query
  */
-export enum NegativeKeywordMatchTypeEnum {
-  NEGATIVE_EXACT = 'negativeExact',
-  NEGATIVE_PHRASE = 'negativePhrase',
-}
-export const NegativeKeywordMatchType = createEnumType<NegativeKeywordMatchTypeEnum>(
-  NegativeKeywordMatchTypeEnum,
-)
+export const NegativeKeywordMatchType = t.union([
+  t.literal('negativeExact'),
+  t.literal('negativePhrase'),
+])
+export type NegativeKeywordMatchType = t.TypeOf<typeof NegativeKeywordMatchType>
 
 /**
  * The computed status, accounting for out of budget, policy violations, etc.
  * See developer notes for more information.
- * TODO: The docs only mention to TARGETING_CLAUSE_ARCHIVED and TARGETING_CLAUSE_STATUS_LIVE.
- * Need check again.
  */
-export enum NegativeKeywordServingStatusEnum {
-  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
-  TARGETING_CLAUSE_PAUSED = 'TARGETING_CLAUSE_PAUSED',
-  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
-  TARGETING_CLAUSE_POLICING_SUSPENDED = 'TARGETING_CLAUSE_POLICING_SUSPENDED',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
-  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-}
-export const NegativeKeywordServingStatusType = createEnumType<NegativeKeywordServingStatusEnum>(
-  NegativeKeywordServingStatusEnum,
-)
+export const NegativeKeywordServingStatus = t.union([
+  t.literal('TARGETING_CLAUSE_ARCHIVED'),
+  t.literal('TARGETING_CLAUSE_PAUSED'),
+  t.literal('TARGETING_CLAUSE_STATUS_LIVE'),
+  t.literal('TARGETING_CLAUSE_POLICING_SUSPENDED'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('AD_GROUP_PAUSED'),
+  t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+])
+export type NegativeKeywordServingStatus = t.TypeOf<typeof NegativeKeywordServingStatus>
 
-export enum NegativeKeywordResponseStatusEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-}
+export const NegativeKeywordResponseStatus = t.union([
+  t.literal('SUCCESS'),
+  t.literal('INVALID_ARGUMENT'),
+  t.literal('NOT_FOUND'),
+])
+export type NegativeKeywordResponseStatus = t.TypeOf<typeof NegativeKeywordResponseStatus>
 
 export const NegativeKeyword = t.strict({
   /**
@@ -277,7 +270,7 @@ export const NegativeKeyword = t.strict({
   /**
    * Advertiser-specified state of the keyword
    */
-  state: NegativeKeywordStateType,
+  state: NegativeKeywordState,
 
   /**
    * The expression to match against search queries
@@ -308,7 +301,7 @@ export const NegativeKeywordExtended = t.intersection([
     /**
      * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: NegativeKeywordServingStatusType,
+    servingStatus: NegativeKeywordServingStatus,
   }),
 ])
 export type NegativeKeywordExtended = t.TypeOf<typeof NegativeKeywordExtended>
@@ -323,7 +316,7 @@ export const NegativeKeywordResponse = t.intersection([
     /**
      * An enumerated success or error code for machine use.
      */
-    code: t.string,
+    code: NegativeKeywordResponseStatus,
   }),
   t.partial({
     /**
@@ -343,14 +336,14 @@ export const CreateNegativeKeywordsParam = t.strict({
 
   matchType: NegativeKeywordMatchType,
 
-  state: NegativeKeywordStateType,
+  state: NegativeKeywordState,
 })
 export type CreateNegativeKeywordsParam = t.TypeOf<typeof CreateNegativeKeywordsParam>
 
 export const UpdateNegativeKeywordsParam = t.strict({
   keywordId: KeywordId,
 
-  state: NegativeKeywordStateType,
+  state: NegativeKeywordState,
 })
 export type UpdateNegativeKeywordsParam = t.TypeOf<typeof UpdateNegativeKeywordsParam>
 
@@ -374,7 +367,7 @@ export const ListNegativeKeywordsParam = t.intersection([
      * TODO: check Negative Keyword State again. Conflict in the docs: There is disabled state or not?
      *
      */
-    stateFilter: NegativeKeywordStateType,
+    stateFilter: NegativeKeywordState,
 
     /**
      * Optional. Restricts results to keywords within campaigns specified in comma-separated list.
@@ -392,24 +385,17 @@ export type ListNegativeKeywordsParam = t.TypeOf<typeof ListNegativeKeywordsPara
 /**
  * Advertiser-specified state of the keyword
  */
-export enum CampaignNegativeKeywordStateEnum {
-  ENABLED = 'enabled',
-  DELETED = 'deleted',
-}
-export const CampaignNegativeKeywordStateType = createEnumType<CampaignNegativeKeywordStateEnum>(
-  CampaignNegativeKeywordStateEnum,
-)
+export const CampaignNegativeKeywordState = t.union([t.literal('enabled'), t.literal('deleted')])
+export type CampaignNegativeKeywordState = t.TypeOf<typeof CampaignNegativeKeywordState>
 
 /**
  * The match type used to match the keyword to search query
  */
-export enum CampaignNegativeKeywordMatchTypeEnum {
-  NEGATIVE_EXACT = 'negativeExact',
-  NEGATIVE_PHRASE = 'negativePhrase',
-}
-export const CampaignNegativeKeywordMatchType = createEnumType<
-  CampaignNegativeKeywordMatchTypeEnum
->(CampaignNegativeKeywordMatchTypeEnum)
+export const CampaignNegativeKeywordMatchType = t.union([
+  t.literal('negativeExact'),
+  t.literal('negativePhrase'),
+])
+export type CampaignNegativeKeywordMatchType = t.TypeOf<typeof CampaignNegativeKeywordMatchType>
 
 /**
  * The computed status, accounting for out of budget, policy violations, etc.
@@ -417,27 +403,30 @@ export const CampaignNegativeKeywordMatchType = createEnumType<
  * TODO: The docs only mention to TARGETING_CLAUSE_STATUS_LIVE.
  * Need check again.
  */
-export enum CampaignNegativeKeywordServingStatusEnum {
-  TARGETING_CLAUSE_ARCHIVED = 'TARGETING_CLAUSE_ARCHIVED',
-  TARGETING_CLAUSE_PAUSED = 'TARGETING_CLAUSE_PAUSED',
-  TARGETING_CLAUSE_STATUS_LIVE = 'TARGETING_CLAUSE_STATUS_LIVE',
-  TARGETING_CLAUSE_POLICING_SUSPENDED = 'TARGETING_CLAUSE_POLICING_SUSPENDED',
-  CAMPAIGN_OUT_OF_BUDGET = 'CAMPAIGN_OUT_OF_BUDGET',
-  AD_GROUP_PAUSED = 'AD_GROUP_PAUSED',
-  AD_GROUP_ARCHIVED = 'AD_GROUP_ARCHIVED',
-  CAMPAIGN_PAUSED = 'CAMPAIGN_PAUSED',
-  CAMPAIGN_ARCHIVED = 'CAMPAIGN_ARCHIVED',
-  ACCOUNT_OUT_OF_BUDGET = 'ACCOUNT_OUT_OF_BUDGET',
-}
-export const CampaignNegativeKeywordServingStatusType = createEnumType<
-  CampaignNegativeKeywordServingStatusEnum
->(CampaignNegativeKeywordServingStatusEnum)
+export const CampaignNegativeKeywordServingStatus = t.union([
+  t.literal('TARGETING_CLAUSE_ARCHIVED'),
+  t.literal('TARGETING_CLAUSE_PAUSED'),
+  t.literal('TARGETING_CLAUSE_STATUS_LIVE'),
+  t.literal('TARGETING_CLAUSE_POLICING_SUSPENDED'),
+  t.literal('CAMPAIGN_OUT_OF_BUDGET'),
+  t.literal('AD_GROUP_PAUSED'),
+  t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('CAMPAIGN_PAUSED'),
+  t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('ACCOUNT_OUT_OF_BUDGET'),
+])
+export type CampaignNegativeKeywordServingStatus = t.TypeOf<
+  typeof CampaignNegativeKeywordServingStatus
+>
 
-export enum CampaignNegativeKeywordResponseStatusEnum {
-  SUCCESS = 'SUCCESS',
-  INVALID_ARGUMENT = 'INVALID_ARGUMENT',
-  NOT_FOUND = 'NOT_FOUND',
-}
+export const CampaignNegativeKeywordResponseStatus = t.union([
+  t.literal('SUCCESS'),
+  t.literal('INVALID_ARGUMENT'),
+  t.literal('NOT_FOUND'),
+])
+export type CampaignNegativeKeywordResponseStatus = t.TypeOf<
+  typeof CampaignNegativeKeywordResponseStatus
+>
 
 export const CampaignNegativeKeyword = t.strict({
   /**
@@ -453,7 +442,7 @@ export const CampaignNegativeKeyword = t.strict({
   /**
    * Advertiser-specified state of the keyword
    */
-  state: CampaignNegativeKeywordStateType,
+  state: CampaignNegativeKeywordState,
 
   /**
    * The expression to match against search queries
@@ -483,7 +472,7 @@ export const CampaignNegativeKeywordExtended = t.intersection([
     /**
      * The computed status, accounting for campaign out of budget, policy violations, etc. See developer notes for more information.
      */
-    servingStatus: CampaignNegativeKeywordServingStatusType,
+    servingStatus: CampaignNegativeKeywordServingStatus,
   }),
 ])
 export type CampaignNegativeKeywordExtended = t.TypeOf<typeof CampaignNegativeKeywordExtended>
@@ -498,7 +487,7 @@ export const CampaignNegativeKeywordResponse = t.intersection([
     /**
      * An enumerated success or error code for machine use.
      */
-    code: t.string,
+    code: CampaignNegativeKeywordResponseStatus,
   }),
   t.partial({
     /**
@@ -516,7 +505,7 @@ export const CreateCampaignNegativeKeywordsParam = t.strict({
 
   matchType: CampaignNegativeKeywordMatchType,
 
-  state: CampaignNegativeKeywordStateType,
+  state: CampaignNegativeKeywordState,
 })
 export type CreateCampaignNegativeKeywordsParam = t.TypeOf<
   typeof CreateCampaignNegativeKeywordsParam
@@ -525,7 +514,7 @@ export type CreateCampaignNegativeKeywordsParam = t.TypeOf<
 export const UpdateCampaignNegativeKeywordsParam = t.strict({
   keywordId: KeywordId,
 
-  state: CampaignNegativeKeywordStateType,
+  state: CampaignNegativeKeywordState,
 })
 export type UpdateCampaignNegativeKeywordsParam = t.TypeOf<
   typeof UpdateCampaignNegativeKeywordsParam
@@ -637,12 +626,8 @@ export type AsinSuggestedKeywordsResponse = t.TypeOf<typeof AsinSuggestedKeyword
 export const BulkAsinSuggestedKeywordsResponse = t.array(SuggestedKeywords)
 export type BulkAsinSuggestedKeywordsResponse = t.TypeOf<typeof BulkAsinSuggestedKeywordsResponse>
 
-export enum SuggestBidsEnum {
-  YES = 'yes',
-  NO = 'no',
-}
-export const SuggestBidsType = createEnumType<SuggestBidsEnum>(SuggestBidsEnum)
-export type SuggestBidsType = t.TypeOf<typeof SuggestBidsType>
+export const SuggestBids = t.union([t.literal('yes'), t.literal('no')])
+export type SuggestBids = t.TypeOf<typeof SuggestBids>
 
 export const GetAdGroupSuggestedKeywordsParams = t.strict({
   /**
@@ -667,21 +652,24 @@ export const GetAdGroupSuggestedKeywordsExtendedParams = t.intersection([
      * If yes, any suggested keywords can contain the extra bid field, where bid will be populated by calculated suggested bid.
      * Note: The bid field will be missing if there are no suggested bids for the keyword
      */
-    suggestBids: SuggestBidsType,
+    suggestBids: SuggestBids,
   }),
 ])
 export type GetAdGroupSuggestedKeywordsExtendedParams = t.TypeOf<
   typeof GetAdGroupSuggestedKeywordsExtendedParams
 >
 
-export enum SponsoredBrandsKeywordStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  PENDING = 'pending',
-  ARCHIVED = 'archived',
-  DRAFT = 'draft',
-}
-export const SponsoredBrandsKeywordStateType = createEnumType(SponsoredBrandsKeywordStateEnum)
+/**
+ * Newly created SB keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderation.
+ * After moderation, the keyword will be in an enabled state.
+ */
+export const SponsoredBrandsKeywordState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('pending'),
+  t.literal('archived'),
+  t.literal('draft'),
+])
 
 export const SponsoredBrandsKeyword = t.strict({
   /**
@@ -713,7 +701,7 @@ export const SponsoredBrandsKeyword = t.strict({
    * Newly created SponsoredBrands keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
    * After moderation, the keyword will be in an enabled state.
    */
-  state: SponsoredBrandsKeywordStateType,
+  state: SponsoredBrandsKeywordState,
 
   /**
    * The bid associated with the keyword.
@@ -780,7 +768,7 @@ export const UpdateSponsoredBrandsKeywordParams = t.strict({
    * Newly created SponsoredBrands keywords are in a default state of 'draft' before transitioning to a 'pending' state for moderationn.
    * After moderation, the keyword will be in an enabled state.
    */
-  state: SponsoredBrandsKeywordStateType,
+  state: SponsoredBrandsKeywordState,
 
   /**
    * The bid associated with the keyword.
@@ -842,15 +830,15 @@ export const SponsoredBrandsKeywordResponse = t.intersection([
 ])
 export type SponsoredBrandsKeywordResponse = t.TypeOf<typeof SponsoredBrandsKeywordResponse>
 
-export enum SponsoredBrandsNegativeKeywordStateEnum {
-  ENABLED = 'enabled',
-  PENDING = 'pending',
-  ARCHIVED = 'archived',
-  DRAFT = 'draft',
-}
-export const SponsoredBrandsNegativeKeywordStateType = createEnumType<
-  SponsoredBrandsNegativeKeywordStateEnum
->(SponsoredBrandsNegativeKeywordStateEnum)
+export const SponsoredBrandsNegativeKeywordState = t.union([
+  t.literal('enabled'),
+  t.literal('pending'),
+  t.literal('archived'),
+  t.literal('draft'),
+])
+export type SponsoredBrandsNegativeKeywordState = t.TypeOf<
+  typeof SponsoredBrandsNegativeKeywordState
+>
 
 export const SponsoredBrandsNegativeKeyword = t.strict({
   /**
@@ -887,7 +875,7 @@ export const SponsoredBrandsNegativeKeyword = t.strict({
    * 'enabled' refers to negative keywords that are active.
    * 'archived' refers to negative keywords that are permanently inactive and cannot be returned to the 'enabled' state.
    */
-  state: SponsoredBrandsNegativeKeywordStateType,
+  state: SponsoredBrandsNegativeKeywordState,
 })
 export type SponsoredBrandsNegativeKeyword = t.TypeOf<typeof SponsoredBrandsNegativeKeyword>
 
@@ -941,7 +929,7 @@ export const UpdateSponsoredBrandsNegativeKeywordParams = t.partial({
    * 'enabled' refers to negative keywords that are active.
    * 'archived' refers to negative keywords that are permanently inactive and cannot be returned to the 'enabled' state.
    */
-  state: SponsoredBrandsNegativeKeywordStateType,
+  state: SponsoredBrandsNegativeKeywordState,
 })
 export type UpdateSponsoredBrandsNegativeKeywordParams = t.TypeOf<
   typeof UpdateSponsoredBrandsNegativeKeywordParams

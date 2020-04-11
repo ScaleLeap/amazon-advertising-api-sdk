@@ -58,37 +58,29 @@ describe('index', () => {
 
   describe('keyword', () => {
     it('should export all enums', () => {
-      expect(index.CampaignNegativeKeywordMatchTypeEnum).toEqual(
-        keywordEnum.CampaignNegativeKeywordMatchTypeEnum,
+      expect(index.CampaignNegativeKeywordMatchType).toEqual(
+        keywordEnum.CampaignNegativeKeywordMatchType,
       )
-      expect(index.CampaignNegativeKeywordResponseStatusEnum).toEqual(
-        keywordEnum.CampaignNegativeKeywordResponseStatusEnum,
+      expect(index.CampaignNegativeKeywordResponseStatus).toEqual(
+        keywordEnum.CampaignNegativeKeywordResponseStatus,
       )
-      expect(index.CampaignNegativeKeywordServingStatusEnum).toEqual(
-        keywordEnum.CampaignNegativeKeywordServingStatusEnum,
+      expect(index.CampaignNegativeKeywordServingStatus).toEqual(
+        keywordEnum.CampaignNegativeKeywordServingStatus,
       )
-      expect(index.CampaignNegativeKeywordStateEnum).toEqual(
-        keywordEnum.CampaignNegativeKeywordStateEnum,
-      )
+      expect(index.CampaignNegativeKeywordState).toEqual(keywordEnum.CampaignNegativeKeywordState)
       expect(index.KeywordMatchType).toEqual(keywordEnum.KeywordMatchType)
       expect(index.KeywordResponseStatus).toEqual(keywordEnum.KeywordResponseStatus)
       expect(index.KeywordServingStatus).toEqual(keywordEnum.KeywordServingStatus)
       expect(index.KeywordState).toEqual(keywordEnum.KeywordState)
-      expect(index.NegativeKeywordMatchTypeEnum).toEqual(keywordEnum.NegativeKeywordMatchTypeEnum)
-      expect(index.NegativeKeywordResponseStatusEnum).toEqual(
-        keywordEnum.NegativeKeywordResponseStatusEnum,
+      expect(index.NegativeKeywordMatchType).toEqual(keywordEnum.NegativeKeywordMatchType)
+      expect(index.NegativeKeywordResponseStatus).toEqual(keywordEnum.NegativeKeywordResponseStatus)
+      expect(index.NegativeKeywordServingStatus).toEqual(keywordEnum.NegativeKeywordServingStatus)
+      expect(index.NegativeKeywordState).toEqual(keywordEnum.NegativeKeywordState)
+      expect(index.SponsoredBrandsKeywordState).toEqual(keywordEnum.SponsoredBrandsKeywordState)
+      expect(index.SponsoredBrandsNegativeKeywordState).toEqual(
+        keywordEnum.SponsoredBrandsNegativeKeywordState,
       )
-      expect(index.NegativeKeywordServingStatusEnum).toEqual(
-        keywordEnum.NegativeKeywordServingStatusEnum,
-      )
-      expect(index.NegativeKeywordStateEnum).toEqual(keywordEnum.NegativeKeywordStateEnum)
-      expect(index.SponsoredBrandsKeywordStateEnum).toEqual(
-        keywordEnum.SponsoredBrandsKeywordStateEnum,
-      )
-      expect(index.SponsoredBrandsNegativeKeywordStateEnum).toEqual(
-        keywordEnum.SponsoredBrandsNegativeKeywordStateEnum,
-      )
-      expect(index.SuggestBidsEnum).toEqual(keywordEnum.SuggestBidsEnum)
+      expect(index.SuggestBids).toEqual(keywordEnum.SuggestBids)
     })
   })
 

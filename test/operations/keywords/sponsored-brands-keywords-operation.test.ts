@@ -6,7 +6,6 @@ import {
   SponsoredBrandsKeyword,
   ListSponsoredBrandsKeywordParams,
   UpdateSponsoredBrandsKeywordParams,
-  SponsoredBrandsKeywordStateEnum,
   SponsoredBrandsKeywordResponse,
   KeywordResponseStatus,
   KeywordMatchType,
@@ -53,7 +52,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
           keywordId: KEYWORD_ID,
           adGroupId: AD_GROUP_ID,
           campaignId: CAMPAIGN_ID,
-          state: SponsoredBrandsKeywordStateEnum.PAUSED,
+          state: 'paused',
           bid: BID,
         },
       ]

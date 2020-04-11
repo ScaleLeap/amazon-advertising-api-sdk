@@ -6,7 +6,6 @@ import {
   SponsoredBrandsListDraftCampaignRequest,
   SponsoredBrandsDraftCampaignId,
 } from '../../../src/operations/drafts/types'
-import { NegativeKeywordMatchTypeEnum } from '../../../src/operations/keywords/types'
 
 /**
  * TODO: Need check on Production API again. Sandbox API return error:
@@ -68,7 +67,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
           negativeKeywords: [
             {
               keywordText: 'string2',
-              matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
+              matchType: 'negativeExact',
             },
           ],
         },
@@ -114,7 +113,7 @@ describe.skip('SponsoredBrandsDraftsOperation', () => {
           negativeKeywords: [
             {
               keywordText: 'string2',
-              matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
+              matchType: 'negativeExact',
             },
           ],
         },

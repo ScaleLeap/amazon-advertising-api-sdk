@@ -3,10 +3,8 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateSponsoredBrandsNegativeKeywordParams,
-  NegativeKeywordMatchTypeEnum,
-  NegativeKeywordResponseStatusEnum,
   UpdateSponsoredBrandsNegativeKeywordParams,
-  SponsoredBrandsNegativeKeywordStateEnum,
+  NegativeKeywordMatchType,
 } from '../../../src/operations/keywords/types'
 
 /**
@@ -29,12 +27,12 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
           campaignId: MANUAL_CAMPAIGN_ID,
           adGroupId: MANUAL_AD_GROUP_ID,
           keywordId: KEYWORD_ID,
-          state: SponsoredBrandsNegativeKeywordStateEnum.ARCHIVED,
+          state: 'archived',
         },
       ]
       const [res] = await operation.updateNegativeKeywords(params)
 
-      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual('SUCCESS')
     })
   })
 
@@ -45,12 +43,12 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
           campaignId: MANUAL_CAMPAIGN_ID,
           adGroupId: MANUAL_AD_GROUP_ID,
           keywordText: KEYWORD_TEXT,
-          matchType: NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT,
+          matchType: 'negativeExact',
         },
       ]
       const [res] = await operation.createNegativeKeywords(params)
 
-      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual('SUCCESS')
     })
   })
 
@@ -62,7 +60,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
       expect(res.keywordId).toBe(KEYWORD_ID)
       expect(res.keywordText).toBe(KEYWORD_TEXT)
-      expect(res.matchType).toBe(NegativeKeywordMatchTypeEnum.NEGATIVE_EXACT)
+      expect(res.matchType).toBe<NegativeKeywordMatchType>('negativeExact')
     })
   })
 
@@ -70,7 +68,7 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
     it(`should archive a sb negative keyword`, async () => {
       const res = await operation.archiveNegativeKeyword(KEYWORD_ID)
 
-      expect(res.code).toEqual(NegativeKeywordResponseStatusEnum.SUCCESS)
+      expect(res.code).toEqual('SUCCESS')
     })
   })
 })

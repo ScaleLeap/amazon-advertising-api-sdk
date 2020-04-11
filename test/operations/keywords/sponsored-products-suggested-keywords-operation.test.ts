@@ -4,7 +4,6 @@ import { OperationProvider } from '../../../src'
 import {
   GetAdGroupSuggestedKeywordsParams,
   GetAdGroupSuggestedKeywordsExtendedParams,
-  SuggestBidsEnum,
 } from '../../../src/operations/keywords/types'
 
 describe('SponsoredProductsSuggestedKeywordsOperation', () => {
@@ -45,7 +44,7 @@ describe('SponsoredProductsSuggestedKeywordsOperation', () => {
     it(`should return extended suggested keyword data for the specified adGroupId, suggestBids, adStateFilter`, async () => {
       const params: GetAdGroupSuggestedKeywordsExtendedParams = {
         maxNumSuggestions: 1000,
-        suggestBids: SuggestBidsEnum.YES,
+        suggestBids: 'yes',
         adStateFilter: ['enabled', 'paused', 'archived'],
       }
       const res = await operation.getAdGroupSuggestedKeywordsExtended(AD_GROUP_ID, params)
