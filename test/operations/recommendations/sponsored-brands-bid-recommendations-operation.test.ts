@@ -2,7 +2,6 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsBidRecommendationsOperation } from '../../../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { SponsoredBrandsBidsRecommendationRequest } from '../../../src/operations/recommendations/types'
-import { ProductPredicateTypeEnum } from '../../../src/operations/product-targeting/types'
 
 /**
  * TODO: Need check again on Production API. Sandbox API returns an error:
@@ -19,7 +18,7 @@ describe.skip('SponsoredBrandsBidRecommendationsOperation', () => {
         campaignId: 0,
         targets: [
           {
-            type: ProductPredicateTypeEnum.ASIN_CATEGORY_SAME_AS,
+            type: 'asinCategorySameAs',
             value: 'string',
           },
         ],

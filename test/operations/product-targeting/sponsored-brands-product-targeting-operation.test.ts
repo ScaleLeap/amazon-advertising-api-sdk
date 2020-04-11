@@ -3,17 +3,12 @@ import { OperationProvider } from '../../../src'
 import { SponsoredBrandsProductTargetingOperation } from '../../../src/operations/product-targeting/sponsored-brands-product-targeting-operation'
 import {
   SponsoredBrandsCreateTargetsRequest,
-  ProductPredicateTypeEnum,
   SponsoredBrandsListTargetsRequest,
-  SponsoredBrandsTargetStateEnum,
-  SponsoredBrandsFilterTypeEnum,
   SponsoredBrandsUpdateTargetsRequest,
-  SponsoredBrandsExpressionStateEnum,
   SponsoredBrandsBatchGetTargetsRequest,
   SponsoredBrandsListNegativeTargetsRequest,
   SponsoredBrandsUpdateNegativeTargetsRequest,
   SponsoredBrandsCreateNegativeTargetsRequest,
-  SponsoredBrandsNegativeExpressionTypeEnum,
   SponsoredBrandsBatchGetNegativeTargetsRequest,
 } from '../../../src/operations/product-targeting/types'
 
@@ -38,15 +33,15 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
         maxResults: 1,
         filters: [
           {
-            filterType: SponsoredBrandsFilterTypeEnum.STATE,
-            values: [SponsoredBrandsTargetStateEnum.PAUSED],
+            filterType: 'STATE',
+            values: ['PAUSED'],
           },
           {
-            filterType: SponsoredBrandsFilterTypeEnum.CAMPAIGN_ID,
+            filterType: 'CAMPAIGN_ID',
             values: [CAMPAIGN_ID],
           },
           {
-            filterType: SponsoredBrandsFilterTypeEnum.AD_GROUP_ID,
+            filterType: 'AD_GROUP_ID',
             values: [AD_GROUP_ID],
           },
         ],
@@ -64,7 +59,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
           targetId: TARGET_ID,
           adGroupId: AD_GROUP_ID,
           campaignId: CAMPAIGN_ID,
-          state: SponsoredBrandsExpressionStateEnum.ARCHIVED,
+          state: 'archived',
           bid: BID,
         },
       ]
@@ -83,7 +78,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
             adGroupId: AD_GROUP_ID,
             campaignId: CAMPAIGN_ID,
             expressions: {
-              type: ProductPredicateTypeEnum.ASIN_BRAND_SAME_AS,
+              type: 'asinBrandSameAs',
               value: 'Apple',
             },
             bid: BID,
@@ -134,15 +129,15 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
         maxResults: 1,
         filters: [
           {
-            filterType: SponsoredBrandsFilterTypeEnum.STATE,
-            values: [SponsoredBrandsTargetStateEnum.PAUSED],
+            filterType: 'STATE',
+            values: ['PAUSED'],
           },
           {
-            filterType: SponsoredBrandsFilterTypeEnum.CAMPAIGN_ID,
+            filterType: 'CAMPAIGN_ID',
             values: [CAMPAIGN_ID],
           },
           {
-            filterType: SponsoredBrandsFilterTypeEnum.AD_GROUP_ID,
+            filterType: 'AD_GROUP_ID',
             values: [AD_GROUP_ID],
           },
         ],
@@ -160,7 +155,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
           {
             targetId: NEGATIVE_TARGET_ID,
             adGroupId: AD_GROUP_ID,
-            state: SponsoredBrandsExpressionStateEnum.ARCHIVED,
+            state: 'archived',
           },
         ],
       }
@@ -179,7 +174,7 @@ describe.skip('SponsoredBrandsProductTargetingOperation', () => {
             adGroupId: AD_GROUP_ID,
             campaignId: CAMPAIGN_ID,
             expressions: {
-              type: SponsoredBrandsNegativeExpressionTypeEnum.ASIN_BRAND_SAME_AS,
+              type: 'asinBrandSameAs',
               value: 'Apple',
             },
           },
