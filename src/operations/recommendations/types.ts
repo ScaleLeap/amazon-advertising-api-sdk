@@ -1,15 +1,12 @@
 import * as t from 'io-ts'
-import { createEnumType } from '../commons/types'
 import { BrandId, SponsoredBrandsExpressions } from '../product-targeting/types'
 import { CampaignId } from '../campaigns/types'
 import { KeywordMatchType } from '../keywords/types'
 
-export enum SponsoredBrandsProductRecommendationFilterTypeEnum {
-  ASINS = 'ASINS',
-}
-export const SponsoredBrandsProductRecommendationFilterType = createEnumType<
-  SponsoredBrandsProductRecommendationFilterTypeEnum
->(SponsoredBrandsProductRecommendationFilterTypeEnum)
+export const SponsoredBrandsProductRecommendationFilterType = t.literal('ASINS')
+export type SponsoredBrandsProductRecommendationFilterType = t.TypeOf<
+  typeof SponsoredBrandsProductRecommendationFilterType
+>
 
 export const SponsoredBrandsProductRecommendationsRequest = t.strict({
   /**
@@ -160,14 +157,14 @@ const SponsoredBrandsRecommendedBid = t.strict({
   recommended: t.number,
 })
 
-export enum SponsoredBrandsKeywordExpressionTypeEnum {
-  BROAD = 'broad',
-  EXACT = 'exact',
-  PHRASE = 'phrase',
-}
-export const SponsoredBrandsKeywordExpressionType = createEnumType<
-  SponsoredBrandsKeywordExpressionTypeEnum
->(SponsoredBrandsKeywordExpressionTypeEnum)
+export const SponsoredBrandsKeywordExpressionType = t.union([
+  t.literal('broad'),
+  t.literal('exact'),
+  t.literal('phrase'),
+])
+export type SponsoredBrandsKeywordExpressionType = t.TypeOf<
+  typeof SponsoredBrandsKeywordExpressionType
+>
 
 export const RecommendationId = t.string
 export type RecommendationId = t.TypeOf<typeof RecommendationId>
