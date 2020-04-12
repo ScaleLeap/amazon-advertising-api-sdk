@@ -3,7 +3,6 @@ import { SponsoredBrandsTargetingRecommendationsOperation } from '../../../src/o
 import { httpClientFactory } from '../../http-client-factory'
 import {
   SponsoredBrandsProductRecommendationsRequest,
-  SponsoredBrandsProductRecommendationFilterTypeEnum,
   SponsoredBrandsCategoryRecommendationsRequest,
   SponsoredBrandsBrandRecommendationsRequest,
 } from '../../../src/operations/recommendations/types'
@@ -27,7 +26,7 @@ describe.skip('SponsoredBrandsTargetingRecommendationsOperation', () => {
         maxResults: MAX_RESULT,
         filters: [
           {
-            filterType: SponsoredBrandsProductRecommendationFilterTypeEnum.ASINS,
+            filterType: 'ASINS',
             values: ASINS,
           },
         ],

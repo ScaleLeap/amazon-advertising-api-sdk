@@ -133,11 +133,11 @@ describe('index', () => {
 
   describe('recommendation', () => {
     it('should export all enums', () => {
-      expect(index.SponsoredBrandsKeywordExpressionTypeEnum).toEqual(
-        recommendationEnum.SponsoredBrandsKeywordExpressionTypeEnum,
+      expect(index.SponsoredBrandsKeywordExpressionType).toEqual(
+        recommendationEnum.SponsoredBrandsKeywordExpressionType,
       )
-      expect(index.SponsoredBrandsProductRecommendationFilterTypeEnum).toEqual(
-        recommendationEnum.SponsoredBrandsProductRecommendationFilterTypeEnum,
+      expect(index.SponsoredBrandsProductRecommendationFilterType).toEqual(
+        recommendationEnum.SponsoredBrandsProductRecommendationFilterType,
       )
     })
   })
