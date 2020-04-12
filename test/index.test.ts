@@ -126,10 +126,8 @@ describe('index', () => {
 
   describe('profile', () => {
     it('should export all enums', () => {
-      expect(index.AccountInfoTypeEnum).toEqual(profileEnum.AccountInfoTypeEnum)
-      expect(index.RegisterProfileResponseStatusEnum).toEqual(
-        profileEnum.RegisterProfileResponseStatusEnum,
-      )
+      expect(index.AccountInfoType).toEqual(profileEnum.AccountInfoType)
+      expect(index.RegisterProfileResponseStatus).toEqual(profileEnum.RegisterProfileResponseStatus)
     })
   })
 

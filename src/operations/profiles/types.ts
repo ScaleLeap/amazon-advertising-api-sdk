@@ -3,7 +3,6 @@ import {
   AmazonMarketplaceAdvertisingCurrencyType,
   AmazonMarketplaceAdvertisingTimeZoneType,
   AmazonMarketplaceAdvertisingCountryCodeType,
-  createEnumType,
 } from '../commons/types'
 
 export const ProfileId = t.number
@@ -33,12 +32,7 @@ export type ProfileResponse = t.TypeOf<typeof ProfileResponse>
 /**
  * The type of account being called
  */
-export enum AccountInfoTypeEnum {
-  SELLER = 'seller',
-  VENDOR = 'vendor',
-}
-
-export const AccountInfoType = createEnumType<AccountInfoTypeEnum>(AccountInfoTypeEnum)
+export const AccountInfoType = t.union([t.literal('seller'), t.literal('vendor')])
 export type AccountInfoType = t.TypeOf<typeof AccountInfoType>
 
 export const AccountInfo = t.intersection([
@@ -135,19 +129,15 @@ export const ProfileRegistrationResponse = t.strict({
 
 export type ProfileRegistrationResponse = t.TypeOf<typeof ProfileRegistrationResponse>
 
-export enum RegisterProfileResponseStatusEnum {
-  IN_PROGRESS = 'IN_PROGRESS',
-  SUCCESS = 'SUCCESS',
-}
-
-export const RegisterProfileResponseStatusType = createEnumType<RegisterProfileResponseStatusEnum>(
-  RegisterProfileResponseStatusEnum,
-)
-export type RegisterProfileResponseStatusType = t.TypeOf<typeof RegisterProfileResponseStatusType>
+export const RegisterProfileResponseStatus = t.union([
+  t.literal('IN_PROGRESS'),
+  t.literal('SUCCESS'),
+])
+export type RegisterProfileResponseStatus = t.TypeOf<typeof RegisterProfileResponseStatus>
 
 export const RegisterProfileResponse = t.intersection([
   t.type({
-    status: RegisterProfileResponseStatusType,
+    status: RegisterProfileResponseStatus,
     statusDetails: t.string,
   }),
   t.partial({
