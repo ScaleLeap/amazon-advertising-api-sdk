@@ -1,7 +1,7 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { ProfileOperation } from '../../../src/operations/profiles/profile-operation'
 import { httpClientFactory } from '../../http-client-factory'
-import { Profile, RegisterProfileResponseStatusEnum } from '../../../src/operations/profiles/types'
+import { Profile } from '../../../src/operations/profiles/types'
 import { AmazonMarketplaceAdvertisingCountryCode } from '@scaleleap/amazon-marketplaces'
 import { delay } from '../../test-utils'
 
@@ -77,7 +77,7 @@ describe('ProfileOperation', () => {
 
       const res = await profileOperation.registerBrand(param)
       expect(res).toBeTruthy()
-      expect(res.code).toBe(RegisterProfileResponseStatusEnum.SUCCESS)
+      expect(res.code).toBe('SUCCESS')
     })
   })
 
