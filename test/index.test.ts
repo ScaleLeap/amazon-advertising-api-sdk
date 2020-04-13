@@ -144,9 +144,15 @@ describe('index', () => {
 
   describe('report', () => {
     it('should export all enums', () => {
-      expect(index.AdGroupReportMetricsEnum).toEqual(reportEnum.AdGroupReportMetricsEnum)
-      expect(index.AsinsReportMetricsEnum).toEqual(reportEnum.AsinsReportMetricsEnum)
-      expect(index.CampaignReportMetricsEnum).toEqual(reportEnum.CampaignReportMetricsEnum)
+      expect(index.SponsoredProductsAdGroupReportMetrics).toEqual(
+        reportEnum.SponsoredProductsAdGroupReportMetrics,
+      )
+      expect(index.SponsoredProductsAsinsReportMetrics).toEqual(
+        reportEnum.SponsoredProductsAsinsReportMetrics,
+      )
+      expect(index.SponsoredProductsCampaignReportMetrics).toEqual(
+        reportEnum.SponsoredProductsCampaignReportMetrics,
+      )
       expect(index.KeywordReportMetricsEnum).toEqual(reportEnum.KeywordReportMetricsEnum)
       expect(index.ProductAdsReportMetricsEnum).toEqual(reportEnum.ProductAdsReportMetricsEnum)
       expect(index.ProductTargetingReportMetricsEnum).toEqual(
@@ -159,8 +165,8 @@ describe('index', () => {
         reportEnum.SponsoredProductsReportTypeEnum,
       )
       expect(index.ReportResponseStatusType).toEqual(reportEnum.ReportResponseStatusType)
-      expect(index.HeadlineSearchReportMetricsEnum).toEqual(
-        reportEnum.HeadlineSearchReportMetricsEnum,
+      expect(index.SponsoredBrandsHeadlineSearchReportMetrics).toEqual(
+        reportEnum.SponsoredBrandsHeadlineSearchReportMetrics,
       )
     })
   })
