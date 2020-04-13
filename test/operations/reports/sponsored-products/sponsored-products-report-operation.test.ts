@@ -2,13 +2,10 @@ import { OperationProvider } from '../../../../src/operations/operation-provider
 import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredProductsReportOperation } from '../../../../src/operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
-import { CampaignReportMetricsEnum } from '../../../../src/operations/reports/metrics/campaign-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
-import { AdGroupReportMetricsEnum } from '../../../../src/operations/reports/metrics/ad-group-report-metrics-enum'
 import { KeywordReportMetricsEnum } from '../../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
 import { ProductTargetingReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-targeting-report-metrics-enum'
-import { AsinsReportMetricsEnum } from '../../../../src/operations/reports/metrics/asins-report-metrics-enum'
 
 jest.setTimeout(15000)
 
@@ -21,7 +18,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
-        metrics: [CampaignReportMetricsEnum.ATTRIBUTED_SALES14D],
+        metrics: ['attributedSales14d'],
         reportDate: '20200314',
       })
 
@@ -34,14 +31,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status with adgroups report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.AD_GROUPS,
-        metrics: [
-          AdGroupReportMetricsEnum.CAMPAIGN_ID,
-          AdGroupReportMetricsEnum.CAMPAIGN_NAME,
-          AdGroupReportMetricsEnum.ADGROUP_ID,
-          AdGroupReportMetricsEnum.ADGROUP_NAME,
-          AdGroupReportMetricsEnum.COST,
-          AdGroupReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['campaignId', 'campaignName', 'adGroupId', 'adGroupName', 'cost', 'impressions'],
         reportDate: '20200314',
       })
 
@@ -54,13 +44,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status with asins report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.ASINS,
-        metrics: [
-          AsinsReportMetricsEnum.CAMPAIGN_ID,
-          AsinsReportMetricsEnum.CAMPAIGN_NAME,
-          AsinsReportMetricsEnum.ASIN,
-          AsinsReportMetricsEnum.KEYWORD_ID,
-          AsinsReportMetricsEnum.SKU,
-        ],
+        metrics: ['campaignId', 'campaignName', 'asin', 'keywordId', 'sku'],
         reportDate: '20200314',
       })
 
@@ -153,17 +137,11 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return the report uncompressed`, async () => {
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.CAMPAIGNS,
-        metrics: [
-          CampaignReportMetricsEnum.CLICKS,
-          CampaignReportMetricsEnum.COST,
-          CampaignReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['clicks', 'cost', 'impressions'],
         reportDate: '20200314',
       })
 
-      const res = await reportOperation.downloadReport<CampaignReportMetricsEnum>(
-        requestReportResult.reportId,
-      )
+      const res = await reportOperation.downloadReport(requestReportResult.reportId)
 
       expect(res.length).toBeGreaterThan(0)
     })

@@ -1,116 +1,121 @@
-export enum AsinsReportMetricsEnum {
+import * as t from 'io-ts'
+
+export const SponsoredProductsAsinsReportMetrics = t.union([
   /**
    * Unique name of the campaign
    */
-  CAMPAIGN_NAME = 'campaignName',
+  t.literal('campaignName'),
 
   /**
    * Unique numerical ID of the campaign
    */
-  CAMPAIGN_ID = 'campaignId',
+  t.literal('campaignId'),
 
   /**
    * Unique name of the ad group
    */
-  AD_GROUP_NAME = 'adGroupName',
+  t.literal('adGroupName'),
 
   /**
    * Unique numerical ID of the ad group
    */
-  AD_GROUP_ID = 'adGroupId',
+  t.literal('adGroupId'),
 
   /**
    * Unique numerical ID of the keyword
    */
-  KEYWORD_ID = 'keywordId',
+  t.literal('keywordId'),
 
   /**
    * Keyword or phrase used in bid
    */
-  KEYWORD_TEXT = 'keywordText',
+  t.literal('keywordText'),
 
   /**
    * Unique ASIN advertised
    */
-  ASIN = 'asin',
+  t.literal('asin'),
 
   /**
    * A non-dimensional metric for ASINs other than the one advertised
    */
-  OTHER_ASIN = 'otherAsin',
+  t.literal('otherAsin'),
 
   /**
    * Unique SKU advertised. Not available for vendors.
    */
-  SKU = 'sku',
+  t.literal('sku'),
 
   /**
    * A dimensional metric
    */
-  CURRENCY = 'currency',
+  t.literal('currency'),
 
   /**
    * One of: broad, phrase, or exact
    */
-  MATCH_TYPE = 'matchType',
+  t.literal('matchType'),
 
   /**
    * Number of ASIN (SKU) units sold. 1 day.
    */
-  ATTRIBUTED_UNITS_ORDERED1D = 'attributedUnitsOrdered1d',
+  t.literal('attributedUnitsOrdered1d'),
 
   /**
    * Number of ASIN (SKU) units sold. 7 days.
    */
-  ATTRIBUTED_UNITS_ORDERED7D = 'attributedUnitsOrdered7d',
+  t.literal('attributedUnitsOrdered7d'),
 
   /**
    * Number of ASIN (SKU) units sold. 14 days.
    */
-  ATTRIBUTED_UNITS_ORDERED14D = 'attributedUnitsOrdered14d',
+  t.literal('attributedUnitsOrdered14d'),
 
   /**
    * Number of ASIN (SKU) units sold. 30 days.
    */
-  ATTRIBUTED_UNITS_ORDERED30D = 'attributedUnitsOrdered30d',
+  t.literal('attributedUnitsOrdered30d'),
 
   /**
    * Number of other ASIN (SKU) units sold. 1 day.
    */
-  ATTRIBUTED_UNITS_ORDERED1D_OTHER_SKU = 'attributedUnitsOrdered1dOtherSKU',
+  t.literal('attributedUnitsOrdered1dOtherSKU'),
 
   /**
    * Number of other ASIN (SKU) units sold. 7 days.
    */
-  ATTRIBUTED_UNITS_ORDERED7D_OTHER_SKU = 'attributedUnitsOrdered7dOtherSKU',
+  t.literal('attributedUnitsOrdered7dOtherSKU'),
 
   /**
    * Number of other ASIN (SKU) units sold. 14 days.
    */
-  ATTRIBUTED_UNITS_ORDERED14D_OTHER_SKU = 'attributedUnitsOrdered14dOtherSKU',
+  t.literal('attributedUnitsOrdered14dOtherSKU'),
 
   /**
    * Number of other ASIN (SKU) units sold. 30 days.
    */
-  ATTRIBUTED_UNITS_ORDERED30D_OTHER_SKU = 'attributedUnitsOrdered30dOtherSKU',
+  t.literal('attributedUnitsOrdered30dOtherSKU'),
 
   /**
    * Sales for another ASIN (SKU). 1 day.
    */
-  ATTRIBUTED_SALES1D_OTHER_SKU = 'attributedSales1dOtherSKU',
+  t.literal('attributedSales1dOtherSKU'),
 
   /**
    * Sales for another ASIN (SKU). 7 days.
    */
-  ATTRIBUTED_SALES7D_OTHER_SKU = 'attributedSales7dOtherSKU',
+  t.literal('attributedSales7dOtherSKU'),
 
   /**
    * Sales for another ASIN (sku). 14 days.
    */
-  ATTRIBUTED_SALES14D_OTHER_SKU = 'attributedSales14dOtherSKU',
+  t.literal('attributedSales14dOtherSKU'),
 
   /**
    * Sales for another ASIN (sku). 30 days.
    */
-  ATTRIBUTED_SALES30D_OTHER_SKU = 'attributedSales30dOtherSKU',
-}
+  t.literal('attributedSales30dOtherSKU'),
+])
+export type SponsoredProductsAsinsReportMetrics = t.TypeOf<
+  typeof SponsoredProductsAsinsReportMetrics
+>

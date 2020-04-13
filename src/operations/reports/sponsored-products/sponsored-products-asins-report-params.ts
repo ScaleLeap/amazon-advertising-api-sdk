@@ -1,8 +1,8 @@
 import { BaseReportParams } from '../base-report-params'
 import { SponsoredProductsReportTypeEnum } from '../report-types-enum'
-import { AsinsReportMetricsEnum } from '../metrics/asins-report-metrics-enum'
+import { SponsoredProductsAsinsReportMetrics } from '../metrics/sponsored-products-asins-report-metrics'
 
 export interface SponsoredProductsAsinsReportParams
-  extends BaseReportParams<SponsoredProductsReportTypeEnum, AsinsReportMetricsEnum> {
+  extends BaseReportParams<SponsoredProductsReportTypeEnum, SponsoredProductsAsinsReportMetrics> {
   recordType: SponsoredProductsReportTypeEnum.ASINS
 }

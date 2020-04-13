@@ -1,8 +1,8 @@
 import { BaseReportParams } from '../base-report-params'
 import { SponsoredBrandsReportTypeEnum } from '../report-types-enum'
-import { AdGroupReportMetricsEnum } from '../metrics/ad-group-report-metrics-enum'
+import { SponsoredProductsAdGroupReportMetrics } from '../metrics/sponsored-products-ad-group-report-metrics'
 
 export interface SponsoredBrandsAdGroupReportParams
-  extends BaseReportParams<SponsoredBrandsReportTypeEnum, AdGroupReportMetricsEnum> {
+  extends BaseReportParams<SponsoredBrandsReportTypeEnum, SponsoredProductsAdGroupReportMetrics> {
   recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS
 }
