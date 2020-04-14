@@ -15,7 +15,7 @@ describe('SponsoredBrandsReportOperation', () => {
     it(`should return a in progress status`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.CAMPAIGNS,
-        metrics: ['attributedSales14d'],
+        metrics: ['campaignBudget', 'campaignBudgetType', 'campaignStatus'],
         reportDate: '20200314',
       })
 
@@ -75,7 +75,7 @@ describe('SponsoredBrandsReportOperation', () => {
     it('should return the report uncompressed', async () => {
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.CAMPAIGNS,
-        metrics: ['clicks', 'cost', 'impressions'],
+        metrics: ['campaignBudget', 'campaignBudgetType', 'campaignStatus'],
         reportDate: '20200314',
       })
 

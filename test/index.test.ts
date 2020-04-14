@@ -169,6 +169,9 @@ describe('index', () => {
         reportEnum.SponsoredProductsReportTypeEnum,
       )
       expect(index.ReportResponseStatusType).toEqual(reportEnum.ReportResponseStatusType)
+      expect(index.SponsoredBrandsCampaignReportMetrics).toEqual(
+        reportEnum.SponsoredBrandsCampaignReportMetrics,
+      )
       expect(index.SponsoredBrandsHeadlineSearchReportMetrics).toEqual(
         reportEnum.SponsoredBrandsHeadlineSearchReportMetrics,
       )
