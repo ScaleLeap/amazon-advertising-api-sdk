@@ -3,8 +3,6 @@ import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredProductsReportOperation } from '../../../../src/operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
-import { ProductAdsReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
-import { ProductTargetingReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-targeting-report-metrics-enum'
 
 jest.setTimeout(15000)
 
@@ -69,13 +67,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status with product ads report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.PRODUCT_ADS,
-        metrics: [
-          ProductAdsReportMetricsEnum.CAMPAIGN_ID,
-          ProductAdsReportMetricsEnum.COST,
-          ProductAdsReportMetricsEnum.IMPRESSIONS,
-          ProductAdsReportMetricsEnum.SKU,
-          ProductAdsReportMetricsEnum.ASIN,
-        ],
+        metrics: ['campaignId', 'cost', 'impressions', 'sku', 'asin'],
         reportDate: '20200314',
       })
 
@@ -88,12 +80,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status with targets report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.PRODUCT_ATTRIBUTE_TARGETING,
-        metrics: [
-          ProductTargetingReportMetricsEnum.CAMPAIGN_ID,
-          ProductTargetingReportMetricsEnum.TARGET_ID,
-          ProductTargetingReportMetricsEnum.COST,
-          ProductTargetingReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['campaignId', 'targetId', 'cost', 'impressions'],
         reportDate: '20200314',
       })
 
@@ -108,10 +95,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`only return report location when report status is SUCCESS`, async () => {
       const requestReportResponse = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.PRODUCT_ATTRIBUTE_TARGETING,
-        metrics: [
-          ProductTargetingReportMetricsEnum.COST,
-          ProductTargetingReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['cost', 'impressions'],
         reportDate: '20200314',
       })
 
