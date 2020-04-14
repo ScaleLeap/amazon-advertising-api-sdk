@@ -156,9 +156,11 @@ describe('index', () => {
       expect(index.SponsoredProductsKeywordReportMetrics).toEqual(
         reportEnum.SponsoredProductsKeywordReportMetrics,
       )
-      expect(index.ProductAdsReportMetricsEnum).toEqual(reportEnum.ProductAdsReportMetricsEnum)
-      expect(index.ProductTargetingReportMetricsEnum).toEqual(
-        reportEnum.ProductTargetingReportMetricsEnum,
+      expect(index.SponsoredProductsProductAdsReportMetrics).toEqual(
+        reportEnum.SponsoredProductsProductAdsReportMetrics,
+      )
+      expect(index.SponsoredProductsProductTargetingReportMetrics).toEqual(
+        reportEnum.SponsoredProductsProductTargetingReportMetrics,
       )
       expect(index.ReportResponseStatusEnum).toEqual(reportEnum.ReportResponseStatusEnum)
       expect(index.ReportSegmentsEnum).toEqual(reportEnum.ReportSegmentsEnum)
