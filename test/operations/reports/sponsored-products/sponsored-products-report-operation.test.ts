@@ -3,7 +3,6 @@ import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredProductsReportOperation } from '../../../../src/operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
-import { KeywordReportMetricsEnum } from '../../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ProductAdsReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-ads-report-metrics-enum'
 import { ProductTargetingReportMetricsEnum } from '../../../../src/operations/reports/metrics/product-targeting-report-metrics-enum'
 
@@ -57,12 +56,7 @@ describe('SponsoredProductsReportOperation', () => {
     it(`should return a in progress status with keywords report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredProductsReportTypeEnum.KEYWORDS,
-        metrics: [
-          KeywordReportMetricsEnum.CAMPAIGN_ID,
-          KeywordReportMetricsEnum.KEYWORD_ID,
-          KeywordReportMetricsEnum.COST,
-          KeywordReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['campaignId', 'keywordId', 'cost', 'impressions'],
         reportDate: '20200314',
       })
 

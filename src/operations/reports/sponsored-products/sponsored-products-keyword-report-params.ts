@@ -1,8 +1,8 @@
 import { BaseReportParams } from '../base-report-params'
 import { SponsoredProductsReportTypeEnum } from '../report-types-enum'
-import { KeywordReportMetricsEnum } from '../metrics/keyword-report-metrics-enum'
+import { SponsoredProductsKeywordReportMetrics } from '../metrics/sponsored-products-keyword-report-metrics'
 
 export interface SponsoredProductsKeywordReportParams
-  extends BaseReportParams<SponsoredProductsReportTypeEnum, KeywordReportMetricsEnum> {
+  extends BaseReportParams<SponsoredProductsReportTypeEnum, SponsoredProductsKeywordReportMetrics> {
   recordType: SponsoredProductsReportTypeEnum.KEYWORDS
 }
