@@ -2,7 +2,6 @@ import { OperationProvider } from '../../../../src/operations/operation-provider
 import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredBrandsReportOperation } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
-import { KeywordReportMetricsEnum } from '../../../../src/operations/reports/metrics/keyword-report-metrics-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
 
 jest.setTimeout(15000)
@@ -42,12 +41,7 @@ describe('SponsoredBrandsReportOperation', () => {
     it(`should return a in progress status with keywords report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-        metrics: [
-          KeywordReportMetricsEnum.CAMPAIGN_ID,
-          KeywordReportMetricsEnum.KEYWORD_ID,
-          KeywordReportMetricsEnum.COST,
-          KeywordReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['campaignId', 'keywordId', 'cost', 'impressions'],
         reportDate: '20200314',
       })
 
@@ -62,12 +56,7 @@ describe('SponsoredBrandsReportOperation', () => {
     it(`only return report location when report status is SUCCESS`, async () => {
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-        metrics: [
-          KeywordReportMetricsEnum.CAMPAIGN_ID,
-          KeywordReportMetricsEnum.KEYWORD_ID,
-          KeywordReportMetricsEnum.COST,
-          KeywordReportMetricsEnum.IMPRESSIONS,
-        ],
+        metrics: ['campaignId', 'keywordId', 'cost', 'impressions'],
         reportDate: '20200314',
       })
 
