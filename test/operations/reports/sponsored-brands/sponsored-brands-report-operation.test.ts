@@ -3,7 +3,6 @@ import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredBrandsReportOperation } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
-import { delay } from '../../../test-utils'
 
 jest.setTimeout(15000)
 
@@ -93,8 +92,6 @@ describe('SponsoredBrandsReportOperation', () => {
         ],
         reportDate: '20200314',
       })
-
-      delay(60000)
 
       const res = await reportOperation.getReport(requestReportResult.reportId)
       expect(res.reportId).toBeDefined()
