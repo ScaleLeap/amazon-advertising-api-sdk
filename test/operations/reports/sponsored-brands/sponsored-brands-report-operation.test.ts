@@ -3,6 +3,7 @@ import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredBrandsReportOperation } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { SponsoredBrandsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
 import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
+import { delay } from '../../../test-utils'
 
 jest.setTimeout(15000)
 
@@ -28,7 +29,15 @@ describe('SponsoredBrandsReportOperation', () => {
     it(`should return a in progress status with adgroups report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.AD_GROUPS,
-        metrics: ['campaignId', 'campaignName', 'adGroupId', 'adGroupName', 'cost', 'impressions'],
+        metrics: [
+          'campaignId',
+          'campaignName',
+          'campaignBudget',
+          'campaignBudgetType',
+          'campaignStatus',
+          'adGroupName',
+          'adGroupId',
+        ],
         reportDate: '20200314',
       })
 
@@ -41,7 +50,19 @@ describe('SponsoredBrandsReportOperation', () => {
     it(`should return a in progress status with keywords report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-        metrics: ['campaignId', 'keywordId', 'cost', 'impressions'],
+        metrics: [
+          'campaignId',
+          'campaignName',
+          'adGroupId',
+          'adGroupName',
+          'campaignBudgetType',
+          'campaignStatus',
+          'keywordId',
+          'keywordStatus',
+          'keywordBid',
+          'keywordText',
+          'matchType',
+        ],
         reportDate: '20200314',
       })
 
@@ -54,11 +75,26 @@ describe('SponsoredBrandsReportOperation', () => {
 
   describe('getReport', () => {
     it(`only return report location when report status is SUCCESS`, async () => {
+      expect.assertions(4)
       const requestReportResult = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.KEYWORDS,
-        metrics: ['campaignId', 'keywordId', 'cost', 'impressions'],
+        metrics: [
+          'campaignId',
+          'campaignName',
+          'adGroupId',
+          'adGroupName',
+          'campaignBudgetType',
+          'campaignStatus',
+          'keywordId',
+          'keywordStatus',
+          'keywordBid',
+          'keywordText',
+          'matchType',
+        ],
         reportDate: '20200314',
       })
+
+      delay(60000)
 
       const res = await reportOperation.getReport(requestReportResult.reportId)
       expect(res.reportId).toBeDefined()
