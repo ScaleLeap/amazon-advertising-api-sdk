@@ -70,6 +70,30 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
       expect(res.statusDetails).toBeDefined()
     })
+
+    it(`should return a in progress status with headline search report`, async () => {
+      const res = await reportOperation.requestReport({
+        recordType: SponsoredBrandsReportTypeEnum.HEADLINE_SEARCH,
+        metrics: [
+          'campaignName',
+          'campaignId',
+          'campaignStatus',
+          'campaignBudget',
+          'campaignBudgetType',
+          'adGroupName',
+          'adGroupId',
+          'keywordText',
+          'keywordBid',
+          'keywordStatus',
+        ],
+        reportDate: '20200314',
+      })
+
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.statusDetails).toBeDefined()
+    })
   })
 
   describe('getReport', () => {
