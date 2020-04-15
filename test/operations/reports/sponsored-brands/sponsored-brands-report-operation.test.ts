@@ -98,6 +98,35 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
       expect(res.statusDetails).toBeDefined()
     })
+
+    /**
+     * TODO: Need check on Production API again. Sandbox API returns an error:
+     * Could not find resource for full path: https://advertising-api-test.amazon.com/v2/hsa/searchTerms/report
+     */
+    it.skip(`should return a in progress status with search term report`, async () => {
+      const res = await reportOperation.requestReport({
+        recordType: SponsoredBrandsReportTypeEnum.SEARCH_TERM,
+        metrics: [
+          'campaignId',
+          'campaignName',
+          'adGroupId',
+          'adGroupName',
+          'campaignBudgetType',
+          'campaignStatus',
+          'keywordId',
+          'keywordStatus',
+          'keywordBid',
+          'keywordText',
+          'matchType',
+        ],
+        reportDate: '20200314',
+      })
+
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.statusDetails).toBeDefined()
+    })
   })
 
   describe('getReport', () => {
