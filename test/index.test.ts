@@ -169,11 +169,17 @@ describe('index', () => {
         reportEnum.SponsoredProductsReportTypeEnum,
       )
       expect(index.ReportResponseStatusType).toEqual(reportEnum.ReportResponseStatusType)
+      expect(index.SponsoredBrandsAdGroupReportMetrics).toEqual(
+        reportEnum.SponsoredBrandsAdGroupReportMetrics,
+      )
       expect(index.SponsoredBrandsCampaignReportMetrics).toEqual(
         reportEnum.SponsoredBrandsCampaignReportMetrics,
       )
       expect(index.SponsoredBrandsHeadlineSearchReportMetrics).toEqual(
         reportEnum.SponsoredBrandsHeadlineSearchReportMetrics,
+      )
+      expect(index.SponsoredBrandsKeywordReportMetrics).toEqual(
+        reportEnum.SponsoredBrandsKeywordReportMetrics,
       )
     })
   })
