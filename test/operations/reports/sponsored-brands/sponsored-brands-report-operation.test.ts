@@ -71,7 +71,11 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    it(`should return a in progress status with headline search report`, async () => {
+    /**
+     * TODO: Need check on Production API again. Sandbox API returns an error:
+     * Could not find resource for full path: https://advertising-api-test.amazon.com/v2/hsa/headlineSearch/report
+     */
+    it.skip(`should return a in progress status with headline search report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: SponsoredBrandsReportTypeEnum.HEADLINE_SEARCH,
         metrics: [
