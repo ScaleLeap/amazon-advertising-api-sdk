@@ -1,4 +1,4 @@
-import { ReportSegmentsEnum } from './report-segments-enum'
+import { ReportSegments } from './report-segments'
 
 export interface BaseReportParams<RecordType, ReportMetrics> {
   /**
@@ -10,7 +10,7 @@ export interface BaseReportParams<RecordType, ReportMetrics> {
    * _Optional_. Dimension on which to segment the report. See segmentation details in the
    * following table.
    */
-  segment?: ReportSegmentsEnum
+  segment?: ReportSegments
 
   /**
    * The date for which to retrieve the performance report in YYYYMMDD format.
