@@ -8,7 +8,7 @@ import { SponsoredProductsCampaignReportParams } from './sponsored-products-camp
 import { SponsoredProductsKeywordReportParams } from './sponsored-products-keyword-report-params'
 import { SponsoredProductsProductAdsReportParams } from './sponsored-products-product-ads-report-params'
 import { SponsoredProductsTargetsReportParams } from './sponsored-products-targets-report-params'
-import { SponsoredProductsReportTypeEnum } from '../report-types-enum'
+import { SponsoredProductsReportType } from '../report-types'
 
 type SponsoredProductsReportParams =
   | SponsoredProductsAdGroupReportParams
@@ -28,21 +28,21 @@ function fixRecordTypeResponse(res: ReportResponse): ReportResponse {
     return res
   }
 
-  const fix = (recordType: SponsoredProductsReportTypeEnum): ReportResponse => {
+  const fix = (recordType: SponsoredProductsReportType): ReportResponse => {
     return Object.assign(res, { recordType })
   }
 
   switch (res.recordType) {
     case 'campaign':
-      return fix(SponsoredProductsReportTypeEnum.CAMPAIGNS)
+      return fix('campaigns')
     case 'adGroup':
-      return fix(SponsoredProductsReportTypeEnum.AD_GROUPS)
+      return fix('adGroups')
     case 'keyword':
-      return fix(SponsoredProductsReportTypeEnum.KEYWORDS)
+      return fix('keywords')
     case 'productAd':
-      return fix(SponsoredProductsReportTypeEnum.PRODUCT_ADS)
+      return fix('productAds')
     case 'otherAsin':
-      return fix(SponsoredProductsReportTypeEnum.ASINS)
+      return fix('asins')
     default:
       return res
   }
@@ -88,7 +88,7 @@ export class SponsoredProductsReportOperation<
    */
   @Decode(ReportResponse)
   public requestReport(params: ReportParams) {
-    if (params.recordType === SponsoredProductsReportTypeEnum.ASINS) {
+    if (params.recordType === 'asins') {
       return this.requestAsinReport(params)
     }
 
