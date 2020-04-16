@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.15.0...v1.15.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.0 ([09837bc](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/09837bc4e87b61dad610fabb56446ee685ba7701))
+
 # [1.15.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.14.0...v1.15.0) (2020-04-06)
 
 
