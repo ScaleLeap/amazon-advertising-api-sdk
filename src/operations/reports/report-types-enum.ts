@@ -19,4 +19,5 @@ export enum SponsoredBrandsReportTypeEnum {
   KEYWORDS = 'keywords',
   HEADLINE_SEARCH = 'headlineSearch',
   SEARCH_TERM = 'searchTerms',
+  TARGETS = 'targets',
 }
