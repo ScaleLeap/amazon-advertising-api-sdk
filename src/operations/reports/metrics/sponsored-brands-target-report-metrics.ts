@@ -55,7 +55,8 @@ export const SponsoredBrandsTargetReportMetrics = t.union([
 
   /**
    * Type of matching for the keyword or phrase used in bid. Must be one of: broad, phrase, or exact
+   * Sandbox API returns an error: Unsupported field for targets report: matchType.
    */
-  t.literal('matchType'),
+  // t.literal('matchType'),
 ])
 export type SponsoredBrandsTargetReportMetrics = t.TypeOf<typeof SponsoredBrandsTargetReportMetrics>

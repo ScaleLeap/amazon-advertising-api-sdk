@@ -142,7 +142,6 @@ describe('SponsoredBrandsReportOperation', () => {
           'targetingExpression',
           'targetingType',
           'targetingText',
-          'matchType',
         ],
         reportDate: '20200314',
       })
