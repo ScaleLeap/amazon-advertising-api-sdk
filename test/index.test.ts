@@ -181,6 +181,9 @@ describe('index', () => {
       expect(index.SponsoredBrandsKeywordReportMetrics).toEqual(
         reportEnum.SponsoredBrandsKeywordReportMetrics,
       )
+      expect(index.SponsoredBrandsTargetReportMetrics).toEqual(
+        reportEnum.SponsoredBrandsTargetReportMetrics,
+      )
     })
   })
 
