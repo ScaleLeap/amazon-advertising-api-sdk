@@ -8,6 +8,7 @@ import {
   SponsoredBrandsKeywordReportParams,
   SponsoredBrandsHeadlineSearchReportParams,
   SponsoredBrandsSearchTermReportParams,
+  SponsoredBrandsTargetReportParams,
 } from './index'
 
 type SponsoredBrandsReportParams =
@@ -16,6 +17,8 @@ type SponsoredBrandsReportParams =
   | SponsoredBrandsKeywordReportParams
   | SponsoredBrandsHeadlineSearchReportParams
   | SponsoredBrandsSearchTermReportParams
+  | SponsoredBrandsSearchTermReportParams
+  | SponsoredBrandsTargetReportParams
 
 export class SponsoredBrandsReportOperation<
   ReportParams extends SponsoredBrandsReportParams
