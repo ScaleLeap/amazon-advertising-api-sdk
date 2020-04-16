@@ -1,7 +1,7 @@
 import { omit } from 'lodash'
 import { Decode } from '../../../decorators'
 import { BaseReportOperation } from '../base-report-operation'
-import { ReportResponse, ReportResponseStatusEnum } from '../report-response'
+import { ReportResponse } from '../report-response'
 import { SponsoredProductsAdGroupReportParams } from './sponsored-products-ad-group-report-params'
 import { SponsoredProductsAsinsReportParams } from './sponsored-products-asins-report-params'
 import { SponsoredProductsCampaignReportParams } from './sponsored-products-campaign-report-params'
@@ -24,7 +24,7 @@ type SponsoredProductsReportParams =
  * And in the case of ASIN report, it returns `otherAsin` for some reason.
  */
 function fixRecordTypeResponse(res: ReportResponse): ReportResponse {
-  if (res.status === ReportResponseStatusEnum.SUCCESS) {
+  if (res.status === 'SUCCESS') {
     return res
   }
 

@@ -2,7 +2,7 @@ import { OperationProvider } from '../../../../src/operations/operation-provider
 import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredProductsReportOperation } from '../../../../src/operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredProductsReportTypeEnum } from '../../../../src/operations/reports/report-types-enum'
-import { ReportResponseStatusEnum } from '../../../../src/operations/reports/report-response'
+import { ReportResponseStatus } from '../../../../src/operations/reports/report-response'
 
 jest.setTimeout(15000)
 
@@ -21,7 +21,7 @@ describe('SponsoredProductsReportOperation', () => {
 
       expect(res.reportId).toBeDefined()
       expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
 
@@ -34,7 +34,7 @@ describe('SponsoredProductsReportOperation', () => {
 
       expect(res.reportId).toBeDefined()
       expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
 
@@ -47,7 +47,7 @@ describe('SponsoredProductsReportOperation', () => {
 
       expect(res.reportId).toBeDefined()
       expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
 
@@ -60,7 +60,7 @@ describe('SponsoredProductsReportOperation', () => {
 
       expect(res.reportId).toBeDefined()
       expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
 
@@ -73,7 +73,7 @@ describe('SponsoredProductsReportOperation', () => {
 
       expect(res.reportId).toBeDefined()
       expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
 
@@ -86,7 +86,7 @@ describe('SponsoredProductsReportOperation', () => {
 
       expect(res.reportId).toBeDefined()
       expect(res.recordType).toBeDefined()
-      expect(res.status).toBe(ReportResponseStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
   })
@@ -104,7 +104,7 @@ describe('SponsoredProductsReportOperation', () => {
       expect(res.reportId).toBeDefined()
       expect(res.statusDetails).toBeDefined()
 
-      if (res.status == ReportResponseStatusEnum.SUCCESS) {
+      if (res.status == 'SUCCESS') {
         expect(res.location).toBeDefined()
         expect(res.fileSize).toBeDefined()
       }

@@ -1,16 +1,11 @@
 import * as t from 'io-ts'
-import { createEnumType } from '../commons/types'
 
-export enum ReportResponseStatusEnum {
-  IN_PROGRESS = 'IN_PROGRESS',
-  SUCCESS = 'SUCCESS',
-  FAILURE = 'FAILURE',
-}
-
-export const ReportResponseStatusType = createEnumType<ReportResponseStatusEnum>(
-  ReportResponseStatusEnum,
-)
-export type ReportResponseStatusType = t.TypeOf<typeof ReportResponseStatusType>
+export const ReportResponseStatus = t.union([
+  t.literal('IN_PROGRESS'),
+  t.literal('SUCCESS'),
+  t.literal('FAILURE'),
+])
+export type ReportResponseStatus = t.TypeOf<typeof ReportResponseStatus>
 
 export const ReportId = t.string
 export type ReportId = t.TypeOf<typeof ReportId>
@@ -25,7 +20,7 @@ export const ReportResponse = t.intersection([
     /**
      * The status of the generation of the report, it can be IN_PROGRESS, SUCCESS or FAILURE.
      */
-    status: ReportResponseStatusType,
+    status: ReportResponseStatus,
 
     /**
      * Description of the status.
@@ -49,5 +44,4 @@ export const ReportResponse = t.intersection([
     fileSize: t.number,
   }),
 ])
-
 export type ReportResponse = t.TypeOf<typeof ReportResponse>
