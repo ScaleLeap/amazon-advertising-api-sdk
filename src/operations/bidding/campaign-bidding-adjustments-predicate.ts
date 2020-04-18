@@ -3,7 +3,6 @@
  */
 
 import * as t from 'io-ts'
-import { createEnumType } from '../commons/types'
 
 /**
  * You can enable controls to adjust your bid based on the placement location.
@@ -12,29 +11,25 @@ import { createEnumType } from '../commons/types'
  * bid adjustment increased. For example, a 50% adjustment on a $1.00 bid would increase the bid
  * to $1.50 for the opportunity to win a specified placement.
  */
-export enum CampaignBiddingAdjustmentsPredicateEnum {
+export const CampaignBiddingAdjustmentsPredicate = t.union([
   /**
    * Top of search (first page)
    */
-  PLACEMENT_TOP = 'placementTop',
+  t.literal('placementTop'),
 
   /**
    * Product pages
    */
-  PLACEMENT_PRODUCT_PAGE = 'placementProductPage',
-}
-
-export const CampaignBiddingAdjustmentsPredicateType = createEnumType<
-  CampaignBiddingAdjustmentsPredicateEnum
->(CampaignBiddingAdjustmentsPredicateEnum)
-export type CampaignBiddingAdjustmentsPredicateType = t.TypeOf<
-  typeof CampaignBiddingAdjustmentsPredicateType
+  t.literal('placementProductPage'),
+])
+export type CampaignBiddingAdjustmentsPredicate = t.TypeOf<
+  typeof CampaignBiddingAdjustmentsPredicate
 >
 
 export const CampaignBiddingAdjustments = t.array(
   t.intersection([
     t.type({
-      predicate: CampaignBiddingAdjustmentsPredicateType,
+      predicate: CampaignBiddingAdjustmentsPredicate,
     }),
     t.partial({
       percentage: t.number,

@@ -2,8 +2,6 @@ import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredProductsCampaignOperation } from '../../../src/operations/campaigns/sponsored-products-campaign-operation'
 import { CampaignBidding, CampaignState } from '../../../src/operations/campaigns/types'
 import { httpClientFactory } from '../../http-client-factory'
-import { CampaignBiddingStrategyEnum } from '../../../src/operations/bidding/campaign-bidding-strategy'
-import { CampaignBiddingAdjustmentsPredicateEnum } from '../../../src/operations/bidding/campaign-bidding-adjustments-predicate'
 
 describe('SponsoredProductsCampaignOperation', () => {
   const client = httpClientFactory()
@@ -72,10 +70,10 @@ describe('SponsoredProductsCampaignOperation', () => {
     it(`should create a campaign with auto bidding controls`, async () => {
       expect.assertions(2)
       const bidding: CampaignBidding = {
-        strategy: CampaignBiddingStrategyEnum.AUTO_FOR_SALES,
+        strategy: 'autoForSales',
         adjustments: [
           {
-            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
+            predicate: 'placementTop',
             percentage: 900,
           },
         ],
@@ -128,14 +126,14 @@ describe('SponsoredProductsCampaignOperation', () => {
 
     it(`should update a campaign with manual bidding controls`, async () => {
       const bidding: CampaignBidding = {
-        strategy: CampaignBiddingStrategyEnum.MANUAL,
+        strategy: 'manual',
         adjustments: [
           {
-            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_TOP,
+            predicate: 'placementTop',
             percentage: 1,
           },
           {
-            predicate: CampaignBiddingAdjustmentsPredicateEnum.PLACEMENT_PRODUCT_PAGE,
+            predicate: 'placementProductPage',
             percentage: 2,
           },
         ],

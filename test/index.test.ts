@@ -1,7 +1,7 @@
 import * as index from '../src/index'
 import * as adGroupEnums from '../src/operations/ad-groups/types'
-import { CampaignBiddingAdjustmentsPredicateEnum } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
-import { CampaignBiddingStrategyEnum } from '../src/operations/bidding/campaign-bidding-strategy'
+import { CampaignBiddingAdjustmentsPredicate } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
+import { CampaignBiddingStrategy } from '../src/operations/bidding/campaign-bidding-strategy'
 import * as biddingEnums from '../src/operations/bidding/types'
 import * as campaignEnums from '../src/operations/campaigns/types'
 import { BudgetType } from '../src/operations/drafts/types'
@@ -25,10 +25,8 @@ describe('index', () => {
 
   describe('bidding', () => {
     it('should export all enums', () => {
-      expect(index.CampaignBiddingAdjustmentsPredicateEnum).toEqual(
-        CampaignBiddingAdjustmentsPredicateEnum,
-      )
-      expect(index.CampaignBiddingStrategyEnum).toEqual(CampaignBiddingStrategyEnum)
+      expect(index.CampaignBiddingAdjustmentsPredicate).toEqual(CampaignBiddingAdjustmentsPredicate)
+      expect(index.CampaignBiddingStrategy).toEqual(CampaignBiddingStrategy)
       expect(index.BidRecommendationsResponseCode).toEqual(
         biddingEnums.BidRecommendationsResponseCode,
       )
