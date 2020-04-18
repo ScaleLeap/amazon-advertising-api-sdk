@@ -3,7 +3,7 @@ import * as t from 'io-ts'
 import { ResponseStatus, ListPagination } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { PortfolioId } from '../portfolios/types'
-import { CampaignBiddingStrategyType } from '../bidding/campaign-bidding-strategy'
+import { CampaignBiddingStrategy } from '../bidding/campaign-bidding-strategy'
 import { CampaignBiddingAdjustments } from '../bidding/campaign-bidding-adjustments-predicate'
 
 /**
@@ -44,7 +44,7 @@ export const CampaignState = t.union([
 export type CampaignState = t.TypeOf<typeof CampaignState>
 
 export const CampaignBidding = t.type({
-  strategy: CampaignBiddingStrategyType,
+  strategy: CampaignBiddingStrategy,
   adjustments: CampaignBiddingAdjustments,
 })
 export type CampaignBidding = t.TypeOf<typeof CampaignBidding>
