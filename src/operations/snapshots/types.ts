@@ -1,5 +1,4 @@
 import * as t from 'io-ts'
-import { createEnumType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { Campaign } from '../campaigns/types'
 import { AdGroup } from '../ad-groups/types'
@@ -10,54 +9,39 @@ import { TargetingClause, NegativeTargetingClause } from '../product-targeting/t
 export const SnapshotId = t.string
 export type SnapshotId = t.TypeOf<typeof SnapshotId>
 
-export enum RecordTypeRequestEnum {
-  CAMPAIGNS = 'campaigns',
-  AD_GROUPS = 'adGroups',
-  PRODUCT_ADS = 'productAds',
-  KEYWORDS = 'keywords',
-  NEGATIVE_KEYWORDS = 'negativeKeywords',
-  CAMPAIGN_NEGATIVE_KEYWORDS = 'campaignNegativeKeywords',
-  TARGETS = 'targets',
-  NEGATIVE_TARGETS = 'negativeTargets',
-}
-export const RecordTypeRequest = createEnumType<RecordTypeRequestEnum>(RecordTypeRequestEnum)
-export type RecordTypeRequest = t.TypeOf<typeof RecordTypeRequest>
+export const SponsoredProductsRecordType = t.union([
+  t.literal('campaigns'),
+  t.literal('adGroups'),
+  t.literal('productAds'),
+  t.literal('keywords'),
+  t.literal('negativeKeywords'),
+  t.literal('campaignNegativeKeywords'),
+  t.literal('targets'),
+  t.literal('negativeTargets'),
+])
+export type SponsoredProductsRecordType = t.TypeOf<typeof SponsoredProductsRecordType>
 
-export enum SponsoredBrandsRecordTypeEnum {
-  CAMPAIGNS = 'campaigns',
-  KEYWORDS = 'keywords',
-}
-export const SponsoredBrandsRecordType = createEnumType<SponsoredBrandsRecordTypeEnum>(
-  SponsoredBrandsRecordTypeEnum,
-)
+export const SponsoredBrandsRecordType = t.union([t.literal('campaigns'), t.literal('keywords')])
 export type SponsoredBrandsRecordType = t.TypeOf<typeof SponsoredBrandsRecordType>
 
-export enum RecordTypeEnum {
-  CAMPAIGN = 'campaign',
-  AD_GROUP = 'adGroup',
-  PRODUCT_AD = 'productAd',
-  KEYWORD = 'keyword',
-  NEGATIVE_KEYWORD = 'negativeKeyword',
-  CAMPAIGN_NEGATIVE_KEYWORD = 'campaignNegativeKeyword',
-  TARGET = 'target',
-  NEGATIVE_TARGET = 'negativeTarget',
-}
-export const RecordType = createEnumType<RecordTypeEnum>(RecordTypeEnum)
-export type RecordType = t.TypeOf<typeof RecordType>
+export const RecordTypeResponse = t.union([
+  t.literal('campaign'),
+  t.literal('adGroup'),
+  t.literal('productAd'),
+  t.literal('keyword'),
+  t.literal('negativeKeyword'),
+  t.literal('campaignNegativeKeyword'),
+  t.literal('target'),
+  t.literal('negativeTarget'),
+])
+export type RecordTypeResponse = t.TypeOf<typeof RecordTypeResponse>
 
-export enum SnapshotStatusEnum {
-  IN_PROGRESS = 'IN_PROGRESS',
-  SUCCESS = 'SUCCESS',
-  FAILURE = 'FAILURE',
-}
-export const SnapshotStatusType = createEnumType<SnapshotStatusEnum>(SnapshotStatusEnum)
-
-export enum SnapshotStateEnum {
-  ENABLED = 'enabled',
-  PAUSED = 'paused',
-  ARCHIVED = 'archived',
-}
-export const SnapshotStateType = createEnumType<SnapshotStateEnum>(SnapshotStateEnum)
+export const SnapshotState = t.union([
+  t.literal('enabled'),
+  t.literal('paused'),
+  t.literal('archived'),
+])
+export type SnapshotState = t.TypeOf<typeof SnapshotState>
 
 const BaseSnapshotResponse = t.strict({
   /**
@@ -72,7 +56,7 @@ export const SuccessSnapshotResponse = t.intersection([
     /**
      * The status of the generation of the snapshot.
      */
-    status: t.literal(SnapshotStatusEnum.SUCCESS),
+    status: t.literal('SUCCESS'),
   }),
   t.partial({
     /**
@@ -104,7 +88,7 @@ export const InProgressSnapshotResponse = t.intersection([
     /**
      * The status of the generation of the snapshot.
      */
-    status: t.literal(SnapshotStatusEnum.IN_PROGRESS),
+    status: t.literal('IN_PROGRESS'),
   }),
   t.partial({
     /**
@@ -114,8 +98,9 @@ export const InProgressSnapshotResponse = t.intersection([
 
     /**
      * The record type of the report.
+     * TODO: Need check again on Production API. Sandbox API returns singular. Not same in the docs.
      */
-    recordType: RecordType,
+    recordType: RecordTypeResponse,
   }),
 ])
 export type InProgressSnapshotResponse = t.TypeOf<typeof InProgressSnapshotResponse>
@@ -126,7 +111,7 @@ export const FailureSnapshotResponse = t.intersection([
     /**
      * The status of the generation of the snapshot.
      */
-    status: t.literal(SnapshotStatusEnum.FAILURE),
+    status: t.literal('FAILURE'),
 
     /**
      * Description of the status.
@@ -152,7 +137,7 @@ export const RequestSnapshotParams = t.partial({
    * Must be one of: `enabled`, `paused`, `archived`.
    * Default behavior is to include enabled and paused.
    */
-  stateFilter: SnapshotStateType,
+  stateFilter: SnapshotState,
 })
 export type RequestSnapshotParams = t.TypeOf<typeof RequestSnapshotParams>
 

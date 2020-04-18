@@ -186,13 +186,10 @@ describe('index', () => {
 
   describe('snapshot', () => {
     it('should export all enums', () => {
-      expect(index.RecordTypeEnum).toEqual(snapshotEnum.RecordTypeEnum)
-      expect(index.RecordTypeRequestEnum).toEqual(snapshotEnum.RecordTypeRequestEnum)
-      expect(index.SnapshotStateEnum).toEqual(snapshotEnum.SnapshotStateEnum)
-      expect(index.SnapshotStatusEnum).toEqual(snapshotEnum.SnapshotStatusEnum)
-      expect(index.SponsoredBrandsRecordTypeEnum).toEqual(
-        snapshotEnum.SponsoredBrandsRecordTypeEnum,
-      )
+      expect(index.SponsoredProductsRecordType).toEqual(snapshotEnum.SponsoredProductsRecordType)
+      expect(index.SponsoredBrandsRecordType).toEqual(snapshotEnum.SponsoredBrandsRecordType)
+      expect(index.SnapshotState).toEqual(snapshotEnum.SnapshotState)
+      expect(index.SponsoredBrandsRecordType).toEqual(snapshotEnum.SponsoredBrandsRecordType)
     })
   })
 })

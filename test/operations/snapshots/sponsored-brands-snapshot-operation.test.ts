@@ -1,12 +1,7 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { SponsoredBrandsSnapshotOperation } from '../../../src/operations/snapshots/sponsored-brands-snapshot-operation'
 import { SANDBOX_URI, auth } from '../../http-client-factory'
-import {
-  SnapshotStateEnum,
-  SnapshotStatusEnum,
-  SponsoredBrandsRecordTypeEnum,
-  SuccessSnapshotResponse,
-} from '../../../src/operations/snapshots/types'
+import { SuccessSnapshotResponse } from '../../../src/operations/snapshots/types'
 import { HttpClient, Campaign } from '../../../src'
 
 jest.setTimeout(15000)
@@ -24,7 +19,7 @@ describe('SponsoredBrandsSnapshotOperation', () => {
     it(`should return a snapshot uncompressed`, async () => {
       const param: SuccessSnapshotResponse = {
         snapshotId: 'amzn1.clicksAPI.v1.p1.5E82F8C3.b1095870-c8b5-47c2-b4ef-0c404c3e4fc9',
-        status: SnapshotStatusEnum.SUCCESS,
+        status: 'SUCCESS',
         statusDetails: 'Snapshot has been successfully generated.',
         location:
           'https://advertising-api-test.amazon.com/v1/snapshots/amzn1.clicksAPI.v1.p1.5E82F8C3.b1095870-c8b5-47c2-b4ef-0c404c3e4fc9/download',
@@ -40,26 +35,23 @@ describe('SponsoredBrandsSnapshotOperation', () => {
 
   describe('requestSnapshot', () => {
     it(`should return a snapshot report for all entities of a single record type`, async () => {
-      const res = await operation.requestSnapshot(SponsoredBrandsRecordTypeEnum.CAMPAIGNS, {})
+      const res = await operation.requestSnapshot('campaigns', {})
 
-      expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe('IN_PROGRESS')
     })
 
     it(`should return a snapshot report for all entities of a single record type with additional attributes satisfying optional criteria`, async () => {
-      const res = await operation.requestSnapshot(SponsoredBrandsRecordTypeEnum.KEYWORDS, {
-        stateFilter: SnapshotStateEnum.ARCHIVED,
+      const res = await operation.requestSnapshot('keywords', {
+        stateFilter: 'archived',
       })
 
-      expect(res.status).toEqual(SnapshotStatusEnum.IN_PROGRESS)
+      expect(res.status).toBe('IN_PROGRESS')
     })
   })
 
   describe('getSnapshot', () => {
     it(`should return a snapshot with a specific snapshot id`, async () => {
-      const requestSnapshotResponse = await operation.requestSnapshot(
-        SponsoredBrandsRecordTypeEnum.CAMPAIGNS,
-        {},
-      )
+      const requestSnapshotResponse = await operation.requestSnapshot('campaigns', {})
 
       const res = await operation.getSnapshot(requestSnapshotResponse.snapshotId)
 

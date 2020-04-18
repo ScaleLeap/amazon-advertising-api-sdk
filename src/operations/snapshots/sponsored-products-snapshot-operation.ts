@@ -5,7 +5,7 @@ import {
   SnapshotResponse,
   RequestSnapshotParams,
   SnapshotId,
-  RecordTypeRequest,
+  SponsoredProductsRecordType,
   SuccessSnapshotResponse,
   SnapshotResultType,
 } from './types'
@@ -29,13 +29,13 @@ export class SponsoredProductsSnapshotOperation extends Operation {
   /**
    * Request a file-based snapshot of all entities of the specified type in the account satisfying the filtering criteria
    *
-   * @param {RecordTypeRequest} recordType
+   * @param {SponsoredProductsRecordType} recordType
    * @param {RequestSnapshotParams} params
    * @returns
    * @memberof SponsoredProductsSnapshotOperation
    */
   @Decode(SnapshotResponse)
-  public requestSnapshot(recordType: RecordTypeRequest, params: RequestSnapshotParams) {
+  public requestSnapshot(recordType: SponsoredProductsRecordType, params: RequestSnapshotParams) {
     return this.client.post<SnapshotResponse>(`${this.resource}${recordType}/snapshot`, params)
   }
 
