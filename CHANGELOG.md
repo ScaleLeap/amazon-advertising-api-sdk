@@ -3,6 +3,43 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.15.1...v1.16.0) (2020-04-20)
+
+
+### Features
+
+* add sb ad group and keyword report metrics ([f3f2755](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f3f2755449164318854dba2f527d04df8480acee))
+* add sb campaign report metrics ([a489a57](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a489a57b6b50b99060a65baa9e006c6d3e19cda7))
+* add sb search term report ([5ea0ba9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/5ea0ba9f5565328abb6a20c5f8a603c3f879cf9a))
+* add sb target report ([1acdb28](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1acdb28ab3a2f3488aa5810356653fc96947e082))
+* change AdGroupResponseStatus enum to using union string ([b40fc8c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b40fc8c96aa1e77a714520e2a29baedd74d9f617))
+* change AdGroupServingStatus to using union string ([b50f8a6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b50f8a69e7ee7feb4cf994c27636a054ab5bc012))
+* change AdGroupState to using union string ([2bbe4a8](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/2bbe4a8df92a5b68a3ffc0afa4d83de5ecdf8c02))
+* change bidding predicate type to using union string ([aab33fb](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/aab33fb6636b28fec25f7171dfd11a7f15c78d9a))
+* change BidRecommendationsResponseCode to using union string ([5dfb84f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/5dfb84f7cfdc87085e259f135ee3f8037bc4f8fb))
+* change campaign  bidding adjustments predicate and strategy to use union string ([89d0d0e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/89d0d0ef9f3048e6e8d2dd33a337206f987d7334))
+* change enums of campaign module to use union string ([d70c4bd](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d70c4bda4d4b6d57311bff3c61914b3973c2a254))
+* change enums of draft module to use union string ([8356e9c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8356e9c3f5fe90bd8e5150e901ed6f59e01acf33))
+* change enums of portfolio module to use union string ([c918d20](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c918d2092caadd605c7c85c8c17a31535c558798))
+* change enums of product ads module to use union string ([f866520](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f8665204fe29a87dae7037a21738941853de819f))
+* change enums of product targeting module to use union string ([5f43bda](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/5f43bdaa777ec8a22ee433731cbce14eb41934d4))
+* change enums of profile module to use union string ([9aebd41](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/9aebd41acb98ad5ebbf0dd0aaaa987019ca6fe21))
+* change enums of recommendation module to use union string ([9a500c5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/9a500c509731a30fdeaf649d582bf77cbb0e2d10))
+* change KeywordBidRecommendationsMatchType to using union string ([87da574](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/87da5744519f88993d87260c9c47ec15122e3cdd))
+* change KeywordState, KeywordMatchType, KeywordServingStatus and KeywordResponseStatus to use union string ([dbde3fe](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/dbde3feb9f39c1058ab0093e020ce51b893294f7))
+* change remaining enum of keyword module to use union string ([3112c78](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/3112c787714dc435968e53de16b6f67a044ad8f6))
+* change report type to use union string ([dafbec1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/dafbec147a4a82991876f7f4f530fc29afb07b19))
+* change ReportResponseStatus to union string ([a752f6c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a752f6ceb1e81936bce5aeb3e85b813b4ffbbac6))
+* change ReportSegments to use union string ([53fe361](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/53fe3612743aed305ace0ed17c08da19a53ceeca))
+* change snapshot module to use union string ([fded09c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/fded09c520888feeda9298d272360396490a00aa))
+* change sp ad group, asin, campaign and sb headline report metrics to use union string ([7978029](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7978029cde6db47356b36d255e99f82612fe49de))
+* change sp keyword report metrics to use union string ([5967337](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/5967337ded8f17cae2d00bbb3f1affb4e82b48f4))
+* change sp product ads and product targeting to use union string ([9d74937](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/9d749378fe9ddf8aec44256045bb171678255482))
+* remove matchType field of sb target report metrics ([49c19ba](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/49c19ba509a71bb8a840d6db07bfa1d034e889af))
+* remove un-available methods and attributes of sb campaign operation ([fb1fa27](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/fb1fa27d1b4268f22eb019c1e7120e6b22020cee))
+* split concrete and optional fields for Campaign type ([be65b05](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/be65b05fc65fdf4b264c514e190f8d150ff6a7cd))
+* update type for AdGroupResponse code ([8df34d0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8df34d0770633e8f36fb8fb43be78e0876529ee5))
+
 ## [1.15.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.15.0...v1.15.1) (2020-04-16)
 
 
