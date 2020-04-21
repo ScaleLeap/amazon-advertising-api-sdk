@@ -1,4 +1,5 @@
 import * as index from '../src/index'
+import * as entrypointClass from '../src/amazon-advertising'
 import * as adGroupTypes from '../src/operations/ad-groups/types'
 import { CampaignBiddingAdjustmentsPredicate } from '../src/operations/bidding/campaign-bidding-adjustments-predicate'
 import { CampaignBiddingStrategy } from '../src/operations/bidding/campaign-bidding-strategy'
@@ -15,6 +16,12 @@ import * as reportTypes from '../src/operations/reports/index'
 import * as snapshotTypes from '../src/operations/snapshots/types'
 
 describe('index', () => {
+  describe('amazon advertising', () => {
+    it('should export main entry class', () => {
+      expect(index.AmazonAdvertising).toEqual(entrypointClass.AmazonAdvertising)
+    })
+  })
+
   describe('ad group', () => {
     it('should export all enums', () => {
       expect(index.AdGroupState).toEqual(adGroupTypes.AdGroupState)
