@@ -10,12 +10,4 @@ describe('AmazonAdvertising', () => {
   it('should return SponsoredProductsCampaignOperation', () => {
     expect(operation).toBeInstanceOf(SponsoredProductsCampaignOperation)
   })
-
-  describe('SponsoredProductsCampaignOperation', () => {
-    it('should return an array of campaigns', async () => {
-      const res = await operation.listCampaigns()
-
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-  })
 })
