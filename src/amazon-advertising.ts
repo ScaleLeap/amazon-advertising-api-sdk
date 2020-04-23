@@ -20,7 +20,7 @@ export class AmazonAdvertising {
   }
 
   @LazyGetter()
-  get sponsoredProductsCampaignOperation(): SponsoredProductsCampaignOperation {
+  get sponsoredProductsCampaign() {
     return this.operationProvider.create(SponsoredProductsCampaignOperation)
   }
 }
