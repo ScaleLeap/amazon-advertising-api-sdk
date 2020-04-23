@@ -7,6 +7,8 @@ import {
   KeywordBidRecommendationsResponse,
   KeywordBidRecommendationsData,
   BidRecommendationsResponse,
+  BidRecommendationRequest,
+  BidRecommendationForTargetsResponse,
 } from './types'
 import { KeywordId } from '../keywords/types'
 
@@ -52,6 +54,21 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
   public createKeywordBidRecommendations(params: KeywordBidRecommendationsData) {
     return this.client.post<BidRecommendationsResponse>(
       `${this.resource}/keywords/bidRecommendations`,
+      params,
+    )
+  }
+
+  /**
+   * Retrieve a list of bid recommendations for keyword, product, or auto targeting expressions by adGroupId.
+   *
+   * @param {BidRecommendationRequest} params
+   * @returns BidRecommendationForTargetsResponse
+   * @memberof SponsoredProductsBidRecommendationOperation
+   */
+  @Decode(BidRecommendationForTargetsResponse)
+  public getBidRecommendations(params: BidRecommendationRequest) {
+    return this.client.post<BidRecommendationForTargetsResponse>(
+      `${this.resource}/targets/bidRecommendations`,
       params,
     )
   }
