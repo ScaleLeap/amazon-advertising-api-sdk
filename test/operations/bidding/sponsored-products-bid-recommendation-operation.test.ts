@@ -12,7 +12,7 @@ describe('SponsoredProductsBidRecommendationOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsBidRecommendationOperation)
-  const AD_GROUP_ID = 149522344269714
+  const AD_GROUP_ID = 164621261612363
 
   describe('getAdGroupBidRecommendations', () => {
     it(`should retrieve bid recommendation data for the specified adGroup id`, async () => {
