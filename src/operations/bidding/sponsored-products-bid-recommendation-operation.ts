@@ -13,7 +13,7 @@ import {
 import { KeywordId } from '../keywords/types'
 
 export class SponsoredProductsBidRecommendationOperation extends Operation {
-  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/`
+  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}`
 
   /**
    * Request bid recommendations for specified ad group.
