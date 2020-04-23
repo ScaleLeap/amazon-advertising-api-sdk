@@ -4,7 +4,7 @@ import { auth } from './http-client-factory'
 import { SponsoredProductsCampaignOperation } from '../src'
 
 const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.JP, auth)
-const operation = amazonAdvertising.sponsoredProductsCampaignOperation
+const operation = amazonAdvertising.sponsoredProductsCampaign
 
 describe('AmazonAdvertising', () => {
   it('should return SponsoredProductsCampaignOperation', () => {
