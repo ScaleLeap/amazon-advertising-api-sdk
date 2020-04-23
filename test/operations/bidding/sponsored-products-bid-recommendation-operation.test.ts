@@ -6,34 +6,17 @@ import {
   BidRecommendationsResponseCode,
   KeywordBidRecommendationsMatchType,
   BidRecommendationRequest,
-  SponsoredProductsProductAdsOperation,
-  CreateProductAdParams,
 } from '../../../src'
-import { delay } from '../../test-utils'
 
 describe('SponsoredProductsBidRecommendationOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsBidRecommendationOperation)
-  const productAdsOperation = operationProvider.create(SponsoredProductsProductAdsOperation)
   const AUTO_AD_GROUP_ID = 164621261612363
   const MANUAL_AD_GROUP_ID = 149522344269714
-  const SKU = 'AB-RED-8675309'
 
   describe('getAdGroupBidRecommendations', () => {
     it(`should retrieve bid recommendation data for the specified adGroup id`, async () => {
-      const params: CreateProductAdParams[] = [
-        {
-          campaignId: 31299234922913,
-          adGroupId: 164621261612363,
-          state: 'enabled',
-          sku: SKU,
-        },
-      ]
-      await productAdsOperation.createProductAds(params)
-
-      await delay()
-
       const res = await operation.getAdGroupBidRecommendations(AUTO_AD_GROUP_ID)
 
       expect(res.adGroupId).toBe(AUTO_AD_GROUP_ID)
