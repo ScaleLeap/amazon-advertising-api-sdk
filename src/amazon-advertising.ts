@@ -1,4 +1,5 @@
 import { AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
+import { LazyGetter } from 'lazy-get-decorator'
 import { HttpClientAuth } from './http-client'
 import { HttpClient } from './http-client'
 import { OperationProvider } from './operations/operation-provider'
@@ -6,7 +7,6 @@ import { SponsoredProductsCampaignOperation } from './operations/campaigns/spons
 
 export class AmazonAdvertising {
   private operationProvider: OperationProvider
-  private static sponsoredProductsCampaignOperation: SponsoredProductsCampaignOperation
 
   constructor(private amazonMarketplace: AmazonMarketplace, private auth: HttpClientAuth) {
     const { advertising } = amazonMarketplace
@@ -19,12 +19,8 @@ export class AmazonAdvertising {
     this.operationProvider = new OperationProvider(httpClient)
   }
 
-  getSponsoredProductsCampaignOperation(): SponsoredProductsCampaignOperation {
-    if (!AmazonAdvertising.sponsoredProductsCampaignOperation) {
-      AmazonAdvertising.sponsoredProductsCampaignOperation = this.operationProvider.create(
-        SponsoredProductsCampaignOperation,
-      )
-    }
-    return AmazonAdvertising.sponsoredProductsCampaignOperation
+  @LazyGetter()
+  get sponsoredProductsCampaignOperation(): SponsoredProductsCampaignOperation {
+    return this.operationProvider.create(SponsoredProductsCampaignOperation)
   }
 }
