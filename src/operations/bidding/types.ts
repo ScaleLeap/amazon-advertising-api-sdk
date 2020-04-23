@@ -213,3 +213,6 @@ export const BidRecommendationForTargetsResponse = t.strict({
    */
   recommendations: BidRecommendationLists,
 })
+export type BidRecommendationForTargetsResponse = t.TypeOf<
+  typeof BidRecommendationForTargetsResponse
+>
