@@ -3,6 +3,18 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.16.1...v1.17.0) (2020-04-25)
+
+
+### Features
+
+* create a main entrypoint class ([e0eb8e0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e0eb8e0ea0b9da474b732455ae2f052ab88cfaf2))
+* export BidRecommendationForTargetsResponse and implement getBidRecommendations method ([eb66d8f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/eb66d8f98feb6fa25d948cd056399077cf32e2d1))
+* export entrypoint class ([2577671](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/2577671582c861d45eca62a5883b696babb3a7e8))
+* implement get ad group, get keyword, create keyword bid recommendation methods ([0a44d2a](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/0a44d2a8c2daa8bd610ca509dc81607243ee105e))
+* remove AmazonAdvertising 'Operation' suffix and type ([c36cf5b](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c36cf5bacf15f7a3cc98d792982864b0f73e4ea1))
+* use LazyGetter decorator for main entrypoint class ([26f0e45](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/26f0e452ed34af9d609e3af6bbc42fcdeef772a6))
+
 ## [1.16.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.16.0...v1.16.1) (2020-04-20)
 
 
