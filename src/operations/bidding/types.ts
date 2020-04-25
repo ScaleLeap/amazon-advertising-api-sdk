@@ -9,19 +9,6 @@ export const KeywordBidRecommendationsMatchType = t.union([
 ])
 export type KeywordBidRecommendationsMatchType = t.TypeOf<typeof KeywordBidRecommendationsMatchType>
 
-/**
- * The resulting status code for retrieving the bid.
- */
-export const BidRecommendationsResponseCode = t.union([
-  t.literal('SUCCESS'),
-  t.literal('INVALID_ARGUMENT'),
-  t.literal('NOT_FOUND'),
-  t.literal('INTERNAL_ERROR'),
-  t.literal('SERVER_IS_BUSY'),
-  t.literal('UNAUTHORIZED'),
-])
-export type BidRecommendationsResponseCode = t.TypeOf<typeof BidRecommendationsResponseCode>
-
 export const BidRecommendationsKeyword = t.strict({
   /**
    * The keyword text.
@@ -89,26 +76,33 @@ export const KeywordBidRecommendationsData = t.strict({
 })
 export type KeywordBidRecommendationsData = t.TypeOf<typeof KeywordBidRecommendationsData>
 
+const BidRecommendationSuccesResponse = t.intersection([
+  t.strict({
+    /**
+     * The resulting status code for retrieving the bid.
+     */
+    code: t.literal('SUCCESS'),
+
+    suggestedBid: SuggestedBid,
+  }),
+
+  BidRecommendationsKeyword,
+])
+
+const BidRecommendationNotFound = t.strict({
+  /**
+   * The response code
+   */
+  code: t.literal('NOT_FOUND'),
+})
+
 export const BidRecommendationsResponse = t.strict({
   /**
    * The ID of the ad group that a bid was requested for.
    */
   adGroupId: AdGroupId,
 
-  recommendations: t.array(
-    t.intersection([
-      t.strict({
-        /**
-         * The resulting status code for retrieving the bid.
-         */
-        code: BidRecommendationsResponseCode,
-
-        suggestedBid: SuggestedBid,
-      }),
-
-      BidRecommendationsKeyword,
-    ]),
-  ),
+  recommendations: t.array(t.union([BidRecommendationSuccesResponse, BidRecommendationNotFound])),
 })
 export type BidRecommendationsResponse = t.TypeOf<typeof BidRecommendationsResponse>
 
@@ -180,7 +174,7 @@ export const BidRecommendationRequest = t.strict({
 })
 export type BidRecommendationRequest = t.TypeOf<typeof BidRecommendationRequest>
 
-export const BidRecommendationList = t.strict({
+const BidRecommendationForTargetsSuccess = t.strict({
   /**
    * The suggested bid
    */
@@ -194,8 +188,45 @@ export const BidRecommendationList = t.strict({
   /**
    * The response code
    */
-  code: BidRecommendationsResponseCode,
+  code: t.literal('SUCCESS'),
 })
+
+const BidRecommendationInvalidArgument = t.strict({
+  /**
+   * The response code
+   */
+  code: t.literal('INVALID_ARGUMENT'),
+})
+
+const BidRecommendationInternalError = t.strict({
+  /**
+   * The response code
+   */
+  code: t.literal('INTERNAL_ERROR'),
+})
+
+const BidRecommendationServerIsBusy = t.strict({
+  /**
+   * The response code
+   */
+  code: t.literal('SERVER_IS_BUSY'),
+})
+
+const BidRecommendationUnauthorized = t.strict({
+  /**
+   * The response code
+   */
+  code: t.literal('UNAUTHORIZED'),
+})
+
+export const BidRecommendationList = t.union([
+  BidRecommendationForTargetsSuccess,
+  BidRecommendationInvalidArgument,
+  BidRecommendationNotFound,
+  BidRecommendationInternalError,
+  BidRecommendationServerIsBusy,
+  BidRecommendationUnauthorized,
+])
 
 export const BidRecommendationLists = t.array(BidRecommendationList)
 

@@ -3,7 +3,6 @@ import { httpClientFactory } from '../../http-client-factory'
 import { SponsoredProductsBidRecommendationOperation } from '../../../src/operations/bidding/sponsored-products-bid-recommendation-operation'
 import {
   KeywordBidRecommendationsData,
-  BidRecommendationsResponseCode,
   KeywordBidRecommendationsMatchType,
   BidRecommendationRequest,
 } from '../../../src'
@@ -35,6 +34,8 @@ describe('SponsoredProductsBidRecommendationOperation', () => {
 
   describe('createKeywordBidRecommendations', () => {
     it(`should retrieve keyword bid recommendation data for one or more keywords`, async () => {
+      expect.assertions(3)
+
       const params: KeywordBidRecommendationsData = {
         adGroupId: MANUAL_AD_GROUP_ID,
         keywords: [
@@ -56,9 +57,10 @@ describe('SponsoredProductsBidRecommendationOperation', () => {
       const [recommendation] = res.recommendations
 
       expect(res.adGroupId).toBe(MANUAL_AD_GROUP_ID)
-      expect(recommendation.code).toBe<BidRecommendationsResponseCode>('SUCCESS')
-      expect(recommendation.keyword).toBe('Apple1')
-      expect(recommendation.matchType).toBe<KeywordBidRecommendationsMatchType>('broad')
+      if (recommendation.code == 'SUCCESS') {
+        expect(recommendation.keyword).toBe('Apple1')
+        expect(recommendation.matchType).toBe<KeywordBidRecommendationsMatchType>('broad')
+      }
     })
   })
 
@@ -69,6 +71,7 @@ describe('SponsoredProductsBidRecommendationOperation', () => {
    */
   describe.skip('getBidRecommendations', () => {
     it(`should retrieve a list of bid recommendations for keyword, product or auto targeting expressions by adGroupId`, async () => {
+      expect.assertions(3)
       const EXPRESSION_VALUE = 'Apple'
       const EXPRESSION_TYPE = 'queryBroadRelMatches'
 
@@ -85,9 +88,10 @@ describe('SponsoredProductsBidRecommendationOperation', () => {
       const [recommendation] = res.recommendations
 
       expect(res.adGroupId).toBe(AUTO_AD_GROUP_ID)
-      expect(recommendation.code).toBe<BidRecommendationsResponseCode>('SUCCESS')
-      expect(recommendation.expression.value).toBe(EXPRESSION_VALUE)
-      expect(recommendation.expression.type).toBe(EXPRESSION_TYPE)
+      if (recommendation.code == 'SUCCESS') {
+        expect(recommendation.expression.value).toBe(EXPRESSION_VALUE)
+        expect(recommendation.expression.type).toBe(EXPRESSION_TYPE)
+      }
     })
   })
 })

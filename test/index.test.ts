@@ -34,9 +34,6 @@ describe('index', () => {
     it('should export all enums', () => {
       expect(index.CampaignBiddingAdjustmentsPredicate).toEqual(CampaignBiddingAdjustmentsPredicate)
       expect(index.CampaignBiddingStrategy).toEqual(CampaignBiddingStrategy)
-      expect(index.BidRecommendationsResponseCode).toEqual(
-        biddingTypes.BidRecommendationsResponseCode,
-      )
       expect(index.BiddingAutoPredicateType).toEqual(biddingTypes.BiddingAutoPredicateType)
       expect(index.BiddingKeywordPredicateType).toEqual(biddingTypes.BiddingKeywordPredicateType)
       expect(index.BiddingProductPredicateType).toEqual(biddingTypes.BiddingProductPredicateType)
