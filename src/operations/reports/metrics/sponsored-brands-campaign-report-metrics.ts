@@ -162,7 +162,7 @@ export const SponsoredBrandsCampaignReportMetrics = t.union([
   t.literal('dpv14d'),
 
   /**
-   * A user’s search term on Amazon. Only available for keyword reports with query segment defined. 
+   * A user’s search term on Amazon. Only available for keyword reports with query segment defined.
    * Note that you do not need to define this in your metric list. This will be added automatically if you have the query segment defined.
    * TODO: Need check on Production API again. Sandbox API return an error:
    * UnprocessableEntityError: Unrecognized metric: query
