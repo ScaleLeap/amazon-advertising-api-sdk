@@ -11,10 +11,44 @@ describe('SponsoredBrandsReportOperation', () => {
   const reportOperation = operationProvider.create(SponsoredBrandsReportOperation)
 
   describe('requestReport', () => {
-    it(`should return a in progress status`, async () => {
+    it(`should return a in progress status with campaigns report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: 'campaigns',
-        metrics: ['campaignBudget', 'campaignBudgetType', 'campaignStatus'],
+        metrics: [
+          'campaignName',
+          'campaignId',
+          'campaignStatus',
+          'campaignBudget',
+          'campaignBudgetType',
+          'adGroupName',
+          'adGroupId',
+          'keywordText',
+          'keywordBid',
+          'keywordStatus',
+          'targetId',
+          'targetingExpression',
+          'targetingText',
+          'targetingType',
+          'matchType',
+          'impressions',
+          'clicks',
+          'cost',
+          'attributedDetailPageViewsClicks14d',
+          'attributedSales14d',
+          'attributedSales14dSameSKU',
+          'attributedConversions14d',
+          'attributedConversions14dSameSKU',
+          'attributedOrdersNewToBrand14d',
+          'attributedOrdersNewToBrandPercentage14d',
+          'attributedOrderRateNewToBrand14d',
+          'attributedSalesNewToBrand14d',
+          'attributedSalesNewToBrandPercentage14d',
+          'attributedUnitsOrderedNewToBrand14d',
+          'attributedUnitsOrderedNewToBrandPercentage14d',
+          'unitsSold14d',
+          'dpv14d',
+          'query',
+        ],
         reportDate: '20200314',
       })
 
