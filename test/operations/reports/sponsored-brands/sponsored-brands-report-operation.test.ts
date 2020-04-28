@@ -47,7 +47,6 @@ describe('SponsoredBrandsReportOperation', () => {
           'attributedUnitsOrderedNewToBrandPercentage14d',
           'unitsSold14d',
           'dpv14d',
-          'query',
         ],
         reportDate: '20200314',
       })
