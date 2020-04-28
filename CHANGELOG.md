@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.19.0...v1.20.0) (2020-04-28)
+
+
+### Features
+
+* update sb campaign report metrics ([d6fc2e5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d6fc2e5814acf0c86772f420834da0e83d02e948))
+
 # [1.19.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.18.0...v1.19.0) (2020-04-28)
 
 
