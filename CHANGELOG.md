@@ -3,6 +3,14 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.17.1...v1.18.0) (2020-04-28)
+
+
+### Features
+
+* export: sp bid recommendation and sb stores infor operation ([42d6a19](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/42d6a19cf6808c681b6b87ee901989fa7685d690))
+* update operations into main entry point class ([f380da3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f380da3a874fc46cfb83aeb1bd1bfabae4ac1c4c))
+
 ## [1.17.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.17.0...v1.17.1) (2020-04-27)
 
 
