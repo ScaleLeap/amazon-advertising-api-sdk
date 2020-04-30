@@ -14,6 +14,7 @@
     "clean": "rimraf lib",
     "lint": "eslint --ext .js,.ts src test",
     "test": "jest",
+    "api-extractor": "api-extractor run --local --verbose",
     "semantic-release": "semantic-release",
     "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'",
     "dev:refresh-token": "ts-node test/refresh-token.ts"
