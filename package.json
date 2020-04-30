@@ -16,7 +16,9 @@
     "test": "jest",
     "semantic-release": "semantic-release",
     "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'",
-    "dev:refresh-token": "ts-node test/refresh-token.ts"
+    "dev:refresh-token": "ts-node test/refresh-token.ts",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "",
@@ -32,7 +34,8 @@
     "io-ts-types": "0.5.6",
     "lazy-get-decorator": "2.2.0",
     "lodash": "4.17.15",
-    "ts-error": "1.0.4"
+    "ts-error": "1.0.4",
+    "snyk": "^1.316.0"
   },
   "devDependencies": {
     "@scaleleap/config": "1.6.0",
@@ -62,5 +65,6 @@
   },
   "release": {
     "extends": "@scaleleap/semantic-release-config"
-  }
+  },
+  "snyk": true
 }
