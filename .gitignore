@@ -98,3 +98,7 @@ public/
 # End of https://www.gitignore.io/api/node
 
 lib/
+
+# Api Extractor
+dist/
+temp/
