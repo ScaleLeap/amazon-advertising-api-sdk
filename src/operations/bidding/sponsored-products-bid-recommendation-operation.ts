@@ -20,7 +20,6 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
    *
    * @param {AdGroupId} id
    * @returns AdGroupBidRecommendationsResponse
-   * @memberof SponsoredProductsBidRecommendationOperation
    */
   @Decode(AdGroupBidRecommendationsResponse)
   public getAdGroupBidRecommendations(id: AdGroupId) {
@@ -34,7 +33,6 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
    *
    * @param {KeywordId} id
    * @returns KeywordBidRecommendationsResponse
-   * @memberof SponsoredProductsBidRecommendationOperation
    */
   @Decode(KeywordBidRecommendationsResponse)
   public getKeywordBidRecommendations(id: KeywordId) {
@@ -48,7 +46,6 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
    *
    * @param {KeywordBidRecommendationsData} params
    * @returns BidRecommendationsResponse
-   * @memberof SponsoredProductsBidRecommendationOperation
    */
   @Decode(BidRecommendationsResponse)
   public createKeywordBidRecommendations(params: KeywordBidRecommendationsData) {
@@ -63,7 +60,6 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
    *
    * @param {BidRecommendationRequest} params
    * @returns BidRecommendationForTargetsResponse
-   * @memberof SponsoredProductsBidRecommendationOperation
    */
   @Decode(BidRecommendationForTargetsResponse)
   public getBidRecommendations(params: BidRecommendationRequest) {

@@ -18,7 +18,6 @@ export class SponsoredBrandsTargetingRecommendationsOperation extends Operation 
    *
    * @param {SponsoredBrandsProductRecommendationsRequest} params
    * @returns
-   * @memberof SponsoredBrandsTargetingRecommendationsOperation
    */
   @Decode(SponsoredBrandsProductRecommendationsResponse)
   public getProductRecommendations(params: SponsoredBrandsProductRecommendationsRequest) {
@@ -33,7 +32,6 @@ export class SponsoredBrandsTargetingRecommendationsOperation extends Operation 
    *
    * @param {SponsoredBrandsCategoryRecommendationsRequest} params
    * @returns
-   * @memberof SponsoredBrandsTargetingRecommendationsOperation
    */
   @Decode(SponsoredBrandsCategoryRecommendationsResponse)
   public getCategoryRecommendations(params: SponsoredBrandsCategoryRecommendationsRequest) {
@@ -48,7 +46,6 @@ export class SponsoredBrandsTargetingRecommendationsOperation extends Operation 
    *
    * @param {SponsoredBrandsBrandRecommendationsRequest} params
    * @returns
-   * @memberof SponsoredBrandsTargetingRecommendationsOperation
    */
   @Decode(SponsoredBrandsBrandRecommendationsResponse)
   public getBrandRecommendations(params: SponsoredBrandsBrandRecommendationsRequest) {

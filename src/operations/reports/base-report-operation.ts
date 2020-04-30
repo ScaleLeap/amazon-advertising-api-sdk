@@ -8,7 +8,6 @@ export class BaseReportOperation extends Operation {
    *
    * @param {ReportId} reportId
    * @returns
-   * @memberof BaseReportOperation
    */
   @Decode(ReportResponse)
   public getReport(reportId: ReportId) {
@@ -21,7 +20,6 @@ export class BaseReportOperation extends Operation {
    * @template T
    * @param {ReportId} reportId
    * @returns {(Promise<Partial<Record<T, 'number' | 'string'>>[]>)}
-   * @memberof BaseReportOperation
    */
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   public async downloadReport<T extends string>(

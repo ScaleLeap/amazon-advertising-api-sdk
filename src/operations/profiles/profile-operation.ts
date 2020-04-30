@@ -19,7 +19,6 @@ export class ProfileOperation extends Operation {
    * Retrieves one or more profiles associated with the authorization passed in the request header.
    *
    * @returns
-   * @memberof ProfileOperation
    */
   @DecodeArray(Profile)
   public listProfiles() {
@@ -31,7 +30,6 @@ export class ProfileOperation extends Operation {
    *
    * @param {ProfileId} profileId
    * @returns
-   * @memberof ProfileOperation
    */
   @Decode(Profile)
   public getProfile(profileId: ProfileId) {
@@ -43,7 +41,6 @@ export class ProfileOperation extends Operation {
    *
    * @param {Partial<Profile>[]} profiles
    * @returns
-   * @memberof ProfileOperation
    */
   @DecodeArray(ProfileResponse)
   public updateProfiles(profiles: Partial<Profile>[]) {
@@ -56,7 +53,6 @@ export class ProfileOperation extends Operation {
    *
    * @param {CountryCodeType} [countryCode=CountryCodeEnum.US]
    * @returns
-   * @memberof ProfileOperation
    */
   @Decode(RegisterProfileResponse)
   public registerProfile(
@@ -72,7 +68,6 @@ export class ProfileOperation extends Operation {
    *
    * @param {RegisterBrand} registerBrand
    * @returns
-   * @memberof ProfileOperation
    */
   @Decode(ProfileRegistrationResponse)
   public registerBrand(registerBrand: RegisterBrand) {
@@ -87,7 +82,6 @@ export class ProfileOperation extends Operation {
    * For more information about Brands, see Brand Services.
    *
    * @returns
-   * @memberof ProfileOperation
    */
   @DecodeArray(Brand)
   public getBrands() {

@@ -19,7 +19,6 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    *
    * @param {CampaignId} campaignId
    * @returns
-   * @memberof SponsoredBrandsCampaignOperation
    */
   @Decode(SponsoredBrandsCampaign)
   public getCampaign(campaignId: CampaignId) {
@@ -31,7 +30,6 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    *
    * @param {ListCampaignsParams} [params]
    * @returns
-   * @memberof SponsoredBrandsCampaignOperation
    */
   @DecodeArray(SponsoredBrandsCampaign)
   public listCampaigns(params?: ListCampaignsParams) {
@@ -43,7 +41,6 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    *
    * @param {SponsoredBrandsCampaignCreateParams[]} campaigns
    * @returns
-   * @memberof SponsoredBrandsCampaignOperation
    */
   @DecodeArray(CampaignResponse)
   public createCampaigns(campaigns: SponsoredBrandsCampaignCreateParams[]) {
@@ -55,7 +52,6 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    *
    * @param {SponsoredBrandsCampaignUpdateParams[]} campaigns
    * @returns
-   * @memberof SponsoredBrandsCampaignOperation
    */
   @DecodeArray(CampaignResponse)
   public updateCampaigns(campaigns: SponsoredBrandsCampaignUpdateParams[]) {
@@ -67,7 +63,6 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    *
    * @param {CampaignId} campaignId
    * @returns
-   * @memberof SponsoredBrandsCampaignOperation
    */
   @Decode(CampaignResponse)
   public archiveCampaign(campaignId: CampaignId) {

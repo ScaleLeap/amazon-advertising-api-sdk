@@ -20,7 +20,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {ListCampaignsParams} [params]
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @DecodeArray(Campaign)
   public listCampaigns(params?: ListCampaignsParams) {
@@ -32,7 +31,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {ListCampaignsParams} [params]
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @DecodeArray(CampaignExtended)
   public listCampaignsEx(params?: ListCampaignsParams) {
@@ -45,7 +43,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {CampaignId} campaignId
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @Decode(Campaign)
   public getCampaign(campaignId: CampaignId) {
@@ -58,7 +55,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {CampaignId} campaignId
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @Decode(CampaignExtended)
   public getCampaignEx(campaignId: CampaignId) {
@@ -71,7 +67,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {SponsoredProductsCampaignCreateParams[]} campaigns
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @DecodeArray(CampaignResponse)
   public createCampaigns(campaigns: SponsoredProductsCampaignCreateParams[]) {
@@ -83,7 +78,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {SponsoredProductsCampaignUpdateParams[]} campaigns
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @DecodeArray(CampaignResponse)
   public updateCampaigns(campaigns: SponsoredProductsCampaignUpdateParams[]) {
@@ -96,7 +90,6 @@ export class SponsoredProductsCampaignOperation extends Operation {
    *
    * @param {CampaignId} campaignId
    * @returns
-   * @memberof SponsoredProductsCampaignOperation
    */
   @Decode(CampaignResponse)
   public archiveCampaign(campaignId: CampaignId) {

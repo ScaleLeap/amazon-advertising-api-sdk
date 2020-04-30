@@ -9,7 +9,6 @@ export class SponsoredBrandsStoresInfoOperation extends Operation {
    * List store information for all registered stores under an advertiser.
    *
    * @returns
-   * @memberof SponsoredBrandsStoresInfoOperation
    */
   @DecodeArray(StoreInfoResponse)
   public listStores() {
@@ -21,7 +20,6 @@ export class SponsoredBrandsStoresInfoOperation extends Operation {
    *
    * @param {BrandEntityId} id
    * @returns
-   * @memberof SponsoredBrandsStoresInfoOperation
    */
   @Decode(StoreInfoResponse)
   public getStore(id: BrandEntityId) {

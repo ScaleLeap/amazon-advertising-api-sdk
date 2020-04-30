@@ -13,7 +13,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {AdGroupId} adGroupId
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @Decode(AdGroup)
   public getAdGroup(adGroupId: AdGroupId) {
@@ -26,7 +25,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {AdGroupId} adGroupId
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @Decode(AdGroupExtended)
   public getAdGroupEx(adGroupId: AdGroupId) {
@@ -38,7 +36,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {AdGroup[]} adGroups
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @DecodeArray(AdGroupResponse)
   public createAdGroups(adGroups: AdGroup[]) {
@@ -50,7 +47,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {AdGroup[]} adGroups
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @DecodeArray(AdGroupResponse)
   public updateAdGroups(adGroups: AdGroup[]) {
@@ -64,7 +60,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {AdGroupId} adGroupId
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @Decode(AdGroupResponse)
   public archiveAdGroup(adGroupId: AdGroupId) {
@@ -76,7 +71,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {ListAdGroupsParams} [params]
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @DecodeArray(AdGroup)
   public listAdGroups(params?: ListAdGroupsParams) {
@@ -88,7 +82,6 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    *
    * @param {ListAdGroupsParams} [params]
    * @returns
-   * @memberof SponsoredProductsAdGroupOperation
    */
   @DecodeArray(AdGroupExtended)
   public listAdGroupsEx(params?: ListAdGroupsParams) {

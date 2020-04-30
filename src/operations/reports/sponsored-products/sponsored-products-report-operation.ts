@@ -68,7 +68,6 @@ export class SponsoredProductsReportOperation<
    * @private
    * @param {ReportParams} params
    * @returns
-   * @memberof SponsoredProductsReportOperation
    */
   private requestAsinReport(params: ReportParams) {
     return this.requestReportByUri(
@@ -84,7 +83,6 @@ export class SponsoredProductsReportOperation<
    *
    * @param {ReportParams} params
    * @returns
-   * @memberof SponsoredProductsReportOperation
    */
   @Decode(ReportResponse)
   public requestReport(params: ReportParams) {

@@ -18,7 +18,6 @@ export class PortfolioOperation extends Operation {
    *
    * @param {ListPortfoliosParams} [params]
    * @returns
-   * @memberof PortfolioOperation
    */
   @DecodeArray(Portfolio)
   public listPortfolios(params?: ListPortfoliosParams) {
@@ -30,7 +29,6 @@ export class PortfolioOperation extends Operation {
    *
    * @param {ListPortfoliosParams} [params]
    * @returns
-   * @memberof PortfolioOperation
    */
   @DecodeArray(PortfolioExtended)
   public listPortfoliosEx(params?: ListPortfoliosParams) {
@@ -42,7 +40,6 @@ export class PortfolioOperation extends Operation {
    *
    * @param {PortfolioId} portfolioId
    * @returns
-   * @memberof PortfolioOperation
    */
   @Decode(Portfolio)
   public getPortfolio(portfolioId: PortfolioId) {
@@ -54,7 +51,6 @@ export class PortfolioOperation extends Operation {
    *
    * @param {PortfolioId} portfolioId
    * @returns
-   * @memberof PortfolioOperation
    */
   @Decode(PortfolioExtended)
   public getPortfolioEx(portfolioId: PortfolioId) {
@@ -66,7 +62,6 @@ export class PortfolioOperation extends Operation {
    *
    * @param {CreatePortfoliosParams[]} portfolios
    * @returns
-   * @memberof PortfolioOperation
    */
   @DecodeArray(PortfolioResponse)
   public createPortfolios(portfolios: CreatePortfoliosParams[]) {
@@ -78,7 +73,6 @@ export class PortfolioOperation extends Operation {
    *
    * @param {UpdatePortfoliosParams[]} portfolios
    * @returns
-   * @memberof PortfolioOperation
    */
   @DecodeArray(PortfolioResponse)
   public updatePortfolios(portfolios: UpdatePortfoliosParams[]) {
