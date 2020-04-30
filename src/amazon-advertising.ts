@@ -3,33 +3,31 @@ import { LazyGetter } from 'lazy-get-decorator'
 import { HttpClientAuth } from './http-client'
 import { HttpClient } from './http-client'
 import { OperationProvider } from './operations/operation-provider'
-import {
-  SponsoredBrandsAdGroupOperation,
-  SponsoredProductsAdGroupOperation,
-  SponsoredProductsBidRecommendationOperation,
-  SponsoredBrandsCampaignOperation,
-  SponsoredProductsCampaignOperation,
-  SponsoredBrandsDraftsOperation,
-  SponsoredBrandsKeywordRecommendationsOperation,
-  SponsoredBrandsKeywordsOperation,
-  SponsoredBrandsNegativeKeywordsOperation,
-  SponsoredProductsAdGroupKeywordsOperation,
-  SponsoredProductsAdGroupNegativeKeywordsOperation,
-  SponsoredProductsCampaignNegativeKeywordsOperation,
-  SponsoredProductsSuggestedKeywordsOperation,
-  PortfolioOperation,
-  SponsoredProductsProductAdsOperation,
-  SponsoredBrandsProductTargetingOperation,
-  SponsoredProductsProductTargetingOperation,
-  ProfileOperation,
-  SponsoredBrandsBidRecommendationsOperation,
-  SponsoredBrandsTargetingRecommendationsOperation,
-  SponsoredBrandsReportOperation,
-  SponsoredProductsReportOperation,
-  SponsoredBrandsSnapshotOperation,
-  SponsoredProductsSnapshotOperation,
-  SponsoredBrandsStoresInfoOperation,
-} from './index'
+import { SponsoredBrandsAdGroupOperation } from './operations/ad-groups/sponsored-brands-ad-group-operation'
+import { SponsoredProductsAdGroupOperation } from './operations/ad-groups/sponsored-products-ad-group-operation'
+import { SponsoredProductsBidRecommendationOperation } from './operations/bidding/sponsored-products-bid-recommendation-operation'
+import { SponsoredBrandsCampaignOperation } from './operations/campaigns/sponsored-brands-campaign-operation'
+import { SponsoredProductsCampaignOperation } from './operations/campaigns/sponsored-products-campaign-operation'
+import { SponsoredBrandsDraftsOperation } from './operations/drafts/sponsored-brands-drafts-operation'
+import { SponsoredBrandsKeywordRecommendationsOperation } from './operations/keywords/sponsored-brands-keyword-recommendations-operation'
+import { SponsoredBrandsKeywordsOperation } from './operations/keywords/sponsored-brands-keywords-operation'
+import { SponsoredBrandsNegativeKeywordsOperation } from './operations/keywords/sponsored-brands-negative-keywords-operation'
+import { SponsoredProductsAdGroupKeywordsOperation } from './operations/keywords/sponsored-products-ad-group-keywords-operation'
+import { SponsoredProductsAdGroupNegativeKeywordsOperation } from './operations/keywords/sponsored-products-ad-group-negative-keywords-operation'
+import { SponsoredProductsCampaignNegativeKeywordsOperation } from './operations/keywords/sponsored-products-campaign-negative-keywords-operation'
+import { SponsoredProductsSuggestedKeywordsOperation } from './operations/keywords/sponsored-products-suggested-keywords-operation'
+import { PortfolioOperation } from './operations/portfolios/portfolio-operation'
+import { SponsoredProductsProductAdsOperation } from './operations/product-ads/sponsored-products-product-ads-operation'
+import { SponsoredBrandsProductTargetingOperation } from './operations/product-targeting/sponsored-brands-product-targeting-operation'
+import { SponsoredProductsProductTargetingOperation } from './operations/product-targeting/sponsored-products-product-targeting-operation'
+import { ProfileOperation } from './operations/profiles/profile-operation'
+import { SponsoredBrandsBidRecommendationsOperation } from './operations/recommendations/sponsored-brands-bid-recommendations-operation'
+import { SponsoredBrandsTargetingRecommendationsOperation } from './operations/recommendations/sponsored-brands-targeting-recommendations-operation'
+import { SponsoredBrandsReportOperation } from './operations/reports/sponsored-brands/sponsored-brands-report-operation'
+import { SponsoredProductsReportOperation } from './operations/reports/sponsored-products/sponsored-products-report-operation'
+import { SponsoredBrandsSnapshotOperation } from './operations/snapshots/sponsored-brands-snapshot-operation'
+import { SponsoredProductsSnapshotOperation } from './operations/snapshots/sponsored-products-snapshot-operation'
+import { SponsoredBrandsStoresInfoOperation } from './operations/stores/sponsored-brands-stores-info-operation'
 
 export class AmazonAdvertising {
   private operationProvider: OperationProvider
