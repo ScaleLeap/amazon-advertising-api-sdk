@@ -1,33 +1,31 @@
 import { AmazonAdvertising } from '../src/amazon-advertising'
 import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 import { auth } from './http-client-factory'
-import {
-  SponsoredBrandsAdGroupOperation,
-  SponsoredProductsAdGroupOperation,
-  SponsoredProductsBidRecommendationOperation,
-  SponsoredBrandsCampaignOperation,
-  SponsoredProductsCampaignOperation,
-  SponsoredBrandsDraftsOperation,
-  SponsoredBrandsKeywordRecommendationsOperation,
-  SponsoredBrandsKeywordsOperation,
-  SponsoredBrandsNegativeKeywordsOperation,
-  SponsoredProductsAdGroupKeywordsOperation,
-  SponsoredProductsAdGroupNegativeKeywordsOperation,
-  SponsoredProductsCampaignNegativeKeywordsOperation,
-  SponsoredProductsSuggestedKeywordsOperation,
-  PortfolioOperation,
-  SponsoredProductsProductAdsOperation,
-  SponsoredBrandsProductTargetingOperation,
-  SponsoredProductsProductTargetingOperation,
-  ProfileOperation,
-  SponsoredBrandsBidRecommendationsOperation,
-  SponsoredBrandsTargetingRecommendationsOperation,
-  SponsoredBrandsReportOperation,
-  SponsoredProductsReportOperation,
-  SponsoredBrandsSnapshotOperation,
-  SponsoredProductsSnapshotOperation,
-  SponsoredBrandsStoresInfoOperation,
-} from '../src'
+import { SponsoredBrandsAdGroupOperation } from '../src/operations/ad-groups/sponsored-brands-ad-group-operation'
+import { SponsoredProductsAdGroupOperation } from '../src/operations/ad-groups/sponsored-products-ad-group-operation'
+import { SponsoredProductsBidRecommendationOperation } from '../src/operations/bidding/sponsored-products-bid-recommendation-operation'
+import { SponsoredBrandsCampaignOperation } from '../src/operations/campaigns/sponsored-brands-campaign-operation'
+import { SponsoredProductsCampaignOperation } from '../src/operations/campaigns/sponsored-products-campaign-operation'
+import { SponsoredBrandsDraftsOperation } from '../src/operations/drafts/sponsored-brands-drafts-operation'
+import { SponsoredBrandsKeywordRecommendationsOperation } from '../src/operations/keywords/sponsored-brands-keyword-recommendations-operation'
+import { SponsoredBrandsKeywordsOperation } from '../src/operations/keywords/sponsored-brands-keywords-operation'
+import { SponsoredBrandsNegativeKeywordsOperation } from '../src/operations/keywords/sponsored-brands-negative-keywords-operation'
+import { SponsoredProductsAdGroupKeywordsOperation } from '../src/operations/keywords/sponsored-products-ad-group-keywords-operation'
+import { SponsoredProductsAdGroupNegativeKeywordsOperation } from '../src/operations/keywords/sponsored-products-ad-group-negative-keywords-operation'
+import { SponsoredProductsCampaignNegativeKeywordsOperation } from '../src/operations/keywords/sponsored-products-campaign-negative-keywords-operation'
+import { SponsoredProductsSuggestedKeywordsOperation } from '../src/operations/keywords/sponsored-products-suggested-keywords-operation'
+import { PortfolioOperation } from '../src/operations/portfolios/portfolio-operation'
+import { SponsoredProductsProductAdsOperation } from '../src/operations/product-ads/sponsored-products-product-ads-operation'
+import { SponsoredBrandsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-brands-product-targeting-operation'
+import { SponsoredProductsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-products-product-targeting-operation'
+import { ProfileOperation } from '../src/operations/profiles/profile-operation'
+import { SponsoredBrandsBidRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
+import { SponsoredBrandsTargetingRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-targeting-recommendations-operation'
+import { SponsoredBrandsReportOperation } from '../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
+import { SponsoredProductsReportOperation } from '../src/operations/reports/sponsored-products/sponsored-products-report-operation'
+import { SponsoredBrandsSnapshotOperation } from '../src/operations/snapshots/sponsored-brands-snapshot-operation'
+import { SponsoredProductsSnapshotOperation } from '../src/operations/snapshots/sponsored-products-snapshot-operation'
+import { SponsoredBrandsStoresInfoOperation } from '../src/operations/stores/sponsored-brands-stores-info-operation'
 
 const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.JP, auth)
 
