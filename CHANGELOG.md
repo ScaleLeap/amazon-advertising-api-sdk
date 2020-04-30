@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.20.0...v1.21.0) (2020-04-30)
+
+
+### Features
+
+* Fix circular references in index.ts ([285f436](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/285f436b984b15f012e8def49da79cba1ac90f18))
+
 # [1.20.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.19.0...v1.20.0) (2020-04-28)
 
 
