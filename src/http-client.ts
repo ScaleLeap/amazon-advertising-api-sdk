@@ -18,7 +18,7 @@ enum HttpMethod {
   DELETE,
 }
 
-type RequestBody = object | object[]
+export type RequestBody = object | object[]
 
 interface HttpClientRequestParams {
   method: HttpMethod
