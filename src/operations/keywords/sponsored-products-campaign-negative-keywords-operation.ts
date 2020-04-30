@@ -21,7 +21,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @Decode(CampaignNegativeKeyword)
   public getCampaignNegativeKeyword(keywordId: KeywordId) {
@@ -35,7 +34,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @Decode(CampaignNegativeKeywordExtended)
   public getCampaignNegativeKeywordExtended(keywordId: KeywordId) {
@@ -51,7 +49,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {CreateCampaignNegativeKeywordsParam[]} keywords
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @DecodeArray(CampaignNegativeKeywordResponse)
   public createCampaignNegativeKeywords(keywords: CreateCampaignNegativeKeywordsParam[]) {
@@ -65,7 +62,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {UpdateCampaignNegativeKeywordsParam[]} keywords
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @DecodeArray(CampaignNegativeKeywordResponse)
   public updateCampaignNegativeKeywords(keywords: UpdateCampaignNegativeKeywordsParam[]) {
@@ -83,7 +79,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @Decode(CampaignNegativeKeywordResponse)
   public archiveCampaignNegativeKeyword(keywordId: KeywordId) {
@@ -96,7 +91,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {ListCampaignNegativeKeywordsParam} [params]
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @DecodeArray(CampaignNegativeKeyword)
   public listCampaignNegativeKeywords(params?: ListCampaignNegativeKeywordsParam) {
@@ -109,7 +103,6 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    *
    * @param {ListCampaignNegativeKeywordsParam} [params]
    * @returns
-   * @memberof SponsoredProductsCampaignNegativeKeywordsOperation
    */
   @DecodeArray(CampaignNegativeKeywordExtended)
   public listCampaignNegativeKeywordsExtended(params?: ListCampaignNegativeKeywordsParam) {

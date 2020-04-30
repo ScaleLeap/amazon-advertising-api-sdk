@@ -21,7 +21,6 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
    * @param {AdGroupId} adGroupId
    * @param {GetAdGroupSuggestedKeywordsParams} [params]
    * @returns
-   * @memberof SponsoredProductsSuggestedKeywordsOperation
    */
   @Decode(AdGroupSuggestedKeywordsResponse)
   public getAdGroupSuggestedKeywords(
@@ -39,7 +38,6 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
    * @param {AdGroupId} adGroupId
    * @param {GetAdGroupSuggestedKeywordsExtendedParams} [params]
    * @returns
-   * @memberof SponsoredProductsSuggestedKeywordsOperation
    */
   @DecodeArray(AdGroupSuggestedKeywordsExtendedResponse)
   public getAdGroupSuggestedKeywordsExtended(
@@ -58,7 +56,6 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
    * @param {string} asinValue
    * @param {number} [maxNumSuggestions=100]
    * @returns
-   * @memberof SponsoredProductsSuggestedKeywordsOperation
    */
   @Decode(SuggestedKeywords)
   public getAsinSuggestedKeywords(asinValue: string, maxNumSuggestions = 100) {
@@ -74,7 +71,6 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
    * @param {Array<string>} asinValue
    * @param {number} [maxNumSuggestions]
    * @returns
-   * @memberof SponsoredProductsSuggestedKeywordsOperation
    */
   @Decode(SuggestedKeywords)
   public bulkGetAsinSuggestedKeywords(asinValue: Array<string>, maxNumSuggestions?: number) {

@@ -34,7 +34,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(TargetingClause)
   public getTargetingClause(targetId: TargetId) {
@@ -46,7 +45,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(TargetingClauseExtended)
   public getTargetingClauseExtended(targetId: TargetId) {
@@ -58,7 +56,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {ListTargetingClausesParams} [params]
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(TargetingClause)
   public listTargetingClauses(params?: ListTargetingClausesParams) {
@@ -72,7 +69,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {ListTargetingClausesParams} [params]
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(TargetingClauseExtended)
   public listTargetingClausesExtended(params?: ListTargetingClausesParams) {
@@ -86,7 +82,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {CreateTargetingClausesParams[]} params
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(TargetingClauseResponse)
   public createTargetingClauses(params: CreateTargetingClausesParams[]) {
@@ -98,7 +93,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {UpdateTargetingClausesParams[]} params
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(TargetingClauseResponse)
   public updateTargetingClauses(params: UpdateTargetingClausesParams[]) {
@@ -112,7 +106,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(TargetingClauseResponse)
   public archiveTargetingClause(targetId: TargetId) {
@@ -125,7 +118,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {ProductRecommendationRequest} params
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(ProductRecommendationResponse)
   public createTargetRecommendations(params: ProductRecommendationRequest) {
@@ -140,7 +132,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {string[]} asins
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(CategoryResponse)
   public getTargetingCategories(asins: string[]) {
@@ -156,7 +147,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {CategoryId} categoryId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(RefinementsResponse)
   public getRefinementsForCategory(categoryId: CategoryId) {
@@ -171,7 +161,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {GetBrandRecommendationsParams} params
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(BrandResponse)
   public getBrandRecommendations(params: GetBrandRecommendationsParams) {
@@ -187,7 +176,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(NegativeTargetingClause)
   public getNegativeTargetingClause(targetId: TargetId) {
@@ -199,7 +187,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(NegativeTargetingClauseExtended)
   public getNegativeTargetingClauseExtended(targetId: TargetId) {
@@ -213,7 +200,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {CreateNegativeTargetingClausesParams[]} params
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(NegativeTargetingClauseResponse)
   public createNegativeTargetingClauses(params: CreateNegativeTargetingClausesParams[]) {
@@ -225,7 +211,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {ListNegativeTargetingClausesParams} [params]
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(NegativeTargetingClause)
   public listNegativeTargetingClauses(params?: ListNegativeTargetingClausesParams) {
@@ -239,7 +224,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {ListNegativeTargetingClausesParams} [params]
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(NegativeTargetingClauseExtended)
   public listNegativeTargetingClausesExtended(params?: ListNegativeTargetingClausesParams) {
@@ -253,7 +237,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @Decode(NegativeTargetingClauseResponse)
   public archiveNegativeTargetingClause(targetId: TargetId) {
@@ -267,7 +250,6 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    *
    * @param {UpdateNegativeTargetingClausesParams[]} params
    * @returns
-   * @memberof SponsoredProductsProductTargetingOperation
    */
   @DecodeArray(NegativeTargetingClauseResponse)
   public updateNegativeTargetingClauses(params: UpdateNegativeTargetingClausesParams[]) {

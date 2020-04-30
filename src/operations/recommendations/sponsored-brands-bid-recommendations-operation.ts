@@ -14,7 +14,6 @@ export class SponsoredBrandsBidRecommendationsOperation extends Operation {
    *
    * @param {SponsoredBrandsBidsRecommendationRequest} params
    * @returns
-   * @memberof SponsoredBrandsBidRecommendationsOperation
    */
   @Decode(SponsoredBrandsBidsRecommendationResponse)
   public getBidRecommendations(params: SponsoredBrandsBidsRecommendationRequest) {

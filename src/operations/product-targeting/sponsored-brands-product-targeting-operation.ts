@@ -35,7 +35,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsListTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsListTargetsResponse)
   public listTargets(params: SponsoredBrandsListTargetsRequest) {
@@ -47,7 +46,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsUpdateTargetsRequest[]} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsUpdateTargetsResponse)
   public updateTargets(params: SponsoredBrandsUpdateTargetsRequest[]) {
@@ -59,7 +57,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsCreateTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsCreateTargetsResponse)
   public createTargets(params: SponsoredBrandsCreateTargetsRequest) {
@@ -71,7 +68,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsTargetingClause)
   public getTarget(targetId: TargetId) {
@@ -83,7 +79,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {TargetId} targetId
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsTargetingClauseResponse)
   public archiveTarget(targetId: TargetId) {
@@ -97,7 +92,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsBatchGetTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsBatchGetTargetsResponse)
   public batchGetTargets(params: SponsoredBrandsBatchGetTargetsRequest) {
@@ -109,7 +103,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsListNegativeTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsListNegativeTargetsResponse)
   public listNegativeTargets(params: SponsoredBrandsListNegativeTargetsRequest) {
@@ -124,7 +117,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsUpdateNegativeTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsUpdateNegativeTargetsResponse)
   public updateNegativeTargets(params: SponsoredBrandsUpdateNegativeTargetsRequest) {
@@ -139,7 +131,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsCreateNegativeTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsCreateNegativeTargetsResponse)
   public createNegativeTargets(params: SponsoredBrandsCreateNegativeTargetsRequest) {
@@ -154,7 +145,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsNegativeTargetId} negativeTargetId
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsNegativeTargetingClause)
   public getNegativeTarget(negativeTargetId: SponsoredBrandsNegativeTargetId) {
@@ -169,7 +159,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsNegativeTargetId} negativeTargetId
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsTargetingClauseResponse)
   public archiveNegativeTarget(negativeTargetId: SponsoredBrandsNegativeTargetId) {
@@ -183,7 +172,6 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    *
    * @param {SponsoredBrandsBatchGetNegativeTargetsRequest} params
    * @returns
-   * @memberof SponsoredBrandsProductTargetingOperation
    */
   @Decode(SponsoredBrandsBatchGetNegativeTargetsResponse)
   public batchGetNegativeTargets(params: SponsoredBrandsBatchGetNegativeTargetsRequest) {

@@ -21,7 +21,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {AdId} adId
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @Decode(ProductAd)
   public getProductAd(adId: AdId) {
@@ -34,7 +33,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {AdId} adId
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @Decode(ProductAdExtended)
   public getProductAdExtended(adId: AdId) {
@@ -47,7 +45,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {CreateProductAdParams[]} params
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @DecodeArray(AdResponse)
   public createProductAds(params: CreateProductAdParams[]) {
@@ -60,7 +57,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {UpdateProductAdParams[]} params
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @DecodeArray(AdResponse)
   public updateProductAds(params: UpdateProductAdParams[]) {
@@ -74,7 +70,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {AdId} adId
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @Decode(AdResponse)
   public archiveProductAd(adId: AdId) {
@@ -86,7 +81,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {ListProductAdsParams} [params]
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @DecodeArray(ProductAd)
   public listProductAds(params?: ListProductAdsParams) {
@@ -98,7 +92,6 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    *
    * @param {ListProductAdsParams} [params]
    * @returns
-   * @memberof SponsoredProductsProductAdsOperation
    */
   @DecodeArray(ProductAdExtended)
   public listProductAdsExtended(params?: ListProductAdsParams) {

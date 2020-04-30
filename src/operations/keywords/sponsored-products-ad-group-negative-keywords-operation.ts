@@ -21,7 +21,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @Decode(NegativeKeyword)
   public getNegativeKeyword(keywordId: KeywordId) {
@@ -34,7 +33,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @Decode(NegativeKeywordExtended)
   public getNegativeKeywordExtended(keywordId: KeywordId) {
@@ -47,7 +45,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {CreateNegativeKeywordsParam[]} keywords
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @DecodeArray(NegativeKeywordResponse)
   public createNegativeKeywords(keywords: CreateNegativeKeywordsParam[]) {
@@ -60,7 +57,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {UpdateNegativeKeywordsParam[]} keywords
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @DecodeArray(NegativeKeywordResponse)
   public updateNegativeKeywords(keywords: UpdateNegativeKeywordsParam[]) {
@@ -73,7 +69,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @Decode(NegativeKeywordResponse)
   public archiveNegativeKeyword(keywordId: KeywordId) {
@@ -85,7 +80,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {ListNegativeKeywordsParam} [params]
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @DecodeArray(NegativeKeyword)
   public listNegativeKeywords(params?: ListNegativeKeywordsParam) {
@@ -97,7 +91,6 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    *
    * @param {ListNegativeKeywordsParam} [params]
    * @returns
-   * @memberof SponsoredProductsAdGroupNegativeKeywordsOperation
    */
   @DecodeArray(NegativeKeywordExtended)
   public listNegativeKeywordsExtended(params?: ListNegativeKeywordsParam) {

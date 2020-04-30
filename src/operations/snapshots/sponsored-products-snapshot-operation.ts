@@ -18,7 +18,6 @@ export class SponsoredProductsSnapshotOperation extends Operation {
    *
    * @param {SuccessSnapshotResponse} snapshot
    * @returns
-   * @memberof SponsoredProductsSnapshotOperation
    */
   public async downloadSnapshot<T extends SnapshotResultType[]>(
     snapshot: SuccessSnapshotResponse,
@@ -32,7 +31,6 @@ export class SponsoredProductsSnapshotOperation extends Operation {
    * @param {SponsoredProductsRecordType} recordType
    * @param {RequestSnapshotParams} params
    * @returns
-   * @memberof SponsoredProductsSnapshotOperation
    */
   @Decode(SnapshotResponse)
   public requestSnapshot(recordType: SponsoredProductsRecordType, params: RequestSnapshotParams) {
@@ -44,7 +42,6 @@ export class SponsoredProductsSnapshotOperation extends Operation {
    *
    * @param {SnapshotId} id
    * @returns
-   * @memberof SponsoredProductsSnapshotOperation
    */
   @Decode(SnapshotResponse)
   public getSnapshot(id: SnapshotId) {

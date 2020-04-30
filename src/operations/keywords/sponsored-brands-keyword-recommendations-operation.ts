@@ -15,7 +15,6 @@ export class SponsoredBrandsKeywordRecommendationsOperation extends Operation {
    *
    * @param {SponsoredBrandsKeywordRecommendationParams} params
    * @returns
-   * @memberof SponsoredBrandsKeywordRecommendationsOperation
    */
   @DecodeArray(SponsoredBrandsKeywordRecommendation)
   public getKeywordRecommendations(params: SponsoredBrandsKeywordRecommendationParams) {

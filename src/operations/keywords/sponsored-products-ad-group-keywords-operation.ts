@@ -22,7 +22,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @Decode(Keyword)
   public getBiddableKeyword(keywordId: KeywordId) {
@@ -36,7 +35,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @Decode(KeywordExtended)
   public getBiddableKeywordExtended(keywordId: KeywordId) {
@@ -49,7 +47,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {CreateKeywordsParam[]} keywords
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @DecodeArray(KeywordResponse)
   public createKeywords(keywords: CreateKeywordsParam[]) {
@@ -62,7 +59,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {UpdateKeywordsParam[]} keywords
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @DecodeArray(KeywordResponse)
   public updateKeywords(keywords: UpdateKeywordsParam[]) {
@@ -76,7 +72,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @Decode(KeywordResponse)
   public archiveBiddableKeyword(keywordId: KeywordId) {
@@ -89,7 +84,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {ListBiddableKeywordsParam} [params]
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @DecodeArray(Keyword)
   public listBiddableKeywords(params?: ListBiddableKeywordsParam) {
@@ -102,7 +96,6 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    *
    * @param {ListBiddableKeywordsExtendedParam} [params]
    * @returns
-   * @memberof SponsoredProductsAdGroupKeywordsOperation
    */
   @DecodeArray(KeywordExtended)
   public listBiddableKeywordsExtended(params?: ListBiddableKeywordsExtendedParam) {

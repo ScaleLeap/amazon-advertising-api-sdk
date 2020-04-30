@@ -31,7 +31,6 @@ export class SponsoredBrandsReportOperation<
    *
    * @param {ReportParams} params
    * @returns
-   * @memberof SponsoredBrandsReportOperation
    */
   @Decode(ReportResponse)
   public requestReport(params: ReportParams) {

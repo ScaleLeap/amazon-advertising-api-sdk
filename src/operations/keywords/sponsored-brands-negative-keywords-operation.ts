@@ -20,7 +20,6 @@ export class SponsoredBrandsNegativeKeywordsOperation extends Operation {
    *
    * @param {UpdateSponsoredBrandsNegativeKeywordParams[]} params
    * @returns
-   * @memberof SponsoredBrandsNegativeKeywordsOperation
    */
   @DecodeArray(SponsoredBrandsNegativeKeywordResponse)
   public updateNegativeKeywords(params: UpdateSponsoredBrandsNegativeKeywordParams[]) {
@@ -35,7 +34,6 @@ export class SponsoredBrandsNegativeKeywordsOperation extends Operation {
    *
    * @param {CreateSponsoredBrandsNegativeKeywordParams[]} params
    * @returns
-   * @memberof SponsoredBrandsNegativeKeywordsOperation
    */
   @DecodeArray(SponsoredBrandsNegativeKeywordResponse)
   public createNegativeKeywords(params: CreateSponsoredBrandsNegativeKeywordParams[]) {
@@ -47,7 +45,6 @@ export class SponsoredBrandsNegativeKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredBrandsNegativeKeywordsOperation
    */
   @Decode(SponsoredBrandsNegativeKeyword)
   public getNegativeKeyword(keywordId: KeywordId) {
@@ -61,7 +58,6 @@ export class SponsoredBrandsNegativeKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredBrandsNegativeKeywordsOperation
    */
   @Decode(SponsoredBrandsNegativeKeywordResponse)
   public archiveNegativeKeyword(keywordId: KeywordId) {

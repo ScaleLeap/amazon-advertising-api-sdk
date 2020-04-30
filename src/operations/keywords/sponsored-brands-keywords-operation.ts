@@ -18,7 +18,6 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    *
    * @param {ListSponsoredBrandsKeywordParams} [params]
    * @returns
-   * @memberof SponsoredBrandsKeywordsOperation
    */
   @DecodeArray(SponsoredBrandsKeyword)
   public listKeywords(params?: ListSponsoredBrandsKeywordParams) {
@@ -32,7 +31,6 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    *
    * @param {UpdateSponsoredBrandsKeywordParams[]} params
    * @returns
-   * @memberof SponsoredBrandsKeywordsOperation
    */
   @DecodeArray(SponsoredBrandsKeywordResponse)
   public updateKeywords(params: UpdateSponsoredBrandsKeywordParams[]) {
@@ -47,7 +45,6 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    *
    * @param {CreateSponsoredBrandsKeywordParams[]} params
    * @returns
-   * @memberof SponsoredBrandsKeywordsOperation
    */
   @DecodeArray(SponsoredBrandsKeywordResponse)
   public createKeywords(params: CreateSponsoredBrandsKeywordParams[]) {
@@ -59,7 +56,6 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredBrandsKeywordsOperation
    */
   @Decode(SponsoredBrandsKeyword)
   public getKeyword(keywordId: KeywordId) {
@@ -73,7 +69,6 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    *
    * @param {KeywordId} keywordId
    * @returns
-   * @memberof SponsoredBrandsKeywordsOperation
    */
   @Decode(SponsoredBrandsKeyword)
   public archiveKeyword(keywordId: KeywordId) {

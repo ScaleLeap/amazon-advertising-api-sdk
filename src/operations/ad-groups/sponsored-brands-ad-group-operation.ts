@@ -12,7 +12,6 @@ export class SponsoredBrandsAdGroupOperation extends Operation {
    *
    * @param {AdGroupId} adGroupId
    * @returns
-   * @memberof SponsoredBrandsAdGroupOperation
    */
   @Decode(AdGroup)
   public getAdGroup(adGroupId: AdGroupId) {
@@ -24,7 +23,6 @@ export class SponsoredBrandsAdGroupOperation extends Operation {
    *
    * @param {ListAdGroupsParams} [params]
    * @returns
-   * @memberof SponsoredBrandsAdGroupOperation
    */
   @DecodeArray(AdGroup)
   public listAdGroups(params?: ListAdGroupsParams) {
