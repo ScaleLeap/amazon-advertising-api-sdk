@@ -40,7 +40,7 @@
     "@scaleleap/semantic-release-config": "1.1.8",
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
-    "@types/node": "13.9.8",
+    "@types/node": "13.13.4",
     "@typescript-eslint/eslint-plugin": "2.26.0",
     "@typescript-eslint/parser": "2.26.0",
     "eslint": "6.8.0",
