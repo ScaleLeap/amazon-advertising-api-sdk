@@ -126,21 +126,21 @@ const CreateProductAdParamsBase = t.strict({
   state: ProductAdState,
 })
 
-const CreateProductAdParamsSeller = t.intersection([
+export const CreateProductAdParamsSeller = t.intersection([
   CreateProductAdParamsBase,
   t.strict({
     sku: t.string,
   }),
 ])
-type CreateProductAdParamsSeller = t.TypeOf<typeof CreateProductAdParamsSeller>
+export type CreateProductAdParamsSeller = t.TypeOf<typeof CreateProductAdParamsSeller>
 
-const CreateProductAdParamsVendor = t.intersection([
+export const CreateProductAdParamsVendor = t.intersection([
   CreateProductAdParamsBase,
   t.strict({
     asin: t.string,
   }),
 ])
-type CreateProductAdParamsVendor = t.TypeOf<typeof CreateProductAdParamsVendor>
+export type CreateProductAdParamsVendor = t.TypeOf<typeof CreateProductAdParamsVendor>
 
 export type CreateProductAdParams = CreateProductAdParamsVendor | CreateProductAdParamsSeller
 

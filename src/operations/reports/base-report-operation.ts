@@ -6,7 +6,7 @@ export class BaseReportOperation extends Operation {
   /**
    * Retrieve status, metadata and location of a previously requested performance report.
    *
-   * @param reportId
+   * @param reportId -
    * @returns
    */
   @Decode(ReportResponse)
@@ -17,8 +17,7 @@ export class BaseReportOperation extends Operation {
   /**
    * Downloads the report corresponding to the reportId specified
    *
-   * @template T
-   * @param reportId
+   * @param reportId -
    * @returns {(Promise<Partial<Record<T, 'number' | 'string'>>[]>)}
    */
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

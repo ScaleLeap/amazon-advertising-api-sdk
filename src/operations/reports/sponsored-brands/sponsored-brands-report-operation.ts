@@ -11,7 +11,7 @@ import {
   SponsoredBrandsTargetReportParams,
 } from './index'
 
-type SponsoredBrandsReportParams =
+export type SponsoredBrandsReportParams =
   | SponsoredBrandsAdGroupReportParams
   | SponsoredBrandsCampaignReportParams
   | SponsoredBrandsKeywordReportParams

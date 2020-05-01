@@ -10,7 +10,7 @@ import { SponsoredProductsProductAdsReportParams } from './sponsored-products-pr
 import { SponsoredProductsTargetsReportParams } from './sponsored-products-targets-report-params'
 import { SponsoredProductsReportType } from '../report-types'
 
-type SponsoredProductsReportParams =
+export type SponsoredProductsReportParams =
   | SponsoredProductsAdGroupReportParams
   | SponsoredProductsAsinsReportParams
   | SponsoredProductsCampaignReportParams

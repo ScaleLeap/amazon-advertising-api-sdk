@@ -3,17 +3,17 @@ import { stringify } from 'querystring'
 import { isEmpty, endsWith, cloneDeep } from 'lodash'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type OperationParameterValues = any
+export type OperationParameterValues = any
 
 export interface OperationParameter {
   [key: string]: OperationParameterValues
 }
 
-type WithOperationParameterKeys<T extends OperationParameter> = {
+export type WithOperationParameterKeys<T extends OperationParameter> = {
   [K in keyof T]: OperationParameterValues
 }
 
-type OperationParameterTransformer<T> = (
+export type OperationParameterTransformer<T> = (
   originalQuery: T,
   clonedQuery: WithOperationParameterKeys<T>,
 ) => WithOperationParameterKeys<T>

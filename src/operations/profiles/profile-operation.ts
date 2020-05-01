@@ -39,7 +39,7 @@ export class ProfileOperation extends Operation {
   /**
    * Updates one or more profiles.
    *
-   * @param {Partial<Profile>[]} profiles
+   * @param profiles -
    * @returns
    */
   @DecodeArray(ProfileResponse)
@@ -51,7 +51,7 @@ export class ProfileOperation extends Operation {
    * Registers a profile in the sandbox environment.
    * If this call is made to a production endpoint an error is returned.
    *
-   * @param [countryCode=CountryCodeEnum.US]
+   * @param countryCode -
    * @returns
    */
   @Decode(RegisterProfileResponse)
