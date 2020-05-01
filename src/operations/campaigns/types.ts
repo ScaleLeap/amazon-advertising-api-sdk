@@ -451,7 +451,7 @@ export const SponsoredBrandsCampaign = t.strict({
     }),
     t.partial({
       /**
-       * Market threshold specifics can be found at our external docs page, under Supported Features > Keyword bid constraints by marketplace.
+       * Market threshold specifics can be found at our external docs page, under Supported Features \> Keyword bid constraints by marketplace.
        * Bid should not be larger than budget.
        */
       bid: t.number,

@@ -18,7 +18,7 @@ export class BaseReportOperation extends Operation {
    * Downloads the report corresponding to the reportId specified
    *
    * @param reportId -
-   * @returns {(Promise<Partial<Record<T, 'number' | 'string'>>[]>)}
+   * @returns \{(Promise\<Partial\<Record\<T, 'number' | 'string'\>\>[]\>)\}
    */
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   public async downloadReport<T extends string>(
