@@ -28,7 +28,7 @@ export class ProfileOperation extends Operation {
   /**
    * Retrieves a single profile specified by identifier.
    *
-   * @param {ProfileId} profileId
+   * @param profileId -
    * @returns
    */
   @Decode(Profile)
@@ -51,7 +51,7 @@ export class ProfileOperation extends Operation {
    * Registers a profile in the sandbox environment.
    * If this call is made to a production endpoint an error is returned.
    *
-   * @param {CountryCodeType} [countryCode=CountryCodeEnum.US]
+   * @param [countryCode=CountryCodeEnum.US]
    * @returns
    */
   @Decode(RegisterProfileResponse)
@@ -66,7 +66,7 @@ export class ProfileOperation extends Operation {
   /**
    * Registers a brand in the sandbox environment. If this call is made to a production endpoint an error is returned.
    *
-   * @param {RegisterBrand} registerBrand
+   * @param registerBrand -
    * @returns
    */
   @Decode(ProfileRegistrationResponse)

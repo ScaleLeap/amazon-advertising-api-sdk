@@ -18,7 +18,7 @@ export class SponsoredBrandsStoresInfoOperation extends Operation {
   /**
    * Request store information for a given brandEntityId.
    *
-   * @param {BrandEntityId} id
+   * @param id -
    * @returns
    */
   @Decode(StoreInfoResponse)

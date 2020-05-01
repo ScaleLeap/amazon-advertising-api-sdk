@@ -18,7 +18,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
   /**
    * Retrieves a list of Sponsored Products campaigns satisfying optional filtering criteria.
    *
-   * @param {ListCampaignsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(Campaign)
@@ -29,7 +29,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
   /**
    * Retrieves a list of Sponsored Products campaigns with extended fields satisfying optional filtering criteria.
    *
-   * @param {ListCampaignsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(CampaignExtended)
@@ -41,7 +41,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
    * Retrieves a campaign by campaignId.
    * Note that this call returns the minimal set of campaign fields, but is more efficient than getCampaignEx
    *
-   * @param {CampaignId} campaignId
+   * @param campaignId -
    * @returns
    */
   @Decode(Campaign)
@@ -53,7 +53,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
    * Retrieves a campaign and its extended fields by campaignId.
    * Note that this call returns the complete set of campaign fields (including serving status and other read-only fields), but is less efficient than getCampaign
    *
-   * @param {CampaignId} campaignId
+   * @param campaignId -
    * @returns
    */
   @Decode(CampaignExtended)
@@ -65,7 +65,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
    * Creates one or more campaigns.
    * Successfully created campaigns will be assigned a unique campaignId.
    *
-   * @param {SponsoredProductsCampaignCreateParams[]} campaigns
+   * @param campaigns -
    * @returns
    */
   @DecodeArray(CampaignResponse)
@@ -76,7 +76,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
   /**
    * Updates one or more campaigns.
    *
-   * @param {SponsoredProductsCampaignUpdateParams[]} campaigns
+   * @param campaigns -
    * @returns
    */
   @DecodeArray(CampaignResponse)
@@ -88,7 +88,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
    * Sets the campaign status to archived.
    * Archived entities cannot be made active again. See developer notes for more information.
    *
-   * @param {CampaignId} campaignId
+   * @param campaignId -
    * @returns
    */
   @Decode(CampaignResponse)

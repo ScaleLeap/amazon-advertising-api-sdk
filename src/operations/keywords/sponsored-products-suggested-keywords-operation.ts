@@ -18,8 +18,8 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   /**
    * Retrieve suggested keyword data for the specified adGroupId.
    *
-   * @param {AdGroupId} adGroupId
-   * @param {GetAdGroupSuggestedKeywordsParams} [params]
+   * @param adGroupId -
+   * @param params -
    * @returns
    */
   @Decode(AdGroupSuggestedKeywordsResponse)
@@ -35,8 +35,8 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
   /**
    * Retrieve extended suggested keyword data for the specified adGroupId.
    *
-   * @param {AdGroupId} adGroupId
-   * @param {GetAdGroupSuggestedKeywordsExtendedParams} [params]
+   * @param adGroupId -
+   * @param params -
    * @returns
    */
   @DecodeArray(AdGroupSuggestedKeywordsExtendedResponse)
@@ -53,8 +53,8 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
    * Provides suggested keywords for specified ASIN.
    * Suggested keywords are ordered by most effective to least effective.
    *
-   * @param {string} asinValue
-   * @param {number} [maxNumSuggestions=100]
+   * @param asinValue -
+   * @param maxNumSuggestions -
    * @returns
    */
   @Decode(SuggestedKeywords)
@@ -68,8 +68,8 @@ export class SponsoredProductsSuggestedKeywordsOperation extends Operation {
    * Provides keyword suggestions for specified list of ASINs.
    * Suggested keywords are ordered by most effective to least effective.
    *
-   * @param {Array<string>} asinValue
-   * @param {number} [maxNumSuggestions]
+   * @param asinValue -
+   * @param maxNumSuggestions -
    * @returns
    */
   @Decode(SuggestedKeywords)

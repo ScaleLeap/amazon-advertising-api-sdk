@@ -16,7 +16,7 @@ export class SponsoredBrandsSnapshotOperation extends Operation {
   /**
    * Downloads the snapshot corresponding to the success snapshot response specified
    *
-   * @param {SuccessSnapshotResponse} snapshot
+   * @param snapshot -
    * @returns
    */
   public async downloadSnapshot<T extends SnapshotResultType[]>(
@@ -28,8 +28,8 @@ export class SponsoredBrandsSnapshotOperation extends Operation {
   /**
    * Request a file-based snapshot of all entities of the specified type in the account satisfying the filtering criteria
    *
-   * @param {SponsoredBrandsRecordType} recordType
-   * @param {RequestSnapshotParams} params
+   * @param recordType -
+   * @param params -
    * @returns
    */
   @Decode(SnapshotResponse)
@@ -40,7 +40,7 @@ export class SponsoredBrandsSnapshotOperation extends Operation {
   /**
    * Retrieve status, metadata and location of previously requested snapshot
    *
-   * @param {SnapshotId} id
+   * @param id -
    * @returns
    */
   @Decode(SnapshotResponse)

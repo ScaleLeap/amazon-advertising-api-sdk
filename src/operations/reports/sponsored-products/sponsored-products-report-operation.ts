@@ -65,8 +65,8 @@ export class SponsoredProductsReportOperation<
   /**
    * Request the creation of a performance report for asins which have performance data to report.
    *
-   * @private
-   * @param {ReportParams} params
+   * @privateRemarks
+   * @param params -
    * @returns
    */
   private requestAsinReport(params: ReportParams) {
@@ -81,7 +81,7 @@ export class SponsoredProductsReportOperation<
    * Request the creation of a performance report for all entities of a single type which have performance data to report.
    * Record types can be: campaigns, adGroups, keywords, productAds, and targets
    *
-   * @param {ReportParams} params
+   * @param params -
    * @returns
    */
   @Decode(ReportResponse)

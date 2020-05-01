@@ -13,7 +13,7 @@ export class SponsoredBrandsKeywordRecommendationsOperation extends Operation {
    * Gets an array of keyword recommendation objects for a set of ASINs included either on a landing page or a Store page.
    * Vendors may also specify a custom landing page.
    *
-   * @param {SponsoredBrandsKeywordRecommendationParams} params
+   * @param params -
    * @returns
    */
   @DecodeArray(SponsoredBrandsKeywordRecommendation)
