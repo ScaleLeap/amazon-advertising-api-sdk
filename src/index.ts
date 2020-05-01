@@ -1,5 +1,6 @@
 export * from './o-auth-client'
 export * from './http-client'
+export * from './operations/operation'
 export * from './operations/operation-provider'
 export * from './operations/ad-groups/sponsored-brands-ad-group-operation'
 export * from './operations/ad-groups/sponsored-products-ad-group-operation'
