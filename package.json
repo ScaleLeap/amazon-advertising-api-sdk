@@ -37,7 +37,7 @@
   "devDependencies": {
     "@scaleleap/config": "1.6.0",
     "@scaleleap/jest-polly": "1.4.0",
-    "@scaleleap/semantic-release-config": "1.1.7",
+    "@scaleleap/semantic-release-config": "1.1.8",
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
     "@types/node": "13.9.8",
