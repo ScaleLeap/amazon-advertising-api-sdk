@@ -20,7 +20,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * Retrieves a keyword by ID.
    * Note that this call returns the minimal set of keyword fields, but is more efficient than getBiddableKeywordEx
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(Keyword)
@@ -33,7 +33,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * Note that this call returns the complete set of keyword fields (including serving status and other read-only fields), but is less efficient than getBiddableKeyword.
    * There is no extended keywords interface for Sponsored Brands.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(KeywordExtended)
@@ -45,7 +45,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * Creates one or more keywords.
    * Successfully created keywords will be assigned a unique keywordId.
    *
-   * @param {CreateKeywordsParam[]} keywords
+   * @param keywords -
    * @returns
    */
   @DecodeArray(KeywordResponse)
@@ -57,7 +57,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * Updates one or more keywords.
    * While keywords are in a pending state you can only update the bid amount, or archive them. You cannot change the state from pending
    *
-   * @param {UpdateKeywordsParam[]} keywords
+   * @param keywords -
    * @returns
    */
   @DecodeArray(KeywordResponse)
@@ -70,7 +70,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * This same operation can be performed via an update, but is included for completeness.
    * Archived entities cannot be made active again. See developer notes for more information.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(KeywordResponse)
@@ -82,7 +82,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * Retrieves a list of keywords satisfying optional criteria for Sponsored Products.
    * List keyword operations are not supported for Sponsored Brands.
    *
-   * @param {ListBiddableKeywordsParam} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(Keyword)
@@ -94,7 +94,7 @@ export class SponsoredProductsAdGroupKeywordsOperation extends Operation {
    * Retrieves a list of keywords and its extended fields satisfying optional criteria for Sponsored Products.
    * List keyword operations are not supported for Sponsored Brands.
    *
-   * @param {ListBiddableKeywordsExtendedParam} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(KeywordExtended)

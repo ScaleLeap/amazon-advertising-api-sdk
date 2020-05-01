@@ -19,7 +19,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Note that this call returns the minimal set of keyword fields, but is more efficient than getCampaignNegativeKeywordEx.
    * Not available for vendors.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(CampaignNegativeKeyword)
@@ -32,7 +32,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Note that this call returns the complete set of keyword fields (including serving status and other read-only fields), but is less efficient than getCampaignNegativeKeyword.
    * Not available for vendors.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(CampaignNegativeKeywordExtended)
@@ -47,7 +47,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Successfully created keywords will be assigned a unique keywordId.
    * Not available for vendors.
    *
-   * @param {CreateCampaignNegativeKeywordsParam[]} keywords
+   * @param keywords -
    * @returns
    */
   @DecodeArray(CampaignNegativeKeywordResponse)
@@ -60,7 +60,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Keywords are identified using their keywordId.
    * Not available for vendors.
    *
-   * @param {UpdateCampaignNegativeKeywordsParam[]} keywords
+   * @param keywords -
    * @returns
    */
   @DecodeArray(CampaignNegativeKeywordResponse)
@@ -77,7 +77,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Deleted status indicates permanent removal of the campaign negative keyword.
    * Retrieving a deleted entity by ID will result in a 404 error.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(CampaignNegativeKeywordResponse)
@@ -89,7 +89,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Retrieves a list of negative keywords satisfying optional criteria.
    * Not available for vendors.
    *
-   * @param {ListCampaignNegativeKeywordsParam} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(CampaignNegativeKeyword)
@@ -101,7 +101,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
    * Retrieves a list of campaign negative keywords with extended fields satisfying optional criteria.
    * Not available for vendors.
    *
-   * @param {ListCampaignNegativeKeywordsParam} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(CampaignNegativeKeywordExtended)

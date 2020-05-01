@@ -32,7 +32,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieve a targeting clause with a specific target ID.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(TargetingClause)
@@ -43,7 +43,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieve a targeting clause with additional attributes using a specific target ID.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(TargetingClauseExtended)
@@ -54,7 +54,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieves a list of targeting clauses.
    *
-   * @param {ListTargetingClausesParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(TargetingClause)
@@ -67,7 +67,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieve a list of targeting clauses with extended properties.
    *
-   * @param {ListTargetingClausesParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(TargetingClauseExtended)
@@ -80,7 +80,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Creates one or more targeting expressions.
    *
-   * @param {CreateTargetingClausesParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(TargetingClauseResponse)
@@ -91,7 +91,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Update one or more targeting clauses.
    *
-   * @param {UpdateTargetingClausesParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(TargetingClauseResponse)
@@ -104,7 +104,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    * This same operation can also be performed via an update (PUT method), but is included for completeness.
    * Archived entities cannot be made active again.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(TargetingClauseResponse)
@@ -116,7 +116,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    * Generate list of recommended products to target, based on the ASIN that is input.
    * Successful response will be a list of recommended ASINs to target.
    *
-   * @param {ProductRecommendationRequest} params
+   * @param params -
    * @returns
    */
   @Decode(ProductRecommendationResponse)
@@ -130,7 +130,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Gets the list of targeting categories.
    *
-   * @param {string[]} asins
+   * @param asins -
    * @returns
    */
   @DecodeArray(CategoryResponse)
@@ -145,7 +145,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    * Categories and Refinements are determined based on marketplaceId of the profile in the request.
    * Note that refinements will differ between marketplaces.
    *
-   * @param {CategoryId} categoryId
+   * @param categoryId -
    * @returns
    */
   @Decode(RefinementsResponse)
@@ -159,7 +159,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
    * Get recommended brands for Sponsored Products.
    * Only one parameter (keyword or categoryId) per request is allowed.
    *
-   * @param {GetBrandRecommendationsParams} params
+   * @param params -
    * @returns
    */
   @DecodeArray(BrandResponse)
@@ -174,7 +174,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Get a specific negative targeting clause by targetId.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(NegativeTargetingClause)
@@ -185,7 +185,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieve a negative targeting clause with additional attributes using a specific target ID.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(NegativeTargetingClauseExtended)
@@ -198,7 +198,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Create negative targeting clauses at the campaign level.
    *
-   * @param {CreateNegativeTargetingClausesParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(NegativeTargetingClauseResponse)
@@ -209,7 +209,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieves a list of negative targeting clauses.
    *
-   * @param {ListNegativeTargetingClausesParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(NegativeTargetingClause)
@@ -222,7 +222,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Retrieve a list of targeting clauses with extended properties.
    *
-   * @param {ListNegativeTargetingClausesParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(NegativeTargetingClauseExtended)
@@ -235,7 +235,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Archive negative targeting clauses.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(NegativeTargetingClauseResponse)
@@ -248,7 +248,7 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
   /**
    * Update negative targeting clauses.
    *
-   * @param {UpdateNegativeTargetingClausesParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(NegativeTargetingClauseResponse)

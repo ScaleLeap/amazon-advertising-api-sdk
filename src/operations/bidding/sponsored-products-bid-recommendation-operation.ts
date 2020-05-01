@@ -18,7 +18,7 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
   /**
    * Request bid recommendations for specified ad group.
    *
-   * @param {AdGroupId} id
+   * @param id -
    * @returns AdGroupBidRecommendationsResponse
    */
   @Decode(AdGroupBidRecommendationsResponse)
@@ -31,7 +31,7 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
   /**
    * Request bid recommendations for specified keyword.
    *
-   * @param {KeywordId} id
+   * @param id -
    * @returns KeywordBidRecommendationsResponse
    */
   @Decode(KeywordBidRecommendationsResponse)
@@ -44,7 +44,7 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
   /**
    * Request bid recommendations for a list of up to 100 keywords.
    *
-   * @param {KeywordBidRecommendationsData} params
+   * @param params -
    * @returns BidRecommendationsResponse
    */
   @Decode(BidRecommendationsResponse)
@@ -58,7 +58,7 @@ export class SponsoredProductsBidRecommendationOperation extends Operation {
   /**
    * Retrieve a list of bid recommendations for keyword, product, or auto targeting expressions by adGroupId.
    *
-   * @param {BidRecommendationRequest} params
+   * @param params -
    * @returns BidRecommendationForTargetsResponse
    */
   @Decode(BidRecommendationForTargetsResponse)

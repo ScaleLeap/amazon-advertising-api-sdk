@@ -16,7 +16,7 @@ export class PortfolioOperation extends Operation {
   /**
    * Retrieve a list of up to 100 portfolios using the specified filters.
    *
-   * @param {ListPortfoliosParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(Portfolio)
@@ -27,7 +27,7 @@ export class PortfolioOperation extends Operation {
   /**
    * Retrieve a list of up to 100 portfolios with additional properties using the specified filters.
    *
-   * @param {ListPortfoliosParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(PortfolioExtended)
@@ -38,7 +38,7 @@ export class PortfolioOperation extends Operation {
   /**
    * Retrieve a portfolio by ID.
    *
-   * @param {PortfolioId} portfolioId
+   * @param portfolioId -
    * @returns
    */
   @Decode(Portfolio)
@@ -49,7 +49,7 @@ export class PortfolioOperation extends Operation {
   /**
    * Retrieve a portfolio along with additional properties by ID.
    *
-   * @param {PortfolioId} portfolioId
+   * @param portfolioId -
    * @returns
    */
   @Decode(PortfolioExtended)
@@ -60,7 +60,7 @@ export class PortfolioOperation extends Operation {
   /**
    * Create one or more portfolios. Maximum number of portfolios per account is 100.
    *
-   * @param {CreatePortfoliosParams[]} portfolios
+   * @param portfolios -
    * @returns
    */
   @DecodeArray(PortfolioResponse)
@@ -71,7 +71,7 @@ export class PortfolioOperation extends Operation {
   /**
    * Update one or more portfolios.
    *
-   * @param {UpdatePortfoliosParams[]} portfolios
+   * @param portfolios -
    * @returns
    */
   @DecodeArray(PortfolioResponse)

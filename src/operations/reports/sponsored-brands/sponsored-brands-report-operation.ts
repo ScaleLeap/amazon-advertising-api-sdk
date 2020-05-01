@@ -29,7 +29,7 @@ export class SponsoredBrandsReportOperation<
    * Request the creation of a performance report for all entities of a single type which have performance data to report.
    * Record types can be: campaigns, adGroups, and keywords
    *
-   * @param {ReportParams} params
+   * @param params -
    * @returns
    */
   @Decode(ReportResponse)

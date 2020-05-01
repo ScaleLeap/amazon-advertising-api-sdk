@@ -11,7 +11,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * Retrieves an ad group by ID.
    * Note that this call returns the minimal set of ad group fields, but is more efficient than getAdGroupEx
    *
-   * @param {AdGroupId} adGroupId
+   * @param adGroupId -
    * @returns
    */
   @Decode(AdGroup)
@@ -23,7 +23,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * Retrieves an ad group and its extended fields by ID.
    * Note that this call returns the complete set of ad group fields (including serving status and other read-only fields), but is less efficient than getAdGroup
    *
-   * @param {AdGroupId} adGroupId
+   * @param adGroupId -
    * @returns
    */
   @Decode(AdGroupExtended)
@@ -34,7 +34,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
   /**
    * Creates one or more ad groups. Successfully created ad groups will be assigned a unique adGroupId
    *
-   * @param {AdGroup[]} adGroups
+   * @param adGroups -
    * @returns
    */
   @DecodeArray(AdGroupResponse)
@@ -45,7 +45,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
   /**
    * Updates one or more ad groups. Ad groups are identified using their adGroupId
    *
-   * @param {AdGroup[]} adGroups
+   * @param adGroups -
    * @returns
    */
   @DecodeArray(AdGroupResponse)
@@ -58,7 +58,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * This same operation can be performed via an update, but is included for completeness
    * Archived entities cannot be made active again. See developer notes for more information.
    *
-   * @param {AdGroupId} adGroupId
+   * @param adGroupId -
    * @returns
    */
   @Decode(AdGroupResponse)
@@ -69,7 +69,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
   /**
    * Retrieves a list of ad groups satisfying optional criteria.
    *
-   * @param {ListAdGroupsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(AdGroup)
@@ -80,7 +80,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
   /**
    * Retrieves a list of ad groups with extended fields satisfying optional filtering criteria.
    *
-   * @param {ListAdGroupsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(AdGroupExtended)

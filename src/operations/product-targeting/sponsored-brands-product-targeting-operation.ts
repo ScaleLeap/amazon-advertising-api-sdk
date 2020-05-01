@@ -33,7 +33,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Gets a list of product targets associated with the client identifier passed in the authorization header, filtered by specified criteria.
    *
-   * @param {SponsoredBrandsListTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsListTargetsResponse)
@@ -44,7 +44,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Updates one or more targets.
    *
-   * @param {SponsoredBrandsUpdateTargetsRequest[]} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsUpdateTargetsResponse)
@@ -55,7 +55,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Create one or more new targets.
    *
-   * @param {SponsoredBrandsCreateTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsCreateTargetsResponse)
@@ -66,7 +66,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Gets a target specified by identifier.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(SponsoredBrandsTargetingClause)
@@ -77,7 +77,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Archives a target specified by identifier. Note that archiving is permanent, and once a target has been archived it can't be made active again.
    *
-   * @param {TargetId} targetId
+   * @param targetId -
    * @returns
    */
   @Decode(SponsoredBrandsTargetingClauseResponse)
@@ -90,7 +90,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Gets one or more product targets specified by identifiers.
    *
-   * @param {SponsoredBrandsBatchGetTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsBatchGetTargetsResponse)
@@ -101,7 +101,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Gets a list of product negative targets associated with the client identifier passed in the authorization header, filtered by specified criteria.
    *
-   * @param {SponsoredBrandsListNegativeTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsListNegativeTargetsResponse)
@@ -115,7 +115,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Updates one or more negative targets.
    *
-   * @param {SponsoredBrandsUpdateNegativeTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsUpdateNegativeTargetsResponse)
@@ -129,7 +129,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Create one or more new negative targets.
    *
-   * @param {SponsoredBrandsCreateNegativeTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsCreateNegativeTargetsResponse)
@@ -143,7 +143,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Gets a negative target specified by identifier.
    *
-   * @param {SponsoredBrandsNegativeTargetId} negativeTargetId
+   * @param negativeTargetId -
    * @returns
    */
   @Decode(SponsoredBrandsNegativeTargetingClause)
@@ -157,7 +157,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
    * Archives a negative target specified by identifier.
    * Note that archiving is permanent, and once a negative target has been archived it can't be made active again.
    *
-   * @param {SponsoredBrandsNegativeTargetId} negativeTargetId
+   * @param negativeTargetId -
    * @returns
    */
   @Decode(SponsoredBrandsTargetingClauseResponse)
@@ -170,7 +170,7 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   /**
    * Gets one or more product negative targets specified by identifiers.
    *
-   * @param {SponsoredBrandsBatchGetNegativeTargetsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsBatchGetNegativeTargetsResponse)

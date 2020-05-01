@@ -17,7 +17,7 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   /**
    * Gets a campaign specified by identifier
    *
-   * @param {CampaignId} campaignId
+   * @param campaignId -
    * @returns
    */
   @Decode(SponsoredBrandsCampaign)
@@ -28,7 +28,7 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   /**
    * Gets an array of all campaigns associated with the client identifier passed in the authorization header, filtered by specified criteria.
    *
-   * @param {ListCampaignsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(SponsoredBrandsCampaign)
@@ -39,7 +39,7 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   /**
    * Creates one or more new Campaigns
    *
-   * @param {SponsoredBrandsCampaignCreateParams[]} campaigns
+   * @param campaigns -
    * @returns
    */
   @DecodeArray(CampaignResponse)
@@ -50,7 +50,7 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   /**
    * Updates one or more campaigns.
    *
-   * @param {SponsoredBrandsCampaignUpdateParams[]} campaigns
+   * @param campaigns -
    * @returns
    */
   @DecodeArray(CampaignResponse)
@@ -61,7 +61,7 @@ export class SponsoredBrandsCampaignOperation extends Operation {
   /**
    * Archives a campaign specified by identifier.
    *
-   * @param {CampaignId} campaignId
+   * @param campaignId -
    * @returns
    */
   @Decode(CampaignResponse)

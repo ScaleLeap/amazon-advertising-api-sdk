@@ -19,7 +19,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    * Retrieves a negative keyword by ID.
    * Note that this call returns the minimal set of keyword fields, but is more efficient than getNegativeKeywordEx.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(NegativeKeyword)
@@ -31,7 +31,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    * Retrieves a negative keyword and its extended fields by ID.
    * Note that this call returns the complete set of keyword fields (including serving status and other read-only fields), but is less efficient than getNegativeKeyword.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(NegativeKeywordExtended)
@@ -43,7 +43,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    * Creates one or more negative keywords.
    * Successfully created keywords will be assigned a unique keywordId.
    *
-   * @param {CreateNegativeKeywordsParam[]} keywords
+   * @param keywords -
    * @returns
    */
   @DecodeArray(NegativeKeywordResponse)
@@ -55,7 +55,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    * Updates one or more negative keywords.
    * Keywords are identified using their keywordId.
    *
-   * @param {UpdateNegativeKeywordsParam[]} keywords
+   * @param keywords -
    * @returns
    */
   @DecodeArray(NegativeKeywordResponse)
@@ -67,7 +67,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
    * Archive a single negative ad group-level keyword.
    * Archived entities cannot be made active again. See developer notes for more information.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(NegativeKeywordResponse)
@@ -78,7 +78,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
   /**
    * Retrieves a list of negative keywords satisfying optional criteria.
    *
-   * @param {ListNegativeKeywordsParam} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(NegativeKeyword)
@@ -89,7 +89,7 @@ export class SponsoredProductsAdGroupNegativeKeywordsOperation extends Operation
   /**
    * Retrieves a list of negative keywords with extended fields satisfying optional criteria.
    *
-   * @param {ListNegativeKeywordsParam} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(NegativeKeywordExtended)

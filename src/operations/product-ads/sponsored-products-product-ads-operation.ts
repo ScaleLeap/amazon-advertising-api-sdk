@@ -19,7 +19,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    * Retrieves a product ad by ID.
    * Note that this call returns the minimal set of product ad fields, but is more efficient than getProductAdEx.
    *
-   * @param {AdId} adId
+   * @param adId -
    * @returns
    */
   @Decode(ProductAd)
@@ -31,7 +31,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    * Retrieves a product ad and its extended fields by ID.
    * Note that this call returns the complete set of product ad fields (including serving status and other read-only fields), but is less efficient than getProductAd.
    *
-   * @param {AdId} adId
+   * @param adId -
    * @returns
    */
   @Decode(ProductAdExtended)
@@ -43,7 +43,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    * Creates one or more product ads.
    * Successfully created product ads will be assigned a unique adId.
    *
-   * @param {CreateProductAdParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(AdResponse)
@@ -55,7 +55,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    * Updates one or more product ads.
    * Product ads are identified using their adId.
    *
-   * @param {UpdateProductAdParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(AdResponse)
@@ -68,7 +68,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    * This same operation can be performed via an update, but is included for completeness.
    * Archived entities cannot be made active again. See developer notes for more information.
    *
-   * @param {AdId} adId
+   * @param adId -
    * @returns
    */
   @Decode(AdResponse)
@@ -79,7 +79,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
   /**
    * Retrieves a list of product ads satisfying optional criteria.
    *
-   * @param {ListProductAdsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(ProductAd)
@@ -90,7 +90,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
   /**
    * Retrieves a list of product ads with extended fields satisfying optional criteria.
    *
-   * @param {ListProductAdsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(ProductAdExtended)

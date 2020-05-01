@@ -12,7 +12,7 @@ export class SponsoredBrandsBidRecommendationsOperation extends Operation {
   /**
    * Get a list of bid recommendation objects for a specified list of keywords or products.
    *
-   * @param {SponsoredBrandsBidsRecommendationRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsBidsRecommendationResponse)

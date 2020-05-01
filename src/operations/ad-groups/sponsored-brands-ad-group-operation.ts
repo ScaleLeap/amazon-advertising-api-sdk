@@ -10,7 +10,7 @@ export class SponsoredBrandsAdGroupOperation extends Operation {
   /**
    * Gets an array of ad groups associated with the client identifier passed in the authorization header, filtered by specified criteria
    *
-   * @param {AdGroupId} adGroupId
+   * @param adGroupId -
    * @returns
    */
   @Decode(AdGroup)
@@ -21,7 +21,7 @@ export class SponsoredBrandsAdGroupOperation extends Operation {
   /**
    * Gets an ad group specified by identifier.
    *
-   * @param {ListAdGroupsParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(AdGroup)

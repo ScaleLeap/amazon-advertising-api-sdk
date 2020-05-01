@@ -16,7 +16,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
   /**
    * Gets an array of keywords, filtered by optional criteria
    *
-   * @param {ListSponsoredBrandsKeywordParams} [params]
+   * @param params -
    * @returns
    */
   @DecodeArray(SponsoredBrandsKeyword)
@@ -29,7 +29,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    * Keywords submitted for update have state set to pending while under moderation review.
    * Note that moderation may take up to 72 hours.
    *
-   * @param {UpdateSponsoredBrandsKeywordParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(SponsoredBrandsKeywordResponse)
@@ -43,7 +43,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    * Keywords submitted for creation have state set to pending while under moderation review.
    * Note that moderation review may take up to 72 hours.
    *
-   * @param {CreateSponsoredBrandsKeywordParams[]} params
+   * @param params -
    * @returns
    */
   @DecodeArray(SponsoredBrandsKeywordResponse)
@@ -54,7 +54,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
   /**
    * Gets a keyword specified by identifier.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(SponsoredBrandsKeyword)
@@ -67,7 +67,7 @@ export class SponsoredBrandsKeywordsOperation extends Operation {
    * This operation is equivalent to an update operation that sets the status field to 'archived'.
    * Note that setting the status field to 'archived' is permanent and can't be undone. See Developer Notes for more information.
    *
-   * @param {KeywordId} keywordId
+   * @param keywordId -
    * @returns
    */
   @Decode(SponsoredBrandsKeyword)

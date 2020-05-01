@@ -16,7 +16,7 @@ export class SponsoredBrandsTargetingRecommendationsOperation extends Operation 
   /**
    * Gets a list of recommended products for targeting.
    *
-   * @param {SponsoredBrandsProductRecommendationsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsProductRecommendationsResponse)
@@ -30,7 +30,7 @@ export class SponsoredBrandsTargetingRecommendationsOperation extends Operation 
   /**
    * Gets a list of recommended categories for targeting.
    *
-   * @param {SponsoredBrandsCategoryRecommendationsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsCategoryRecommendationsResponse)
@@ -44,7 +44,7 @@ export class SponsoredBrandsTargetingRecommendationsOperation extends Operation 
   /**
    * Gets a list of brand suggestions.
    *
-   * @param {SponsoredBrandsBrandRecommendationsRequest} params
+   * @param params -
    * @returns
    */
   @Decode(SponsoredBrandsBrandRecommendationsResponse)
