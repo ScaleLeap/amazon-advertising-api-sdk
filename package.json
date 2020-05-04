@@ -28,7 +28,7 @@
     "cross-fetch": "3.0.4",
     "fp-ts": "2.5.4",
     "http-status-codes": "1.4.0",
-    "io-ts": "2.2.1",
+    "io-ts": "2.2.2",
     "io-ts-promise": "2.0.2",
     "io-ts-types": "0.5.6",
     "lazy-get-decorator": "2.2.0",
