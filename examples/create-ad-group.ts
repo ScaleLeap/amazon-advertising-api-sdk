@@ -8,6 +8,10 @@ const auth = {
 }
 const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
 const sponsoredBrandsAdGroupOperation = amazonAdvertising.sponsoredBrandsAdGroup
+const sponsoredProductsAdGroupOperation = amazonAdvertising.sponsoredProductsAdGroup
 
-const sponsoredBrandsAdGroup = await sponsoredBrandsAdGroupOperation.getAdGroup(1111111111)
+const sponsoredBrandsAdGroup = await sponsoredBrandsAdGroupOperation.getAdGroup(123)
 const sponsoredBrandsAdGroups = await sponsoredBrandsAdGroupOperation.listAdGroups()
+
+const sponsoredProductsAdGroup = await sponsoredProductsAdGroupOperation.getAdGroup(123)
+const sponsoredProductsAdGroupExtended = await sponsoredProductsAdGroupOperation.getAdGroupEx(123)
