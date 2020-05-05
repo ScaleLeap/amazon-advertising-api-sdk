@@ -1,7 +1,0 @@
-{
-  "name": "examples-ad-groups-operations",
-  "version": "1.0.0",
-  "dependencies": {
-    "@scaleleap/amazon-advertising-api-sdk": "latest"
-  }
-}
