@@ -8,7 +8,7 @@ export class SponsoredBrandsAdGroupOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredBrands}/adGroups`
 
   /**
-   * Gets an array of ad groups associated with the client identifier passed in the authorization header, filtered by specified criteria
+   * Gets an ad group specified by identifier.
    *
    * @param adGroupId -
    * @returns
@@ -19,7 +19,7 @@ export class SponsoredBrandsAdGroupOperation extends Operation {
   }
 
   /**
-   * Gets an ad group specified by identifier.
+   * Gets an array of ad groups associated with the client identifier passed in the authorization header, filtered by specified criteria
    *
    * @param params -
    * @returns
