@@ -3,6 +3,8 @@ import {
   AmazonAdvertising,
   SponsoredBrandsCampaignCreateParams,
   SponsoredBrandsCampaignUpdateParams,
+  SponsoredProductsCampaignCreateParams,
+  SponsoredProductsCampaignUpdateParams,
 } from '@scaleleap/amazon-advertising-api-sdk'
 
 const auth = {
@@ -12,8 +14,9 @@ const auth = {
 }
 const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
 const sponsoredBrandsCampaignOperation = amazonAdvertising.sponsoredBrandsCampaign
+const sponsoredProductsCampaignOperation = amazonAdvertising.sponsoredProductsCampaign
 
-// Archives a campaign specified by identifier.
+// Archives a sponsored brands campaign specified by identifier
 sponsoredBrandsCampaignOperation.archiveCampaign(123)
 
 // Creates one or more new sponsored brands campaigns
@@ -26,16 +29,52 @@ const createSBCampaignParams: SponsoredBrandsCampaignCreateParams[] = [{
 }]
 sponsoredBrandsCampaignOperation.createCampaigns(createSBCampaignParams)
 
-// Gets a campaign specified by identifier
+// Gets a sponsored brands campaign specified by identifier
 sponsoredBrandsCampaignOperation.getCampaign(123)
 
-// Gets an array of all campaigns associated with the client identifier passed in the authorization header, filtered by specified criteria.
+// Gets an array of all sponsored brands campaigns associated with the client identifier passed in the authorization header, filtered by specified criteria
 sponsoredBrandsCampaignOperation.listCampaigns()
 
-// Updates one or more Sponsored Brands campaigns.
+// Updates one or more sponsored brands campaigns
 const updateSBCampaignParams: SponsoredBrandsCampaignUpdateParams[] = [{
   portfolioId: 123,
   campaignId: 123,
   state: 'paused',
 }]
 sponsoredBrandsCampaignOperation.updateCampaigns(updateSBCampaignParams)
+
+// Sets the sponsored products campaign status to archived
+sponsoredProductsCampaignOperation.archiveCampaign(123)
+
+// Creates one or more sponsored products campaigns
+const createSPCampaignParams: SponsoredProductsCampaignCreateParams[] = [{
+  name: 'test campaign',
+  campaignType: 'sponsoredProducts',
+  dailyBudget: 1,
+  state: 'enabled',
+  targetingType: 'manual',
+  startDate: '20200310',
+}]
+sponsoredProductsCampaignOperation.createCampaigns(createSPCampaignParams)
+
+// Retrieves a sponsored products campaign by campaignId
+sponsoredProductsCampaignOperation.getCampaign(123)
+
+// Retrieves a sponsored products campaign and its extended fields by campaignId
+sponsoredProductsCampaignOperation.getCampaignEx(123)
+
+// Retrieves a list of sponsored products campaigns satisfying optional filtering criteria
+sponsoredProductsCampaignOperation.listCampaigns()
+
+// Retrieves a list of sponsored products campaigns with extended fields satisfying optional filtering criteria
+sponsoredProductsCampaignOperation.listCampaignsEx()
+
+// Updates one or more ponsored products campaigns
+const updateSPCampaignParams: SponsoredProductsCampaignUpdateParams[] = [{
+  campaignId: 123,
+  name: 'test campaign',
+  dailyBudget: 1,
+  state: 'enabled',
+  startDate: '20200310',
+}]
+sponsoredProductsCampaignOperation.updateCampaigns(updateSPCampaignParams)
