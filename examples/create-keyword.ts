@@ -10,6 +10,8 @@ import {
   UpdateKeywordsParam,
   CreateNegativeKeywordsParam,
   UpdateNegativeKeywordsParam,
+  CreateCampaignNegativeKeywordsParam,
+  UpdateCampaignNegativeKeywordsParam,
 } from '@scaleleap/amazon-advertising-api-sdk'
 
 const auth = {
@@ -23,6 +25,7 @@ const sponsoredBrandsKeywordsOperation = amazonAdvertising.sponsoredBrandsKeywor
 const sponsoredBrandsNegativeKeywordsOperation = amazonAdvertising.sponsoredBrandsNegativeKeywords
 const sponsoredProductsAdGroupKeywordsOperation = amazonAdvertising.sponsoredProductsAdGroupKeywords
 const sponsoredProductsAdGroupNegativeKeywordsOperation = amazonAdvertising.sponsoredProductsAdGroupNegativeKeywords
+const sponsoredProductsCampaignNegativeKeywordsOperation = amazonAdvertising.sponsoredProductsCampaignNegativeKeywords
 
 // Gets an array of keyword recommendation objects for a set of ASINs included either on a landing page or a Store page.
 const sponsoredBrandsKeywordRecommendationParams: SponsoredBrandsKeywordRecommendationParams = {
@@ -163,3 +166,39 @@ const updateSPNegativeKeywordsParams: UpdateNegativeKeywordsParam[] = [
   },
 ]
 sponsoredProductsAdGroupNegativeKeywordsOperation.updateNegativeKeywords(updateSPNegativeKeywordsParams)
+
+// Sets the sponsored products campaign negative keyword status to deleted.
+sponsoredProductsCampaignNegativeKeywordsOperation.archiveCampaignNegativeKeyword(123)
+
+// Creates one or more sponsored products campaign negative keywords.
+const createCampaignNegativeKeywordsParams: CreateCampaignNegativeKeywordsParam[] = [
+  {
+    campaignId: 123,
+    keywordText: 'Apple',
+    matchType: 'negativeExact',
+    state: 'enabled',
+  },
+]
+sponsoredProductsCampaignNegativeKeywordsOperation.createCampaignNegativeKeywords(createCampaignNegativeKeywordsParams)
+
+// Retrieves a sponsored products campaign negative keyword by ID.
+sponsoredProductsCampaignNegativeKeywordsOperation.getCampaignNegativeKeyword(123)
+
+// Retrieves a sponsored products campaign negative keyword and its extended fields by ID.
+sponsoredProductsCampaignNegativeKeywordsOperation.getCampaignNegativeKeywordExtended(123)
+
+// Retrieves a list of sponsored products campaign negative keywords satisfying optional criteria.
+sponsoredProductsCampaignNegativeKeywordsOperation.listCampaignNegativeKeywords()
+
+// Retrieves a list of sponsored products campaign negative keywords with extended fields satisfying optional criteria.
+sponsoredProductsCampaignNegativeKeywordsOperation.listCampaignNegativeKeywordsExtended()
+
+// Updates one or more sponsored products campaign negative keywords.
+const updateCampaignNegativeKeywordsParams: UpdateCampaignNegativeKeywordsParam[] = [
+  {
+    keywordId: 123,
+    state: 'enabled',
+  },
+]
+sponsoredProductsCampaignNegativeKeywordsOperation.updateCampaignNegativeKeywords(updateCampaignNegativeKeywordsParams)
+
