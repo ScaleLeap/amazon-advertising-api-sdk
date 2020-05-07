@@ -39,7 +39,7 @@
     "@microsoft/api-extractor": "7.8.0",
     "@scaleleap/config": "1.6.1",
     "@scaleleap/jest-polly": "1.4.2",
-    "@scaleleap/semantic-release-config": "1.1.8",
+    "@scaleleap/semantic-release-config": "1.1.9",
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
     "@types/node": "13.13.4",
