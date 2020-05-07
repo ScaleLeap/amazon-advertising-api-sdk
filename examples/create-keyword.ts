@@ -6,6 +6,8 @@ import {
   UpdateSponsoredBrandsKeywordParams,
   CreateSponsoredBrandsNegativeKeywordParams,
   UpdateSponsoredBrandsNegativeKeywordParams,
+  CreateKeywordsParam,
+  UpdateKeywordsParam,
 } from '@scaleleap/amazon-advertising-api-sdk'
 
 const auth = {
@@ -17,6 +19,7 @@ const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
 const sponsoredBrandsKeywordRecommendationsOperation = amazonAdvertising.sponsoredBrandsKeywordRecommendations
 const sponsoredBrandsKeywordsOperation = amazonAdvertising.sponsoredBrandsKeywords
 const sponsoredBrandsNegativeKeywordsOperation = amazonAdvertising.sponsoredBrandsNegativeKeywords
+const sponsoredProductsAdGroupKeywordsOperation = amazonAdvertising.sponsoredProductsAdGroupKeywords
 
 // Gets an array of keyword recommendation objects for a set of ASINs included either on a landing page or a Store page.
 const sponsoredBrandsKeywordRecommendationParams: SponsoredBrandsKeywordRecommendationParams = {
@@ -61,7 +64,7 @@ sponsoredBrandsKeywordsOperation.updateKeywords(updateSBKeywordParams)
 sponsoredBrandsNegativeKeywordsOperation.archiveNegativeKeyword(123)
 
 // Creates one or more sponsored brands negative keywords.
-const createNegativeKeywordsParams: CreateSponsoredBrandsNegativeKeywordParams[] = [
+const createSBNegativeKeywordsParams: CreateSponsoredBrandsNegativeKeywordParams[] = [
   {
     campaignId: 123,
     adGroupId: 123,
@@ -69,13 +72,13 @@ const createNegativeKeywordsParams: CreateSponsoredBrandsNegativeKeywordParams[]
     matchType: 'negativeExact',
   },
 ]
-sponsoredBrandsNegativeKeywordsOperation.createNegativeKeywords(createNegativeKeywordsParams)
+sponsoredBrandsNegativeKeywordsOperation.createNegativeKeywords(createSBNegativeKeywordsParams)
 
 // Gets a sponsored brands negative keyword specified by identifier.
 sponsoredBrandsNegativeKeywordsOperation.getNegativeKeyword(123)
 
 // Updates one or more sponsored brands negative keywords.
-const updateNegativeKeywordsParams: UpdateSponsoredBrandsNegativeKeywordParams[] = [
+const updateSBNegativeKeywordsParams: UpdateSponsoredBrandsNegativeKeywordParams[] = [
   {
     campaignId: 123,
     adGroupId: 123,
@@ -83,4 +86,41 @@ const updateNegativeKeywordsParams: UpdateSponsoredBrandsNegativeKeywordParams[]
     state: 'archived',
   },
 ]
-sponsoredBrandsNegativeKeywordsOperation.updateNegativeKeywords(updateNegativeKeywordsParams)
+sponsoredBrandsNegativeKeywordsOperation.updateNegativeKeywords(updateSBNegativeKeywordsParams)
+
+// Sets the keyword status to archived.
+sponsoredProductsAdGroupKeywordsOperation.archiveBiddableKeyword(123)
+
+// Creates one or more keywords.
+const createSPKeywordParams: CreateKeywordsParam[] = [
+  {
+    campaignId: 123,
+    adGroupId: 123,
+    keywordText: 'Apple',
+    matchType: 'broad',
+    state: 'paused',
+  },
+]
+sponsoredProductsAdGroupKeywordsOperation.createKeywords(createSPKeywordParams)
+
+// Retrieves a sponsored products keyword by ID.
+sponsoredProductsAdGroupKeywordsOperation.getBiddableKeyword(123)
+
+// Retrieves a sponsored products keyword and its extended fields by ID.
+sponsoredProductsAdGroupKeywordsOperation.getBiddableKeywordExtended(123)
+
+// Retrieves a list of sponsored products keywords satisfying optional criteria for Sponsored Products.
+sponsoredProductsAdGroupKeywordsOperation.listBiddableKeywords()
+
+// Retrieves a list of sponsored products keywords and its extended fields satisfying optional criteria for Sponsored Products.
+sponsoredProductsAdGroupKeywordsOperation.listBiddableKeywordsExtended()
+
+// Updates one or more sponsored products keywords.
+const updateSPKeywordsParams: UpdateKeywordsParam[] = [
+  {
+    keywordId: 123,
+    state: 'paused',
+    bid: 1,
+  },
+]
+sponsoredProductsAdGroupKeywordsOperation.updateKeywords(updateSPKeywordsParams)
