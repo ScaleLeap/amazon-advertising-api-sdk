@@ -86,7 +86,7 @@ export class SponsoredProductsCampaignNegativeKeywordsOperation extends Operatio
   }
 
   /**
-   * Retrieves a list of negative keywords satisfying optional criteria.
+   * Retrieves a list of campaign negative keywords satisfying optional criteria.
    * Not available for vendors.
    *
    * @param params -
