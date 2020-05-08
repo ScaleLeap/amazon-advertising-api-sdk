@@ -1,16 +1,7 @@
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import {
-  AmazonAdvertising,
-  KeywordBidRecommendationsData,
-  BidRecommendationRequest,
-} from '../src'
+import { amazonAdvertising } from './auth'
 
-const auth = {
-  accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',
-  clientId: 'amzn1.application-oa2-client.a8358a60...',
-  scope: 1234567890,
-}
-const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
+import { KeywordBidRecommendationsData, BidRecommendationRequest } from '../src'
+
 const sponsoredProductsBidRecommendationOperation =
   amazonAdvertising.sponsoredProductsBidRecommendation
 
