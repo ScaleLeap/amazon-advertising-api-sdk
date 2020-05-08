@@ -20,18 +20,23 @@ const auth = {
   scope: 1234567890,
 }
 const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
-const sponsoredBrandsKeywordRecommendationsOperation = amazonAdvertising.sponsoredBrandsKeywordRecommendations
+const sponsoredBrandsKeywordRecommendationsOperation =
+  amazonAdvertising.sponsoredBrandsKeywordRecommendations
 const sponsoredBrandsKeywordsOperation = amazonAdvertising.sponsoredBrandsKeywords
 const sponsoredBrandsNegativeKeywordsOperation = amazonAdvertising.sponsoredBrandsNegativeKeywords
 const sponsoredProductsAdGroupKeywordsOperation = amazonAdvertising.sponsoredProductsAdGroupKeywords
-const sponsoredProductsAdGroupNegativeKeywordsOperation = amazonAdvertising.sponsoredProductsAdGroupNegativeKeywords
-const sponsoredProductsCampaignNegativeKeywordsOperation = amazonAdvertising.sponsoredProductsCampaignNegativeKeywords
+const sponsoredProductsAdGroupNegativeKeywordsOperation =
+  amazonAdvertising.sponsoredProductsAdGroupNegativeKeywords
+const sponsoredProductsCampaignNegativeKeywordsOperation =
+  amazonAdvertising.sponsoredProductsCampaignNegativeKeywords
 
 // Gets an array of keyword recommendation objects for a set of ASINs included either on a landing page or a Store page.
 const sponsoredBrandsKeywordRecommendationParams: SponsoredBrandsKeywordRecommendationParams = {
   asins: ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB'],
 }
-sponsoredBrandsKeywordRecommendationsOperation.getKeywordRecommendations(sponsoredBrandsKeywordRecommendationParams)
+sponsoredBrandsKeywordRecommendationsOperation.getKeywordRecommendations(
+  sponsoredBrandsKeywordRecommendationParams,
+)
 
 // Archives a sponsored brands keyword specified by identifier.
 sponsoredBrandsKeywordsOperation.archiveKeyword(123)
@@ -144,7 +149,9 @@ const createSPNegativeKeywordParams: CreateNegativeKeywordsParam[] = [
     state: 'paused',
   },
 ]
-sponsoredProductsAdGroupNegativeKeywordsOperation.createNegativeKeywords(createSPNegativeKeywordParams)
+sponsoredProductsAdGroupNegativeKeywordsOperation.createNegativeKeywords(
+  createSPNegativeKeywordParams,
+)
 
 // Retrieves a sponsored products negative keyword by ID.
 sponsoredProductsAdGroupNegativeKeywordsOperation.getNegativeKeyword(123)
@@ -165,7 +172,9 @@ const updateSPNegativeKeywordsParams: UpdateNegativeKeywordsParam[] = [
     state: 'archived',
   },
 ]
-sponsoredProductsAdGroupNegativeKeywordsOperation.updateNegativeKeywords(updateSPNegativeKeywordsParams)
+sponsoredProductsAdGroupNegativeKeywordsOperation.updateNegativeKeywords(
+  updateSPNegativeKeywordsParams,
+)
 
 // Sets the sponsored products campaign negative keyword status to deleted.
 sponsoredProductsCampaignNegativeKeywordsOperation.archiveCampaignNegativeKeyword(123)
@@ -179,7 +188,9 @@ const createCampaignNegativeKeywordsParams: CreateCampaignNegativeKeywordsParam[
     state: 'enabled',
   },
 ]
-sponsoredProductsCampaignNegativeKeywordsOperation.createCampaignNegativeKeywords(createCampaignNegativeKeywordsParams)
+sponsoredProductsCampaignNegativeKeywordsOperation.createCampaignNegativeKeywords(
+  createCampaignNegativeKeywordsParams,
+)
 
 // Retrieves a sponsored products campaign negative keyword by ID.
 sponsoredProductsCampaignNegativeKeywordsOperation.getCampaignNegativeKeyword(123)
@@ -200,5 +211,6 @@ const updateCampaignNegativeKeywordsParams: UpdateCampaignNegativeKeywordsParam[
     state: 'enabled',
   },
 ]
-sponsoredProductsCampaignNegativeKeywordsOperation.updateCampaignNegativeKeywords(updateCampaignNegativeKeywordsParams)
-
+sponsoredProductsCampaignNegativeKeywordsOperation.updateCampaignNegativeKeywords(
+  updateCampaignNegativeKeywordsParams,
+)

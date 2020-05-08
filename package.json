@@ -12,7 +12,7 @@
     "build": "tsc --build tsconfig.build.json",
     "docs": "typedoc",
     "clean": "rimraf lib",
-    "lint": "eslint --ext .js,.ts src test",
+    "lint": "eslint --ext .js,.ts src test examples",
     "test": "jest",
     "api-extractor": "api-extractor run --local --verbose",
     "semantic-release": "semantic-release",
