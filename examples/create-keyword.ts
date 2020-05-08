@@ -23,10 +23,14 @@ const sponsoredProductsAdGroupNegativeKeywordsOperation =
   amazonAdvertising.sponsoredProductsAdGroupNegativeKeywords
 const sponsoredProductsCampaignNegativeKeywordsOperation =
   amazonAdvertising.sponsoredProductsCampaignNegativeKeywords
+const sponsoredProductsSuggestedKeywordsOperation =
+  amazonAdvertising.sponsoredProductsSuggestedKeywords
+
+const asins = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
 
 // Gets an array of keyword recommendation objects for a set of ASINs included either on a landing page or a Store page.
 const sponsoredBrandsKeywordRecommendationParams: SponsoredBrandsKeywordRecommendationParams = {
-  asins: ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB'],
+  asins,
 }
 sponsoredBrandsKeywordRecommendationsOperation.getKeywordRecommendations(
   sponsoredBrandsKeywordRecommendationParams,
@@ -208,3 +212,15 @@ const updateCampaignNegativeKeywordsParams: UpdateCampaignNegativeKeywordsParam[
 sponsoredProductsCampaignNegativeKeywordsOperation.updateCampaignNegativeKeywords(
   updateCampaignNegativeKeywordsParams,
 )
+
+// Provides sponsored products keyword suggestions for specified list of ASINs.
+sponsoredProductsSuggestedKeywordsOperation.bulkGetAsinSuggestedKeywords(asins)
+
+// Retrieve sponsored products suggested keyword data for the specified adGroupId.
+sponsoredProductsSuggestedKeywordsOperation.getAdGroupSuggestedKeywords(123)
+
+// Retrieve extended sponsored products suggested keyword data for the specified adGroupId.
+sponsoredProductsSuggestedKeywordsOperation.getAdGroupSuggestedKeywordsExtended(123)
+
+// Provides sponsored products suggested keywords for specified ASIN.
+sponsoredProductsSuggestedKeywordsOperation.getAsinSuggestedKeywords(asins[0])
