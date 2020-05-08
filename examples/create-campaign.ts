@@ -5,7 +5,7 @@ import {
   SponsoredBrandsCampaignUpdateParams,
   SponsoredProductsCampaignCreateParams,
   SponsoredProductsCampaignUpdateParams,
-} from '@scaleleap/amazon-advertising-api-sdk'
+} from '../src'
 
 const auth = {
   accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',
