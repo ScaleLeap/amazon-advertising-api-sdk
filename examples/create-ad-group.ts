@@ -1,5 +1,5 @@
 import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import { AmazonAdvertising, AdGroup } from '@scaleleap/amazon-advertising-api-sdk'
+import { AmazonAdvertising, AdGroup } from '../src'
 
 const auth = {
   accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',

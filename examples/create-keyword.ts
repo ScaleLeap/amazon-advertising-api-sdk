@@ -12,7 +12,7 @@ import {
   UpdateNegativeKeywordsParam,
   CreateCampaignNegativeKeywordsParam,
   UpdateCampaignNegativeKeywordsParam,
-} from '@scaleleap/amazon-advertising-api-sdk'
+} from '../src'
 
 const auth = {
   accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',

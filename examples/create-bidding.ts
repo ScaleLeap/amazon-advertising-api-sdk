@@ -3,7 +3,7 @@ import {
   AmazonAdvertising,
   KeywordBidRecommendationsData,
   BidRecommendationRequest,
-} from '@scaleleap/amazon-advertising-api-sdk'
+} from '../src'
 
 const auth = {
   accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',
