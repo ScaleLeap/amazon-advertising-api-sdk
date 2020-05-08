@@ -1,8 +1,5 @@
 import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import { 
-  AmazonAdvertising,
-  AdGroup,
-} from '@scaleleap/amazon-advertising-api-sdk'
+import { AmazonAdvertising, AdGroup } from '@scaleleap/amazon-advertising-api-sdk'
 
 const auth = {
   accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',
@@ -23,13 +20,15 @@ sponsoredBrandsAdGroupOperation.listAdGroups()
 sponsoredProductsAdGroupOperation.archiveAdGroup(123)
 
 // Creates one or more ad groups.
-const sponsoredProductsAdGroup: AdGroup[] = [{
-  adGroupId: 138818764235694,
-  name: 'New Name',
-  campaignId: 31299234922913,
-  defaultBid: 1,
-  state: 'archived',
-}]
+const sponsoredProductsAdGroup: AdGroup[] = [
+  {
+    adGroupId: 138818764235694,
+    name: 'New Name',
+    campaignId: 31299234922913,
+    defaultBid: 1,
+    state: 'archived',
+  },
+]
 sponsoredProductsAdGroupOperation.createAdGroups(sponsoredProductsAdGroup)
 
 // Retrieves an ad group by ID.

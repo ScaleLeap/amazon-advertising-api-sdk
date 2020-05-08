@@ -70,7 +70,6 @@ sponsoredBrandsDraftsOperation.listDraftCampaigns(listDraftCampaignsParam)
 // Submits one or more existing draft campaigns to the moderation approval queue.
 sponsoredBrandsDraftsOperation.submitDraftCampaigns([123])
 
-
 // Updates one or more draft campaigns.
 const updateParams: SponsoredBrandsDraftCampaign[] = [
   {

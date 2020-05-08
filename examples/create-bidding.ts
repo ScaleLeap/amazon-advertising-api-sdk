@@ -11,17 +11,22 @@ const auth = {
   scope: 1234567890,
 }
 const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
-const sponsoredProductsBidRecommendationOperation = amazonAdvertising.sponsoredProductsBidRecommendation
+const sponsoredProductsBidRecommendationOperation =
+  amazonAdvertising.sponsoredProductsBidRecommendation
 
 // Request bid recommendations for a list of up to 100 keywords.
 const keywordBidRecommendations: KeywordBidRecommendationsData = {
   adGroupId: 123,
-  keywords: [{
-    keyword: 'Apple',
-    matchType: 'broad',
-  }]
+  keywords: [
+    {
+      keyword: 'Apple',
+      matchType: 'broad',
+    },
+  ],
 }
-sponsoredProductsBidRecommendationOperation.createKeywordBidRecommendations(keywordBidRecommendations)
+sponsoredProductsBidRecommendationOperation.createKeywordBidRecommendations(
+  keywordBidRecommendations,
+)
 
 // Request bid recommendations for specified ad group.
 sponsoredProductsBidRecommendationOperation.getAdGroupBidRecommendations(123)

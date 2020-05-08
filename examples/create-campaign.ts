@@ -20,13 +20,15 @@ const sponsoredProductsCampaignOperation = amazonAdvertising.sponsoredProductsCa
 sponsoredBrandsCampaignOperation.archiveCampaign(123)
 
 // Creates one or more new sponsored brands campaigns
-const createSBCampaignParams: SponsoredBrandsCampaignCreateParams[] = [{
-  name: 'test campaign 7',
-  dailyBudget: 1,
-  state: 'paused',
-  targetingType: 'manual',
-  startDate: '20190401',
-}]
+const createSBCampaignParams: SponsoredBrandsCampaignCreateParams[] = [
+  {
+    name: 'test campaign 7',
+    dailyBudget: 1,
+    state: 'paused',
+    targetingType: 'manual',
+    startDate: '20190401',
+  },
+]
 sponsoredBrandsCampaignOperation.createCampaigns(createSBCampaignParams)
 
 // Gets a sponsored brands campaign specified by identifier
@@ -36,25 +38,29 @@ sponsoredBrandsCampaignOperation.getCampaign(123)
 sponsoredBrandsCampaignOperation.listCampaigns()
 
 // Updates one or more sponsored brands campaigns
-const updateSBCampaignParams: SponsoredBrandsCampaignUpdateParams[] = [{
-  portfolioId: 123,
-  campaignId: 123,
-  state: 'paused',
-}]
+const updateSBCampaignParams: SponsoredBrandsCampaignUpdateParams[] = [
+  {
+    portfolioId: 123,
+    campaignId: 123,
+    state: 'paused',
+  },
+]
 sponsoredBrandsCampaignOperation.updateCampaigns(updateSBCampaignParams)
 
 // Sets the sponsored products campaign status to archived
 sponsoredProductsCampaignOperation.archiveCampaign(123)
 
 // Creates one or more sponsored products campaigns
-const createSPCampaignParams: SponsoredProductsCampaignCreateParams[] = [{
-  name: 'test campaign',
-  campaignType: 'sponsoredProducts',
-  dailyBudget: 1,
-  state: 'enabled',
-  targetingType: 'manual',
-  startDate: '20200310',
-}]
+const createSPCampaignParams: SponsoredProductsCampaignCreateParams[] = [
+  {
+    name: 'test campaign',
+    campaignType: 'sponsoredProducts',
+    dailyBudget: 1,
+    state: 'enabled',
+    targetingType: 'manual',
+    startDate: '20200310',
+  },
+]
 sponsoredProductsCampaignOperation.createCampaigns(createSPCampaignParams)
 
 // Retrieves a sponsored products campaign by campaignId
@@ -70,11 +76,13 @@ sponsoredProductsCampaignOperation.listCampaigns()
 sponsoredProductsCampaignOperation.listCampaignsEx()
 
 // Updates one or more ponsored products campaigns
-const updateSPCampaignParams: SponsoredProductsCampaignUpdateParams[] = [{
-  campaignId: 123,
-  name: 'test campaign',
-  dailyBudget: 1,
-  state: 'enabled',
-  startDate: '20200310',
-}]
+const updateSPCampaignParams: SponsoredProductsCampaignUpdateParams[] = [
+  {
+    campaignId: 123,
+    name: 'test campaign',
+    dailyBudget: 1,
+    state: 'enabled',
+    startDate: '20200310',
+  },
+]
 sponsoredProductsCampaignOperation.updateCampaigns(updateSPCampaignParams)
