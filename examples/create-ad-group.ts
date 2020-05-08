@@ -1,12 +1,6 @@
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import { AmazonAdvertising, AdGroup } from '../src'
+import { amazonAdvertising } from './auth'
+import { AdGroup } from '../src'
 
-const auth = {
-  accessToken: 'Atza|IQEBLjAsAhRmHjNgHpi0U...',
-  clientId: 'amzn1.application-oa2-client.a8358a60...',
-  scope: 1234567890,
-}
-const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
 const sponsoredBrandsAdGroupOperation = amazonAdvertising.sponsoredBrandsAdGroup
 const sponsoredProductsAdGroupOperation = amazonAdvertising.sponsoredProductsAdGroup
 
