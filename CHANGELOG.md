@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.21.4...v1.22.0) (2020-05-14)
+
+
+### Features
+
+* Update sb drafts operation docs and uri of submitDraftCampaigns method ([2e74cf7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/2e74cf713d644903f1864828ea6295ceab1a301e))
+
 ## [1.21.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.21.3...v1.21.4) (2020-05-11)
 
 
