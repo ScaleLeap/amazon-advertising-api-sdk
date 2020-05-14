@@ -32,7 +32,11 @@ export type ProfileResponse = t.TypeOf<typeof ProfileResponse>
 /**
  * The type of account being called
  */
-export const AccountInfoType = t.union([t.literal('seller'), t.literal('vendor')])
+export const AccountInfoType = t.union([
+  t.literal('seller'),
+  t.literal('vendor'),
+  t.literal('agency'),
+])
 export type AccountInfoType = t.TypeOf<typeof AccountInfoType>
 
 export const AccountInfo = t.intersection([
