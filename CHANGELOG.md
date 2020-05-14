@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.22.0...v1.23.0) (2020-05-14)
+
+
+### Features
+
+* add agency account type ([1a83e37](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1a83e374cd08f00c41fcd43939ee9fd8b52c3dab))
+
 # [1.22.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.21.4...v1.22.0) (2020-05-14)
 
 
