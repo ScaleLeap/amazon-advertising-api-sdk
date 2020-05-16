@@ -3,22 +3,26 @@ import { Token } from 'client-oauth2'
 import { config } from './config'
 import { parse, stringify } from 'querystring'
 import { jestPollyContext } from '@scaleleap/jest-polly'
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
+import { amazonMarketplaces, AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
+import { Marketplace } from '../src'
+import { getAdvertising } from './test-utils'
 
 const URI = 'https://example.com'
 const PLACEHOLDER = 'x'
 
 describe(OAuthClient.name, () => {
   let client: OAuthClient
+  let marketplaceUS: Marketplace
 
   beforeEach(() => {
+    marketplaceUS = getAdvertising(amazonMarketplaces.US)
     client = new OAuthClient(
       {
         clientId: 'foo',
         clientSecret: 'foo',
         redirectUri: URI,
       },
-      amazonMarketplaces.US,
+      marketplaceUS,
     )
 
     jestPollyContext.polly.server
@@ -66,7 +70,7 @@ describe(OAuthClient.name, () => {
         clientSecret: config.TEST_CLIENT_SECRET,
         redirectUri: URI,
       },
-      amazonMarketplaces.US,
+      marketplaceUS,
     )
 
     const token = client.createToken(
@@ -88,28 +92,11 @@ describe(OAuthClient.name, () => {
         clientSecret: 'foo',
         redirectUri: URI,
       },
-      amazonMarketplaces.JP,
+      getAdvertising(amazonMarketplaces.JP),
     )
 
     const uri = clientFE.getUri()
 
     expect(uri).toMatch(new RegExp('^https://apac.account.amazon.com/'))
-  })
-
-  it(`should throw an exception if marketplace doesn't have advertising`, () => {
-    const clientBR = () => {
-      new OAuthClient(
-        {
-          clientId: 'foo',
-          clientSecret: 'foo',
-          redirectUri: URI,
-        },
-        amazonMarketplaces.BR,
-      )
-    }
-
-    expect(clientBR).toThrowError(
-      `${amazonMarketplaces.BR.name} marketplace does not have Amazon Advertising.`,
-    )
   })
 })

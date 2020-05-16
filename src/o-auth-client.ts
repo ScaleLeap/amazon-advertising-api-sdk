@@ -3,7 +3,7 @@ import { Options } from 'client-oauth2'
 import fetch, { Headers } from 'cross-fetch'
 import { defaultsDeep } from 'lodash'
 import { USER_AGENT } from './constants'
-import { AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
+import { Marketplace } from './maketplace'
 
 const request: ClientOAuth2.Request = async (
   method,
@@ -35,16 +35,10 @@ export class OAuthClient {
 
   private client: ClientOAuth2
 
-  public constructor(private readonly opts: Options, amazonMarketplace: AmazonMarketplace) {
-    const { advertising } = amazonMarketplace
-
-    if (!advertising) {
-      throw new Error(`${amazonMarketplace.name} marketplace does not have Amazon Advertising.`)
-    }
-
+  public constructor(private readonly opts: Options, marketplace: Marketplace) {
     const amazonOptions = {
-      accessTokenUri: advertising.region.accessTokenUri,
-      authorizationUri: advertising.region.authorizationUri,
+      accessTokenUri: marketplace.advertising.region.accessTokenUri,
+      authorizationUri: marketplace.advertising.region.authorizationUri,
       scopes: ['cpc_advertising:campaign_management'],
     }
 
