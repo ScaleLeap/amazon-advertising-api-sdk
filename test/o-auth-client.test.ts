@@ -3,7 +3,7 @@ import { Token } from 'client-oauth2'
 import { config } from './config'
 import { parse, stringify } from 'querystring'
 import { jestPollyContext } from '@scaleleap/jest-polly'
-import { amazonMarketplaces, AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
+import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 import { Marketplace } from '../src'
 import { getAdvertising } from './test-utils'
 
