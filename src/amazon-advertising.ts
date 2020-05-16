@@ -1,4 +1,3 @@
-import { AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
 import { LazyGetter } from 'lazy-get-decorator'
 import { HttpClientAuth } from './http-client'
 import { HttpClient } from './http-client'
@@ -28,18 +27,13 @@ import { SponsoredProductsReportOperation } from './operations/reports/sponsored
 import { SponsoredBrandsSnapshotOperation } from './operations/snapshots/sponsored-brands-snapshot-operation'
 import { SponsoredProductsSnapshotOperation } from './operations/snapshots/sponsored-products-snapshot-operation'
 import { SponsoredBrandsStoresInfoOperation } from './operations/stores/sponsored-brands-stores-info-operation'
+import { Marketplace } from './maketplace'
 
 export class AmazonAdvertising {
   private operationProvider: OperationProvider
 
-  constructor(private amazonMarketplace: AmazonMarketplace, private auth: HttpClientAuth) {
-    const { advertising } = amazonMarketplace
-
-    if (!advertising) {
-      throw new Error(`${amazonMarketplace.name} marketplace does not have Amazon Advertising.`)
-    }
-
-    const httpClient: HttpClient = new HttpClient(advertising.region.endpoint, auth)
+  constructor(private marketplace: Marketplace, private auth: HttpClientAuth) {
+    const httpClient: HttpClient = new HttpClient(marketplace.advertising.region.endpoint, auth)
     this.operationProvider = new OperationProvider(httpClient)
   }
 
