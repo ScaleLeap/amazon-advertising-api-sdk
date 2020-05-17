@@ -1,6 +1,6 @@
 import ClientOAuth2 from 'client-oauth2'
 import { Options } from 'client-oauth2'
-import fetch, { Headers } from 'cross-fetch'
+import { fetch, Headers } from 'cross-fetch'
 import { defaultsDeep } from 'lodash'
 import { USER_AGENT } from './constants'
 import { AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
