@@ -22,16 +22,5 @@ export async function delay(time: number = Random.getRandomTimeout()) {
 export function getAdvertising(amazonMarketplace: AmazonMarketplace): Marketplace {
   assertMarketplaceHasAdvertising(amazonMarketplace)
 
-  const { advertising } = amazonMarketplace
-
-  return {
-    name: amazonMarketplace.name,
-    advertising: {
-      region: {
-        authorizationUri: advertising.region.authorizationUri,
-        accessTokenUri: advertising.region.accessTokenUri,
-        endpoint: advertising.region.endpoint,
-      },
-    },
-  }
+  return amazonMarketplace
 }
