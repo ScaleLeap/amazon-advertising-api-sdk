@@ -1,4 +1,4 @@
-import fetch, { Headers } from 'cross-fetch'
+import { fetch, Headers } from 'cross-fetch'
 import HttpStatus from 'http-status-codes'
 
 import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
