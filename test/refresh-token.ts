@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
+import { amazonMarketplaces, assertMarketplaceHasAdvertising } from '@scaleleap/amazon-marketplaces'
 import { OAuthClient } from '../src/o-auth-client'
 import { config } from './config'
 
@@ -32,6 +32,8 @@ function isOutputStdout(output: string) {
 if (!isOutputStdout(OUTPUT) && !existsSync(OUTPUT)) {
   throw new Error(`The "${OUTPUT}" file does not exist.`)
 }
+
+assertMarketplaceHasAdvertising(amazonMarketplaces.US)
 
 const client = new OAuthClient(
   {
@@ -65,4 +67,4 @@ client
       writeFileSync(OUTPUT, res, { encoding: 'utf8' })
     }
   })
-  .catch((err) => console.error(err))
+  .catch((err: Error) => console.error(err))
