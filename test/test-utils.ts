@@ -1,4 +1,4 @@
-import { AmazonMarketplace } from '@scaleleap/amazon-marketplaces'
+import { AmazonMarketplace, assertMarketplaceHasAdvertising } from '@scaleleap/amazon-marketplaces'
 import { Marketplace } from '../src'
 
 export class DateTimeUtils {
@@ -20,11 +20,9 @@ export async function delay(time: number = Random.getRandomTimeout()) {
 }
 
 export function getAdvertising(amazonMarketplace: AmazonMarketplace): Marketplace {
-  const { advertising } = amazonMarketplace
+  assertMarketplaceHasAdvertising(amazonMarketplace)
 
-  if (!advertising) {
-    throw new Error(`${amazonMarketplace.name} marketplace does not have Amazon Advertising.`)
-  }
+  const { advertising } = amazonMarketplace
 
   return {
     name: amazonMarketplace.name,
