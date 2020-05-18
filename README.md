@@ -1,7 +1,7 @@
 📦 @scaleleap/amazon-advertising-api-sdk
 ========================================
 
-[Amazon Advertising API](https://advertising.amazon.com/about-api) TypeScript and Node.js Unofficial SDK
+> [Amazon Advertising API](https://advertising.amazon.com/about-api) TypeScript and Node.js Unofficial SDK
 
 ---
 
