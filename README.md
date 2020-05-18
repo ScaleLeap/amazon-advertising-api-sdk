@@ -5,14 +5,14 @@
 
 > [Amazon Advertising API](https://advertising.amazon.com/about-api) TypeScript and Node.js Unofficial SDK
 
----
-
 [![NPM](https://img.shields.io/npm/v/@scaleleap/amazon-advertising-api-sdk)](https://npm.im/@scaleleap/amazon-advertising-api-sdk)
 [![License](https://img.shields.io/npm/l/@scaleleap/amazon-advertising-api-sdk)](./LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ScaleLeap/amazon-advertising-api-sdk/Release)](https://github.com/ScaleLeap/amazon-advertising-api-sdk/actions)
 [![Snyk](https://img.shields.io/snyk/vulnerabilities/github/scaleleap/amazon-advertising-api-sdk)](https://snyk.io/test/github/scaleleap/amazon-advertising-api-sdk)
 [![Codecov](https://img.shields.io/codecov/c/github/scaleleap/amazon-advertising-api-sdk)](https://codecov.io/gh/ScaleLeap/amazon-advertising-api-sdk)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
+---
 
 ## Install
 
