@@ -1,3 +1,5 @@
+![](https://user-images.githubusercontent.com/491247/82228986-0b0e2380-9954-11ea-899e-6f11cb4f6257.png)
+
 📦 @scaleleap/amazon-advertising-api-sdk
 ========================================
 
