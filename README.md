@@ -1,7 +1,6 @@
 ![](https://user-images.githubusercontent.com/491247/82228986-0b0e2380-9954-11ea-899e-6f11cb4f6257.png)
 
-📦 `@scaleleap/amazon-advertising-api-sdk`
-========================================
+# 📦 `@scaleleap/amazon-advertising-api-sdk`
 
 > [Amazon Advertising API](https://advertising.amazon.com/about-api) TypeScript and Node.js Unofficial SDK
 
