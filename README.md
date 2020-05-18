@@ -1,7 +1,5 @@
 # 📦 `@scaleleap/amazon-advertising-api-sdk`
 
-![](https://user-images.githubusercontent.com/491247/82228986-0b0e2380-9954-11ea-899e-6f11cb4f6257.png)
-
 [![NPM](https://img.shields.io/npm/v/@scaleleap/amazon-advertising-api-sdk)](https://npm.im/@scaleleap/amazon-advertising-api-sdk)
 [![License](https://img.shields.io/npm/l/@scaleleap/amazon-advertising-api-sdk)](./LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ScaleLeap/amazon-advertising-api-sdk/Release)](https://github.com/ScaleLeap/amazon-advertising-api-sdk/actions)
