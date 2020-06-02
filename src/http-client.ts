@@ -76,7 +76,7 @@ export class HttpClient {
   }
 
   private async handleApiResponse<T>(res: Response): Promise<T> {
-    const { status } = res
+    const { status, headers } = res
     const text = await res.text()
 
     if (status === this.httpStatus.OK && !text) {
@@ -91,18 +91,20 @@ export class HttpClient {
         // Documented API Error
         // https://advertising.amazon.com/API/docs/v2/guides/developer_notes#Error-response
         if (json && json.code) {
-          throw apiErrorFactory(json)
+          throw apiErrorFactory(json, headers)
         }
 
         throw new InvalidProgramStateError(JSON.stringify(res))
       } else {
         // We don't have a body, so it's an unpredictable error, but let's try to structure it
         // anyways for completeness sake
-        throw apiErrorFactory({
-          code: status.toString(),
-          details: res.statusText,
-          requestId: res.headers.get('x-amz-request-id') || res.headers.get('x-amz-rid') || '',
-        })
+        throw apiErrorFactory(
+          {
+            code: status.toString(),
+            details: res.statusText,
+          },
+          headers,
+        )
       }
     }
 
