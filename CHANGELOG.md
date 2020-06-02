@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.4...v1.25.0) (2020-06-02)
+
+
+### Features
+
+* adds ThrottlingError error class ([62ad61e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/62ad61e750e34a82e99b6743cfd9db4702530087))
+
 ## [1.24.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.3...v1.24.4) (2020-06-02)
 
 
