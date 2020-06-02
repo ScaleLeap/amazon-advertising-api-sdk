@@ -7,7 +7,6 @@ import { ExtendableError } from 'ts-error'
 export interface ErrorObject {
   code: string
   details: string
-  requestId: string
 }
 
 export class NullError extends ExtendableError {
@@ -44,10 +43,26 @@ export class GenericError extends ExtendableError {
 
   public requestId: string
 
-  public constructor(err: ErrorObject) {
+  public constructor(err: ErrorObject, headers: Headers) {
     super(err.details)
     this.code = err.code
-    this.requestId = err.requestId
+    this.requestId = headers.get('x-amz-request-id') || headers.get('x-amz-rid') || ''
+  }
+}
+
+export class ThrottlingError extends GenericError {
+  /**
+   * The number of seconds that you should wait before submitting another API call.
+   *
+   * Rate limiting will occur dynamically based on the overall system load.
+   *
+   * Read [documentation](https://advertising.amazon.com/API/docs/en-us/get-started/developer-notes#Rate-limiting).
+   */
+  public retryAfter: number
+
+  public constructor(err: ErrorObject, headers: Headers) {
+    super(err, headers)
+    this.retryAfter = Number(headers.get('Retry-After'))
   }
 }
 
@@ -61,19 +76,21 @@ export class ResourceNotFoundError extends GenericError {}
 
 export class NotAcceptableError extends GenericError {}
 
-export function apiErrorFactory(err: ErrorObject): GenericError {
+export function apiErrorFactory(err: ErrorObject, headers: Headers): GenericError {
   switch (err.code) {
     case 'UNAUTHORIZED':
-      return new UnauthorizedError(err)
+      return new UnauthorizedError(err, headers)
     case 'NOT_FOUND':
-      return new ResourceNotFoundError(err)
+      return new ResourceNotFoundError(err, headers)
     case '400':
-      return new BadRequestError(err)
+      return new BadRequestError(err, headers)
     case '406':
-      return new NotAcceptableError(err)
+      return new NotAcceptableError(err, headers)
     case '422':
-      return new UnprocessableEntityError(err)
+      return new UnprocessableEntityError(err, headers)
+    case '429':
+      return new ThrottlingError(err, headers)
     default:
-      return new GenericError(err)
+      return new GenericError(err, headers)
   }
 }
