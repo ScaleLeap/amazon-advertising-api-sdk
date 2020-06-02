@@ -6,6 +6,7 @@ import {
   ResourceNotFoundError,
   InvalidProgramStateError,
   GenericError,
+  ThrottlingError,
 } from '../src/errors'
 
 import { httpClientFactory, SANDBOX_URI } from './http-client-factory'
@@ -57,6 +58,23 @@ describe('HttpClient', () => {
       })
 
       return expect(client.get('foobar')).rejects.toThrow(ResourceNotFoundError)
+    })
+
+    it('should throw ThrottlingError when encountering throttling', async () => {
+      expect.assertions(2)
+
+      const server = jestPollyContext.polly.server
+
+      server.get(SANDBOX_URI + '/throttle').on('beforeResponse', (req, res) => {
+        res.status(HttpStatus.TOO_MANY_REQUESTS)
+        res.setHeader('Retry-After', '42')
+        res.send('')
+      })
+
+      await client.get('throttle').catch((err: ThrottlingError) => {
+        expect(err).toBeInstanceOf(ThrottlingError)
+        expect(err.retryAfter).toBe(42)
+      })
     })
   })
 
