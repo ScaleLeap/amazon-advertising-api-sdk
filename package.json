@@ -23,7 +23,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@scaleleap/amazon-marketplaces": "4.1.0",
+    "@scaleleap/amazon-marketplaces": "5.0.1",
     "client-oauth2": "4.3.0",
     "cross-fetch": "3.0.5",
     "fp-ts": "2.6.7",
