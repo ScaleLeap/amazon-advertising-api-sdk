@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.25.17](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.16...v1.25.17) (2020-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency client-oauth2 to v4.3.1 ([7f79c14](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7f79c142b044ac358a99a00b41e55865d876451b))
+
 ## [1.25.16](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.15...v1.25.16) (2020-07-13)
 
 
