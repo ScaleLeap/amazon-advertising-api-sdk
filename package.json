@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@scaleleap/amazon-marketplaces": "5.0.1",
-    "client-oauth2": "4.3.1",
+    "client-oauth2": "4.3.2",
     "cross-fetch": "3.0.5",
     "fp-ts": "2.7.0",
     "http-status-codes": "1.4.0",
