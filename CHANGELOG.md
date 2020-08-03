@@ -3,6 +3,181 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.25.20](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.19...v1.25.20) (2020-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.7.1 ([1a14087](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1a14087e1d10f6c5bb9548c316fa5525f7882bfd))
+
+## [1.25.19](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.18...v1.25.19) (2020-07-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency client-oauth2 to v4.3.2 ([d499055](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d499055b044a0cae02aa6ecabd5f2b43867c4955))
+
+## [1.25.18](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.17...v1.25.18) (2020-07-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.9 ([d200f58](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d200f58a2e6c668d689fb781d7d29f3532829893))
+
+## [1.25.17](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.16...v1.25.17) (2020-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency client-oauth2 to v4.3.1 ([7f79c14](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7f79c142b044ac358a99a00b41e55865d876451b))
+
+## [1.25.16](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.15...v1.25.16) (2020-07-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.8 ([bfec16d](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/bfec16d7a66053673e7325ee41e0647d50993111))
+
+## [1.25.15](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.14...v1.25.15) (2020-07-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts-types to v0.5.8 ([a0463df](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a0463df0b9da5b9ca25eb42820ff2d39ab1f3aaf))
+
+## [1.25.14](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.13...v1.25.14) (2020-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash to v4.17.19 ([7685e82](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7685e824351b91ada097c79ac0df6822ab006bd9))
+
+## [1.25.13](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.12...v1.25.13) (2020-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash to v4.17.17 ([533858c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/533858cd50c5da423c59bac1d945774ce5bf3fe1))
+
+## [1.25.12](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.11...v1.25.12) (2020-07-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.7.0 ([fc4a72b](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/fc4a72bd78b5e36a7fa57249507c8cc4307f8fc9))
+
+## [1.25.11](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.10...v1.25.11) (2020-07-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @scaleleap/amazon-marketplaces to v5 ([fafefc3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/fafefc3de181686d524eb7f70d93aacc836e4e25))
+
+## [1.25.10](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.9...v1.25.10) (2020-06-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.7 ([fb34682](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/fb34682f1ab98e722b56be1aea324659e17930df))
+
+## [1.25.9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.8...v1.25.9) (2020-06-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.6.7 ([38d5392](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/38d539278daf8aec88d91a15dfe8e3b7a496f826))
+
+## [1.25.8](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.7...v1.25.8) (2020-06-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.6.6 ([e41ed0c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e41ed0c52183e425f63a45cd860cb783f9f6581d))
+
+## [1.25.7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.6...v1.25.7) (2020-06-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.6 ([1cc450a](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1cc450a26c677c0790874e36819424a686e1a491))
+
+## [1.25.6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.5...v1.25.6) (2020-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.5 ([8d28a12](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8d28a12809e7b87de20cb316de0b3f3ee4d67df1))
+
+## [1.25.5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.4...v1.25.5) (2020-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency cross-fetch to v3.0.5 ([14f5e35](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/14f5e3553652c4db1b0a12d83ddc679c79be174c))
+
+## [1.25.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.3...v1.25.4) (2020-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.6.5 ([a91f8e9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a91f8e91d68b0da7def73c2269cfa88fff24b79b))
+
+## [1.25.3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.2...v1.25.3) (2020-06-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.6.4 ([cbd7792](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/cbd779257448aec3b834522b7138834c32763a11))
+
+## [1.25.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.1...v1.25.2) (2020-06-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.6.3 ([f0de5f6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f0de5f6d4024765ad016c036633e6a56352982c5))
+
+## [1.25.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.25.0...v1.25.1) (2020-06-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts-types to v0.5.7 ([94f840f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/94f840f0655d1a2ed013bbf861f1543b6a98217a))
+
+# [1.25.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.4...v1.25.0) (2020-06-02)
+
+
+### Features
+
+* adds ThrottlingError error class ([62ad61e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/62ad61e750e34a82e99b6743cfd9db4702530087))
+
+## [1.24.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.3...v1.24.4) (2020-06-02)
+
+
+### Bug Fixes
+
+* npm audit ([78dffbc](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/78dffbc3d9a6e7a3bcf423819a77217bf85d25a6))
+
+## [1.24.3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.2...v1.24.3) (2020-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.4 ([c9226ba](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c9226ba8b4d8f5ccf36b4d2e0875fbe29e16abd4))
+
+## [1.24.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.1...v1.24.2) (2020-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.6.2 ([9445043](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/9445043bbf298e25cb7dc88faa0cc17b5b00ef22))
+
+## [1.24.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.24.0...v1.24.1) (2020-05-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts to v2.2.3 ([8eff1a7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8eff1a71ff2c1ca038b50436454583b2e55581a5))
+
 # [1.24.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.23.2...v1.24.0) (2020-05-17)
 
 

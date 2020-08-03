@@ -49,7 +49,7 @@ describe(OAuthClient.name, () => {
 
   it('should provide a correct uri', () => {
     const uri = client.getUri()
-    expect(uri).toMatch(new RegExp('^https://www.amazon.com/'))
+    expect(uri).toContain('https://www.amazon.com/')
   })
 
   it('should have required methods', () => {
@@ -97,6 +97,6 @@ describe(OAuthClient.name, () => {
 
     const uri = clientFE.getUri()
 
-    expect(uri).toMatch(new RegExp('^https://apac.account.amazon.com/'))
+    expect(uri).toContain('https://apac.account.amazon.com/')
   })
 })
