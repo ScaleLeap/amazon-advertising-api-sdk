@@ -343,13 +343,13 @@ const res = await profileOperation.listProfiles()
 
 # Operations
 
-## SponsoredBrandsAdGroupOperation
+## [SponsoredBrandsAdGroupOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsadgroupoperation.html)
 
 ### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsadgroupoperation.html#getadgroup)
 
 ### [listAdGroup](https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi#/Ad%20groups/listAdGroups)
 
-## SponsoredProductsAdGroupOperation
+## [SponsoredProductsAdGroupOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html)
 
 ### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroup)
 
@@ -367,7 +367,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#updateadgroups)
 
-## SponsoredProductsBidRecommendationOperation
+## [SponsoredProductsBidRecommendationOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html)
 
 ### [getAdGroupBidRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html#getadgroupbidrecommendations)
 
@@ -377,7 +377,7 @@ const res = await profileOperation.listProfiles()
 
 ### [getBidRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html#getbidrecommendations)
 
-## SponsoredBrandsCampaignOperation
+## [SponsoredBrandsCampaignOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html)
 
 ### [archiveCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#archivecampaign)
 
@@ -389,7 +389,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#updatecampaigns)
 
-## SponsoredProductsCampaignOperation
+## [SponsoredProductsCampaignOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html)
 
 ### [archiveCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#archivecampaign)
 
@@ -405,7 +405,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#updatecampaigns)
 
-## SponseredBrandsDraftsOperation
+## [SponseredBrandsDraftsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponseredbrandsdraftsoperation.html)
 
 ### [archiveDraftCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#archivedraftcampaign)
 
@@ -419,11 +419,11 @@ const res = await profileOperation.listProfiles()
 
 ### [updateDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#updatedraftcampaigns)
 
-## SponsoredBrandsKeywordRecommendationsOperation
+## [SponsoredBrandsKeywordRecommendationsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordrecommendationsoperation.html)
 
 ### [getKeywordRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordrecommendationsoperation.html#getkeywordrecommendations)
 
-## SponsoredBrandsKeywordsOperation
+## [SponsoredBrandsKeywordsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html)
 
 ### [archiveKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#archiveKeyword)
 
@@ -435,7 +435,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#updateKeywords)
 
-## SponsoredBrandsNegativeKeywordsOperation
+## [SponsoredBrandsNegativeKeywordsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html)
 
 ### [archiveNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html#archivenegativekeyword)
 
@@ -445,7 +445,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html#updatenegativekeywords)
 
-## SponsoredProductsAdGroupKeywordsOperation
+## [SponsoredProductsAdGroupKeywordsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html)
 
 ### [archiveBiddableKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#archivebiddablekeyword)
 
@@ -461,7 +461,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#updatekeywords)
 
-## SponsoredProductsAdGroupNegativeKeywordsOperation
+## [SponsoredProductsAdGroupNegativeKeywordsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html)
 
 ### [archiveNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#archivenegativekeyword)
 
@@ -477,7 +477,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#updatenegativekeywords)
 
-## SponsoredProductsCampaignNegativeKeywordsOperation
+## [SponsoredProductsCampaignNegativeKeywordsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html)
 
 ### [archiveCampaignNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#archivecampaignnegativekeyword)
 
@@ -493,7 +493,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateCampaignNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#updatecampaignnegativekeywords)
 
-## SponsoredProductsSuggestedKeywordsOperation
+## [SponsoredProductsSuggestedKeywordsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html)
 
 ### [bulkGetAsinSuggestedKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html#bulkgetasinsuggestedkeywords)
 
@@ -503,7 +503,7 @@ const res = await profileOperation.listProfiles()
 
 ### [getAsinSuggestedKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html#getasinsuggestedkeywords)
 
-## PortfolioOperation
+## [PortfolioOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html)
 
 ### [createPortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#createportfolios)
 
@@ -517,7 +517,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updatePortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#updateportfolios)
 
-## SponsoredProductsProductAdsOperation
+## [SponsoredProductsProductAdsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html)
 
 ### [archiveProductAd](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#archiveproductad)
 
@@ -533,7 +533,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateProductAds](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#updateproductads)
 
-## SponsoredBrandsProductTargetingOperation
+## [SponsoredBrandsProductTargetingOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html)
 
 ### [archiveNegativeTarget](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#archivenegativetarget)
 
@@ -559,7 +559,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#updatetargets)
 
-## SponsoredProductsProductTargetingOperation
+## [SponsoredProductsProductTargetingOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html)
 
 ### [archiveNegativeTargetingClause](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#archivenegativetargetingclause)
 
@@ -597,7 +597,7 @@ const res = await profileOperation.listProfiles()
 
 ### [updateTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#updatetargetingclauses)
 
-## ProfileOperation
+## [ProfileOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html)
 
 ### [getBrands](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#getbrands)
 
@@ -611,11 +611,11 @@ const res = await profileOperation.listProfiles()
 
 ### [updateProfiles](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#updateprofiles)
 
-## SponsoredBrandsBidRecommendationsOperation
+## [SponsoredBrandsBidRecommendationsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsbidrecommendationsoperation.html)
 
 ### [SponsoredBrandsBidRecommendationsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsbidrecommendationsoperation.html#getbidrecommendations)
 
-## SponsoredBrandsTargetingRecommendationsOperation
+## [SponsoredBrandsTargetingRecommendationsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandstargetingrecommendationsoperation.html)
 
 ### [getBrandRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandstargetingrecommendationsoperation.html#getbrandrecommendations)
 
@@ -639,13 +639,13 @@ const res = await profileOperation.listProfiles()
 
 ### [requestReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsreportoperation.html#requestreport)
 
-## BaseReportOperation
+## [BaseReportOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/basereportoperation.html)
 
 ### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/basereportoperation.html#downloadreport)
 
 ### [getReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/basereportoperation.html#getreport)
 
-## SponsoredBrandsSnapshotOperation
+## [SponsoredBrandsSnapshotOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandssnapshotoperation.html)
 
 ### [downloadSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandssnapshotoperation.html#downloadsnapshot)
 
@@ -653,7 +653,7 @@ const res = await profileOperation.listProfiles()
 
 ### [requestSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandssnapshotoperation.html#requestsnapshot)
 
-## SponsoredProductsSnapshotOperation
+## [SponsoredProductsSnapshotOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssnapshotoperation.html)
 
 ### [downloadSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssnapshotoperation.html#downloadsnapshot)
 
@@ -661,7 +661,7 @@ const res = await profileOperation.listProfiles()
 
 ### [requestSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssnapshotoperation.html#requestsnapshot)
 
-## SponsoredBrandsStoresInfoOperation
+## [SponsoredBrandsStoresInfoOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsstoresinfooperation.html)
 
 ### [getStore](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsstoresinfooperation.html#getstore)
 
