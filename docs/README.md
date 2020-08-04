@@ -50,6 +50,130 @@
     - [listDraftCampaigns](#listdraftcampaigns)
     - [submitDraftCampaigns](#submitdraftcampaigns)
     - [updateDraftCampaigns](#updatedraftcampaigns)
+  - [SponsoredBrandsKeywordRecommendationsOperation](#sponsoredbrandskeywordrecommendationsoperation)
+    - [getKeywordRecommendations](#getkeywordrecommendations)
+  - [SponsoredBrandsKeywordsOperation](#sponsoredbrandskeywordsoperation)
+    - [archiveKeyword](#archivekeyword)
+    - [createKeywords](#createkeywords)
+    - [getKeyword](#getkeyword)
+    - [listKeywords](#listkeywords)
+    - [updateKeywords](#updatekeywords)
+  - [SponsoredBrandsNegativeKeywordsOperation](#sponsoredbrandsnegativekeywordsoperation)
+    - [archiveNegativeKeyword](#archivenegativekeyword)
+    - [createNegativeKeywords](#createnegativekeywords)
+    - [getNegativeKeyword](#getnegativekeyword)
+    - [updateNegativeKeywords](#updatenegativekeywords)
+  - [SponsoredProductsAdGroupKeywordsOperation](#sponsoredproductsadgroupkeywordsoperation)
+    - [archiveBiddableKeyword](#archivebiddablekeyword)
+    - [createKeywords](#createkeywords-1)
+    - [getBiddableKeyword](#getbiddablekeyword)
+    - [getBiddableKeywordExtended](#getbiddablekeywordextended)
+    - [listBiddableKeywords](#listbiddablekeywords)
+    - [listBiddableKeywordsExtended](#listbiddablekeywordsextended)
+    - [updateKeywords](#updatekeywords-1)
+  - [SponsoredProductsAdGroupNegativeKeywordsOperation](#sponsoredproductsadgroupnegativekeywordsoperation)
+    - [archiveNegativeKeyword](#archivenegativekeyword-1)
+    - [createNegativeKeywords](#createnegativekeywords-1)
+    - [getNegativeKeyword](#getnegativekeyword-1)
+    - [getNegativeKeywordExtended](#getnegativekeywordextended)
+    - [listNegativeKeywords](#listnegativekeywords)
+    - [listNegativeKeywordsExtended](#listnegativekeywordsextended)
+    - [updateNegativeKeywords](#updatenegativekeywords-1)
+  - [SponsoredProductsCampaignNegativeKeywordsOperation](#sponsoredproductscampaignnegativekeywordsoperation)
+    - [archiveCampaignNegativeKeyword](#archivecampaignnegativekeyword)
+    - [createCampaignNegativeKeywords](#createcampaignnegativekeywords)
+    - [getCampaignNegativeKeyword](#getcampaignnegativekeyword)
+    - [getCampaignNegativeKeywordExtended](#getcampaignnegativekeywordextended)
+    - [listCampaignNegativeKeywords](#listcampaignnegativekeywords)
+    - [listCampaignNegativeKeywordsExtended](#listcampaignnegativekeywordsextended)
+    - [updateCampaignNegativeKeywords](#updatecampaignnegativekeywords)
+  - [SponsoredProductsSuggestedKeywordsOperation](#sponsoredproductssuggestedkeywordsoperation)
+    - [bulkGetAsinSuggestedKeywords](#bulkgetasinsuggestedkeywords)
+    - [getAdGroupSuggestedKeywords](#getadgroupsuggestedkeywords)
+    - [getAdGroupSuggestedKeywordsExtended](#getadgroupsuggestedkeywordsextended)
+    - [getAsinSuggestedKeywords](#getasinsuggestedkeywords)
+  - [PortfolioOperation](#portfoliooperation)
+    - [createPortfolios](#createportfolios)
+    - [getPortfolio](#getportfolio)
+    - [getPortfolioEx](#getportfolioex)
+    - [listPortfolios](#listportfolios)
+    - [listPortfoliosEx](#listportfoliosex)
+    - [updatePortfolios](#updateportfolios)
+  - [SponsoredProductsProductAdsOperation](#sponsoredproductsproductadsoperation)
+    - [archiveProductAd](#archiveproductad)
+    - [createProductAds](#createproductads)
+    - [getProductAd](#getproductad)
+    - [getProductAdExtended](#getproductadextended)
+    - [listProductAds](#listproductads)
+    - [listProductAdsExtended](#listproductadsextended)
+    - [updateProductAds](#updateproductads)
+  - [SponsoredBrandsProductTargetingOperation](#sponsoredbrandsproducttargetingoperation)
+    - [archiveNegativeTarget](#archivenegativetarget)
+    - [archiveTarget](#archivetarget)
+    - [batchGetNegativeTargets](#batchgetnegativetargets)
+    - [batchGetTargets](#batchgettargets)
+    - [createNegativeTargets](#createnegativetargets)
+    - [createTargets](#createtargets)
+    - [getNegativeTarget](#getnegativetarget)
+    - [getTarget](#gettarget)
+    - [listNegativeTargets](#listnegativetargets)
+    - [listTargets](#listtargets)
+    - [updateNegativeTargets](#updatenegativetargets)
+    - [updateTargets](#updatetargets)
+  - [SponsoredProductsProductTargetingOperation](#sponsoredproductsproducttargetingoperation)
+    - [archiveNegativeTargetingClause](#archivenegativetargetingclause)
+    - [archiveTargetingClause](#archivetargetingclause)
+    - [createNegativeTargetingClauses](#createnegativetargetingclauses)
+    - [createTargetRecommendations](#createtargetrecommendations)
+    - [createTargetingClauses](#createtargetingclauses)
+    - [getBrandRecommendations](#getbrandrecommendations)
+    - [getNegativeTargetingClause](#getnegativetargetingclause)
+    - [getNegativeTargetingClauseExtended](#getnegativetargetingclauseextended)
+    - [getRefinementsForCategory](#getrefinementsforcategory)
+    - [getTargetingCategories](#gettargetingcategories)
+    - [getTargetingClause](#gettargetingclause)
+    - [getTargetingClauseExtended](#gettargetingclauseextended)
+    - [listNegativeTargetingClauses](#listnegativetargetingclauses)
+    - [listNegativeTargetingClausesExtended](#listnegativetargetingclausesextended)
+    - [listTargetingClauses](#listtargetingclauses)
+    - [listTargetingClausesExtended](#listtargetingclausesextended)
+    - [updateNegativeTargetingClauses](#updatenegativetargetingclauses)
+    - [updateTargetingClauses](#updatetargetingclauses)
+  - [ProfileOperation](#profileoperation)
+    - [getBrands](#getbrands)
+    - [getProfile](#getprofile)
+    - [listProfiles](#listprofiles)
+    - [registerBrand](#registerbrand)
+    - [registerProfile](#registerprofile)
+    - [updateProfiles](#updateprofiles)
+  - [SponsoredBrandsBidRecommendationsOperation](#sponsoredbrandsbidrecommendationsoperation)
+    - [SponsoredBrandsBidRecommendationsOperation](#sponsoredbrandsbidrecommendationsoperation-1)
+  - [SponsoredBrandsTargetingRecommendationsOperation](#sponsoredbrandstargetingrecommendationsoperation)
+    - [getBrandRecommendations](#getbrandrecommendations-1)
+    - [getCategoryRecommendations](#getcategoryrecommendations)
+    - [getProductRecommendations](#getproductrecommendations)
+  - [SponsoredBrandsReportOperation<ReportParams>](#sponsoredbrandsreportoperationreportparams)
+    - [downloadReport](#downloadreport)
+    - [getReport](#getreport)
+    - [requestReport](#requestreport)
+  - [SponsoredProductsReportOperation<ReportParams>](#sponsoredproductsreportoperationreportparams)
+    - [downloadReport](#downloadreport-1)
+    - [getReport](#getreport-1)
+    - [requestReport](#requestreport-1)
+  - [BaseReportOperation](#basereportoperation)
+    - [downloadReport](#downloadreport-2)
+    - [getReport](#getreport-2)
+  - [SponsoredBrandsSnapshotOperation](#sponsoredbrandssnapshotoperation)
+    - [downloadSnapshot](#downloadsnapshot)
+    - [getSnapshot](#getsnapshot)
+    - [requestSnapshot](#requestsnapshot)
+  - [SponsoredProductsSnapshotOperation](#sponsoredproductssnapshotoperation)
+    - [downloadSnapshot](#downloadsnapshot-1)
+    - [getSnapshot](#getsnapshot-1)
+    - [requestSnapshot](#requestsnapshot-1)
+  - [SponsoredBrandsStoresInfoOperation](#sponsoredbrandsstoresinfooperation)
+    - [getStore](#getstore)
+    - [listStores](#liststores)
 
 # Basic Configuration
 
@@ -294,3 +418,251 @@ const res = await profileOperation.listProfiles()
 ### [submitDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#submitdraftcampaigns)
 
 ### [updateDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#updatedraftcampaigns)
+
+## SponsoredBrandsKeywordRecommendationsOperation
+
+### [getKeywordRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordrecommendationsoperation.html#getkeywordrecommendations)
+
+## SponsoredBrandsKeywordsOperation
+
+### [archiveKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#archiveKeyword)
+
+### [createKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#createKeywords)
+
+### [getKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#getKeyword)
+
+### [listKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#listKeywords)
+
+### [updateKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandskeywordsoperation.html#updateKeywords)
+
+## SponsoredBrandsNegativeKeywordsOperation
+
+### [archiveNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html#archivenegativekeyword)
+
+### [createNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html#createnegativekeywords)
+
+### [getNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html#getnegativekeyword)
+
+### [updateNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsnegativekeywordsoperation.html#updatenegativekeywords)
+
+## SponsoredProductsAdGroupKeywordsOperation
+
+### [archiveBiddableKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#archivebiddablekeyword)
+
+### [createKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#createkeywords)
+
+### [getBiddableKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#getbiddablekeyword)
+
+### [getBiddableKeywordExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#getbiddablekeywordextended)
+
+### [listBiddableKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#listbiddablekeywords)
+
+### [listBiddableKeywordsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#listbiddablekeywordsextended)
+
+### [updateKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupkeywordsoperation.html#updatekeywords)
+
+## SponsoredProductsAdGroupNegativeKeywordsOperation
+
+### [archiveNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#archivenegativekeyword)
+
+### [createNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#createnegativekeywords)
+
+### [getNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#getnegativekeyword)
+
+### [getNegativeKeywordExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#getnegativekeywordextended)
+
+### [listNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#listnegativekeywords)
+
+### [listNegativeKeywordsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#listnegativekeywordsextended)
+
+### [updateNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupnegativekeywordsoperation.html#updatenegativekeywords)
+
+## SponsoredProductsCampaignNegativeKeywordsOperation
+
+### [archiveCampaignNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#archivecampaignnegativekeyword)
+
+### [createCampaignNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#createcampaignnegativekeywords)
+
+### [getCampaignNegativeKeyword](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#getcampaignnegativekeyword)
+
+### [getCampaignNegativeKeywordExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#getcampaignnegativekeywordextended)
+
+### [listCampaignNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#listcampaignnegativekeywords)
+
+### [listCampaignNegativeKeywordsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#listcampaignnegativekeywordsextended)
+
+### [updateCampaignNegativeKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignnegativekeywordsoperation.html#updatecampaignnegativekeywords)
+
+## SponsoredProductsSuggestedKeywordsOperation
+
+### [bulkGetAsinSuggestedKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html#bulkgetasinsuggestedkeywords)
+
+### [getAdGroupSuggestedKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html#getadgroupsuggestedkeywords)
+
+### [getAdGroupSuggestedKeywordsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html#getadgroupsuggestedkeywordsextended)
+
+### [getAsinSuggestedKeywords](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssuggestedkeywordsoperation.html#getasinsuggestedkeywords)
+
+## PortfolioOperation
+
+### [createPortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#createportfolios)
+
+### [getPortfolio](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#getportfolio)
+
+### [getPortfolioEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#getportfolioex)
+
+### [listPortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#listportfolios)
+
+### [listPortfoliosEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#listportfoliosex)
+
+### [updatePortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#updateportfolios)
+
+## SponsoredProductsProductAdsOperation
+
+### [archiveProductAd](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#archiveproductad)
+
+### [createProductAds](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#createproductads)
+
+### [getProductAd](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#getproductad)
+
+### [getProductAdExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#getproductadextended)
+
+### [listProductAds](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#listproductads)
+
+### [listProductAdsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#listproductadsextended)
+
+### [updateProductAds](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproductadsoperation.html#updateproductads)
+
+## SponsoredBrandsProductTargetingOperation
+
+### [archiveNegativeTarget](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#archivenegativetarget)
+
+### [archiveTarget](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#archivetarget)
+
+### [batchGetNegativeTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#batchgetnegativetargets)
+
+### [batchGetTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#batchgettargets)
+
+### [createNegativeTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#createnegativetargets)
+
+### [createTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#createtargets)
+
+### [getNegativeTarget](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#getnegativetarget)
+
+### [getTarget](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#gettarget)
+
+### [listNegativeTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#listnegativetargets)
+
+### [listTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#listtargets)
+
+### [updateNegativeTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#updatenegativetargets)
+
+### [updateTargets](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsproducttargetingoperation.html#updatetargets)
+
+## SponsoredProductsProductTargetingOperation
+
+### [archiveNegativeTargetingClause](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#archivenegativetargetingclause)
+
+### [archiveTargetingClause](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#archivetargetingclause)
+
+### [createNegativeTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#createnegativetargetingclauses)
+
+### [createTargetRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#createtargetrecommendations)
+
+### [createTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#createtargetingclauses)
+
+### [getBrandRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#getbrandrecommendations)
+
+### [getNegativeTargetingClause](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#getnegativetargetingclause)
+
+### [getNegativeTargetingClauseExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#getnegativetargetingclauseextended)
+
+### [getRefinementsForCategory](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#getrefinementsforcategory)
+
+### [getTargetingCategories](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#gettargetingcategories)
+
+### [getTargetingClause](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#gettargetingclause)
+
+### [getTargetingClauseExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#gettargetingclauseextended)
+
+### [listNegativeTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#listnegativetargetingclauses)
+
+### [listNegativeTargetingClausesExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#listnegativetargetingclausesextended)
+
+### [listTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#listtargetingclauses)
+
+### [listTargetingClausesExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#listtargetingclausesextended)
+
+### [updateNegativeTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#updatenegativetargetingclauses)
+
+### [updateTargetingClauses](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsproducttargetingoperation.html#updatetargetingclauses)
+
+## ProfileOperation
+
+### [getBrands](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#getbrands)
+
+### [getProfile](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#getprofile)
+
+### [listProfiles](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#listprofiles)
+
+### [registerBrand](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#registerbrand)
+
+### [registerProfile](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#registerprofile)
+
+### [updateProfiles](https://amazon-advertising-api-sdk.scaleleap.org/classes/profileoperation.html#updateprofiles)
+
+## SponsoredBrandsBidRecommendationsOperation
+
+### [SponsoredBrandsBidRecommendationsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsbidrecommendationsoperation.html#getbidrecommendations)
+
+## SponsoredBrandsTargetingRecommendationsOperation
+
+### [getBrandRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandstargetingrecommendationsoperation.html#getbrandrecommendations)
+
+### [getCategoryRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandstargetingrecommendationsoperation.html#getcategoryrecommendations)
+
+### [getProductRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandstargetingrecommendationsoperation.html#getproductrecommendations)
+
+## SponsoredBrandsReportOperation<ReportParams>
+
+### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsreportoperation.html#downloadreport)
+
+### [getReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsreportoperation.html#getreport)
+
+### [requestReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsreportoperation.html#requestreport)
+
+## SponsoredProductsReportOperation<ReportParams>
+
+### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsreportoperation.html#downloadreport)
+
+### [getReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsreportoperation.html#getreport)
+
+### [requestReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsreportoperation.html#requestreport)
+
+## BaseReportOperation
+
+### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/basereportoperation.html#downloadreport)
+
+### [getReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/basereportoperation.html#getreport)
+
+## SponsoredBrandsSnapshotOperation
+
+### [downloadSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandssnapshotoperation.html#downloadsnapshot)
+
+### [getSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandssnapshotoperation.html#getsnapshot)
+
+### [requestSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandssnapshotoperation.html#requestsnapshot)
+
+## SponsoredProductsSnapshotOperation
+
+### [downloadSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssnapshotoperation.html#downloadsnapshot)
+
+### [getSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssnapshotoperation.html#getsnapshot)
+
+### [requestSnapshot](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductssnapshotoperation.html#requestsnapshot)
+
+## SponsoredBrandsStoresInfoOperation
+
+### [getStore](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsstoresinfooperation.html#getstore)
+
+### [listStores](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsstoresinfooperation.html#liststores)
