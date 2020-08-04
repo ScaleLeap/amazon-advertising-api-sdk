@@ -10,6 +10,46 @@
 - [Basic Usage](#basic-usage)
   - [OperationProvider](#operationprovider)
   - [AmazonAdvertising](#amazonadvertising)
+  - [Creating Operations from the class itself](#creating-operations-from-the-class-itself)
+- [Operations](#operations)
+  - [SponsoredBrandsAdGroupOperation](#sponsoredbrandsadgroupoperation)
+    - [getAdGroup](#getadgroup)
+    - [listAdGroup](#listadgroup)
+  - [SponsoredProductsAdGroupOperation](#sponsoredproductsadgroupoperation)
+    - [getAdGroup](#getadgroup-1)
+    - [getAddGroupEx](#getaddgroupex)
+    - [createAdGroups](#createadgroups)
+    - [updateAdGroups](#updateadgroups)
+    - [archiveAdGroup](#archiveadgroup)
+    - [listAdGroups](#listadgroups)
+    - [listAdGroupsEx](#listadgroupsex)
+    - [updateAdGroups](#updateadgroups-1)
+  - [SponsoredProductsBidRecommendationOperation](#sponsoredproductsbidrecommendationoperation)
+    - [getAdGroupBidRecommendations](#getadgroupbidrecommendations)
+    - [getKeywordBidRecommendations](#getkeywordbidrecommendations)
+    - [createKeywordBidRecommendations](#createkeywordbidrecommendations)
+    - [getBidRecommendations](#getbidrecommendations)
+  - [SponsoredBrandsCampaignOperation](#sponsoredbrandscampaignoperation)
+    - [archiveCampaign](#archivecampaign)
+    - [createCampaigns](#createcampaigns)
+    - [getCampaign](#getcampaign)
+    - [listCampaigns](#listcampaigns)
+    - [updateCampaigns](#updatecampaigns)
+  - [SponsoredProductsCampaignOperation](#sponsoredproductscampaignoperation)
+    - [archiveCampaign](#archivecampaign-1)
+    - [createCampaigns](#createcampaigns-1)
+    - [getCampaign](#getcampaign-1)
+    - [getCampaignEx](#getcampaignex)
+    - [listCampaigns](#listcampaigns-1)
+    - [listCampaignsEx](#listcampaignsex)
+    - [updateCampaigns](#updatecampaigns-1)
+  - [SponseredBrandsDraftsOperation](#sponseredbrandsdraftsoperation)
+    - [archiveDraftCampaign](#archivedraftcampaign)
+    - [createDraftCampaigns](#createdraftcampaigns)
+    - [getDraftCampaign](#getdraftcampaign)
+    - [listDraftCampaigns](#listdraftcampaigns)
+    - [submitDraftCampaigns](#submitdraftcampaigns)
+    - [updateDraftCampaigns](#updatedraftcampaigns)
 
 # Basic Configuration
 
@@ -164,3 +204,93 @@ const profileOperation = amazonAdvertising.profile
 // Using ProfileOperation to list profiles
 const res = await profileOperation.listProfiles()
 ```
+
+## Creating Operations from the class itself
+```typescript
+import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
+import { ProfileOperation, HttpClient } from '@scaleleap/amazon-advertising-api-sdk'
+
+const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
+const profileOperation = ProfileOperation.create(ProfileOperation, httpClient)
+
+// Using ProfileOperation to list profiles
+const res = await profileOperation.listProfiles()
+```
+
+# Operations
+
+## SponsoredBrandsAdGroupOperation
+
+### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsadgroupoperation.html#getadgroup)
+
+### [listAdGroup](https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi#/Ad%20groups/listAdGroups)
+
+## SponsoredProductsAdGroupOperation
+
+### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroup)
+
+### [getAddGroupEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroupex)
+
+### [createAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#createadgroups)
+
+### [updateAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#updateadgroups)
+
+### [archiveAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#archiveadgroup)
+
+### [listAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroups)
+
+### [listAdGroupsEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroupsex)
+
+### [updateAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#updateadgroups)
+
+## SponsoredProductsBidRecommendationOperation
+
+### [getAdGroupBidRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html#getadgroupbidrecommendations)
+
+### [getKeywordBidRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html#getkeywordbidrecommendations)
+
+### [createKeywordBidRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html#createkeywordbidrecommendations)
+
+### [getBidRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html#getbidrecommendations)
+
+## SponsoredBrandsCampaignOperation
+
+### [archiveCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#archivecampaign)
+
+### [createCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#createcampaigns)
+
+### [getCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#getcampaign)
+
+### [listCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#listcampaigns)
+
+### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#updatecampaigns)
+
+## SponsoredProductsCampaignOperation
+
+### [archiveCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#archivecampaign)
+
+### [createCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#createcampaigns)
+
+### [getCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#getcampaign)
+
+### [getCampaignEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#getcampaignex)
+
+### [listCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#listcampaigns)
+
+### [listCampaignsEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#listcampaignsex)
+
+### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#updatecampaigns)
+
+## SponseredBrandsDraftsOperation
+
+### [archiveDraftCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#archivedraftcampaign)
+
+### [createDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#createdraftcampaigns)
+
+### [getDraftCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#getdraftcampaign)
+
+### [listDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#listdraftcampaigns)
+
+### [submitDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#submitdraftcampaigns)
+
+### [updateDraftCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsdraftsoperation.html#updatedraftcampaigns)
