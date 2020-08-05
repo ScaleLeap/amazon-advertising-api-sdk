@@ -36,7 +36,7 @@
     "ts-error": "1.0.6"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.8.1",
+    "@microsoft/api-extractor": "7.9.3",
     "@scaleleap/config": "2.0.3",
     "@scaleleap/jest-polly": "1.5.3",
     "@scaleleap/semantic-release-config": "1.1.12",
