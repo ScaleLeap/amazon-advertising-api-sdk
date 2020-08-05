@@ -209,14 +209,15 @@ const client = new OAuthClient({
 
 **Using the OAuthClient to create the HttpClient**
 ```typescript
-// `client` is of type `OAuthClient`
 const auth = {
-  accessToken: (client.getToken()).accessToken,
-  clientId: "YOUR_CLIENT_ID",
+  accessToken: "ACCESS_TOKEN",
+  clientId: "YOUR_CLIENT_ID"
   scope: 10000000000 // Use your Profile ID as the value for the management scope
 }
 const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
 ```
+* `scope` in the `auth` object can also be set to any arbritrary number as it is ignored in some requests (e.g. `ProfileOperation.listProfiles`) 
+
 ### Available Methods
 
 **getUri**
