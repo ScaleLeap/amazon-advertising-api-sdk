@@ -1,7 +1,6 @@
 import { BaseConfig } from '@scaleleap/config'
 
 export class Config extends BaseConfig {
-  public readonly TEST_APPLICATION_ID = this.get('TEST_APPLICATION_ID').asString()
   public readonly TEST_CLIENT_ID = this.get('TEST_CLIENT_ID').asString()
   public readonly TEST_CLIENT_SECRET = this.get('TEST_CLIENT_SECRET').asString()
   public readonly TEST_SCOPE = this.get('TEST_SCOPE').asIntPositive()

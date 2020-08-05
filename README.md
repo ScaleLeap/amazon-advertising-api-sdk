@@ -1,10 +1,19 @@
-# @scaleleap/amazon-advertising-api-sdk
+# 📦 `@scaleleap/amazon-advertising-api-sdk`
 
-> Amazon Advertising API TypeScript and Node.js Unofficial SDK
+[![NPM](https://img.shields.io/npm/v/@scaleleap/amazon-advertising-api-sdk)](https://npm.im/@scaleleap/amazon-advertising-api-sdk)
+[![License](https://img.shields.io/npm/l/@scaleleap/amazon-advertising-api-sdk)](./LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ScaleLeap/amazon-advertising-api-sdk/Release)](https://github.com/ScaleLeap/amazon-advertising-api-sdk/actions)
+[![Snyk](https://img.shields.io/snyk/vulnerabilities/github/scaleleap/amazon-advertising-api-sdk)](https://snyk.io/test/github/scaleleap/amazon-advertising-api-sdk)
+[![Codecov](https://img.shields.io/codecov/c/github/scaleleap/amazon-advertising-api-sdk)](https://codecov.io/gh/ScaleLeap/amazon-advertising-api-sdk)
+[![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-## Beta Release 🚨
+---
 
-This is a beta release and be careful when using this package.
+<p align="center">
+  <a href="https://advertising.amazon.com/about-api">Amazon Advertising API</a> TypeScript and Node.js Unofficial SDK
+</p>
+
+---
 
 ## Install
 
@@ -16,6 +25,9 @@ npm i -s @scaleleap/amazon-advertising-api-sdk
 
 Mandatory reading: [Amazon Advertising API docs](https://advertising.amazon.com/API/docs/en-us)
 
+[Manually generated docs](/docs/README.md)
+
+[Automatically generated docs](https://amazon-advertising-api-sdk.scaleleap.org).
 ### OAuth Client
 
 Inherits from, and implements similar interface to `client-oauth2` package.

@@ -41,7 +41,6 @@ jobs:
         npm t
       env:
         TEST_ACCESS_TOKEN: ${{ secrets.TEST_ACCESS_TOKEN }}
-        TEST_APPLICATION_ID: ${{ secrets.TEST_APPLICATION_ID }}
         TEST_CLIENT_ID: ${{ secrets.TEST_CLIENT_ID }}
         TEST_CLIENT_SECRET: ${{ secrets.TEST_CLIENT_SECRET }}
         TEST_REFRESH_TOKEN: ${{ secrets.TEST_REFRESH_TOKEN }}
