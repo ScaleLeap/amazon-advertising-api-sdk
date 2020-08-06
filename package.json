@@ -41,7 +41,7 @@
     "@scaleleap/jest-polly": "1.5.3",
     "@scaleleap/semantic-release-config": "1.1.12",
     "@types/jest": "26.0.8",
-    "@types/lodash": "4.14.158",
+    "@types/lodash": "4.14.159",
     "@types/node": "13.13.4",
     "@typescript-eslint/eslint-plugin": "2.30.0",
     "@typescript-eslint/parser": "2.30.0",
