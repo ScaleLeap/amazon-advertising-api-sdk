@@ -40,9 +40,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Docs
-        run: npm run docs
-
       - name: Semantic Release
         env:
           GIT_AUTHOR_NAME: Scale Bot
