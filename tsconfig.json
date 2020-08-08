@@ -1,5 +1,8 @@
 {
   "extends": "tsconfigs/nodejs-module",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+  },
   "include": [
     "src/**/*",
     "test/**/*",
