@@ -15,17 +15,22 @@
 
 ---
 
+[![Development and maintenance is sponsored by Scale Leap](https://www.scaleleap.com/development-sponsored.png)](https://www.scaleleap.com)
+
 ## Install
 
 ```sh
 npm i -s @scaleleap/amazon-advertising-api-sdk
 ```
 
-## Usage
+## Documentation
 
  * [Manually generated docs](https://github.com/ScaleLeap/amazon-advertising-api-sdk/tree/master/docs)
  * [Automatically generated docs](https://amazon-advertising-api-sdk.scaleleap.org)
  * [Amazon Advertising API docs](https://advertising.amazon.com/API/docs/en-us)
+ * See [`./examples`](https://github.com/ScaleLeap/amazon-advertising-api-sdk/tree/master/examples) directory.
+
+## Usage
 
 ### OAuth Client
 
@@ -72,10 +77,6 @@ const profileOperation = operationProvider.create(ProfileOperation)
 // Using the operation object to make API calls
 const res = await profileOperation.listProfiles()
 ```
-
-### Examples
-
-See [`./examples`](https://github.com/ScaleLeap/amazon-advertising-api-sdk/tree/master/examples) directory.
 
 ## Authors or Acknowledgments
 
