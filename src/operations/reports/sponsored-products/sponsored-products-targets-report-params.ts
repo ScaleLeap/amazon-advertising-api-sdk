@@ -1,6 +1,6 @@
 import { BaseReportParams } from '../base-report-params'
 import { SponsoredProductsReportType } from '../report-types'
-import { SponsoredProductsProductTargetingReportMetrics } from '../metrics/sponsored-products-product-targeting-report-metrics'
+import { SponsoredProductsProductTargetingReportMetrics } from '../metrics'
 
 export interface SponsoredProductsTargetsReportParams
   extends BaseReportParams<
