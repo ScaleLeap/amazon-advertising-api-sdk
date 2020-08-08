@@ -15,7 +15,7 @@
     "lint": "eslint --ext .js,.ts src test examples",
     "test": "jest",
     "api-extractor": "api-extractor run --local --verbose",
-    "semantic-release": "semantic-release",
+    "semantic-release": "npx @scaleleap/semantic-release-config",
     "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'",
     "dev:refresh-token": "ts-node test/refresh-token.ts"
   },
@@ -45,7 +45,6 @@
     "@microsoft/api-extractor": "7.8.1",
     "@scaleleap/config": "2.0.3",
     "@scaleleap/jest-polly": "1.5.3",
-    "@scaleleap/semantic-release-config": "1.1.12",
     "@types/jest": "26.0.8",
     "@types/lodash": "4.14.159",
     "@types/node": "13.13.4",
