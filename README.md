@@ -17,20 +17,19 @@
 
 ## Install
 
-```
+```sh
 npm i -s @scaleleap/amazon-advertising-api-sdk
 ```
 
 ## Usage
 
-Mandatory reading: [Amazon Advertising API docs](https://advertising.amazon.com/API/docs/en-us)
+ * [Manually generated docs](https://github.com/ScaleLeap/amazon-advertising-api-sdk/tree/master/docs)
+ * [Automatically generated docs](https://amazon-advertising-api-sdk.scaleleap.org)
+ * [Amazon Advertising API docs](https://advertising.amazon.com/API/docs/en-us)
 
-[Manually generated docs](/docs/README.md)
-
-[Automatically generated docs](https://amazon-advertising-api-sdk.scaleleap.org).
 ### OAuth Client
 
-Inherits from, and implements similar interface to `client-oauth2` package.
+Inherits from, and implements similar interface to [`client-oauth2`](https://www.npmjs.com/package/client-oauth2) package.
 
 ```ts
 import { OAuthClient } from '@scaleleap/amazon-advertising-api-sdk'
@@ -74,3 +73,16 @@ const profileOperation = operationProvider.create(ProfileOperation)
 const res = await profileOperation.listProfiles()
 ```
 
+### Examples
+
+See [`./examples`](https://github.com/ScaleLeap/amazon-advertising-api-sdk/tree/master/examples) directory.
+
+## Authors or Acknowledgments
+
+* [Justin Emmanuel Mercado](https://github.com/justinemmanuelmercado)
+* [Roman Filippov](https://github.com/moltar)
+* [Toan Nguyen](https://github.com/nguyentoanit)
+
+## License
+
+This project is licensed under the MIT License.
