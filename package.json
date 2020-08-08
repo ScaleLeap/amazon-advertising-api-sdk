@@ -13,6 +13,7 @@
     "docs": "typedoc",
     "clean": "rimraf lib",
     "lint": "eslint --ext .js,.ts src test examples",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest",
     "api-extractor": "api-extractor run --local --verbose",
     "semantic-release": "npx @scaleleap/semantic-release-config",
