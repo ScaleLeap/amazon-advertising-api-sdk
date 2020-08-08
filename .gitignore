@@ -102,3 +102,6 @@ lib/
 # Api Extractor
 dist/
 temp/
+
+# generated docs
+docs/typedoc

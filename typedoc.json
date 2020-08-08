@@ -6,7 +6,7 @@
   "exclude": [
     "**/*.test.ts"
   ],
-  "out": "docs",
+  "out": "docs/typedoc",
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeNotExported": true,
