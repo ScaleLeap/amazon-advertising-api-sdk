@@ -57,12 +57,15 @@ jobs:
         run: npm run docs
 
       - name: Deploy docs to Netlify
-        uses: nwtgck/actions-netlify@v1.0
+        uses: nwtgck/actions-netlify@v1.1.5
         with:
           publish-dir: ./docs/typedoc
           production-branch: master
+          production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
