@@ -19,7 +19,13 @@
     "test:passthrough": "cross-env POLLY_MODE=passthrough npm test -- -t 'polly:passthrough'",
     "dev:refresh-token": "ts-node test/refresh-token.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "amazon advertising",
+    "amazon advertising api",
+    "sponsored display",
+    "sponsored products",
+    "sponsored brands"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
