@@ -25,3 +25,14 @@ export const SponsoredBrandsReportType = t.union([
   t.literal('targets'),
 ])
 export type SponsoredBrandsReportType = t.TypeOf<typeof SponsoredBrandsReportType>
+
+/**
+ * The type of entity for which the Sponsored Brands report should be generated.
+ */
+export const SponsoredDisplayReportType = t.union([
+  t.literal('campaigns'),
+  t.literal('adGroups'),
+  t.literal('productAds'),
+  t.literal('targets'),
+])
+export type SponsoredDisplayReportType = t.TypeOf<typeof SponsoredDisplayReportType>
