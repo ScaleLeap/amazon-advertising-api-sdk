@@ -11,7 +11,7 @@ describe('SponsoredDisplayReportOperation', () => {
   const reportOperation = operationProvider.create(SponsoredDisplayReportOperation)
 
   /**
-   * TODO: "BadRequestError: Unsupported fields attributedConversions1dSameSKU, attributedConversions1d, attributedSales1dSameSKU, attributedSales1d for tactic T00001 and record type campaigns combination" error on Sandbox API.
+   * TODO: "BadRequestError: Unsupported fields attributedConversions*dSameSKU, attributedConversions1d, attributedSales1dSameSKU, attributedSales1d for tactic T00001 and record type campaigns combination" error on Sandbox API.
    * Need to check again on Production API.
    */
   describe('requestReport', () => {
@@ -31,9 +31,6 @@ describe('SponsoredDisplayReportOperation', () => {
           'attributedConversions7d',
           'attributedConversions14d',
           'attributedConversions30d',
-          'attributedConversions7dSameSKU',
-          'attributedConversions14dSameSKU',
-          'attributedConversions30dSameSKU',
           'attributedUnitsOrdered1d',
           'attributedUnitsOrdered7d',
           'attributedUnitsOrdered14d',
