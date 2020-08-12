@@ -4,6 +4,7 @@
     "experimentalDecorators": true,
   },
   "include": [
+    "utils/**/*",
     "src/**/*",
     "test/**/*",
     "examples/**/*"
