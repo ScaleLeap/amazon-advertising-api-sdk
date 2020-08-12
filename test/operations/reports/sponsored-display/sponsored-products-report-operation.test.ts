@@ -2,7 +2,6 @@ import { OperationProvider } from '../../../../src/operations/operation-provider
 import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredDisplayReportOperation } from '../../../../src/operations/reports/sponsored-display/index'
 import { ReportResponseStatus } from '../../../../src/operations/reports/report-response'
-import { delay } from '../../../test-utils'
 
 jest.setTimeout(30000)
 
@@ -297,8 +296,6 @@ describe('SponsoredDisplayReportOperation', () => {
         ],
       })
 
-      delay()
-
       const res = await reportOperation.getReport(requestReportResponse.reportId)
 
       expect(res.reportId).toBeDefined()
@@ -327,8 +324,6 @@ describe('SponsoredDisplayReportOperation', () => {
           'currency',
         ],
       })
-
-      delay()
 
       const res = await reportOperation.downloadReport(requestReportResponse.reportId)
 
