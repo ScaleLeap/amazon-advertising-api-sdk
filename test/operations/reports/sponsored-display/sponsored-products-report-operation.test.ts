@@ -2,6 +2,7 @@ import { OperationProvider } from '../../../../src/operations/operation-provider
 import { httpClientFactory } from '../../../http-client-factory'
 import { SponsoredDisplayReportOperation } from '../../../../src/operations/reports/sponsored-display/index'
 import { ReportResponseStatus } from '../../../../src/operations/reports/report-response'
+import { delay } from '../../../test-utils'
 
 jest.setTimeout(30000)
 
@@ -276,6 +277,62 @@ describe('SponsoredDisplayReportOperation', () => {
       expect(res.recordType).toBeDefined()
       expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
+    })
+  })
+
+  describe('getReport', () => {
+    it(`only return report location when report status is SUCCESS`, async () => {
+      const requestReportResponse = await reportOperation.requestReport({
+        recordType: 'campaigns',
+        reportDate: '20200808',
+        tactic: 'T00001',
+        metrics: [
+          'campaignName',
+          'campaignId',
+          'campaignStatus',
+          'impressions',
+          'clicks',
+          'cost',
+          'currency',
+        ],
+      })
+
+      delay()
+
+      const res = await reportOperation.getReport(requestReportResponse.reportId)
+
+      expect(res.reportId).toBeDefined()
+      expect(res.statusDetails).toBeDefined()
+
+      if (res.status == 'SUCCESS') {
+        expect(res.location).toBeDefined()
+        expect(res.fileSize).toBeDefined()
+      }
+    })
+  })
+
+  describe('downloadReport', () => {
+    it(`should return the report uncompressed`, async () => {
+      const requestReportResponse = await reportOperation.requestReport({
+        recordType: 'campaigns',
+        reportDate: '20200808',
+        tactic: 'T00001',
+        metrics: [
+          'campaignName',
+          'campaignId',
+          'campaignStatus',
+          'impressions',
+          'clicks',
+          'cost',
+          'currency',
+        ],
+      })
+
+      delay()
+
+      const res = await reportOperation.downloadReport(requestReportResponse.reportId)
+
+      expect(res.length).toBeGreaterThan(0)
     })
   })
 })
