@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.26.1...v1.26.2) (2020-08-12)
+
+
+### Bug Fixes
+
+* syncs version rather than load from package.json ([8b01953](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8b01953541b88ff64756a4ca1c270cefffdf9997))
+
 ## [1.26.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.26.0...v1.26.1) (2020-08-12)
 
 
