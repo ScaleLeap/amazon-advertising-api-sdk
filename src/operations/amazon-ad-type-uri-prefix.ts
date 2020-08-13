@@ -10,6 +10,7 @@
  * @example "sp"
  */
 export enum AmazonAdTypeURIPrefix {
-  SponsoredProducts = 'sp',
   SponsoredBrands = 'hsa',
+  SponsoredDisplay = 'sd',
+  SponsoredProducts = 'sp',
 }
