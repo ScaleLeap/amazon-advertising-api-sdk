@@ -611,17 +611,17 @@ export const SponsoredDisplayCampaignCreateParams = t.intersection([
     budget: t.number,
 
     /**
+     * The time period over which the amount specified in the budget property is allocated.
+     */
+    budgetType: t.literal('daily'),
+
+    /**
      * The date the campaign will go or went live as YYYYMMDD.
      */
     startDate: t.string,
   }),
 
   t.partial({
-    /**
-     * The time period over which the amount specified in the budget property is allocated.
-     */
-    budgetType: t.literal('daily'),
-
     /**
      * The YYYYMMDD end date of the campaign.
      */
