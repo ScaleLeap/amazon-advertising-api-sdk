@@ -13,7 +13,7 @@ describe('SponsoredDisplayCampaignOperation', () => {
     it(`should create a campaign`, async () => {
       const [res] = await operation.createCampaigns([
         {
-          name: 'test sd campaign 2020/08/13 21:40',
+          name: 'test sd campaign 2020/08/13 21:42',
           tactic: 'remarketing',
           state: 'enabled',
           budget: 1,
@@ -27,7 +27,7 @@ describe('SponsoredDisplayCampaignOperation', () => {
     it(`should create a campaign with optional params`, async () => {
       const [res] = await operation.createCampaigns([
         {
-          name: 'test sd campaign 2020/08/13 21:41',
+          name: 'test sd campaign 2020/08/13 21:43',
           tactic: 'remarketing',
           state: 'enabled',
           budget: 1,
