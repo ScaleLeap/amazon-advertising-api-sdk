@@ -17,6 +17,7 @@ describe('SponsoredDisplayCampaignOperation', () => {
           tactic: 'remarketing',
           state: 'enabled',
           budget: 1,
+          budgetType: 'daily',
           startDate,
         },
       ])
