@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 
-import { ResponseStatus, ListPagination } from '../commons/types'
+import { ResponseStatus, ListPagination, Tactic } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { PortfolioId } from '../portfolios/types'
 import { CampaignBiddingStrategy } from '../bidding/campaign-bidding-strategy'
@@ -542,3 +542,92 @@ export const ListCampaignsParams = t.intersection([
   }),
 ])
 export type ListCampaignsParams = t.TypeOf<typeof ListCampaignsParams>
+
+// Sponsored Display types
+export const SponsoredDisplayCampaign = t.strict({
+  /**
+   * The ID of the campaign.
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The name of the campaign.
+   */
+  name: CampaignName,
+
+  /**
+   * The advertising tactic associated with the campaign.
+   */
+  tactic: Tactic,
+
+  /**
+   * The time period over which the amount specified in the budget property is allocated.
+   */
+  budgetType: t.literal('daily'),
+
+  /**
+   * The amount of the budget.
+   */
+  budget: t.number,
+
+  /**
+   * The YYYYMMDD start date of the campaign. The date must be today or in the future.
+   */
+  startDate: t.string,
+
+  /**
+   * The YYYYMMDD end date of the campaign.
+   */
+  endDate: t.string,
+
+  /**
+   * The state of the campaign.
+   */
+  state: CampaignState,
+})
+export type SponsoredDisplayCampaign = t.TypeOf<typeof SponsoredDisplayCampaign>
+
+export const SponsoredDisplayCampaignCreateParams = t.intersection([
+  t.type({
+    /**
+     * Campaign name limit is 128 characters.
+     * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
+     */
+    name: CampaignName,
+
+    /**
+     * The advertising tactic associated with the campaign.
+     */
+    tactic: Tactic,
+
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignState,
+
+    /**
+     * The amount of the budget.
+     */
+    budget: t.number,
+
+    /**
+     * The date the campaign will go or went live as YYYYMMDD.
+     */
+    startDate: t.string,
+  }),
+
+  t.partial({
+    /**
+     * The time period over which the amount specified in the budget property is allocated.
+     */
+    budgetType: t.literal('daily'),
+
+    /**
+     * The YYYYMMDD end date of the campaign.
+     */
+    endDate: t.string,
+  }),
+])
+export type SponsoredDisplayCampaignCreateParams = t.TypeOf<
+  typeof SponsoredDisplayCampaignCreateParams
+>
