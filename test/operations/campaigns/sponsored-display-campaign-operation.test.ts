@@ -1,9 +1,10 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { httpClientFactory } from '../../http-client-factory'
+import { SANDBOX_URI, auth } from '../../http-client-factory'
 import { SponsoredDisplayCampaignOperation } from '../../../src/operations/campaigns/sponsored-display-campaign-operation'
+import { HttpClient } from '../../../src'
 
 describe('SponsoredDisplayCampaignOperation', () => {
-  const client = httpClientFactory()
+  const client = new HttpClient(SANDBOX_URI, { ...auth, scope: 2973802954634317 }, true)
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredDisplayCampaignOperation)
   const startDate = '20201210'
