@@ -531,11 +531,6 @@ export const ListCampaignsParams = t.intersection([
     name: CampaignName,
 
     /**
-     * Restricts results to campaigns associated with the specified portfolio identifier.
-     */
-    portfolioIdFilter: PortfolioId,
-
-    /**
      * Restricts results to campaigns with the specified identifier.
      */
     campaignIdFilter: CampaignIds,
@@ -587,6 +582,27 @@ export const SponsoredDisplayCampaign = t.strict({
 })
 export type SponsoredDisplayCampaign = t.TypeOf<typeof SponsoredDisplayCampaign>
 
+export const SponsoredDisplayCampaignExtended = t.intersection([
+  SponsoredDisplayCampaign,
+  t.partial({
+    /**
+     * The status of the campaign.
+     */
+    servingStatus: CampaignServingStatus,
+
+    /**
+     * Epoch date the campaign was created.
+     */
+    creationDate: DateFromNumber,
+
+    /**
+     * Epoch date of the last update to any property associated with the campaign.
+     */
+    lastUpdatedDate: DateFromNumber,
+  }),
+])
+export type SponsoredDisplayCampaignExtended = t.TypeOf<typeof SponsoredDisplayCampaignExtended>
+
 export const SponsoredDisplayCampaignCreateParams = t.intersection([
   t.type({
     /**
@@ -630,4 +646,42 @@ export const SponsoredDisplayCampaignCreateParams = t.intersection([
 ])
 export type SponsoredDisplayCampaignCreateParams = t.TypeOf<
   typeof SponsoredDisplayCampaignCreateParams
+>
+
+export const SponsoredDisplayCampaignUpdateParams = t.intersection([
+  t.type({
+    /**
+     * The identifier of the campaign.
+     */
+    campaignId: CampaignId,
+  }),
+  t.partial({
+    /**
+     * The name of the campaign.
+     */
+    name: CampaignName,
+
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignState,
+
+    /**
+     * The amount of the budget.
+     */
+    budget: t.number,
+
+    /**
+     * The YYYYMMDD start date of the campaign. The date must be today or in the future.
+     */
+    startDate: t.string,
+
+    /**
+     * The YYYYMMDD end date of the campaign.
+     */
+    endDate: t.string,
+  }),
+])
+export type SponsoredDisplayCampaignUpdateParams = t.TypeOf<
+  typeof SponsoredDisplayCampaignUpdateParams
 >
