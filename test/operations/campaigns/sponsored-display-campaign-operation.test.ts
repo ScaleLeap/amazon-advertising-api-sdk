@@ -114,4 +114,13 @@ describe('SponsoredDisplayCampaignOperation', () => {
       expect(res.campaignId).toBe(campaignIds[0])
     })
   })
+
+  describe('archiveCampaign', () => {
+    it(`should set the campaign to archived state`, async () => {
+      const res = await operation.archiveCampaign(campaignIds[1])
+
+      expect(res.campaignId).toBe(campaignIds[1])
+      expect(res.code).toBe('SUCCESS')
+    })
+  })
 })
