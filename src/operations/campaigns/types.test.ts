@@ -109,6 +109,24 @@ describe('CampaignResponse', () => {
   })
 })
 
+describe('SponsoredDisplayCampaign', () => {
+  it('should pass', () => {
+    const res = t.SponsoredDisplayCampaign.decode({
+      campaignId: 169989740510339,
+      name: 'test sd campaign 2020/08/13 21:42',
+      tactic: 'remarketing',
+      budget: 1,
+      budgetType: 'daily',
+      costType: 'cpc',
+      deliveryProfile: 'as_soon_as_possible',
+      startDate: '20201210',
+      state: 'enabled',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
 /**
  * TODO: Update test script:
  * SponsoredBrandsCampaign should pass listCampaigns response

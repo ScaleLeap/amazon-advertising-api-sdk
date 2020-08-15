@@ -282,6 +282,7 @@ export const CampaignServingStatus = t.union([
   t.literal('ACCOUNT_OUT_OF_BUDGET'),
   t.literal('PORTFOLIO_ENDED'), // The docs don't say about this type
   t.literal('CAMPAIGN_INCOMPLETE'), // The docs don't say about this type
+  t.literal('PENDING_START_DATE'), // The docs don't say about this type
 ])
 export type CampaignServingStatus = t.TypeOf<typeof CampaignServingStatus>
 
@@ -539,47 +540,57 @@ export const ListCampaignsParams = t.intersection([
 export type ListCampaignsParams = t.TypeOf<typeof ListCampaignsParams>
 
 // Sponsored Display types
-export const SponsoredDisplayCampaign = t.strict({
-  /**
-   * The ID of the campaign.
-   */
-  campaignId: CampaignId,
+export const SponsoredDisplayCampaign = t.intersection([
+  t.strict({
+    /**
+     * The ID of the campaign.
+     */
+    campaignId: CampaignId,
 
-  /**
-   * The name of the campaign.
-   */
-  name: CampaignName,
+    /**
+     * The name of the campaign.
+     */
+    name: CampaignName,
 
-  /**
-   * The advertising tactic associated with the campaign.
-   */
-  tactic: Tactic,
+    /**
+     * The advertising tactic associated with the campaign.
+     */
+    tactic: Tactic,
 
-  /**
-   * The time period over which the amount specified in the budget property is allocated.
-   */
-  budgetType: t.literal('daily'),
+    /**
+     * The time period over which the amount specified in the budget property is allocated.
+     */
+    budgetType: t.literal('daily'),
 
-  /**
-   * The amount of the budget.
-   */
-  budget: t.number,
+    /**
+     * The amount of the budget.
+     */
+    budget: t.number,
 
-  /**
-   * The YYYYMMDD start date of the campaign. The date must be today or in the future.
-   */
-  startDate: t.string,
+    /**
+     * The YYYYMMDD start date of the campaign. The date must be today or in the future.
+     */
+    startDate: t.string,
 
-  /**
-   * The YYYYMMDD end date of the campaign.
-   */
-  endDate: t.string,
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignState,
+  }),
+  t.partial({
+    /**
+     * The YYYYMMDD end date of the campaign.
+     */
+    endDate: t.string,
 
-  /**
-   * The state of the campaign.
-   */
-  state: CampaignState,
-})
+    /**
+     * The docs don't metion these fields
+     */
+    costType: t.literal('cpc'),
+    deliveryProfile: t.literal('as_soon_as_possible'),
+  }),
+])
+
 export type SponsoredDisplayCampaign = t.TypeOf<typeof SponsoredDisplayCampaign>
 
 export const SponsoredDisplayCampaignExtended = t.intersection([
