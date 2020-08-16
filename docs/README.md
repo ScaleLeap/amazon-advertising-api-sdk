@@ -17,7 +17,7 @@
     - [listAdGroup](#listadgroup)
   - [SponsoredProductsAdGroupOperation](#sponsoredproductsadgroupoperation)
     - [getAdGroup](#getadgroup-1)
-    - [getAddGroupEx](#getaddgroupex)
+    - [getAdGroupExtended](#getadgroupextended)
     - [createAdGroups](#createadgroups)
     - [updateAdGroups](#updateadgroups)
     - [archiveAdGroup](#archiveadgroup)
@@ -354,7 +354,7 @@ const res = await profileOperation.listProfiles()
 
 ### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroup)
 
-### [getAddGroupEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroupex)
+### [getAddGroupExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroupextended)
 
 ### [createAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#createadgroups)
 

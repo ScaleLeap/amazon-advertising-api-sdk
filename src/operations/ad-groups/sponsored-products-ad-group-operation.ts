@@ -2,7 +2,15 @@ import { Operation } from '../operation'
 import { Decode, DecodeArray } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
-import { AdGroup, AdGroupId, AdGroupResponse, AdGroupExtended, ListAdGroupsParams } from './types'
+import {
+  AdGroup,
+  AdGroupId,
+  AdGroupResponse,
+  AdGroupExtended,
+  ListAdGroupsParams,
+  CreateAdGroupsParams,
+  UpdateAdGroupsParams,
+} from './types'
 
 export class SponsoredProductsAdGroupOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredProducts}/adGroups`
@@ -27,7 +35,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * @returns
    */
   @Decode(AdGroupExtended)
-  public getAdGroupEx(adGroupId: AdGroupId) {
+  public getAdGroupExtended(adGroupId: AdGroupId) {
     return this.client.get<AdGroupExtended>(`${this.resource}/extended/${adGroupId}`)
   }
 
@@ -38,7 +46,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * @returns
    */
   @DecodeArray(AdGroupResponse)
-  public createAdGroups(adGroups: AdGroup[]) {
+  public createAdGroups(adGroups: CreateAdGroupsParams[]) {
     return this.client.post<AdGroupResponse[]>(this.resource, adGroups)
   }
 
@@ -49,7 +57,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * @returns
    */
   @DecodeArray(AdGroupResponse)
-  public updateAdGroups(adGroups: AdGroup[]) {
+  public updateAdGroups(adGroups: UpdateAdGroupsParams[]) {
     return this.client.put<AdGroupResponse[]>(this.resource, adGroups)
   }
 
@@ -84,7 +92,7 @@ export class SponsoredProductsAdGroupOperation extends Operation {
    * @returns
    */
   @DecodeArray(AdGroupExtended)
-  public listAdGroupsEx(params?: ListAdGroupsParams) {
+  public listAdGroupsExtended(params?: ListAdGroupsParams) {
     return this.client.get<AdGroupExtended[]>(this.paramsFilterTransformer('/extended', params))
   }
 }
