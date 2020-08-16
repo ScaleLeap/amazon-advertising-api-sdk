@@ -29,13 +29,13 @@ sponsoredProductsAdGroupOperation.createAdGroups(sponsoredProductsAdGroup)
 sponsoredProductsAdGroupOperation.getAdGroup(123)
 
 // Retrieves an ad group and its extended fields by ID.
-sponsoredProductsAdGroupOperation.getAdGroupEx(123)
+sponsoredProductsAdGroupOperation.getAdGroupExtended(123)
 
 // Retrieves a list of ad groups satisfying optional criteria.
 sponsoredProductsAdGroupOperation.listAdGroups()
 
 // Retrieves a list of ad groups satisfying optional criteria.
-sponsoredProductsAdGroupOperation.listAdGroupsEx()
+sponsoredProductsAdGroupOperation.listAdGroupsExtended()
 
 // Updates one or more ad groups. Ad groups are identified using their adGroupId
 sponsoredProductsAdGroupOperation.updateAdGroups(sponsoredProductsAdGroup)

@@ -30,7 +30,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
 
   describe('getAdGroupEx', () => {
     it('should get an extended ad group', async () => {
-      const res = await adGroupOperation.getAdGroupEx(ARCHIVED_AD_GROUP_ID)
+      const res = await adGroupOperation.getAdGroupExtended(ARCHIVED_AD_GROUP_ID)
 
       expect(res.adGroupId).toBe(ARCHIVED_AD_GROUP_ID)
       expect(res).toHaveProperty('name')
@@ -121,7 +121,7 @@ describe('SponsoredProductsAdGroupOperation', () => {
 
   describe('listAdGroupsEx', () => {
     it('should return an extended list of ad groups', async () => {
-      const res = await adGroupOperation.listAdGroupsEx()
+      const res = await adGroupOperation.listAdGroupsExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
       expect(res[0].adGroupId).toBe(ARCHIVED_AD_GROUP_ID)

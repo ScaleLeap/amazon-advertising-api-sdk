@@ -50,36 +50,32 @@ export const AdGroupServingStatus = t.union([
 ])
 export type AdGroupServingStatus = t.TypeOf<typeof AdGroupServingStatus>
 
-export const AdGroup = t.intersection([
-  t.type({
-    /**
-     * The name of the ad group
-     */
-    name: AdGroupName,
+export const AdGroup = t.strict({
+  /**
+   * The ID of the campaign to which this ad group belongs
+   */
+  campaignId: CampaignId,
 
-    /**
-     * The bid used when keywords belonging to this ad group don't specify a bid.
-     */
-    defaultBid: t.number,
+  /**
+   * The ID of the ad group
+   */
+  adGroupId: AdGroupId,
 
-    /**
-     * Advertiser-specified state of the ad group
-     */
-    state: AdGroupState,
-  }),
+  /**
+   * The name of the ad group
+   */
+  name: AdGroupName,
 
-  t.partial({
-    /**
-     * The ID of the ad group
-     */
-    adGroupId: AdGroupId,
+  /**
+   * The bid used when keywords belonging to this ad group don't specify a bid.
+   */
+  defaultBid: t.number,
 
-    /**
-     * The ID of the campaign to which this ad group belongs
-     */
-    campaignId: CampaignId,
-  }),
-])
+  /**
+   * Advertiser-specified state of the ad group
+   */
+  state: AdGroupState,
+})
 
 export type AdGroup = t.TypeOf<typeof AdGroup>
 
@@ -155,3 +151,52 @@ export const ListAdGroupsParams = t.intersection([
   }),
 ])
 export type ListAdGroupsParams = t.TypeOf<typeof ListAdGroupsParams>
+
+export const CreateAdGroupsParams = t.strict({
+  /**
+   * The ID of the campaign to which this ad group belongs
+   */
+  campaignId: CampaignId,
+
+  /**
+   * The name of the ad group
+   */
+  name: AdGroupName,
+
+  /**
+   * Advertiser-specified state of the ad group
+   */
+  state: AdGroupState,
+
+  /**
+   * The bid used when keywords belonging to this ad group don't specify a bid.
+   */
+  defaultBid: t.number,
+})
+export type CreateAdGroupsParams = t.TypeOf<typeof CreateAdGroupsParams>
+
+export const UpdateAdGroupsParams = t.intersection([
+  t.strict({
+    /**
+     * The ID of the ad group.
+     */
+    adGroupId: AdGroupId,
+  }),
+  t.partial({
+    /**
+     * The name of the ad group.
+     */
+    name: AdGroupName,
+
+    /**
+     * The bid used when keywords belonging to this ad group don't specify a bid.
+     */
+    defaultBid: t.number,
+
+    /**
+     * Advertiser-specified state of the ad group
+     */
+    state: AdGroupState,
+  }),
+])
+export type UpdateAdGroupsParams = t.TypeOf<typeof UpdateAdGroupsParams>
