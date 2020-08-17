@@ -6,6 +6,7 @@ import { SponsoredBrandsAdGroupOperation } from './operations/ad-groups/sponsore
 import { SponsoredProductsAdGroupOperation } from './operations/ad-groups/sponsored-products-ad-group-operation'
 import { SponsoredProductsBidRecommendationOperation } from './operations/bidding/sponsored-products-bid-recommendation-operation'
 import { SponsoredBrandsCampaignOperation } from './operations/campaigns/sponsored-brands-campaign-operation'
+import { SponsoredDisplayCampaignOperation } from './operations/campaigns/sponsored-display-campaign-operation'
 import { SponsoredProductsCampaignOperation } from './operations/campaigns/sponsored-products-campaign-operation'
 import { SponsoredBrandsDraftsOperation } from './operations/drafts/sponsored-brands-drafts-operation'
 import { SponsoredBrandsKeywordRecommendationsOperation } from './operations/keywords/sponsored-brands-keyword-recommendations-operation'
@@ -56,6 +57,11 @@ export class AmazonAdvertising {
   @LazyGetter()
   get sponsoredBrandsCampaign() {
     return this.operationProvider.create(SponsoredBrandsCampaignOperation)
+  }
+
+  @LazyGetter()
+  get sponsoredDisplayCampaign() {
+    return this.operationProvider.create(SponsoredDisplayCampaignOperation)
   }
 
   @LazyGetter()
