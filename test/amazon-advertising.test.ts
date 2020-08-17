@@ -22,6 +22,7 @@ import { ProfileOperation } from '../src/operations/profiles/profile-operation'
 import { SponsoredBrandsBidRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
 import { SponsoredBrandsTargetingRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-targeting-recommendations-operation'
 import { SponsoredBrandsReportOperation } from '../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
+import { SponsoredDisplayReportOperation } from '../src/operations/reports/sponsored-display/sponsored-display-report-operation'
 import { SponsoredProductsReportOperation } from '../src/operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredBrandsSnapshotOperation } from '../src/operations/snapshots/sponsored-brands-snapshot-operation'
 import { SponsoredProductsSnapshotOperation } from '../src/operations/snapshots/sponsored-products-snapshot-operation'
@@ -134,6 +135,11 @@ describe('AmazonAdvertising', () => {
   it('should return SponsoredBrandsReportOperation', () => {
     const operation = amazonAdvertising.sponsoredBrandsReport
     expect(operation).toBeInstanceOf(SponsoredBrandsReportOperation)
+  })
+
+  it('should return SponsoredDisplayReportOperation', () => {
+    const operation = amazonAdvertising.sponsoredDisplayReport
+    expect(operation).toBeInstanceOf(SponsoredDisplayReportOperation)
   })
 
   it('should return SponsoredProductsReportOperation', () => {
