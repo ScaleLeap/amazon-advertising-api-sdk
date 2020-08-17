@@ -5,6 +5,7 @@ import { SponsoredBrandsAdGroupOperation } from '../src/operations/ad-groups/spo
 import { SponsoredProductsAdGroupOperation } from '../src/operations/ad-groups/sponsored-products-ad-group-operation'
 import { SponsoredProductsBidRecommendationOperation } from '../src/operations/bidding/sponsored-products-bid-recommendation-operation'
 import { SponsoredBrandsCampaignOperation } from '../src/operations/campaigns/sponsored-brands-campaign-operation'
+import { SponsoredDisplayCampaignOperation } from '../src/operations/campaigns/sponsored-display-campaign-operation'
 import { SponsoredProductsCampaignOperation } from '../src/operations/campaigns/sponsored-products-campaign-operation'
 import { SponsoredBrandsDraftsOperation } from '../src/operations/drafts/sponsored-brands-drafts-operation'
 import { SponsoredBrandsKeywordRecommendationsOperation } from '../src/operations/keywords/sponsored-brands-keyword-recommendations-operation'
@@ -49,6 +50,11 @@ describe('AmazonAdvertising', () => {
   it('should return SponsoredBrandsCampaignOperation', () => {
     const operation = amazonAdvertising.sponsoredBrandsCampaign
     expect(operation).toBeInstanceOf(SponsoredBrandsCampaignOperation)
+  })
+
+  it('should return SponsoredDisplayCampaignOperation', () => {
+    const operation = amazonAdvertising.sponsoredDisplayCampaign
+    expect(operation).toBeInstanceOf(SponsoredDisplayCampaignOperation)
   })
 
   it('should return SponsoredProductsCampaignOperation', () => {
