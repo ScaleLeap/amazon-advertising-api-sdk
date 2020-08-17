@@ -18,7 +18,7 @@ export class BaseAdGroupOperation extends Operation {
 
   /**
    * Retrieves an ad group by ID.
-   * Note that this call returns the minimal set of ad group fields, but is more efficient than getAdGroupEx
+   * Note that this call returns the minimal set of ad group fields, but is more efficient than getAdGroupExtended
    *
    * @param adGroupId -
    * @returns
