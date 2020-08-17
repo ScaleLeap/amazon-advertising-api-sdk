@@ -3,6 +3,7 @@ import { HttpClientAuth } from './http-client'
 import { HttpClient } from './http-client'
 import { OperationProvider } from './operations/operation-provider'
 import { SponsoredBrandsAdGroupOperation } from './operations/ad-groups/sponsored-brands-ad-group-operation'
+import { SponsoredDisplayAdGroupOperation } from './operations/ad-groups/sponsored-display-ad-group-operation'
 import { SponsoredProductsAdGroupOperation } from './operations/ad-groups/sponsored-products-ad-group-operation'
 import { SponsoredProductsBidRecommendationOperation } from './operations/bidding/sponsored-products-bid-recommendation-operation'
 import { SponsoredBrandsCampaignOperation } from './operations/campaigns/sponsored-brands-campaign-operation'
@@ -42,6 +43,11 @@ export class AmazonAdvertising {
   @LazyGetter()
   get sponsoredBrandsAdGroup() {
     return this.operationProvider.create(SponsoredBrandsAdGroupOperation)
+  }
+
+  @LazyGetter()
+  get sponsoredDisplayAdGroup() {
+    return this.operationProvider.create(SponsoredDisplayAdGroupOperation)
   }
 
   @LazyGetter()
