@@ -2,6 +2,7 @@ import { AmazonAdvertising } from '../src/amazon-advertising'
 import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 import { auth } from './http-client-factory'
 import { SponsoredBrandsAdGroupOperation } from '../src/operations/ad-groups/sponsored-brands-ad-group-operation'
+import { SponsoredDisplayAdGroupOperation } from '../src/operations/ad-groups/sponsored-display-ad-group-operation'
 import { SponsoredProductsAdGroupOperation } from '../src/operations/ad-groups/sponsored-products-ad-group-operation'
 import { SponsoredProductsBidRecommendationOperation } from '../src/operations/bidding/sponsored-products-bid-recommendation-operation'
 import { SponsoredBrandsCampaignOperation } from '../src/operations/campaigns/sponsored-brands-campaign-operation'
@@ -34,6 +35,11 @@ describe('AmazonAdvertising', () => {
   it('should return SponsoredBrandsAdGroupOperation', () => {
     const operation = amazonAdvertising.sponsoredBrandsAdGroup
     expect(operation).toBeInstanceOf(SponsoredBrandsAdGroupOperation)
+  })
+
+  it('should return SponsoredDisplayAdGroupOperation', () => {
+    const operation = amazonAdvertising.sponsoredDisplayAdGroup
+    expect(operation).toBeInstanceOf(SponsoredDisplayAdGroupOperation)
   })
 
   it('should return SponsoredProductsAdGroupOperation', () => {
