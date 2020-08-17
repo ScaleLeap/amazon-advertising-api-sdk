@@ -110,4 +110,13 @@ describe('SponsoredDisplayAdGroupOperation', () => {
       expect(res.state).toBe(STATE)
     })
   })
+
+  describe('archiveAdGroup', () => {
+    it('should archive the ad group', async () => {
+      const res = await operation.archiveAdGroup(AD_GROUP_ID)
+
+      expect(res.code).toBe('SUCCESS')
+      expect(res.adGroupId).toBe(AD_GROUP_ID)
+    })
+  })
 })
