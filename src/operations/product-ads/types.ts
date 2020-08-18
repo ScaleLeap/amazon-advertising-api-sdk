@@ -176,3 +176,33 @@ export const ListProductAdsParams = t.intersection([
   }),
 ])
 export type ListProductAdsParams = t.TypeOf<typeof ListProductAdsParams>
+
+// Sponsored Display types
+const CreateSponsoredDisplayProductAdsParamsBase = t.strict({
+  adGroupId: AdGroupId,
+  state: ProductAdState,
+})
+
+export const CreateSponsoredDisplayProductAdsParamsSeller = t.intersection([
+  CreateSponsoredDisplayProductAdsParamsBase,
+  t.strict({
+    sku: t.string,
+  }),
+])
+export type CreateSponsoredDisplayProductAdsParamsSeller = t.TypeOf<
+  typeof CreateSponsoredDisplayProductAdsParamsSeller
+>
+
+export const CreateSponsoredDisplayProductAdsParamsVendor = t.intersection([
+  CreateSponsoredDisplayProductAdsParamsBase,
+  t.strict({
+    asin: t.string,
+  }),
+])
+export type CreateSponsoredDisplayProductAdsParamsVendor = t.TypeOf<
+  typeof CreateSponsoredDisplayProductAdsParamsVendor
+>
+
+export type CreateSponsoredDisplayProductAdsParams =
+  | CreateSponsoredDisplayProductAdsParamsSeller
+  | CreateSponsoredDisplayProductAdsParamsVendor

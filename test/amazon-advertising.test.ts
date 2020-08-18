@@ -17,6 +17,7 @@ import { SponsoredProductsAdGroupNegativeKeywordsOperation } from '../src/operat
 import { SponsoredProductsCampaignNegativeKeywordsOperation } from '../src/operations/keywords/sponsored-products-campaign-negative-keywords-operation'
 import { SponsoredProductsSuggestedKeywordsOperation } from '../src/operations/keywords/sponsored-products-suggested-keywords-operation'
 import { PortfolioOperation } from '../src/operations/portfolios/portfolio-operation'
+import { SponsoredDisplayProductAdsOperation } from '../src/operations/product-ads/sponsored-display-product-ads-operation'
 import { SponsoredProductsProductAdsOperation } from '../src/operations/product-ads/sponsored-products-product-ads-operation'
 import { SponsoredBrandsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-brands-product-targeting-operation'
 import { SponsoredProductsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-products-product-targeting-operation'
@@ -112,6 +113,11 @@ describe('AmazonAdvertising', () => {
   it('should return PortfolioOperation', () => {
     const operation = amazonAdvertising.portfolio
     expect(operation).toBeInstanceOf(PortfolioOperation)
+  })
+
+  it('should return SponsoredDisplayProductAdsOperation', () => {
+    const operation = amazonAdvertising.sponsoredDisplayProductAds
+    expect(operation).toBeInstanceOf(SponsoredDisplayProductAdsOperation)
   })
 
   it('should return SponsoredProductsProductAdsOperation', () => {
