@@ -8,7 +8,7 @@ describe('SponsoredDisplayProductAdsOperation', () => {
   const operation = operationProvider.create(SponsoredDisplayProductAdsOperation)
   const CAMPAIGN_ID = 169989740510339
   const AD_GROUP_ID = 164444192239500
-  const SKU = 'AB-RED-8675309'
+  const ASIN = 'B07663Z46Z'
 
   describe('createProductAds', () => {
     it(`should creates one or more product ads`, async () => {
@@ -17,7 +17,7 @@ describe('SponsoredDisplayProductAdsOperation', () => {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           state: 'enabled',
-          sku: SKU,
+          asin: ASIN,
         },
       ]
       const [res] = await operation.createProductAds(params)
