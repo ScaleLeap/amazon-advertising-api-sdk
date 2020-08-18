@@ -3,6 +3,24 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.26.2...v1.27.0) (2020-08-18)
+
+
+### Features
+
+* export sd ad group operation ([bead85c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/bead85c05b4f6bdc5dd50b154f690e523ab502fa))
+* export sd campaign operation ([e4b1683](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e4b1683d3bb56f85f56ebf563dba8bd17091f094))
+* export sd campaign operation ([95b47d4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/95b47d482fee21df21d3eb63ac3390043a8e6ada))
+* export sd report operation ([16cf46c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/16cf46cc5c0327afe474e92110dc602e3047d201))
+* implement create sd campaigns method ([f669da5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f669da5712e9dd2d2aa18e7611dd84be7786b65c))
+* implement get, list, update, archive sd campaign method ([ad65989](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/ad659898b72f96b39852d5959379d7e049ebe98c))
+* implement sd ad group operation ([7b10eb1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7b10eb157e0de31be56675e94264583be9fa5716))
+* implement sd report metrics and group sb,sp report metrics ([987c68a](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/987c68a61ff4cb84ea3580be070612d2d7c02de2))
+* implement sd report operation ([163cd9c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/163cd9ce98f380c675712a13d838c9dfcc2871fc))
+* require sd campaign budget type ([3933829](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/39338299f19100d436123cb4c9ec589ff95afbd9))
+* set endDate, costType and deliveryProfile to be optional ([f18f55f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f18f55f2c044670833f6c39739b73c60367e2692))
+* standardize sp ad group operation ([a72149e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/a72149e5205a6891da66ff96a4261c45c25de8ef))
+
 ## [1.26.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.26.1...v1.26.2) (2020-08-12)
 
 
