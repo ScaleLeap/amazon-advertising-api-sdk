@@ -34,7 +34,7 @@ describe('SponsoredDisplayAdGroupOperation', () => {
     it('should create an ad group', async () => {
       const [res] = await operation.createAdGroups([
         {
-          name: 'test sd ad group 2020/08/16 22:22',
+          name: 'test sd ad group 2020/08/18 22:22',
           state: STATE,
           defaultBid: DEFAULT_BID,
           campaignId: CAMPAIGN_ID,
