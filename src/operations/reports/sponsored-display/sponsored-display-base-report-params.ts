@@ -1,4 +1,4 @@
-import { ReportTactic } from './sponsored-display-report-tactic'
+import { Tactic } from '../../commons/types'
 
 export interface SponsoredDisplayBaseReportParams<RecordType, ReportMetrics> {
   /**
@@ -19,7 +19,7 @@ export interface SponsoredDisplayBaseReportParams<RecordType, ReportMetrics> {
   /**
    * The type of entity for which the report should be generated.
    */
-  tactic: ReportTactic
+  tactic: Tactic
 
   /**
    * An array of the metrics to be included in the report.

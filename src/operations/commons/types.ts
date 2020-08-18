@@ -72,7 +72,6 @@ export type ResponseStatus = t.TypeOf<typeof ResponseStatus>
 
 /**
  * The advertising tactic associated with the campaign.
- * TODO: Use for sd report operation
  */
 export const Tactic = t.union([
   /**
