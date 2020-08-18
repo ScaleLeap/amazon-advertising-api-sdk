@@ -6,7 +6,7 @@ describe('SponsoredDisplayProductAdsOperation', () => {
   const client = new HttpClient(SANDBOX_URI, { ...auth, scope: 2973802954634317 }, true)
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredDisplayProductAdsOperation)
-  const AD_GROUP_ID = 83691965128172
+  const AD_GROUP_ID = 164444192239500
   const SKU = 'AB-RED-8675309'
 
   describe('createProductAds', () => {
