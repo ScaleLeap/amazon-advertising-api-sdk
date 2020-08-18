@@ -2,7 +2,7 @@ import { Operation } from '../operation'
 import { DecodeArray } from '../../decorators'
 import { AmazonAdTypeURIPrefix } from '../amazon-ad-type-uri-prefix'
 
-import { AdResponse, CreateSponsoredDisplayProductAdsParams } from './types'
+import { AdResponse, CreateProductAdsParams } from './types'
 
 export class SponsoredDisplayProductAdsOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredDisplay}/productAds`
@@ -15,7 +15,7 @@ export class SponsoredDisplayProductAdsOperation extends Operation {
    * @returns
    */
   @DecodeArray(AdResponse)
-  public createProductAds(params: CreateSponsoredDisplayProductAdsParams[]) {
+  public createProductAds(params: CreateProductAdsParams[]) {
     return this.client.post<AdResponse[]>(this.resource, params)
   }
 }

@@ -2,7 +2,7 @@ import { SponsoredProductsProductAdsOperation } from '../../../src/operations/pr
 import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
-  CreateProductAdParams,
+  CreateProductAdsParams,
   UpdateProductAdParams,
   ListProductAdsParams,
 } from '../../../src/operations/product-ads/types'
@@ -18,7 +18,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
 
   describe.skip('createProductAds', () => {
     it(`should creates one or more product ads`, async () => {
-      const params: CreateProductAdParams[] = [
+      const params: CreateProductAdsParams[] = [
         {
           campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
