@@ -120,29 +120,29 @@ export const AdResponse = t.partial({
 })
 export type AdResponse = t.TypeOf<typeof AdResponse>
 
-const CreateProductAdParamsBase = t.strict({
+const CreateProductAdsParamsBase = t.strict({
   campaignId: CampaignId,
   adGroupId: AdGroupId,
   state: ProductAdState,
 })
 
-export const CreateProductAdParamsSeller = t.intersection([
-  CreateProductAdParamsBase,
+export const CreateProductAdsParamsSeller = t.intersection([
+  CreateProductAdsParamsBase,
   t.strict({
     sku: t.string,
   }),
 ])
-export type CreateProductAdParamsSeller = t.TypeOf<typeof CreateProductAdParamsSeller>
+export type CreateProductAdsParamsSeller = t.TypeOf<typeof CreateProductAdsParamsSeller>
 
-export const CreateProductAdParamsVendor = t.intersection([
-  CreateProductAdParamsBase,
+export const CreateProductAdsParamsVendor = t.intersection([
+  CreateProductAdsParamsBase,
   t.strict({
     asin: t.string,
   }),
 ])
-export type CreateProductAdParamsVendor = t.TypeOf<typeof CreateProductAdParamsVendor>
+export type CreateProductAdsParamsVendor = t.TypeOf<typeof CreateProductAdsParamsVendor>
 
-export type CreateProductAdParams = CreateProductAdParamsVendor | CreateProductAdParamsSeller
+export type CreateProductAdsParams = CreateProductAdsParamsVendor | CreateProductAdsParamsSeller
 
 export const UpdateProductAdParams = t.strict({
   adId: AdId,
@@ -176,33 +176,3 @@ export const ListProductAdsParams = t.intersection([
   }),
 ])
 export type ListProductAdsParams = t.TypeOf<typeof ListProductAdsParams>
-
-// Sponsored Display types
-const CreateSponsoredDisplayProductAdsParamsBase = t.strict({
-  adGroupId: AdGroupId,
-  state: ProductAdState,
-})
-
-export const CreateSponsoredDisplayProductAdsParamsSeller = t.intersection([
-  CreateSponsoredDisplayProductAdsParamsBase,
-  t.strict({
-    sku: t.string,
-  }),
-])
-export type CreateSponsoredDisplayProductAdsParamsSeller = t.TypeOf<
-  typeof CreateSponsoredDisplayProductAdsParamsSeller
->
-
-export const CreateSponsoredDisplayProductAdsParamsVendor = t.intersection([
-  CreateSponsoredDisplayProductAdsParamsBase,
-  t.strict({
-    asin: t.string,
-  }),
-])
-export type CreateSponsoredDisplayProductAdsParamsVendor = t.TypeOf<
-  typeof CreateSponsoredDisplayProductAdsParamsVendor
->
-
-export type CreateSponsoredDisplayProductAdsParams =
-  | CreateSponsoredDisplayProductAdsParamsSeller
-  | CreateSponsoredDisplayProductAdsParamsVendor

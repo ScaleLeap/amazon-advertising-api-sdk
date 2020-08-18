@@ -1,6 +1,6 @@
 import { amazonAdvertising } from './auth'
 
-import { CreateProductAdParams, UpdateProductAdParams } from '../src'
+import { CreateProductAdsParams, UpdateProductAdParams } from '../src'
 
 const sponsoredProductsProductAdsOperation = amazonAdvertising.sponsoredProductsProductAds
 const ID = 123
@@ -10,7 +10,7 @@ const SKU = 'AB-RED-8675309'
 sponsoredProductsProductAdsOperation.archiveProductAd(ID)
 
 // Creates one or more product ads.
-const createProductAdParams: CreateProductAdParams[] = [
+const createProductAdParams: CreateProductAdsParams[] = [
   {
     campaignId: ID,
     adGroupId: ID,

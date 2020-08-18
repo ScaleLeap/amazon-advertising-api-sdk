@@ -7,7 +7,7 @@ import {
   ProductAd,
   ProductAdExtended,
   AdResponse,
-  CreateProductAdParams,
+  CreateProductAdsParams,
   UpdateProductAdParams,
   ListProductAdsParams,
 } from './types'
@@ -47,7 +47,7 @@ export class SponsoredProductsProductAdsOperation extends Operation {
    * @returns
    */
   @DecodeArray(AdResponse)
-  public createProductAds(params: CreateProductAdParams[]) {
+  public createProductAds(params: CreateProductAdsParams[]) {
     return this.client.post<AdResponse[]>(this.resource, params)
   }
 
