@@ -144,11 +144,11 @@ export type CreateProductAdsParamsVendor = t.TypeOf<typeof CreateProductAdsParam
 
 export type CreateProductAdsParams = CreateProductAdsParamsVendor | CreateProductAdsParamsSeller
 
-export const UpdateProductAdParams = t.strict({
+export const UpdateProductAdsParams = t.strict({
   adId: AdId,
   state: ProductAdState,
 })
-export type UpdateProductAdParams = t.TypeOf<typeof UpdateProductAdParams>
+export type UpdateProductAdsParams = t.TypeOf<typeof UpdateProductAdsParams>
 
 export const ListProductAdsParams = t.intersection([
   ListPagination,
