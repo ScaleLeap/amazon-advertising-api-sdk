@@ -116,4 +116,13 @@ describe('SponsoredDisplayProductAdsOperation', () => {
       expect(res.adId).toEqual(PRODUCT_ADS_ID)
     })
   })
+
+  describe('archiveProductAd', () => {
+    it(`should set the product ad status to archived`, async () => {
+      const res = await operation.archiveProductAd(PRODUCT_ADS_ID)
+
+      expect(res.code).toBe('SUCCESS')
+      expect(res.adId).toBe(PRODUCT_ADS_ID)
+    })
+  })
 })
