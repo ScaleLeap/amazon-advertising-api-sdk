@@ -1,6 +1,6 @@
 import { amazonAdvertising } from './auth'
 
-import { CreateProductAdsParams, UpdateProductAdParams } from '../src'
+import { CreateProductAdsParams, UpdateProductAdsParams } from '../src'
 
 const sponsoredProductsProductAdsOperation = amazonAdvertising.sponsoredProductsProductAds
 const ID = 123
@@ -33,7 +33,7 @@ sponsoredProductsProductAdsOperation.listProductAds()
 sponsoredProductsProductAdsOperation.listProductAdsExtended()
 
 // Updates one or more product ads.
-const updateProductAdParams: UpdateProductAdParams[] = [
+const updateProductAdParams: UpdateProductAdsParams[] = [
   {
     adId: ID,
     state: 'paused',

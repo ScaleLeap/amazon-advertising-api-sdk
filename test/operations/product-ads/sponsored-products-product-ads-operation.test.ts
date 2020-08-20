@@ -3,7 +3,7 @@ import { httpClientFactory } from '../../http-client-factory'
 import { OperationProvider } from '../../../src'
 import {
   CreateProductAdsParams,
-  UpdateProductAdParams,
+  UpdateProductAdsParams,
   ListProductAdsParams,
 } from '../../../src/operations/product-ads/types'
 
@@ -54,7 +54,7 @@ describe('SponsoredProductsProductAdsOperation', () => {
 
   describe('updateProductAds', () => {
     it(`should updates one or more product ads`, async () => {
-      const params: UpdateProductAdParams[] = [
+      const params: UpdateProductAdsParams[] = [
         {
           adId: AD_ID,
           state: 'paused',
