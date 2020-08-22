@@ -1081,3 +1081,85 @@ export const SponsoredBrandsBatchGetNegativeTargetsResponse = t.strict({
 export type SponsoredBrandsBatchGetNegativeTargetsResponse = t.TypeOf<
   typeof SponsoredBrandsBatchGetNegativeTargetsResponse
 >
+
+// Sponsored Display Types
+
+export const SponsoredDisplayTargetingPredicateType = t.union([
+  t.literal('asinSameAs'),
+  t.literal('asinCategorySameAs'),
+  t.literal('asinBrandSameAs'),
+  t.literal('asinPriceBetween'),
+  t.literal('asinPriceGreaterThan'),
+  t.literal('asinPriceLessThan'),
+  t.literal('asinReviewRatingLessThan'),
+  t.literal('asinReviewRatingGreaterThan'),
+  t.literal('asinReviewRatingBetween'),
+  t.literal('similarProduct'),
+  t.literal('exactProduct'),
+  t.literal('asinIsPrimeShippingEligible'),
+  t.literal('asinAgeRangeSameAs'),
+  t.literal('asinGenreSameAs'),
+  t.literal('lookback'),
+  t.literal('negative'),
+])
+export type SponsoredDisplayTargetingPredicateType = t.TypeOf<
+  typeof SponsoredDisplayTargetingPredicateType
+>
+
+export const SponsoredDisplayTargetingPredicate = t.strict({
+  type: SponsoredDisplayTargetingPredicateType,
+
+  /**
+   * The value to be targeted.
+   */
+  value: t.string,
+})
+export type SponsoredDisplayTargetingPredicate = t.TypeOf<typeof SponsoredDisplayTargetingPredicate>
+
+export const SponsoredDisplayTargetingPredicateNested = t.strict({
+  type: t.literal('views'),
+
+  value: t.array(SponsoredDisplayTargetingPredicate),
+})
+export type SponsoredDisplayTargetingPredicateNested = t.TypeOf<
+  typeof SponsoredDisplayTargetingPredicateNested
+>
+
+export const SponsoredDisplayTargetingExpression = t.union([
+  SponsoredDisplayTargetingPredicate,
+  SponsoredDisplayTargetingPredicateNested,
+])
+export type SponsoredDisplayTargetingExpression = t.TypeOf<
+  typeof SponsoredDisplayTargetingExpression
+>
+
+export const CreateSponsoredDisplayTargetingClausesParams = t.strict({
+  /**
+   * The ID of the ad group to which this target belongs.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * Advertiser-specified state of the target
+   */
+  state: TargetingClauseState,
+
+  /**
+   * The type of expression.
+   * Tactic T00020 ad groups only allow manual targeting.
+   */
+  expressionType: ExpressionType,
+
+  /**
+   * The bid will override the adGroup bid if specified. Bid is not allowed in negative targeting clauses.
+   */
+  bid: t.number,
+
+  /**
+   * The targeting expression to match against.
+   */
+  expression: t.array(SponsoredDisplayTargetingExpression),
+})
+export type CreateSponsoredDisplayTargetingClausesParams = t.TypeOf<
+  typeof CreateSponsoredDisplayTargetingClausesParams
+>
