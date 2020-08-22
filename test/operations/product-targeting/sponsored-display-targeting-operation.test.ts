@@ -10,7 +10,7 @@ describe('SponsoredDisplayTargetingOperation', () => {
   const AD_GROUP_ID = 164444192239500
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
 
-  describe('createTargetingClauses', () => {
+  describe.skip('createTargetingClauses', () => {
     it(`should create one or more targeting expressions`, async () => {
       const params: CreateSponsoredDisplayTargetingClausesParams[] = [
         {
