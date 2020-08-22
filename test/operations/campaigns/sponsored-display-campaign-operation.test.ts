@@ -97,6 +97,22 @@ describe('SponsoredDisplayCampaignOperation', () => {
 
       expect(res.code).toBe('SUCCESS')
     })
+
+    it(`should create a campaign with T00020 tactic`, async () => {
+      const [res] = await operation.createCampaigns([
+        {
+          name: 'test sd campaign 2020/08/22 17:00',
+          tactic: 'T00020',
+          state: 'enabled',
+          budget: 1,
+          startDate,
+          budgetType: 'daily',
+          endDate: '20201211',
+        },
+      ])
+
+      expect(res.code).toBe('SUCCESS')
+    })
   })
 
   describe('getCampaign', () => {
