@@ -1116,6 +1116,23 @@ export const SponsoredDisplayTargetingPredicate = t.strict({
 })
 export type SponsoredDisplayTargetingPredicate = t.TypeOf<typeof SponsoredDisplayTargetingPredicate>
 
+export const SponsoredDisplayTargetingPredicateLegacy = t.strict({
+  type: SponsoredDisplayTargetingPredicateType,
+
+  /**
+   * The value to be targeted.
+   */
+  value: t.string,
+
+  /**
+   * The type of event that the value applies to. Only available for similarProduct and exactProduct currently.
+   */
+  eventType: t.literal('views'),
+})
+export type SponsoredDisplayTargetingPredicateLegacy = t.TypeOf<
+  typeof SponsoredDisplayTargetingPredicateLegacy
+>
+
 export const SponsoredDisplayTargetingPredicateNested = t.strict({
   type: t.literal('views'),
 
@@ -1127,6 +1144,7 @@ export type SponsoredDisplayTargetingPredicateNested = t.TypeOf<
 
 export const SponsoredDisplayTargetingExpression = t.union([
   SponsoredDisplayTargetingPredicate,
+  SponsoredDisplayTargetingPredicateLegacy,
   SponsoredDisplayTargetingPredicateNested,
 ])
 export type SponsoredDisplayTargetingExpression = t.TypeOf<
@@ -1162,4 +1180,55 @@ export const CreateSponsoredDisplayTargetingClausesParams = t.strict({
 })
 export type CreateSponsoredDisplayTargetingClausesParams = t.TypeOf<
   typeof CreateSponsoredDisplayTargetingClausesParams
+>
+
+export const UpdateSponsoredDisplayTargetingClausesParams = t.intersection([
+  t.strict({
+    targetId: TargetId,
+  }),
+  t.partial({
+    /**
+     * The bid will override the adGroup bid if specified. Bid is not allowed in negative targeting clauses.
+     */
+    bid: t.number,
+
+    /**
+     * Advertiser-specified state of the target
+     */
+    state: TargetingClauseState,
+  }),
+])
+export type UpdateSponsoredDisplayTargetingClausesParams = t.TypeOf<
+  typeof UpdateSponsoredDisplayTargetingClausesParams
+>
+
+export const SponsoredDisplayTargetingClause = t.intersection([
+  CreateSponsoredDisplayTargetingClausesParams,
+  t.strict({
+    targetId: TargetId,
+  }),
+])
+export type SponsoredDisplayTargetingClause = t.TypeOf<typeof SponsoredDisplayTargetingClause>
+
+export const SponsoredDisplayTargetingClauseExtended = t.intersection([
+  SponsoredDisplayTargetingClause,
+  t.strict({
+    /**
+     * The date the ad group was created as epoch time in milliseconds.
+     */
+    creationDate: DateFromNumber,
+
+    /**
+     * The date the ad group was last updated as epoch time in milliseconds.
+     */
+    lastUpdatedDate: DateFromNumber,
+
+    /**
+     * The computed status, accounting for out of budget, policy violations, etc. See developer notes for more information.
+     */
+    servingStatus: TargetingClauseServingStatus,
+  }),
+])
+export type SponsoredDisplayTargetingClauseExtended = t.TypeOf<
+  typeof SponsoredDisplayTargetingClauseExtended
 >
