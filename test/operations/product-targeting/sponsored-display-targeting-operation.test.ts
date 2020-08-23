@@ -14,7 +14,7 @@ describe('SponsoredDisplayTargetingOperation', () => {
    * Sandbox API returns "HTTP 403 Forbidden" error when request.
    * TODO: Need check again on Production API.
    */
-  describe.skip('createTargetingClauses', () => {
+  describe('createTargetingClauses', () => {
     it(`should create one or more targeting expressions`, async () => {
       const params: CreateSponsoredDisplayTargetingClausesParams[] = [
         {
