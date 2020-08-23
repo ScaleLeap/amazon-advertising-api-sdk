@@ -7,7 +7,6 @@ describe('SponsoredDisplayTargetingOperation', () => {
   const client = new HttpClient(SANDBOX_URI, { ...auth, scope: 2973802954634317 }, true)
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredDisplayTargetingOperation)
-  const CAMPAIGN_ID = 169989740510339
   const AD_GROUP_ID = 257081908560802
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
 
@@ -15,7 +14,6 @@ describe('SponsoredDisplayTargetingOperation', () => {
     it(`should create one or more targeting expressions`, async () => {
       const params: CreateSponsoredDisplayTargetingClausesParams[] = [
         {
-          campaignId: CAMPAIGN_ID,
           adGroupId: AD_GROUP_ID,
           state: 'paused',
           expressionType: 'manual',
