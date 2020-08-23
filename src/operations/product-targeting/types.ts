@@ -1134,6 +1134,7 @@ export type SponsoredDisplayTargetingExpression = t.TypeOf<
 >
 
 export const CreateSponsoredDisplayTargetingClausesParams = t.strict({
+  campaignId: t.number,
   /**
    * The ID of the ad group to which this target belongs.
    */
