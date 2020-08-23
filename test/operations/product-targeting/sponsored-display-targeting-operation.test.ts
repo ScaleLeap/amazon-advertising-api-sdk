@@ -15,7 +15,7 @@ describe('SponsoredDisplayTargetingOperation', () => {
    * TODO: Need check again on Production API.
    */
   describe('createTargetingClauses', () => {
-    it(`should create one or more targeting expressions`, async () => {
+    it(`should create one or more targeting expressions with similarProduct type`, async () => {
       const params: CreateSponsoredDisplayTargetingClausesParams[] = [
         {
           adGroupId: AD_GROUP_ID,
@@ -24,6 +24,66 @@ describe('SponsoredDisplayTargetingOperation', () => {
           expression: [
             {
               type: 'asinSameAs',
+              value: ASINS[0],
+            },
+          ],
+          bid: 10,
+        },
+      ]
+      const [res] = await operation.createTargetingClauses(params)
+
+      expect(res.code).toBe('SUCCESS')
+    })
+
+    it(`should create one or more targeting expressions with exactProduct type`, async () => {
+      const params: CreateSponsoredDisplayTargetingClausesParams[] = [
+        {
+          adGroupId: AD_GROUP_ID,
+          state: 'enabled',
+          expressionType: 'manual',
+          expression: [
+            {
+              type: 'exactProduct',
+              value: ASINS[0],
+            },
+          ],
+          bid: 10,
+        },
+      ]
+      const [res] = await operation.createTargetingClauses(params)
+
+      expect(res.code).toBe('SUCCESS')
+    })
+
+    it(`should create one or more targeting expressions with lookback type`, async () => {
+      const params: CreateSponsoredDisplayTargetingClausesParams[] = [
+        {
+          adGroupId: AD_GROUP_ID,
+          state: 'enabled',
+          expressionType: 'manual',
+          expression: [
+            {
+              type: 'lookback',
+              value: ASINS[0],
+            },
+          ],
+          bid: 10,
+        },
+      ]
+      const [res] = await operation.createTargetingClauses(params)
+
+      expect(res.code).toBe('SUCCESS')
+    })
+
+    it(`should create one or more targeting expressions with negative type`, async () => {
+      const params: CreateSponsoredDisplayTargetingClausesParams[] = [
+        {
+          adGroupId: AD_GROUP_ID,
+          state: 'enabled',
+          expressionType: 'manual',
+          expression: [
+            {
+              type: 'negative',
               value: ASINS[0],
             },
           ],
