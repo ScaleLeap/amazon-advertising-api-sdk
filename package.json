@@ -34,7 +34,7 @@
     "@scaleleap/amazon-marketplaces": "5.0.1",
     "client-oauth2": "4.3.3",
     "cross-fetch": "3.0.5",
-    "fp-ts": "2.8.1",
+    "fp-ts": "2.8.2",
     "http-status-codes": "1.4.0",
     "io-ts": "2.2.10",
     "io-ts-promise": "2.0.2",
