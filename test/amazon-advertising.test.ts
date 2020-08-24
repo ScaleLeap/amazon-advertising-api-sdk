@@ -20,6 +20,7 @@ import { PortfolioOperation } from '../src/operations/portfolios/portfolio-opera
 import { SponsoredDisplayProductAdsOperation } from '../src/operations/product-ads/sponsored-display-product-ads-operation'
 import { SponsoredProductsProductAdsOperation } from '../src/operations/product-ads/sponsored-products-product-ads-operation'
 import { SponsoredBrandsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-brands-product-targeting-operation'
+import { SponsoredDisplayNegativeTargetingOperation } from '../src/operations/negative-targeting/sponsored-display-negative-targeting-operation'
 import { SponsoredProductsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-products-product-targeting-operation'
 import { ProfileOperation } from '../src/operations/profiles/profile-operation'
 import { SponsoredBrandsBidRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
@@ -128,6 +129,11 @@ describe('AmazonAdvertising', () => {
   it('should return SponsoredBrandsProductTargetingOperation', () => {
     const operation = amazonAdvertising.sponsoredBrandsProductTargeting
     expect(operation).toBeInstanceOf(SponsoredBrandsProductTargetingOperation)
+  })
+
+  it('should return SponsoredDisplayNegativeTargetingOperation', () => {
+    const operation = amazonAdvertising.sponsoredDisplayNegativeTargeting
+    expect(operation).toBeInstanceOf(SponsoredDisplayNegativeTargetingOperation)
   })
 
   it('should return SponsoredProductsProductTargetingOperation', () => {

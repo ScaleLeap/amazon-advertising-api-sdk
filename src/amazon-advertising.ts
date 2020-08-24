@@ -21,6 +21,7 @@ import { PortfolioOperation } from './operations/portfolios/portfolio-operation'
 import { SponsoredDisplayProductAdsOperation } from './operations/product-ads/sponsored-display-product-ads-operation'
 import { SponsoredProductsProductAdsOperation } from './operations/product-ads/sponsored-products-product-ads-operation'
 import { SponsoredBrandsProductTargetingOperation } from './operations/product-targeting/sponsored-brands-product-targeting-operation'
+import { SponsoredDisplayNegativeTargetingOperation } from './operations/negative-targeting/sponsored-display-negative-targeting-operation'
 import { SponsoredProductsProductTargetingOperation } from './operations/product-targeting/sponsored-products-product-targeting-operation'
 import { ProfileOperation } from './operations/profiles/profile-operation'
 import { SponsoredBrandsBidRecommendationsOperation } from './operations/recommendations/sponsored-brands-bid-recommendations-operation'
@@ -135,6 +136,11 @@ export class AmazonAdvertising {
   @LazyGetter()
   get sponsoredBrandsProductTargeting() {
     return this.operationProvider.create(SponsoredBrandsProductTargetingOperation)
+  }
+
+  @LazyGetter()
+  get sponsoredDisplayNegativeTargeting() {
+    return this.operationProvider.create(SponsoredDisplayNegativeTargetingOperation)
   }
 
   @LazyGetter()
