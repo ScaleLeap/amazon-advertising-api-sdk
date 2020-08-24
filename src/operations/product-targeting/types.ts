@@ -128,12 +128,12 @@ export const TargetingClauseExtended = t.intersection([
   TargetingClause,
   t.strict({
     /**
-     * The date the ad group was created as epoch time in milliseconds.
+     * The date the targeting was created as epoch time in milliseconds.
      */
     creationDate: DateFromNumber,
 
     /**
-     * The date the ad group was last updated as epoch time in milliseconds.
+     * The date the targeting was last updated as epoch time in milliseconds.
      */
     lastUpdatedDate: DateFromNumber,
 
@@ -469,12 +469,12 @@ export const NegativeTargetingClauseExtended = t.intersection([
   NegativeTargetingClause,
   t.strict({
     /**
-     * The date the ad group was created as epoch time in milliseconds.
+     * The date the negative targeting was created as epoch time in milliseconds.
      */
     creationDate: DateFromNumber,
 
     /**
-     * The date the ad group was last updated as epoch time in milliseconds.
+     * The date the negative targeting was last updated as epoch time in milliseconds.
      */
     lastUpdatedDate: DateFromNumber,
 
