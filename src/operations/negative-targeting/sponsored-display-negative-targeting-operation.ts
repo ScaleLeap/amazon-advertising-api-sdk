@@ -8,7 +8,10 @@ import {
   SponsoredDisplayNegativeTargetingClauseExtended,
   UpdateSponsoredDisplayNegativeTargetingClausesParams,
 } from './types'
-import { NegativeTargetingClauseResponse } from '../product-targeting/types'
+import {
+  NegativeTargetingClauseResponse,
+  ListNegativeTargetingClausesParams,
+} from '../product-targeting/types'
 
 export class SponsoredDisplayNegativeTargetingOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredDisplay}/negativeTargets`
@@ -61,5 +64,42 @@ export class SponsoredDisplayNegativeTargetingOperation extends Operation {
     params: UpdateSponsoredDisplayNegativeTargetingClausesParams[],
   ) {
     return this.client.put<NegativeTargetingClauseResponse[]>(this.resource, params)
+  }
+
+  /**
+   * Gets a list of negative targeting clauses.
+   *
+   * @param params -
+   * @returns
+   */
+  @DecodeArray(SponsoredDisplayNegativeTargetingClause)
+  public listNegativeTargetingClauses(params?: ListNegativeTargetingClausesParams) {
+    return this.client.get<SponsoredDisplayNegativeTargetingClause[]>(
+      this.paramsFilterTransformer(this.resource, params),
+    )
+  }
+
+  /**
+   * Gets a list of negative targeting clause objects with extended fields.
+   *
+   * @param params -
+   * @returns
+   */
+  @DecodeArray(SponsoredDisplayNegativeTargetingClauseExtended)
+  public listNegativeTargetingClausesExtended(params?: ListNegativeTargetingClausesParams) {
+    return this.client.get<SponsoredDisplayNegativeTargetingClauseExtended[]>(
+      this.paramsFilterTransformer(`${this.resource}/extended`, params),
+    )
+  }
+
+  /**
+   * Sets the `state` of a negative targeting clause to `archived`.
+   *
+   * @param id -
+   * @returns
+   */
+  @Decode(NegativeTargetingClauseResponse)
+  public archiveNegativeTargetingClause(id: NegativeTargetId) {
+    return this.client.delete<NegativeTargetingClauseResponse>(`${this.resource}/${id}`)
   }
 }
