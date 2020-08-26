@@ -9,6 +9,9 @@ describe('SponsoredDisplaySuggestedProductsOperation', () => {
   const operation = operationProvider.create(SponsoredDisplaySuggestedProductsOperation)
 
   describe('listSuggestedProducts', () => {
+    /**
+     * Sandbox API returns empty response. Need check again on Production API.
+     */
     it(`should retrieve a list of products filtered by tactic`, async () => {
       const params: ListSuggestedProductsParams = {
         tacticFilter: 'remarketing',
@@ -19,7 +22,7 @@ describe('SponsoredDisplaySuggestedProductsOperation', () => {
     })
 
     it(`should retrieve a list of products filtered by tactic and readiness status`, async () => {
-      const readinessStatus = 'MEDIUM'
+      const readinessStatus = 'LOW'
       const params: ListSuggestedProductsParams = {
         tacticFilter: 'T00010',
         readinessFilter: readinessStatus,
