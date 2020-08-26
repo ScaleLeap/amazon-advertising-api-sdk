@@ -11,7 +11,7 @@ describe('SponsoredDisplaySuggestedProductsOperation', () => {
   describe('listSuggestedProducts', () => {
     it(`should retrieve a list of products filtered by tactic`, async () => {
       const params: ListSuggestedProductsParams = {
-        tacticFilter: 'T00010',
+        tacticFilter: 'remarketing',
       }
       const res = await operation.listSuggestedProducts(params)
 
@@ -19,9 +19,9 @@ describe('SponsoredDisplaySuggestedProductsOperation', () => {
     })
 
     it(`should retrieve a list of products filtered by tactic and readiness status`, async () => {
-      const readinessStatus = 'HIGH'
+      const readinessStatus = 'MEDIUM'
       const params: ListSuggestedProductsParams = {
-        tacticFilter: 'remarketing',
+        tacticFilter: 'T00010',
         readinessFilter: readinessStatus,
       }
       const [res] = await operation.listSuggestedProducts(params)
