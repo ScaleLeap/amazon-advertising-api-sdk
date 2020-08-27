@@ -20,6 +20,12 @@ export const ReadinessStatus = t.union([
    * These products may require a higher maximum bid to have a significant audience reach.
    */
   t.literal('LOW'),
+
+  /**
+   * ASIN is not valid or is ineligible for advertising.
+   */
+  t.literal('NOT_APPLICABLE'),
+  
 ])
 export type ReadinessStatus = t.TypeOf<typeof ReadinessStatus>
 
