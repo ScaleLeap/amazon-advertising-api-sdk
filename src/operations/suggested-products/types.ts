@@ -25,7 +25,6 @@ export const ReadinessStatus = t.union([
    * ASIN is not valid or is ineligible for advertising.
    */
   t.literal('NOT_APPLICABLE'),
-  
 ])
 export type ReadinessStatus = t.TypeOf<typeof ReadinessStatus>
 

@@ -30,6 +30,9 @@ export class SponsoredDisplaySuggestedProductsOperation extends Operation {
    */
   @DecodeArray(ProductReadinessResponse)
   public getProductReadiness(params: ProductReadinessRequest) {
-    return this.client.post<ProductReadinessResponse[]>(`${this.resource}/productReadinessStatus`, params)
+    return this.client.post<ProductReadinessResponse[]>(
+      `${this.resource}/productReadinessStatus`,
+      params,
+    )
   }
 }
