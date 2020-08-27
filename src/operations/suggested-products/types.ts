@@ -63,3 +63,41 @@ export const SuggestedProduct = t.strict({
   asins: t.array(t.string),
 })
 export type SuggestedProduct = t.TypeOf<typeof SuggestedProduct>
+
+export const ProductReadinessRequest = t.strict({
+  /**
+   * A comma separated list of product ASINs.
+   */
+  asins: t.array(t.string),
+
+  /**
+   * Filters the products to specified advertising tactic.
+   * This is currently available for T00010 and remarketing tactics only.
+   */
+  tactic: t.union([
+    /**
+     * Views Shoppers who viewed the detail pages of your advertised products or similar products.
+     * This was formerly called remarketing, which is an alternative enum name.
+     */
+    t.literal('T00010'),
+
+    /**
+     * Views Shoppers who viewed the detail pages of your advertised products or similar products.
+     */
+    t.literal('remarketing'),
+  ]),
+})
+export type ProductReadinessRequest = t.TypeOf<typeof ProductReadinessRequest>
+
+export const ProductReadinessResponse = t.strict({
+  /**
+   * The product ASIN.
+   */
+  asin: t.string,
+
+  /**
+   * The readinesss status indicates the likelihood of a product to meet advertiser objectives if advertised in a campaign of the specified tactic type.
+   */
+  readinessStatus: ReadinessStatus,
+})
+export type ProductReadinessResponse = t.TypeOf<typeof ProductReadinessResponse>

@@ -11,3 +11,25 @@ describe('SuggestedProduct', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('ProductReadinessRequest', () => {
+  it('should pass', () => {
+    const res = t.ProductReadinessRequest.decode({
+      asins: ['string'],
+      tactic: 'T00010',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
+
+describe('ProductReadinessResponse', () => {
+  it('should pass', () => {
+    const res = t.ProductReadinessResponse.decode({
+      asin: 'string',
+      readinessStatus: 'HIGH',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
