@@ -25,10 +25,10 @@ describe('SponsoredDisplaySuggestedProductsOperation', () => {
      * Sandbox API return error: "Unrecognized readiness status: LOW"
      * Need check again on Production API.
      */
-    it.skip(`should retrieve a list of products filtered by tactic and readiness status`, async () => {
-      const readinessStatus = 'LOW'
+    it(`should retrieve a list of products filtered by tactic and readiness status`, async () => {
+      const readinessStatus = 'NOT_APPLICABLE'
       const params: ListSuggestedProductsParams = {
-        tacticFilter: 'T00010',
+        tacticFilter: 'remarketing',
         readinessFilter: readinessStatus,
       }
       const [res] = await operation.listSuggestedProducts(params)
