@@ -4,7 +4,8 @@ import { Campaign } from '../campaigns/types'
 import { AdGroup } from '../ad-groups/types'
 import { Keyword, NegativeKeyword, CampaignNegativeKeyword } from '../keywords/types'
 import { ProductAd } from '../product-ads/types'
-import { TargetingClause, NegativeTargetingClause } from '../product-targeting/types'
+import { TargetingClause } from '../product-targeting/types'
+import { NegativeTargetingClause } from '../negative-targeting/types'
 
 export const SnapshotId = t.string
 export type SnapshotId = t.TypeOf<typeof SnapshotId>

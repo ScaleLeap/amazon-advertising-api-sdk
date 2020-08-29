@@ -7,11 +7,9 @@ import {
   SponsoredDisplayNegativeTargetingClause,
   SponsoredDisplayNegativeTargetingClauseExtended,
   UpdateSponsoredDisplayNegativeTargetingClausesParams,
-} from './types'
-import {
   NegativeTargetingClauseResponse,
   ListNegativeTargetingClausesParams,
-} from '../product-targeting/types'
+} from './types'
 
 export class SponsoredDisplayNegativeTargetingOperation extends Operation {
   protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredDisplay}/negativeTargets`
