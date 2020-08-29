@@ -5,6 +5,15 @@ import {
   ExpressionType,
   TargetingClauseServingStatus,
   TargetingExpressions,
+  SponsoredBrandsListTargetsRequest,
+  SponsoredBrandsTargetingClauses,
+  SponsoredBrandsExpressionState,
+  SponsoredBrandsUpdateTargetsResponse,
+  SponsoredBrandsCreateTargetsResponse,
+  SponsoredBrandsResolvedExpression,
+  SponsoredBrandsTargetState,
+  SponsoredBrandsExpressions,
+  SponsoredBrandsResolvedExpressions,
 } from '../product-targeting/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { CampaignId, CampaignIds } from '../campaigns/types'
@@ -267,4 +276,188 @@ export const UpdateNegativeTargetingClausesParams = t.partial({
 })
 export type UpdateNegativeTargetingClausesParams = t.TypeOf<
   typeof UpdateNegativeTargetingClausesParams
+>
+
+// Sponsored brands negative targeting operation types
+export const SponsoredBrandsListNegativeTargetsRequest = SponsoredBrandsListTargetsRequest
+export type SponsoredBrandsListNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsListNegativeTargetsRequest
+>
+
+export const SponsoredBrandsListNegativeTargetsResponse = t.strict({
+  /**
+   * Operations that return paginated results include a pagination token in this field.
+   * To retrieve the next page of results, call the same operation and specify this token in the request.
+   * If the NextToken field is empty, there are no further results.
+   */
+  nextToken: t.string,
+
+  negativeTargets: SponsoredBrandsTargetingClauses,
+})
+export type SponsoredBrandsListNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsListNegativeTargetsResponse
+>
+
+const SponsoredBrandsUpdateNegativeTargetingClauseRequest = t.partial({
+  /**
+   * The target identifier.
+   */
+  targetId: NegativeTargetId,
+
+  /**
+   * The identifier of an existing ad group. The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  state: SponsoredBrandsExpressionState,
+})
+
+export const SponsoredBrandsUpdateNegativeTargetsRequest = t.strict({
+  negativeTargets: t.array(SponsoredBrandsUpdateNegativeTargetingClauseRequest),
+})
+export type SponsoredBrandsUpdateNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsUpdateNegativeTargetsRequest
+>
+
+export const SponsoredBrandsUpdateNegativeTargetsResponse = SponsoredBrandsUpdateTargetsResponse
+export type SponsoredBrandsUpdateNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsUpdateNegativeTargetsResponse
+>
+
+export const SponsoredBrandsNegativeExpressionType = t.union([
+  t.literal('asinBrandSameAs'),
+  t.literal('asinSameAs'),
+])
+export type SponsoredBrandsNegativeExpressionType = t.TypeOf<
+  typeof SponsoredBrandsNegativeExpressionType
+>
+
+const SponsoredBrandsNegativeExpression = t.strict({
+  type: SponsoredBrandsNegativeExpressionType,
+
+  /**
+   * The text of the negative expression.
+   */
+  value: t.string,
+})
+
+const SponsoredBrandsCreateNegativeTargetingClauseRequest = t.strict({
+  /**
+   * The identifier of an existing ad group.
+   * The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign.
+   * The newly created target is associated to this campaign.
+   */
+  campaignId: CampaignId,
+
+  expressions: SponsoredBrandsNegativeExpression,
+})
+
+export const SponsoredBrandsCreateNegativeTargetsRequest = t.strict({
+  negativeTargets: t.array(SponsoredBrandsCreateNegativeTargetingClauseRequest),
+})
+export type SponsoredBrandsCreateNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsCreateNegativeTargetsRequest
+>
+
+export const SponsoredBrandsCreateNegativeTargetsResponse = SponsoredBrandsCreateTargetsResponse
+export type SponsoredBrandsCreateNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsCreateNegativeTargetsResponse
+>
+
+export const SponsoredBrandsNegativeTargetingClause = t.strict({
+  /**
+   * The target identifier.
+   */
+  targetId: NegativeTargetId,
+
+  /**
+   * The identifier of an existing ad group.
+   * The newly created target is associated to this ad group.
+   */
+  adGroupId: AdGroupId,
+
+  /**
+   * The identifier of an existing campaign.
+   * The newly created target is associated to this campaign.
+   */
+  campaignId: CampaignId,
+
+  expressions: SponsoredBrandsNegativeExpression,
+
+  resolvedExpressions: SponsoredBrandsResolvedExpression,
+
+  state: SponsoredBrandsExpressionState,
+})
+export type SponsoredBrandsNegativeTargetingClause = t.TypeOf<
+  typeof SponsoredBrandsNegativeTargetingClause
+>
+
+export const SponsoredBrandsBatchGetNegativeTargetsRequest = t.strict({
+  targetIds: t.array(NegativeTargetId),
+})
+export type SponsoredBrandsBatchGetNegativeTargetsRequest = t.TypeOf<
+  typeof SponsoredBrandsBatchGetNegativeTargetsRequest
+>
+
+export const SponsoredBrandsBatchGetNegativeTargetsResponse = t.strict({
+  /**
+   * A list of negative targeting clause objects.
+   * Note that each negative targeting clause object is correlated to the list request by the negativeTargetRequestIndex field.
+   * This field corresponds to the order of the negative targeting identifier in the request.
+   */
+  batchGetNegativeTargetSuccessResults: t.array(
+    t.strict({
+      targetingClause: t.strict({
+        /**
+         * The target identifier.
+         */
+        targetId: NegativeTargetId,
+
+        /**
+         * The ad group identifier.
+         */
+        adGroupId: AdGroupId,
+
+        /**
+         * The campaign identifier.
+         */
+        campaignId: CampaignId,
+
+        /**
+         * Newly created targets are in a default state of DRAFT before transitioning to a PENDING state for moderation. After moderation, the target's state is ENABLED
+         */
+        state: SponsoredBrandsTargetState,
+
+        expressions: SponsoredBrandsExpressions,
+
+        resolvedExpressions: SponsoredBrandsResolvedExpressions,
+      }),
+      targetRequestIndex: t.number,
+    }),
+  ),
+
+  /**
+   * A list of negative target identifiers that were not found.
+   * Note that each negative target identifier is correlated to the list request by the negativeTargetRequestIndex field.
+   * This field corresponds to the order of the negative target identifier in the request.
+   */
+  batchGetNegativeTargetErrorResults: t.array(
+    t.strict({
+      code: t.string,
+
+      details: t.string,
+
+      targetId: NegativeTargetId,
+
+      targetRequestIndex: t.number,
+    }),
+  ),
+})
+export type SponsoredBrandsBatchGetNegativeTargetsResponse = t.TypeOf<
+  typeof SponsoredBrandsBatchGetNegativeTargetsResponse
 >
