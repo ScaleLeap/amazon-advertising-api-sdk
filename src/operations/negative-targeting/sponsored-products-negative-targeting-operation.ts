@@ -56,9 +56,7 @@ export class SponsoredProductsNegativeTargetingOperation extends Operation {
    */
   @DecodeArray(NegativeTargetingClause)
   public listNegativeTargetingClauses(params?: ListNegativeTargetingClausesParams) {
-    return this.client.get<NegativeTargetingClause[]>(
-      this.paramsFilterTransformer(this.resource, params),
-    )
+    return this.client.get<NegativeTargetingClause[]>(this.paramsFilterTransformer('', params))
   }
 
   /**
@@ -70,7 +68,7 @@ export class SponsoredProductsNegativeTargetingOperation extends Operation {
   @DecodeArray(NegativeTargetingClauseExtended)
   public listNegativeTargetingClausesExtended(params?: ListNegativeTargetingClausesParams) {
     return this.client.get<NegativeTargetingClauseExtended[]>(
-      this.paramsFilterTransformer(`${this.resource}/extended`, params),
+      this.paramsFilterTransformer('/extended', params),
     )
   }
 
