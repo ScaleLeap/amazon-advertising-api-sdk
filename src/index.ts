@@ -19,6 +19,7 @@ export * from './operations/keywords/sponsored-products-suggested-keywords-opera
 export * from './operations/portfolios/portfolio-operation'
 export * from './operations/product-ads/sponsored-products-product-ads-operation'
 export * from './operations/product-targeting/sponsored-brands-product-targeting-operation'
+export * from './operations/product-targeting/sponsored-display-targeting-operation'
 export * from './operations/product-targeting/sponsored-products-product-targeting-operation'
 export * from './operations/profiles/profile-operation'
 export * from './operations/recommendations/sponsored-brands-bid-recommendations-operation'
