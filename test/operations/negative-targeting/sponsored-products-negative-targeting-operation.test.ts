@@ -64,7 +64,6 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
     })
 
     it(`should retrieve a list of negative targeting clauses satisfying optional criteria`, async () => {
@@ -89,7 +88,6 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
 
       expect(res.campaignId).toEqual(CAMPAIGN_ID)
       expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
     })
 
     it(`should retrieve a list of negative targeting clauses with additional attributes satisfying optional criteria`, async () => {
@@ -132,7 +130,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
     })
   })
 
-  describe.skip('archiveNegativeTargetingClause', () => {
+  describe('archiveNegativeTargetingClause', () => {
     it(`should archive negative targeting clauses`, async () => {
       const res = await operation.archiveNegativeTargetingClause(NEGATIVE_TARGET_ID)
 
