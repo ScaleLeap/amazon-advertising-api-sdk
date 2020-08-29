@@ -3,6 +3,18 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.27.5...v1.28.0) (2020-08-29)
+
+
+### Features
+
+* add NOT_APPLICABLE readiness status ([03b363c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/03b363cbb7f92f7fc9594b0a16282efd31ef136e))
+* implement create sd product ads method ([b5c2d96](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b5c2d96a7bf3e305a359a72aa0a570cffbe1adae))
+* implement get product readiness method ([e6a978f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e6a978fc93ae52db890e6fa76bdfac03bc603a2f))
+* implement get, list, update and archive sd product ads method ([e1b1dca](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e1b1dca18c27d85d19292a98f7dc7923b4695afb))
+* implement list suggested products method ([b67868e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b67868e7e270e295043b9b587deaeafd9c212daa))
+* specify campaign id for create ([0bbdd99](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/0bbdd99c26d6151383c66ae39f02a778d58d62f9))
+
 ## [1.27.5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.27.4...v1.27.5) (2020-08-26)
 
 
