@@ -76,6 +76,8 @@ export class ResourceNotFoundError extends GenericError {}
 
 export class NotAcceptableError extends GenericError {}
 
+export class ForbiddenError extends GenericError {}
+
 export function apiErrorFactory(err: ErrorObject, headers: Headers): GenericError {
   switch (err.code) {
     case 'UNAUTHORIZED':
@@ -84,6 +86,8 @@ export function apiErrorFactory(err: ErrorObject, headers: Headers): GenericErro
       return new ResourceNotFoundError(err, headers)
     case '400':
       return new BadRequestError(err, headers)
+    case '403':
+      return new ForbiddenError(err, headers)
     case '406':
       return new NotAcceptableError(err, headers)
     case '422':
