@@ -13,7 +13,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
   const operation = operationProvider.create(SponsoredProductsNegativeTargetingOperation)
   const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 202694745498469
-  const NEGATIVE_TARGET_ID = 160326773421036
+  const NEGATIVE_TARGET_ID = 160145133562783
   const ASIN = 'B07663Z46Z'
 
   describe('createNegativeTargetingClauses', () => {
@@ -38,7 +38,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
     })
   })
 
-  describe.skip('getNegativeTargetingClause', () => {
+  describe('getNegativeTargetingClause', () => {
     it(`should retrieve a negative targeting clause with a specific target ID`, async () => {
       const res = await operation.getNegativeTargetingClause(NEGATIVE_TARGET_ID)
 
@@ -48,7 +48,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
     })
   })
 
-  describe.skip('getNegativeTargetingClauseExtended', () => {
+  describe('getNegativeTargetingClauseExtended', () => {
     it(`should retrieve a negative targeting clause with additional attributes using a specific target ID`, async () => {
       const res = await operation.getNegativeTargetingClauseExtended(NEGATIVE_TARGET_ID)
 
@@ -58,7 +58,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
     })
   })
 
-  describe.skip('listNegativeTargetingClauses', () => {
+  describe('listNegativeTargetingClauses', () => {
     it(`should retrieve a list of negative targeting clauses`, async () => {
       const [res] = await operation.listNegativeTargetingClauses()
 
@@ -83,7 +83,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
     })
   })
 
-  describe.skip('listNegativeTargetingClausesExtended', () => {
+  describe('listNegativeTargetingClausesExtended', () => {
     it(`should retrieve a list of negative targeting clauses with additional attributes`, async () => {
       const [res] = await operation.listNegativeTargetingClausesExtended()
 
@@ -108,7 +108,7 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
     })
   })
 
-  describe.skip('updateNegativeTargetingClauses', () => {
+  describe('updateNegativeTargetingClauses', () => {
     it(`should updates one or more negative targeting clauses`, async () => {
       const params: UpdateNegativeTargetingClausesParams[] = [
         {
