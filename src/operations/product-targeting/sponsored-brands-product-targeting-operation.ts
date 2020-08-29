@@ -14,16 +14,6 @@ import {
   SponsoredBrandsTargetingClauseResponse,
   SponsoredBrandsBatchGetTargetsRequest,
   SponsoredBrandsBatchGetTargetsResponse,
-  SponsoredBrandsListNegativeTargetsRequest,
-  SponsoredBrandsListNegativeTargetsResponse,
-  SponsoredBrandsUpdateNegativeTargetsRequest,
-  SponsoredBrandsUpdateNegativeTargetsResponse,
-  SponsoredBrandsCreateNegativeTargetsResponse,
-  SponsoredBrandsCreateNegativeTargetsRequest,
-  SponsoredBrandsNegativeTargetingClause,
-  SponsoredBrandsNegativeTargetId,
-  SponsoredBrandsBatchGetNegativeTargetsResponse,
-  SponsoredBrandsBatchGetNegativeTargetsRequest,
 } from './types'
 
 export class SponsoredBrandsProductTargetingOperation extends Operation {
@@ -96,88 +86,5 @@ export class SponsoredBrandsProductTargetingOperation extends Operation {
   @Decode(SponsoredBrandsBatchGetTargetsResponse)
   public batchGetTargets(params: SponsoredBrandsBatchGetTargetsRequest) {
     return this.client.post<SponsoredBrandsBatchGetTargetsResponse>(this.targetResource, params)
-  }
-
-  /**
-   * Gets a list of product negative targets associated with the client identifier passed in the authorization header, filtered by specified criteria.
-   *
-   * @param params -
-   * @returns
-   */
-  @Decode(SponsoredBrandsListNegativeTargetsResponse)
-  public listNegativeTargets(params: SponsoredBrandsListNegativeTargetsRequest) {
-    return this.client.post<SponsoredBrandsListNegativeTargetsResponse>(
-      this.negativeTargetResource,
-      params,
-    )
-  }
-
-  /**
-   * Updates one or more negative targets.
-   *
-   * @param params -
-   * @returns
-   */
-  @Decode(SponsoredBrandsUpdateNegativeTargetsResponse)
-  public updateNegativeTargets(params: SponsoredBrandsUpdateNegativeTargetsRequest) {
-    return this.client.put<SponsoredBrandsUpdateNegativeTargetsResponse>(
-      this.negativeTargetResource,
-      params,
-    )
-  }
-
-  /**
-   * Create one or more new negative targets.
-   *
-   * @param params -
-   * @returns
-   */
-  @Decode(SponsoredBrandsCreateNegativeTargetsResponse)
-  public createNegativeTargets(params: SponsoredBrandsCreateNegativeTargetsRequest) {
-    return this.client.post<SponsoredBrandsCreateNegativeTargetsResponse>(
-      this.negativeTargetResource,
-      params,
-    )
-  }
-
-  /**
-   * Gets a negative target specified by identifier.
-   *
-   * @param negativeTargetId -
-   * @returns
-   */
-  @Decode(SponsoredBrandsNegativeTargetingClause)
-  public getNegativeTarget(negativeTargetId: SponsoredBrandsNegativeTargetId) {
-    return this.client.get<SponsoredBrandsNegativeTargetingClause>(
-      `${this.negativeTargetResource}/${negativeTargetId}`,
-    )
-  }
-
-  /**
-   * Archives a negative target specified by identifier.
-   * Note that archiving is permanent, and once a negative target has been archived it can't be made active again.
-   *
-   * @param negativeTargetId -
-   * @returns
-   */
-  @Decode(SponsoredBrandsTargetingClauseResponse)
-  public archiveNegativeTarget(negativeTargetId: SponsoredBrandsNegativeTargetId) {
-    return this.client.delete<SponsoredBrandsTargetingClauseResponse>(
-      `${this.negativeTargetResource}/${negativeTargetId}`,
-    )
-  }
-
-  /**
-   * Gets one or more product negative targets specified by identifiers.
-   *
-   * @param params -
-   * @returns
-   */
-  @Decode(SponsoredBrandsBatchGetNegativeTargetsResponse)
-  public batchGetNegativeTargets(params: SponsoredBrandsBatchGetNegativeTargetsRequest) {
-    return this.client.post<SponsoredBrandsBatchGetNegativeTargetsResponse>(
-      this.negativeTargetResource,
-      params,
-    )
   }
 }

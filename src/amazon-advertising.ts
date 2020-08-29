@@ -20,6 +20,7 @@ import { SponsoredProductsSuggestedKeywordsOperation } from './operations/keywor
 import { PortfolioOperation } from './operations/portfolios/portfolio-operation'
 import { SponsoredDisplayProductAdsOperation } from './operations/product-ads/sponsored-display-product-ads-operation'
 import { SponsoredProductsProductAdsOperation } from './operations/product-ads/sponsored-products-product-ads-operation'
+import { SponsoredBrandsNegativeTargetingOperation } from './operations/negative-targeting/sponsored-brands-negative-targeting-operation'
 import { SponsoredBrandsProductTargetingOperation } from './operations/product-targeting/sponsored-brands-product-targeting-operation'
 import { SponsoredDisplayNegativeTargetingOperation } from './operations/negative-targeting/sponsored-display-negative-targeting-operation'
 import { SponsoredProductsNegativeTargetingOperation } from './operations/negative-targeting/sponsored-products-negative-targeting-operation'
@@ -132,6 +133,11 @@ export class AmazonAdvertising {
   @LazyGetter()
   get sponsoredProductsProductAds() {
     return this.operationProvider.create(SponsoredProductsProductAdsOperation)
+  }
+
+  @LazyGetter()
+  get sponsoredBrandsNegativeTargeting() {
+    return this.operationProvider.create(SponsoredBrandsNegativeTargetingOperation)
   }
 
   @LazyGetter()

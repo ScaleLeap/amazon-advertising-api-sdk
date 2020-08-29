@@ -10,6 +10,7 @@ import * as keywordTypes from '../src/operations/keywords/types'
 import * as portfolioTypes from '../src/operations/portfolios/types'
 import * as productAdsTypes from '../src/operations/product-ads/types'
 import * as productTargetingTypes from '../src/operations/product-targeting/types'
+import * as nargetingTypes from '../src/operations/negative-targeting/types'
 import * as profileTypes from '../src/operations/profiles/types'
 import * as recommendationTypes from '../src/operations/recommendations/types'
 import * as reportTypes from '../src/operations/reports/index'
@@ -115,7 +116,7 @@ describe('index', () => {
         productTargetingTypes.SponsoredBrandsFilterType,
       )
       expect(index.SponsoredBrandsNegativeExpressionType).toEqual(
-        productTargetingTypes.SponsoredBrandsNegativeExpressionType,
+        nargetingTypes.SponsoredBrandsNegativeExpressionType,
       )
       expect(index.SponsoredBrandsTargetState).toEqual(
         productTargetingTypes.SponsoredBrandsTargetState,

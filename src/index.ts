@@ -16,6 +16,7 @@ export * from './operations/keywords/sponsored-products-ad-group-keywords-operat
 export * from './operations/keywords/sponsored-products-ad-group-negative-keywords-operation'
 export * from './operations/keywords/sponsored-products-campaign-negative-keywords-operation'
 export * from './operations/keywords/sponsored-products-suggested-keywords-operation'
+export * from './operations/negative-targeting/sponsored-brands-negative-targeting-operation'
 export * from './operations/negative-targeting/sponsored-display-negative-targeting-operation'
 export * from './operations/negative-targeting/sponsored-products-negative-targeting-operation'
 export * from './operations/portfolios/portfolio-operation'
