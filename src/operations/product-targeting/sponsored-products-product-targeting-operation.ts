@@ -17,12 +17,6 @@ import {
   RefinementsResponse,
   BrandResponse,
   GetBrandRecommendationsParams,
-  NegativeTargetingClauseResponse,
-  CreateNegativeTargetingClausesParams,
-  NegativeTargetingClause,
-  NegativeTargetingClauseExtended,
-  ListNegativeTargetingClausesParams,
-  UpdateNegativeTargetingClausesParams,
 } from './types'
 
 export class SponsoredProductsProductTargetingOperation extends Operation {
@@ -167,92 +161,5 @@ export class SponsoredProductsProductTargetingOperation extends Operation {
     return this.client.get<BrandResponse>(
       this.paramsFilterTransformer(`${this.targetResource}/brands`, params),
     )
-  }
-
-  // Negative targeting clauses operations
-
-  /**
-   * Get a specific negative targeting clause by targetId.
-   *
-   * @param targetId -
-   * @returns
-   */
-  @Decode(NegativeTargetingClause)
-  public getNegativeTargetingClause(targetId: TargetId) {
-    return this.client.get<NegativeTargetingClause>(`${this.negativeTargetsResource}/${targetId}`)
-  }
-
-  /**
-   * Retrieve a negative targeting clause with additional attributes using a specific target ID.
-   *
-   * @param targetId -
-   * @returns
-   */
-  @Decode(NegativeTargetingClauseExtended)
-  public getNegativeTargetingClauseExtended(targetId: TargetId) {
-    return this.client.get<NegativeTargetingClauseExtended>(
-      `${this.negativeTargetsResource}/extended/${targetId}`,
-    )
-  }
-
-  /**
-   * Create negative targeting clauses at the campaign level.
-   *
-   * @param params -
-   * @returns
-   */
-  @DecodeArray(NegativeTargetingClauseResponse)
-  public createNegativeTargetingClauses(params: CreateNegativeTargetingClausesParams[]) {
-    return this.client.post<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
-  }
-
-  /**
-   * Retrieves a list of negative targeting clauses.
-   *
-   * @param params -
-   * @returns
-   */
-  @DecodeArray(NegativeTargetingClause)
-  public listNegativeTargetingClauses(params?: ListNegativeTargetingClausesParams) {
-    return this.client.get<NegativeTargetingClause[]>(
-      this.paramsFilterTransformer(this.negativeTargetsResource, params),
-    )
-  }
-
-  /**
-   * Retrieve a list of targeting clauses with extended properties.
-   *
-   * @param params -
-   * @returns
-   */
-  @DecodeArray(NegativeTargetingClauseExtended)
-  public listNegativeTargetingClausesExtended(params?: ListNegativeTargetingClausesParams) {
-    return this.client.get<NegativeTargetingClauseExtended[]>(
-      this.paramsFilterTransformer(`${this.negativeTargetsResource}/extended`, params),
-    )
-  }
-
-  /**
-   * Archive negative targeting clauses.
-   *
-   * @param targetId -
-   * @returns
-   */
-  @Decode(NegativeTargetingClauseResponse)
-  public archiveNegativeTargetingClause(targetId: TargetId) {
-    return this.client.delete<NegativeTargetingClauseResponse>(
-      `${this.negativeTargetsResource}/${targetId}`,
-    )
-  }
-
-  /**
-   * Update negative targeting clauses.
-   *
-   * @param params -
-   * @returns
-   */
-  @DecodeArray(NegativeTargetingClauseResponse)
-  public updateNegativeTargetingClauses(params: UpdateNegativeTargetingClausesParams[]) {
-    return this.client.put<NegativeTargetingClauseResponse[]>(this.negativeTargetsResource, params)
   }
 }

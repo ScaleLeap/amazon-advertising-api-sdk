@@ -6,9 +6,6 @@ import {
   ListTargetingClausesParams,
   UpdateTargetingClausesParams,
   ProductRecommendationRequest,
-  CreateNegativeTargetingClausesParams,
-  ListNegativeTargetingClausesParams,
-  UpdateNegativeTargetingClausesParams,
 } from '../../../src/operations/product-targeting/types'
 
 describe('SponsoredProductsProductTargetingOperation', () => {
@@ -18,7 +15,6 @@ describe('SponsoredProductsProductTargetingOperation', () => {
   const CAMPAIGN_ID = 164069484151709
   const AD_GROUP_ID = 202694745498469
   const TARGET_ID = 256247845256441
-  const NEGATIVE_TARGET_ID = 160326773421036
   const CATEGORY_ID = 2335752011
   const ASIN = 'B07663Z46Z'
   const ASINS = ['B07663Z46Z', 'B07H8QMZWV', 'B07C65XFBB']
@@ -187,125 +183,6 @@ describe('SponsoredProductsProductTargetingOperation', () => {
       const res = await operation.getBrandRecommendations({ categoryId: CATEGORY_ID })
 
       expect(res).toBeTruthy()
-    })
-  })
-
-  describe('createNegativeTargetingClauses', () => {
-    it(`should create one or more negative targeting clauses at the campaign level`, async () => {
-      const params: CreateNegativeTargetingClausesParams[] = [
-        {
-          campaignId: CAMPAIGN_ID,
-          adGroupId: AD_GROUP_ID,
-          state: 'paused',
-          expression: [
-            {
-              type: 'asinSameAs',
-              value: ASIN,
-            },
-          ],
-          expressionType: 'manual',
-        },
-      ]
-      const res = await operation.createNegativeTargetingClauses(params)
-
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-  })
-
-  describe('getNegativeTargetingClause', () => {
-    it(`should retrieve a negative targeting clause with a specific target ID`, async () => {
-      const res = await operation.getNegativeTargetingClause(NEGATIVE_TARGET_ID)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
-    })
-  })
-
-  describe('getNegativeTargetingClauseExtended', () => {
-    it(`should retrieve a negative targeting clause with additional attributes using a specific target ID`, async () => {
-      const res = await operation.getNegativeTargetingClauseExtended(NEGATIVE_TARGET_ID)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
-    })
-  })
-
-  describe('listNegativeTargetingClauses', () => {
-    it(`should retrieve a list of negative targeting clauses`, async () => {
-      const res = await operation.listNegativeTargetingClauses()
-
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-
-    it(`should retrieve a list of negative targeting clauses satisfying optional criteria`, async () => {
-      const params: ListNegativeTargetingClausesParams = {
-        startIndex: 0,
-        count: 1,
-        campaignIdFilter: [CAMPAIGN_ID],
-        adGroupIdFilter: [AD_GROUP_ID],
-        targetIdFilter: [NEGATIVE_TARGET_ID],
-      }
-      const [res] = await operation.listNegativeTargetingClauses(params)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
-    })
-  })
-
-  describe('listNegativeTargetingClausesExtended', () => {
-    it(`should retrieve a list of negative targeting clauses with additional attributes`, async () => {
-      const res = await operation.listNegativeTargetingClausesExtended()
-
-      expect(Array.isArray(res)).toBeTruthy()
-    })
-
-    it(`should retrieve a list of negative targeting clauses with additional attributes satisfying optional criteria`, async () => {
-      const params: ListNegativeTargetingClausesParams = {
-        startIndex: 0,
-        count: 1,
-        campaignIdFilter: [CAMPAIGN_ID],
-        adGroupIdFilter: [AD_GROUP_ID],
-        targetIdFilter: [NEGATIVE_TARGET_ID],
-      }
-      const [res] = await operation.listNegativeTargetingClausesExtended(params)
-
-      expect(res.campaignId).toEqual(CAMPAIGN_ID)
-      expect(res.adGroupId).toEqual(AD_GROUP_ID)
-      expect(res.targetId).toEqual(NEGATIVE_TARGET_ID)
-    })
-  })
-
-  describe('updateNegativeTargetingClauses', () => {
-    it(`should updates one or more negative targeting clauses`, async () => {
-      const params: UpdateNegativeTargetingClausesParams[] = [
-        {
-          campaignId: CAMPAIGN_ID,
-          adGroupId: AD_GROUP_ID,
-          targetId: NEGATIVE_TARGET_ID,
-          state: 'archived',
-          expression: [
-            {
-              type: 'asinSameAs',
-              value: ASIN,
-            },
-          ],
-          expressionType: 'manual',
-        },
-      ]
-      const [res] = await operation.updateNegativeTargetingClauses(params)
-
-      expect(res).toHaveProperty('targetId')
-    })
-  })
-
-  describe('archiveNegativeTargetingClause', () => {
-    it(`should archive negative targeting clauses`, async () => {
-      const res = await operation.archiveNegativeTargetingClause(NEGATIVE_TARGET_ID)
-
-      expect(res).toHaveProperty('targetId')
     })
   })
 })
