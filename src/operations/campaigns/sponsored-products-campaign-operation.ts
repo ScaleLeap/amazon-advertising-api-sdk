@@ -33,7 +33,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
    * @returns
    */
   @DecodeArray(CampaignExtended)
-  public listCampaignsEx(params?: ListCampaignsParams) {
+  public listCampaignsExtended(params?: ListCampaignsParams) {
     return this.client.get<CampaignExtended[]>(this.paramsFilterTransformer('/extended', params))
   }
 
@@ -57,7 +57,7 @@ export class SponsoredProductsCampaignOperation extends Operation {
    * @returns
    */
   @Decode(CampaignExtended)
-  public getCampaignEx(campaignId: CampaignId) {
+  public getCampaignExtended(campaignId: CampaignId) {
     return this.client.get<CampaignExtended>(`${this.resource}/extended/${campaignId}`)
   }
 

@@ -45,9 +45,9 @@
     - [archiveCampaign](#archivecampaign-1)
     - [createCampaigns](#createcampaigns-1)
     - [getCampaign](#getcampaign-1)
-    - [getCampaignEx](#getcampaignex)
+    - [getCampaignExtended](#getcampaignextended)
     - [listCampaigns](#listcampaigns-1)
-    - [listCampaignsEx](#listcampaignsex)
+    - [listCampaignsExtended](#listcampaignsextended)
     - [updateCampaigns](#updatecampaigns-1)
   - [SponsoredProductsCampaignOperation](#sponsoredproductscampaignoperation)
     - [archiveCampaign](#archivecampaign-2)
@@ -132,9 +132,9 @@
   - [PortfolioOperation](#portfoliooperation)
     - [createPortfolios](#createportfolios)
     - [getPortfolio](#getportfolio)
-    - [getPortfolioEx](#getportfolioex)
+    - [getPortfolioExtended](#getportfolioextended)
     - [listPortfolios](#listportfolios)
-    - [listPortfoliosEx](#listportfoliosex)
+    - [listPortfoliosExtended](#listportfoliosextended)
     - [updatePortfolios](#updateportfolios)
   - [SponsoredDiplayProductAdsOperation](#sponsoreddiplayproductadsoperation)
     - [archiveProductAd](#archiveproductad)
@@ -464,11 +464,11 @@ const res = await profileOperation.listProfiles()
 
 ### [getCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#getcampaign)
 
-### [getCampaignEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#getcampaignex)
+### [getCampaignExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#getcampaignextended)
 
 ### [listCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#listcampaigns)
 
-### [listCampaignsEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#listcampaignsex)
+### [listCampaignsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#listcampaignsextended)
 
 ### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html#updatecampaigns)
 
@@ -622,11 +622,11 @@ const res = await profileOperation.listProfiles()
 
 ### [getPortfolio](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#getportfolio)
 
-### [getPortfolioEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#getportfolioex)
+### [getPortfolioExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#getportfolioextended)
 
 ### [listPortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#listportfolios)
 
-### [listPortfoliosEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#listportfoliosex)
+### [listPortfoliosExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#listportfoliosextended)
 
 ### [updatePortfolios](https://amazon-advertising-api-sdk.scaleleap.org/classes/portfoliooperation.html#updateportfolios)
 
