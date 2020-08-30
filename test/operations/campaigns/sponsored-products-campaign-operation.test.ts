@@ -21,14 +21,14 @@ describe('SponsoredProductsCampaignOperation', () => {
 
   describe('listCampaignsEx', () => {
     it(`should return an array of expanded campaigns`, async () => {
-      const res = await campaignOperation.listCampaignsEx()
+      const res = await campaignOperation.listCampaignsExtended()
       expect(Array.isArray(res)).toBeTruthy()
       expect(typeof res[0].name).toBe('string')
       expect(res[0]).toHaveProperty('bidding')
     })
 
     it(`should return a filtered list of results`, async () => {
-      const res = await campaignOperation.listCampaignsEx({
+      const res = await campaignOperation.listCampaignsExtended({
         campaignIdFilter: [CAMPAIGN_ID],
       })
       expect(Array.isArray(res)).toBeTruthy()
@@ -46,7 +46,7 @@ describe('SponsoredProductsCampaignOperation', () => {
 
   describe('getCampaignEx', () => {
     it(`should return a single extended campaign`, async () => {
-      const res = await campaignOperation.getCampaignEx(CAMPAIGN_ID)
+      const res = await campaignOperation.getCampaignExtended(CAMPAIGN_ID)
       expect(res).toBeTruthy()
     })
   })

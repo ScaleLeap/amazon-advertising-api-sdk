@@ -24,13 +24,13 @@ portfolioOperation.createPortfolios(createPortfoliosParams)
 portfolioOperation.getPortfolio(PORTFOLIO_ID)
 
 // Retrieve a portfolio along with additional properties by ID.
-portfolioOperation.getPortfolioEx(PORTFOLIO_ID)
+portfolioOperation.getPortfolioExtended(PORTFOLIO_ID)
 
 // Retrieve a list of up to 100 portfolios using the specified filters.
 portfolioOperation.listPortfolios()
 
 // Retrieve a list of up to 100 portfolios with additional properties using the specified filters.
-portfolioOperation.listPortfoliosEx()
+portfolioOperation.listPortfoliosExtended()
 
 // Update one or more portfolios.
 const updatePortfoliosParams: UpdatePortfoliosParams[] = [

@@ -61,13 +61,13 @@ sponsoredProductsCampaignOperation.createCampaigns(createSPCampaignParams)
 sponsoredProductsCampaignOperation.getCampaign(123)
 
 // Retrieves a sponsored products campaign and its extended fields by campaignId
-sponsoredProductsCampaignOperation.getCampaignEx(123)
+sponsoredProductsCampaignOperation.getCampaignExtended(123)
 
 // Retrieves a list of sponsored products campaigns satisfying optional filtering criteria
 sponsoredProductsCampaignOperation.listCampaigns()
 
 // Retrieves a list of sponsored products campaigns with extended fields satisfying optional filtering criteria
-sponsoredProductsCampaignOperation.listCampaignsEx()
+sponsoredProductsCampaignOperation.listCampaignsExtended()
 
 // Updates one or more ponsored products campaigns
 const updateSPCampaignParams: SponsoredProductsCampaignUpdateParams[] = [

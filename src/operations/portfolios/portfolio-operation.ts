@@ -31,7 +31,7 @@ export class PortfolioOperation extends Operation {
    * @returns
    */
   @DecodeArray(PortfolioExtended)
-  public listPortfoliosEx(params?: ListPortfoliosParams) {
+  public listPortfoliosExtended(params?: ListPortfoliosParams) {
     return this.client.get<PortfolioExtended[]>(this.query(`${this.resource}/extended`, params))
   }
 
@@ -53,7 +53,7 @@ export class PortfolioOperation extends Operation {
    * @returns
    */
   @Decode(PortfolioExtended)
-  public getPortfolioEx(portfolioId: PortfolioId) {
+  public getPortfolioExtended(portfolioId: PortfolioId) {
     return this.client.get<PortfolioExtended>(`${this.resource}/extended/${portfolioId}`)
   }
 

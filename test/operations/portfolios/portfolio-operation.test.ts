@@ -26,7 +26,7 @@ describe('PortfolioOperation', () => {
 
   describe('listPortfoliosEx', () => {
     it('should return an array of extended portfolios', async () => {
-      const res = await portfolioOperation.listPortfoliosEx()
+      const res = await portfolioOperation.listPortfoliosExtended()
       expect(Array.isArray(res)).toBeTruthy()
       expect(res[0].creationDate).toBeInstanceOf(Date)
       expect(res[0].lastUpdatedDate).toBeInstanceOf(Date)
@@ -43,7 +43,7 @@ describe('PortfolioOperation', () => {
 
   describe('getPortfolioEx', () => {
     it('should return a single expanded portfolio', async () => {
-      const res = await portfolioOperation.getPortfolioEx(portfolioId)
+      const res = await portfolioOperation.getPortfolioExtended(portfolioId)
       expect(res.portfolioId).toBe(portfolioId)
       expect(res.creationDate).toBeInstanceOf(Date)
       expect(res.lastUpdatedDate).toBeInstanceOf(Date)
