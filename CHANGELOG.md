@@ -3,6 +3,21 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.28.0...v1.29.0) (2020-08-30)
+
+
+### Bug Fixes
+
+* incorrect import NegativeTargetingClause path ([f8ecf9d](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/f8ecf9d2bdad201ee8e6e41f9c59bec6ee015f3f))
+* incorrect list negative targeting url ([986bfa3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/986bfa3236c81d035464ffb7eedcd4249128ae4a))
+
+
+### Features
+
+* implement create sd negative targeting method ([5a76497](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/5a7649751a81861840fe99b0a24dc7e2275c3c83))
+* implement get and update sd negative targeting method ([2346d54](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/2346d5460aa7792e5cf4ffc5b1c81dd250cde6e1))
+* implement list and archive sd negative targeting ([298a7f7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/298a7f7e9429344d682b49f56e5e5635f4089f6f))
+
 # [1.28.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.27.5...v1.28.0) (2020-08-29)
 
 
