@@ -15,14 +15,21 @@
   - [SponsoredBrandsAdGroupOperation](#sponsoredbrandsadgroupoperation)
     - [getAdGroup](#getadgroup)
     - [listAdGroup](#listadgroup)
-  - [SponsoredProductsAdGroupOperation](#sponsoredproductsadgroupoperation)
-    - [getAdGroup](#getadgroup-1)
-    - [getAdGroupExtended](#getadgroupextended)
-    - [createAdGroups](#createadgroups)
-    - [updateAdGroups](#updateadgroups)
+  - [SponsoredDisplayAdGroupOperation](#sponsoreddisplayadgroupoperation)
     - [archiveAdGroup](#archiveadgroup)
+    - [createAdGroups](#createadgroups)
+    - [getAdGroup](#getadgroup-1)
+    - [getAddGroupExtended](#getaddgroupextended)
     - [listAdGroups](#listadgroups)
-    - [listAdGroupsEx](#listadgroupsex)
+    - [listAdGroupsExtended](#listadgroupsextended)
+    - [updateAdGroups](#updateadgroups)
+  - [SponsoredProductsAdGroupOperation](#sponsoredproductsadgroupoperation)
+    - [archiveAdGroup](#archiveadgroup-1)
+    - [createAdGroups](#createadgroups-1)
+    - [getAdGroup](#getadgroup-2)
+    - [getAddGroupExtended](#getaddgroupextended-1)
+    - [listAdGroups](#listadgroups-1)
+    - [listAdGroupsExtended](#listadgroupsextended-1)
   - [SponsoredProductsBidRecommendationOperation](#sponsoredproductsbidrecommendationoperation)
     - [getAdGroupBidRecommendations](#getadgroupbidrecommendations)
     - [getKeywordBidRecommendations](#getkeywordbidrecommendations)
@@ -348,21 +355,35 @@ const res = await profileOperation.listProfiles()
 
 ### [listAdGroup](https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi#/Ad%20groups/listAdGroups)
 
+## [SponsoredDisplayAdGroupOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html)
+
+### [archiveAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#archiveadgroup)
+
+### [createAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#createadgroups)
+
+### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#getadgroup)
+
+### [getAddGroupExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#getadgroupextended)
+
+### [listAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#listadgroups)
+
+### [listAdGroupsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#listadgroupsextended)
+
+### [updateAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayadgroupoperation.html#updateadgroups)
+
 ## [SponsoredProductsAdGroupOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html)
+
+### [archiveAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#archiveadgroup)
+
+### [createAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#createadgroups)
 
 ### [getAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroup)
 
 ### [getAddGroupExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#getadgroupextended)
 
-### [createAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#createadgroups)
-
-### [updateAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#updateadgroups)
-
-### [archiveAdGroup](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#archiveadgroup)
-
 ### [listAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroups)
 
-### [listAdGroupsEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroupsex)
+### [listAdGroupsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroupsextended)
 
 ## [SponsoredProductsBidRecommendationOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html)
 
