@@ -41,7 +41,7 @@
     - [getCampaign](#getcampaign)
     - [listCampaigns](#listcampaigns)
     - [updateCampaigns](#updatecampaigns)
-  - [SponsoredProductsCampaignOperation](#sponsoredproductscampaignoperation)
+  - [SponsoredDisplayCampaignOperation](#sponsoreddisplaycampaignoperation)
     - [archiveCampaign](#archivecampaign-1)
     - [createCampaigns](#createcampaigns-1)
     - [getCampaign](#getcampaign-1)
@@ -49,6 +49,14 @@
     - [listCampaigns](#listcampaigns-1)
     - [listCampaignsEx](#listcampaignsex)
     - [updateCampaigns](#updatecampaigns-1)
+  - [SponsoredProductsCampaignOperation](#sponsoredproductscampaignoperation)
+    - [archiveCampaign](#archivecampaign-2)
+    - [createCampaigns](#createcampaigns-2)
+    - [getCampaign](#getcampaign-2)
+    - [getCampaignExtended](#getcampaignextended-1)
+    - [listCampaigns](#listcampaigns-2)
+    - [listCampaignsExtended](#listcampaignsextended-1)
+    - [updateCampaigns](#updatecampaigns-2)
   - [SponseredBrandsDraftsOperation](#sponseredbrandsdraftsoperation)
     - [archiveDraftCampaign](#archivedraftcampaign)
     - [createDraftCampaigns](#createdraftcampaigns)
@@ -406,6 +414,22 @@ const res = await profileOperation.listProfiles()
 ### [listCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#listcampaigns)
 
 ### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandscampaignoperation.html#updatecampaigns)
+
+## [SponsoredDisplayCampaignOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html)
+
+### [archiveCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#archivecampaign)
+
+### [createCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#createcampaigns)
+
+### [getCampaign](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#getcampaign)
+
+### [getCampaignExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#getcampaignextended)
+
+### [listCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#listcampaigns)
+
+### [listCampaignsExtended](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#listcampaignsextended)
+
+### [updateCampaigns](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaycampaignoperation.html#updatecampaigns)
 
 ## [SponsoredProductsCampaignOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductscampaignoperation.html)
 
