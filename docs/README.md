@@ -184,17 +184,21 @@
     - [getBrandRecommendations](#getbrandrecommendations-1)
     - [getCategoryRecommendations](#getcategoryrecommendations)
     - [getProductRecommendations](#getproductrecommendations)
-  - [SponsoredBrandsReportOperation<ReportParams>](#sponsoredbrandsreportoperationreportparams)
+  - [SponsoredBrandsReportOperation](#sponsoredbrandsreportoperation)
     - [downloadReport](#downloadreport)
     - [getReport](#getreport)
     - [requestReport](#requestreport)
-  - [SponsoredProductsReportOperation<ReportParams>](#sponsoredproductsreportoperationreportparams)
+  - [SponsoredDisplayReportOperation](#sponsoreddisplayreportoperation)
     - [downloadReport](#downloadreport-1)
     - [getReport](#getreport-1)
     - [requestReport](#requestreport-1)
-  - [BaseReportOperation](#basereportoperation)
+  - [SponsoredProductsReportOperation](#sponsoredproductsreportoperation)
     - [downloadReport](#downloadreport-2)
     - [getReport](#getreport-2)
+    - [requestReport](#requestreport-2)
+  - [BaseReportOperation](#basereportoperation)
+    - [downloadReport](#downloadreport-3)
+    - [getReport](#getreport-3)
   - [SponsoredBrandsSnapshotOperation](#sponsoredbrandssnapshotoperation)
     - [downloadSnapshot](#downloadsnapshot)
     - [getSnapshot](#getsnapshot)
@@ -719,7 +723,7 @@ const res = await profileOperation.listProfiles()
 
 ### [getProductRecommendations](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandstargetingrecommendationsoperation.html#getproductrecommendations)
 
-## SponsoredBrandsReportOperation<ReportParams>
+## [SponsoredBrandsReportOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsreportoperation.html)
 
 ### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsreportoperation.html#downloadreport)
 
@@ -727,7 +731,15 @@ const res = await profileOperation.listProfiles()
 
 ### [requestReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsreportoperation.html#requestreport)
 
-## SponsoredProductsReportOperation<ReportParams>
+## [SponsoredDisplayReportOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayreportoperation.html)
+
+### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayreportoperation.html#downloadreport)
+
+### [getReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayreportoperation.html#getreport)
+
+### [requestReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplayreportoperation.html#requestreport)
+
+## [SponsoredProductsReportOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsreportoperation.html)
 
 ### [downloadReport](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsreportoperation.html#downloadreport)
 
