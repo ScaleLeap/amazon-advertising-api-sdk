@@ -5,8 +5,6 @@
 /**
  * Amazon API URI prefix, depending on the ad type. E.g. "sp" or "hsa"
  *
- * @export
- * @enum { string }
  * @example "sp"
  */
 export enum AmazonAdTypeURIPrefix {
