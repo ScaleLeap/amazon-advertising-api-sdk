@@ -210,6 +210,9 @@
   - [SponsoredBrandsStoresInfoOperation](#sponsoredbrandsstoresinfooperation)
     - [getStore](#getstore)
     - [listStores](#liststores)
+  - [SponsoredDisplaySuggestedProductsOperation](#sponsoreddisplaysuggestedproductsoperation)
+    - [getProductReadiness](#getproductreadiness)
+    - [listSuggestedProducts](#listsuggestedproducts)
 
 # Basic Configuration
 
@@ -774,3 +777,9 @@ const res = await profileOperation.listProfiles()
 ### [getStore](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsstoresinfooperation.html#getstore)
 
 ### [listStores](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredbrandsstoresinfooperation.html#liststores)
+
+## [SponsoredDisplaySuggestedProductsOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaysuggestedproductsoperation.html)
+
+### [getProductReadiness](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaysuggestedproductsoperation.html#getproductreadiness)
+
+### [listSuggestedProducts](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoreddisplaysuggestedproductsoperation.html#listsuggestedproducts)
