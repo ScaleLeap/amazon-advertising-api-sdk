@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.29.2...v1.29.3) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency cross-fetch to v3.0.6 ([6da6b73](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/6da6b7360f4ec18018fdc63a0a51d68dde654135))
+
 ## [1.29.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.29.1...v1.29.2) (2020-09-08)
 
 
