@@ -27,7 +27,7 @@ const request: ClientOAuth2.Request = async (
 
   return {
     status,
-    body: data,
+    body: JSON.stringify(data),
   }
 }
 
