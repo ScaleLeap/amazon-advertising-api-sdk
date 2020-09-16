@@ -1,4 +1,4 @@
-import { fetch, Headers } from 'cross-fetch'
+import axios, { Method, AxiosResponse } from 'axios'
 import HttpStatus from 'http-status-codes'
 
 import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
@@ -11,42 +11,37 @@ export interface HttpClientAuth {
   scope: number
 }
 
-enum HttpMethod {
-  GET,
-  POST,
-  PUT,
-  DELETE,
-}
-
 export type RequestBody = object | object[]
 
+export type Headers = Record<string, string>
+
 interface HttpClientRequestParams {
-  method: HttpMethod
+  method: Method
   uri: string
-  body?: RequestInit['body']
+  body?: unknown
   headers?: Headers
 }
 
 export class HttpClient {
   private get headers(): Headers {
-    const headers = new Headers({
+    const headers: Headers = {
       'Content-Type': JSON_CONTENT_TYPE,
       Accept: JSON_CONTENT_TYPE,
       Authorization: `Bearer ${this.auth.accessToken}`,
       'Amazon-Advertising-API-ClientId': this.auth.clientId,
       'User-Agent': USER_AGENT,
-    })
+    }
 
     if (this.auth.scope) {
-      headers.append('Amazon-Advertising-API-Scope', this.auth.scope.toString())
+      headers['Amazon-Advertising-API-Scope'] = this.auth.scope.toString()
     }
 
     // https://advertising.amazon.com/API/docs/v2/reference/bidding/bid_controls
     if (this.sandbox) {
-      headers.append('BIDDING_CONTROLS_ON', 'true')
+      headers['BIDDING_CONTROLS_ON'] = 'true'
 
       // prevent gzip in sandbox/dev for nock to catch uncompressed response
-      headers.append('Accept-Encoding', JSON_CONTENT_TYPE)
+      headers['Accept-Encoding'] = JSON_CONTENT_TYPE
     }
 
     return headers
@@ -60,38 +55,33 @@ export class HttpClient {
     private readonly sandbox = false,
   ) {}
 
-  private fetch(uri: string, req?: RequestInit): Promise<Response> {
-    return fetch(uri, req)
-  }
-
-  private async request(params: HttpClientRequestParams): Promise<Response> {
-    const req: RequestInit = {
-      redirect: 'manual',
-      method: HttpMethod[params.method],
+  private async request<T>(params: HttpClientRequestParams) {
+    return axios.request<T>({
+      responseType: 'json',
+      url: params.uri,
+      method: params.method,
       headers: params.headers,
-      body: params.body,
-    }
-
-    return this.fetch(params.uri, req)
+      data: params.body,
+      maxRedirects: 0,
+      validateStatus: () => true,
+    })
   }
 
-  private async handleApiResponse<T>(res: Response): Promise<T> {
-    const { status, headers } = res
-    const text = await res.text()
+  private handleApiResponse<T>(res: AxiosResponse): Promise<T> {
+    const { status, headers, data, config } = res
 
-    if (status === this.httpStatus.OK && !text) {
-      throw new NullError(res.url)
+    if (status === this.httpStatus.OK && !data) {
+      throw new NullError(config.url || '')
     }
 
     if (status >= this.httpStatus.BAD_REQUEST) {
       // We have a response body, so it *might* be a documented response
-      if (text) {
-        const json = JSON.parse(text)
 
+      if (data) {
         // Documented API Error
         // https://advertising.amazon.com/API/docs/v2/guides/developer_notes#Error-response
-        if (json && json.code) {
-          throw apiErrorFactory(json, headers)
+        if (data && data.code) {
+          throw apiErrorFactory(data, headers)
         }
 
         throw new InvalidProgramStateError(JSON.stringify(res))
@@ -108,8 +98,8 @@ export class HttpClient {
       }
     }
 
-    if (status < this.httpStatus.MULTIPLE_CHOICES && text) {
-      return JSON.parse(text)
+    if (status < this.httpStatus.MULTIPLE_CHOICES && data) {
+      return data
     }
 
     if (status >= this.httpStatus.MULTIPLE_CHOICES && status < this.httpStatus.BAD_REQUEST) {
@@ -135,14 +125,14 @@ export class HttpClient {
 
   public async get<T>(resource: string): Promise<T> {
     return this.apiRequest<T>({
-      method: HttpMethod.GET,
+      method: 'GET',
       uri: resource,
     })
   }
 
   public async put<T>(resource: string, body: RequestBody): Promise<T> {
     return this.apiRequest<T>({
-      method: HttpMethod.PUT,
+      method: 'PUT',
       uri: resource,
       body: JSON.stringify(body),
     })
@@ -150,7 +140,7 @@ export class HttpClient {
 
   public async post<T>(resource: string, body: RequestBody): Promise<T> {
     return this.apiRequest<T>({
-      method: HttpMethod.POST,
+      method: 'POST',
       uri: resource,
       body: JSON.stringify(body),
     })
@@ -158,35 +148,40 @@ export class HttpClient {
 
   public async delete<T>(resource: string): Promise<T> {
     return this.apiRequest<T>({
-      method: HttpMethod.DELETE,
+      method: 'DELETE',
       uri: resource,
     })
   }
 
   public async download<T>(resource: string): Promise<T> {
     const res = await this.request({
-      method: HttpMethod.GET,
+      method: 'GET',
       uri: this.apiUri(resource),
       headers: this.headers,
     })
 
     // checks for common errors, we don't care about the result, as we expect it to throw
     // if any failures are detected
-    await this.handleApiResponse(res.clone())
+    this.handleApiResponse(res)
 
-    const location: string | null = res.headers.get('Location')
+    const location: string | null = res.headers['location']
     if (res.status !== this.httpStatus.TEMPORARY_REDIRECT || !location) {
       throw new InvalidProgramStateError(['Expected a signed URL.', res.statusText].join(' '))
     }
 
-    const download = await this.fetch(location)
+    const download = await axios.get<ArrayBuffer>(location, {
+      responseType: 'arraybuffer',
+      headers: {
+        'User-Agent': USER_AGENT,
+      },
+    })
 
     if (download.status !== this.httpStatus.OK) {
       throw new InvalidProgramStateError(`Expected OK HTTP status, but got: ${res.statusText}`)
     }
 
-    const buffer = await download.arrayBuffer().then((res) => Buffer.from(res))
-    const contentType = download.headers.get('Content-Type')
+    const buffer = Buffer.from(download.data)
+    const contentType: string = download.headers['content-type']
 
     const bufferToJson = (buf: Buffer): T => {
       return JSON.parse(buf.toString())

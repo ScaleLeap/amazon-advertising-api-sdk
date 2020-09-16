@@ -73,10 +73,7 @@ describe(OAuthClient.name, () => {
       marketplaceUS,
     )
 
-    const token = client.createToken(
-      config.TEST_ACCESS_TOKEN || 'x',
-      config.TEST_REFRESH_TOKEN || 'x',
-    )
+    const token = client.createToken('x', 'x')
 
     const res = await token.refresh()
 

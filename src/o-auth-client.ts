@@ -1,9 +1,10 @@
 import ClientOAuth2 from 'client-oauth2'
 import { Options } from 'client-oauth2'
-import { fetch, Headers } from 'cross-fetch'
+import axios, { Method } from 'axios'
 import { defaultsDeep } from 'lodash'
 import { USER_AGENT } from './constants'
 import { Marketplace } from './maketplace'
+import type { Headers } from './http-client'
 
 const request: ClientOAuth2.Request = async (
   method,
@@ -11,22 +12,22 @@ const request: ClientOAuth2.Request = async (
   body,
   headerRecord,
 ): ReturnType<ClientOAuth2.Request> => {
-  const headers = new Headers()
-  headers.append('Accept-Encoding', 'application/json') // disable compression
-  headers.append('User-Agent', USER_AGENT)
-  Object.keys(headerRecord).map((key) => headers.append(key, headerRecord[key] as string))
-
-  const req: RequestInit = {
-    method,
-    headers,
-    body,
+  const headers: Headers = {
+    'Accept-Encoding': 'application/json',
+    'User-Agent': USER_AGENT,
+    ...headerRecord,
   }
 
-  const res = await fetch(url, req)
+  const { status, data } = await axios.request({
+    url,
+    method: method as Method,
+    headers,
+    data: body,
+  })
 
   return {
-    status: res.status,
-    body: await res.text(),
+    status,
+    body: data,
   }
 }
 

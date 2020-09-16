@@ -3,6 +3,7 @@
  */
 
 import { ExtendableError } from 'ts-error'
+import type { Headers } from './http-client'
 
 export interface ErrorObject {
   code: string
@@ -46,7 +47,7 @@ export class GenericError extends ExtendableError {
   public constructor(err: ErrorObject, headers: Headers) {
     super(err.details)
     this.code = err.code
-    this.requestId = headers.get('x-amz-request-id') || headers.get('x-amz-rid') || ''
+    this.requestId = headers['x-amz-request-id'] || headers['x-amz-rid'] || ''
   }
 }
 
@@ -62,7 +63,7 @@ export class ThrottlingError extends GenericError {
 
   public constructor(err: ErrorObject, headers: Headers) {
     super(err, headers)
-    this.retryAfter = Number(headers.get('Retry-After'))
+    this.retryAfter = Number(headers['retry-after'])
   }
 }
 
