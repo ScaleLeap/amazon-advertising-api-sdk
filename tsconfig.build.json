@@ -1,8 +1,7 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "outDir": "lib",
-    "lib": ["DOM"]
+    "outDir": "lib"
   },
   "exclude": [
     "src/**/*.test.ts",

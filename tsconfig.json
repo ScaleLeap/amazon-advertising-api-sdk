@@ -2,6 +2,9 @@
   "extends": "tsconfigs/nodejs-module",
   "compilerOptions": {
     "experimentalDecorators": true,
+    "lib": [
+      "DOM"
+    ]
   },
   "include": [
     "utils/**/*",
