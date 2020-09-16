@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.29.5...v1.29.6) (2020-09-16)
+
+
+### Bug Fixes
+
+* o-auth token abotainment ([1e6432e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1e6432e88e1a01240389f85f9325b88db6165a9a))
+
 ## [1.29.5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.29.4...v1.29.5) (2020-09-16)
 
 
