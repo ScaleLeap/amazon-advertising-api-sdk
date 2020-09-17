@@ -43,6 +43,12 @@ describe('ProfileOperation', () => {
         {
           profileId: TEST_PROFILE_ID,
           dailyBudget,
+          accountInfo: {
+            id: 'AUZWHWR0590BC',
+            marketplaceStringId: 'ATVPDKIKX0DER',
+            type: 'seller',
+            subType: 'AMAZON_ATTRIBUTION',
+          },
         },
       ])
 
