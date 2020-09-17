@@ -39,6 +39,15 @@ export const AccountInfoType = t.union([
 ])
 export type AccountInfoType = t.TypeOf<typeof AccountInfoType>
 
+/**
+ * The account subtype.
+ */
+export const AccountInfoSubType = t.union([
+  t.literal('KDP_AUTHOR'),
+  t.literal('AMAZON_ATTRIBUTION'),
+])
+export type AccountInfoSubType = t.TypeOf<typeof AccountInfoSubType>
+
 export const AccountInfo = t.intersection([
   t.type({
     /**
@@ -62,6 +71,11 @@ export const AccountInfo = t.intersection([
      * The string identifier for the account name.
      */
     name: t.string,
+
+    /**
+     * The account subtype.
+     */
+    subType: AccountInfoSubType,
   }),
 ])
 export type AccountInfo = t.TypeOf<typeof AccountInfo>
