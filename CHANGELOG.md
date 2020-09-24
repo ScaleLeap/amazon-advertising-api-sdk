@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.29.9...v1.30.0) (2020-09-24)
+
+
+### Features
+
+* add profile account info sub type field ([ce3040f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/ce3040f74cb1b2613f57a2c726ce5905277063e7))
+
 ## [1.29.9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.29.8...v1.29.9) (2020-09-22)
 
 
