@@ -23,7 +23,6 @@
     - [archiveAdGroup](#archiveadgroup)
     - [listAdGroups](#listadgroups)
     - [listAdGroupsEx](#listadgroupsex)
-    - [updateAdGroups](#updateadgroups-1)
   - [SponsoredProductsBidRecommendationOperation](#sponsoredproductsbidrecommendationoperation)
     - [getAdGroupBidRecommendations](#getadgroupbidrecommendations)
     - [getKeywordBidRecommendations](#getkeywordbidrecommendations)
@@ -185,9 +184,8 @@
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-
-The Amazon Advertising API manages permissions using the Login with Amazon service. 
-The API uses authorization and refresh tokens in a standard OAuth 2.0 flow. 
+The Amazon Advertising API manages permissions using the Login with Amazon service.
+The API uses authorization and refresh tokens in a standard OAuth 2.0 flow.
 
 [Read more about manually creating API authorization and refresh tokens here](https://advertising.amazon.com/API/docs/en-us/setting-up/generate-api-tokens)
 
@@ -198,8 +196,9 @@ To manage OAuth2 tokens this library has its own OAuth2 module which inherits an
 **Creating the OAuthClient**
 ```typescript
 import { OAuthClient } from '@scaleleap/amazon-advertising-api-sdk'
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
+import { amazonMarketplaces, assertMarketplaceHasAdvertising } from '@scaleleap/amazon-marketplaces'
 
+assertMarketplaceHasAdvertising(amazonMarketplaces.US)
 const client = new OAuthClient({
   clientId: '...',
   clientSecret: '...',
@@ -211,12 +210,13 @@ const client = new OAuthClient({
 ```typescript
 const auth = {
   accessToken: "ACCESS_TOKEN",
-  clientId: "YOUR_CLIENT_ID"
+  clientId: "YOUR_CLIENT_ID",
   scope: 10000000000 // Use your Profile ID as the value for the management scope
 }
 const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
 ```
-* `scope` in the `auth` object can also be set to any arbritrary number as it is ignored in some requests (e.g. `ProfileOperation.listProfiles`) 
+
+- `scope` in the `auth` object can also be set to any arbritrary number as it is ignored in some requests (e.g. `ProfileOperation.listProfiles`)
 
 ### Available Methods
 
@@ -269,17 +269,16 @@ const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
 **Using the HttpClient with the AmazonAdvertising class**
 
 ```typescript
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import { AmazonAdvertising, HttpClient } from '@scaleleap/amazon-advertising-api-sdk'
+import { amazonMarketplaces, assertMarketplaceHasAdvertising } from '@scaleleap/amazon-marketplaces'
+import { AmazonAdvertising} from '@scaleleap/amazon-advertising-api-sdk'
 
-const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
-const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, httpClient)
+assertMarketplaceHasAdvertising(amazonMarketplaces.US)
+const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
 ```
 
 **Using the HttpClient with the OperationProvider class**
 
 ```typescript
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
 import { OperationProvider, HttpClient, ProfileOperation } from '@scaleleap/amazon-advertising-api-sdk'
 
 const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
@@ -320,10 +319,10 @@ The `AmazonAdvertising` class gives you access to all the `operations`
 
 ```typescript
 import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import { AmazonAdvertising, HttpClient } from '@scaleleap/amazon-advertising-api-sdk'
+import { AmazonAdvertising } from '@scaleleap/amazon-advertising-api-sdk'
 
-const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
-const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, httpClient)
+assertMarketplaceHasAdvertising(amazonMarketplaces.US)
+const amazonAdvertising = new AmazonAdvertising(amazonMarketplaces.US, auth)
 const profileOperation = amazonAdvertising.profile
 
 // Using ProfileOperation to list profiles
@@ -332,11 +331,10 @@ const res = await profileOperation.listProfiles()
 
 ## Creating Operations from the class itself
 ```typescript
-import { amazonMarketplaces } from '@scaleleap/amazon-marketplaces'
-import { ProfileOperation, HttpClient } from '@scaleleap/amazon-advertising-api-sdk'
+import { HttpClient } from '@scaleleap/amazon-advertising-api-sdk'
 
 const httpClient = new HttpClient('https://advertising-api.amazon.com', auth)
-const profileOperation = ProfileOperation.create(ProfileOperation, httpClient)
+const profileOperation = ProfileOperation.create(httpClient)
 
 // Using ProfileOperation to list profiles
 const res = await profileOperation.listProfiles()
@@ -365,8 +363,6 @@ const res = await profileOperation.listProfiles()
 ### [listAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroups)
 
 ### [listAdGroupsEx](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#listadgroupsex)
-
-### [updateAdGroups](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsadgroupoperation.html#updateadgroups)
 
 ## [SponsoredProductsBidRecommendationOperation](https://amazon-advertising-api-sdk.scaleleap.org/classes/sponsoredproductsbidrecommendationoperation.html)
 
