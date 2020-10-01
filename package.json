@@ -47,7 +47,7 @@
     "@microsoft/api-extractor": "7.8.1",
     "@scaleleap/config": "2.0.4",
     "@scaleleap/jest-polly": "1.5.8",
-    "@types/jest": "26.0.13",
+    "@types/jest": "26.0.14",
     "@types/lodash": "4.14.161",
     "@types/node": "13.13.4",
     "@typescript-eslint/eslint-plugin": "2.30.0",
