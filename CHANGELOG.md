@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.30.12](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.11...v1.30.12) (2020-12-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to v0.21.1 ([bca6da8](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/bca6da8651f92041c6703b91a2120fb306f8eee2))
+
 ## [1.30.11](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.10...v1.30.11) (2020-12-21)
 
 
