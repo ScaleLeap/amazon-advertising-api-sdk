@@ -4,6 +4,7 @@ import HttpStatus from 'http-status-codes'
 import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
+import { inspect } from 'util'
 
 export interface HttpClientAuth {
   accessToken: string
@@ -84,7 +85,7 @@ export class HttpClient {
           throw apiErrorFactory(data, headers)
         }
 
-        throw new InvalidProgramStateError(JSON.stringify(res))
+        throw new InvalidProgramStateError(inspect(res))
       } else {
         // We don't have a body, so it's an unpredictable error, but let's try to structure it
         // anyways for completeness sake
