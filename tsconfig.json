@@ -1,10 +1,12 @@
 {
   "extends": "tsconfigs/nodejs-module",
   "compilerOptions": {
-    "experimentalDecorators": true,
     "lib": [
-      "DOM"
-    ]
+      "DOM",
+      "ES2019"
+    ],
+    "target": "ES2019",
+    "experimentalDecorators": true,
   },
   "include": [
     "utils/**/*",
