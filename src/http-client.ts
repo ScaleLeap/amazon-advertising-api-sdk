@@ -5,6 +5,7 @@ import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
 import { inspect } from 'util'
+import get from 'lodash/get'
 
 export interface HttpClientAuth {
   accessToken: string
@@ -75,28 +76,49 @@ export class HttpClient {
       throw new NullError(config.url || '')
     }
 
-    if (status >= this.httpStatus.BAD_REQUEST) {
-      // We have a response body, so it *might* be a documented response
+    const badRequest = status >= this.httpStatus.BAD_REQUEST
 
-      if (data) {
-        // Documented API Error
-        // https://advertising.amazon.com/API/docs/v2/guides/developer_notes#Error-response
-        if (data && data.code) {
-          throw apiErrorFactory(data, headers)
-        }
+    // Documented API Error
+    // https://advertising.amazon.com/API/docs/v2/guides/developer_notes#Error-response
+    if (badRequest && data && get(data, 'code')) {
+      throw apiErrorFactory(data, headers)
+    }
 
-        throw new InvalidProgramStateError(inspect(res))
-      } else {
-        // We don't have a body, so it's an unpredictable error, but let's try to structure it
-        // anyways for completeness sake
-        throw apiErrorFactory(
-          {
-            code: status.toString(),
-            details: res.statusText,
-          },
-          headers,
-        )
-      }
+    if (badRequest && typeof data === 'object' && !get(data, 'code')) {
+      throw apiErrorFactory(
+        {
+          code: status.toString(),
+          details: inspect(data),
+        },
+        headers,
+      )
+    }
+
+    if (badRequest && typeof data === 'string') {
+      throw apiErrorFactory(
+        {
+          code: status.toString(),
+          details: data,
+        },
+        headers,
+      )
+    }
+
+    // We don't have a body, so it's an unpredictable error, but let's try to structure it
+    // anyways for completeness sake
+    if (badRequest && !data) {
+      throw apiErrorFactory(
+        {
+          code: status.toString(),
+          details: res.statusText,
+        },
+        headers,
+      )
+    }
+
+    // should not happen, but a catch all just in case
+    if (badRequest) {
+      throw new InvalidProgramStateError(data)
     }
 
     if (status < this.httpStatus.MULTIPLE_CHOICES && data) {
