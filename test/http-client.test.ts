@@ -76,17 +76,6 @@ describe('HttpClient', () => {
         expect(err.retryAfter).toBe(42)
       })
     })
-
-    it('should throw InvalidProgramStateError if encountering throttling with invalid body response', async () => {
-      const server = jestPollyContext.polly.server
-
-      server.get(SANDBOX_URI + '/throttle').on('beforeResponse', (req, res) => {
-        res.status(HttpStatus.TOO_MANY_REQUESTS)
-        res.send({})
-      })
-
-      return expect(client.get('throttle')).rejects.toThrowError(InvalidProgramStateError)
-    })
   })
 
   describe('download', () => {
