@@ -1,6 +1,5 @@
 {
-  "mode": "file",
-  "inputFiles": [
+  "entryPoints": [
     "./src"
   ],
   "exclude": [
@@ -9,7 +8,6 @@
   "out": "docs/typedoc",
   "excludePrivate": true,
   "excludeProtected": true,
-  "excludeNotExported": true,
   "theme": "default",
   "hideGenerator": true
 }
