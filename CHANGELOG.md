@@ -3,6 +3,14 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.30.15](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.14...v1.30.15) (2021-01-12)
+
+
+### Bug Fixes
+
+* converting circular structure to json ([2d08e31](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/2d08e31376bb73493af8b4dafac0ff1efa40e5d3))
+* converting circular structure to JSON error ([6b9bab6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/6b9bab6cf4754ac816036b96d690078dfea8c312)), closes [#643](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/643)
+
 ## [1.30.14](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.13...v1.30.14) (2020-12-29)
 
 
