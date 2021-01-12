@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.30.16](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.15...v1.30.16) (2021-01-12)
+
+
+### Bug Fixes
+
+* remove unsupported options in new version ([d3ac069](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d3ac069c72753cbda9a6037ca33a23c07d4e607d))
+
 ## [1.30.15](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.14...v1.30.15) (2021-01-12)
 
 
