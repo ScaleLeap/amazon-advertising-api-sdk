@@ -118,7 +118,7 @@ describe('SponsoredBrandsReportOperation', () => {
           'targetingType',
           'targetingText',
         ],
-        reportDate: '20200314',
+        reportDate: '20210101',
       })
 
       expect(res.reportId).toBeDefined()
