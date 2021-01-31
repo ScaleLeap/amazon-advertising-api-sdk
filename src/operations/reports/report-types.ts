@@ -20,8 +20,6 @@ export const SponsoredBrandsReportType = t.union([
   t.literal('campaigns'),
   t.literal('adGroups'),
   t.literal('keywords'),
-  t.literal('headlineSearch'),
-  t.literal('searchTerms'),
   t.literal('targets'),
 ])
 export type SponsoredBrandsReportType = t.TypeOf<typeof SponsoredBrandsReportType>

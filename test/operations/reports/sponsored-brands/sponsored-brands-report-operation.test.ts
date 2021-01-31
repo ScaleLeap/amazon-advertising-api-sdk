@@ -103,63 +103,6 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.statusDetails).toBeDefined()
     })
 
-    /**
-     * TODO: Need check on Production API again. Sandbox API returns an error:
-     * Could not find resource for full path: https://advertising-api-test.amazon.com/v2/hsa/headlineSearch/report
-     */
-    it.skip(`should return a in progress status with headline search report`, async () => {
-      const res = await reportOperation.requestReport({
-        recordType: 'headlineSearch',
-        metrics: [
-          'campaignName',
-          'campaignId',
-          'campaignStatus',
-          'campaignBudget',
-          'campaignBudgetType',
-          'adGroupName',
-          'adGroupId',
-          'keywordText',
-          'keywordBid',
-          'keywordStatus',
-        ],
-        reportDate: '20200314',
-      })
-
-      expect(res.reportId).toBeDefined()
-      expect(res.recordType).toBeDefined()
-      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
-      expect(res.statusDetails).toBeDefined()
-    })
-
-    /**
-     * TODO: Need check on Production API again. Sandbox API returns an error:
-     * Could not find resource for full path: https://advertising-api-test.amazon.com/v2/hsa/searchTerms/report
-     */
-    it.skip(`should return a in progress status with search term report`, async () => {
-      const res = await reportOperation.requestReport({
-        recordType: 'searchTerms',
-        metrics: [
-          'campaignId',
-          'campaignName',
-          'adGroupId',
-          'adGroupName',
-          'campaignBudgetType',
-          'campaignStatus',
-          'keywordId',
-          'keywordStatus',
-          'keywordBid',
-          'keywordText',
-          'matchType',
-        ],
-        reportDate: '20200314',
-      })
-
-      expect(res.reportId).toBeDefined()
-      expect(res.recordType).toBeDefined()
-      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
-      expect(res.statusDetails).toBeDefined()
-    })
-
     it(`should return a in progress status with target report`, async () => {
       const res = await reportOperation.requestReport({
         recordType: 'targets',

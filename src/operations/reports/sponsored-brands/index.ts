@@ -1,6 +1,4 @@
 export * from './sponsored-brands-ad-group-report-params'
 export * from './sponsored-brands-campaign-report-params'
 export * from './sponsored-brands-keyword-report-params'
-export * from './sponsored-brands-headline-search-report-params'
-export * from './sponsored-brands-search-term-report-params'
 export * from './sponsored-brands-target-report-params'

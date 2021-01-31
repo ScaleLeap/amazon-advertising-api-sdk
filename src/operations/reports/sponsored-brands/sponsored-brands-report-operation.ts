@@ -6,8 +6,6 @@ import {
   SponsoredBrandsAdGroupReportParams,
   SponsoredBrandsCampaignReportParams,
   SponsoredBrandsKeywordReportParams,
-  SponsoredBrandsHeadlineSearchReportParams,
-  SponsoredBrandsSearchTermReportParams,
   SponsoredBrandsTargetReportParams,
 } from './index'
 
@@ -15,9 +13,6 @@ export type SponsoredBrandsReportParams =
   | SponsoredBrandsAdGroupReportParams
   | SponsoredBrandsCampaignReportParams
   | SponsoredBrandsKeywordReportParams
-  | SponsoredBrandsHeadlineSearchReportParams
-  | SponsoredBrandsSearchTermReportParams
-  | SponsoredBrandsSearchTermReportParams
   | SponsoredBrandsTargetReportParams
 
 export class SponsoredBrandsReportOperation<

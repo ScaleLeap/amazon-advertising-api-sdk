@@ -179,9 +179,6 @@ describe('index', () => {
       expect(index.SponsoredBrandsCampaignReportMetrics).toEqual(
         reportTypes.SponsoredBrandsCampaignReportMetrics,
       )
-      expect(index.SponsoredBrandsHeadlineSearchReportMetrics).toEqual(
-        reportTypes.SponsoredBrandsHeadlineSearchReportMetrics,
-      )
       expect(index.SponsoredBrandsKeywordReportMetrics).toEqual(
         reportTypes.SponsoredBrandsKeywordReportMetrics,
       )
