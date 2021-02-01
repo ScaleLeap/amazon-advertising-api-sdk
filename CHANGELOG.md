@@ -3,6 +3,18 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.17...v2.0.0) (2021-02-01)
+
+
+### Bug Fixes
+
+* remove unsupported sb report types ([c587ba5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c587ba5718accbfab7a22275a0cd9866745460ad))
+
+
+### BREAKING CHANGES
+
+* remove headlineSearch and searchTerms sb report type
+
 ## [1.30.17](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.16...v1.30.17) (2021-01-15)
 
 
