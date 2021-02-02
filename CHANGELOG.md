@@ -3,6 +3,19 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v2.0.0...v3.0.0) (2021-02-02)
+
+
+### Styles
+
+* standardize extended method name ([b28db91](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b28db915aff62ecc0b5747e5619a27d7ca5aa416))
+
+
+### BREAKING CHANGES
+
+* standardize extended method name of campaign and
+portfolio opertion
+
 # [2.0.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v1.30.17...v2.0.0) (2021-02-01)
 
 
