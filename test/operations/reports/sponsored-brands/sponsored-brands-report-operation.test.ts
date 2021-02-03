@@ -5,7 +5,6 @@ import {
   SponsoredBrandsReportParams,
 } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { ReportResponseStatus } from '../../../../src'
-import { delay } from '../../../test-utils'
 
 jest.setTimeout(15000)
 
@@ -197,8 +196,6 @@ describe('SponsoredBrandsReportOperation', () => {
       }
 
       const requestReportResult = await reportOperation.requestReport(params)
-
-      await delay(3000)
 
       const res = await reportOperation.downloadReport(requestReportResult.reportId)
       const { query } = res[0]
