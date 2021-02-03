@@ -1,7 +1,11 @@
 import { OperationProvider } from '../../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../../http-client-factory'
-import { SponsoredBrandsReportOperation } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
+import {
+  SponsoredBrandsReportOperation,
+  SponsoredBrandsReportParams,
+} from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { ReportResponseStatus } from '../../../../src'
+import { delay } from '../../../test-utils'
 
 jest.setTimeout(15000)
 
@@ -171,6 +175,35 @@ describe('SponsoredBrandsReportOperation', () => {
       const res = await reportOperation.downloadReport(requestReportResult.reportId)
 
       expect(res.length).toBeGreaterThanOrEqual(0)
+    })
+
+    it('should return query metric if specific query segment in sb keyword report', async () => {
+      const params: SponsoredBrandsReportParams = {
+        recordType: 'keywords',
+        segment: 'query',
+        reportDate: '20210126',
+        metrics: [
+          'campaignId',
+          'campaignName',
+          'adGroupId',
+          'adGroupName',
+          'campaignBudgetType',
+          'campaignStatus',
+          'keywordId',
+          'keywordStatus',
+          'keywordBid',
+          'keywordText',
+        ],
+      }
+
+      const requestReportResult = await reportOperation.requestReport(params)
+
+      await delay(3000)
+
+      const res = await reportOperation.downloadReport(requestReportResult.reportId)
+      const { query } = res[0]
+      expect(res.length).toBeGreaterThanOrEqual(0)
+      expect(query).toBeDefined()
     })
   })
 })
