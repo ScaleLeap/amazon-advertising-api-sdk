@@ -5,6 +5,7 @@ import {
   SponsoredBrandsReportParams,
 } from '../../../../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
 import { ReportResponseStatus } from '../../../../src'
+import { delay } from '../../../test-utils'
 
 jest.setTimeout(15000)
 
@@ -177,6 +178,7 @@ describe('SponsoredBrandsReportOperation', () => {
     })
 
     it('should return query metric if specific query segment in sb keyword report', async () => {
+      expect.assertions(2)
       const params: SponsoredBrandsReportParams = {
         recordType: 'keywords',
         segment: 'query',
@@ -197,10 +199,15 @@ describe('SponsoredBrandsReportOperation', () => {
 
       const requestReportResult = await reportOperation.requestReport(params)
 
+      await delay()
+
       const res = await reportOperation.downloadReport(requestReportResult.reportId)
-      const { query } = res[0]
-      expect(res.length).toBeGreaterThanOrEqual(0)
-      expect(query).toBeDefined()
+      const [report] = res
+
+      if (report) {
+        expect(report).toHaveProperty('query')
+      }
+      expect(res.length).toBeGreaterThan(0)
     })
   })
 })
