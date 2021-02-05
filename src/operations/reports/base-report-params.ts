@@ -1,3 +1,4 @@
+import { ReportCreativeTypes } from './report-creative-types'
 import { ReportSegments } from './report-segments'
 
 export interface BaseReportParams<RecordType, ReportMetrics> {
@@ -26,4 +27,9 @@ export interface BaseReportParams<RecordType, ReportMetrics> {
    * An array of the metrics to be included in the report.
    */
   metrics: ReportMetrics[]
+
+  /**
+   * Set to video to retrieve a Sponsored Brands video report.
+   */
+  creativeType?: ReportCreativeTypes
 }
