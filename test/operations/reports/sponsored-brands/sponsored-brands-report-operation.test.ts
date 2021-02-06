@@ -126,6 +126,20 @@ describe('SponsoredBrandsReportOperation', () => {
       expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
       expect(res.statusDetails).toBeDefined()
     })
+
+    it(`should return a in progress status with creative type is video`, async () => {
+      const res = await reportOperation.requestReport({
+        recordType: 'adGroups',
+        metrics: ['campaignName', 'campaignId', 'campaignStatus'],
+        reportDate: '20210201',
+        creativeType: 'video',
+      })
+
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toBeDefined()
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
+      expect(res.statusDetails).toBeDefined()
+    })
   })
 
   describe('getReport', () => {
