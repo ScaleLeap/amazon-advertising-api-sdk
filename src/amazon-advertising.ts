@@ -35,6 +35,7 @@ import { SponsoredBrandsSnapshotOperation } from './operations/snapshots/sponsor
 import { SponsoredProductsSnapshotOperation } from './operations/snapshots/sponsored-products-snapshot-operation'
 import { SponsoredBrandsStoresInfoOperation } from './operations/stores/sponsored-brands-stores-info-operation'
 import { SponsoredDisplaySuggestedProductsOperation } from './operations/suggested-products/sponsored-display-suggested-products-operation'
+import { SponsoredBrandsMediaOperation } from './operations/media/sponsored-brands-media-operation'
 import { Marketplace } from './maketplace'
 
 export class AmazonAdvertising {
@@ -208,5 +209,10 @@ export class AmazonAdvertising {
   @LazyGetter()
   get sponsoredDisplaySuggestedProducts() {
     return this.operationProvider.create(SponsoredDisplaySuggestedProductsOperation)
+  }
+
+  @LazyGetter()
+  get sponsoredBrandsMedia() {
+    return this.operationProvider.create(SponsoredBrandsMediaOperation)
   }
 }
