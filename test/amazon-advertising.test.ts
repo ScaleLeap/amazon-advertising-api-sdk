@@ -31,6 +31,7 @@ import { SponsoredProductsReportOperation } from '../src/operations/reports/spon
 import { SponsoredBrandsSnapshotOperation } from '../src/operations/snapshots/sponsored-brands-snapshot-operation'
 import { SponsoredProductsSnapshotOperation } from '../src/operations/snapshots/sponsored-products-snapshot-operation'
 import { SponsoredBrandsStoresInfoOperation } from '../src/operations/stores/sponsored-brands-stores-info-operation'
+import { SponsoredBrandsMediaOperation } from '../src/operations/media/sponsored-brands-media-operation'
 import { getAdvertising } from './test-utils'
 
 const amazonAdvertising = new AmazonAdvertising(getAdvertising(amazonMarketplaces.JP), auth)
@@ -184,5 +185,10 @@ describe('AmazonAdvertising', () => {
   it('should return SponsoredBrandsStoresInfoOperation', () => {
     const operation = amazonAdvertising.sponsoredBrandsStoresInfo
     expect(operation).toBeInstanceOf(SponsoredBrandsStoresInfoOperation)
+  })
+
+  it('should return SponsoredBrandsMediaOperation', () => {
+    const operation = amazonAdvertising.sponsoredBrandsMedia
+    expect(operation).toBeInstanceOf(SponsoredBrandsMediaOperation)
   })
 })
