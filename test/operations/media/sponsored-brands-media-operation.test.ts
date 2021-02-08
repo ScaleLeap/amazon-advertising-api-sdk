@@ -4,7 +4,7 @@ import { httpClientFactory } from '../../http-client-factory'
 
 jest.setTimeout(15000)
 
-describe('SponsoredBrandsStoresInfoOperation', () => {
+describe('SponsoredBrandsMediaOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsMediaOperation)
