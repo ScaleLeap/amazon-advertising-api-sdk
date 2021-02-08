@@ -26,3 +26,29 @@ describe('CreateUploadLocaltionParams', () => {
     expect(isRight(res)).toBeFalsy()
   })
 })
+
+describe('CompleteMediaParam', () => {
+  it('should pass', () => {
+    const res = t.CompleteMediaParam.decode({
+      uploadLocation: 'string',
+      version: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+  it('should require upload location', () => {
+    const res = t.CompleteMediaParam.decode({
+      version: 'string',
+    })
+
+    expect(isRight(res)).toBeFalsy()
+  })
+
+  it('should allow version optional', () => {
+    const res = t.CompleteMediaParam.decode({
+      uploadLocation: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
