@@ -1,6 +1,6 @@
 import {
   CompleteMediaParam,
-  CreateUploadLocaltionParams,
+  CreateUploadLocaltionParam,
   SponsoredBrandsMediaOperation,
 } from '../../../src'
 import { OperationProvider } from '../../../src/operations/operation-provider'
@@ -19,7 +19,7 @@ describe('SponsoredBrandsMediaOperation', () => {
    */
   describe.skip('createUploadLocation', () => {
     it(`should retrieve a upload location`, async () => {
-      const param: CreateUploadLocaltionParams = {
+      const param: CreateUploadLocaltionParam = {
         programType: 'SponsoredBrands',
         creativeType: 'Video',
       }
