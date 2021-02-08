@@ -3,7 +3,7 @@ import * as t from './types'
 
 describe('CreateUploadLocaltionParams', () => {
   it('should pass', () => {
-    const res = t.CreateUploadLocaltionParams.decode({
+    const res = t.CreateUploadLocaltionParam.decode({
       programType: 'SponsoredBrands',
       creativeType: 'Video',
     })
@@ -11,7 +11,7 @@ describe('CreateUploadLocaltionParams', () => {
     expect(isRight(res)).toBeTruthy()
   })
   it('should fail if programType is missing', () => {
-    const res = t.CreateUploadLocaltionParams.decode({
+    const res = t.CreateUploadLocaltionParam.decode({
       creativeType: 'Video',
     })
 
@@ -19,7 +19,7 @@ describe('CreateUploadLocaltionParams', () => {
   })
 
   it('should fail if creativeType is missing', () => {
-    const res = t.CreateUploadLocaltionParams.decode({
+    const res = t.CreateUploadLocaltionParam.decode({
       programType: 'SponsoredBrands',
     })
 

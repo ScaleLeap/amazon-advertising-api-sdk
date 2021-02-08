@@ -1,5 +1,5 @@
 import { Operation } from '../operation'
-import { CompleteMediaParam, CreateUploadLocaltionParams, MediaId, UploadLocation } from './types'
+import { CompleteMediaParam, CreateUploadLocaltionParam, MediaId, UploadLocation } from './types'
 import { Decode } from '../../decorators'
 
 export class SponsoredBrandsMediaOperation extends Operation {
@@ -13,7 +13,7 @@ export class SponsoredBrandsMediaOperation extends Operation {
    * @returns
    */
   @Decode(UploadLocation)
-  public createUploadLocation(param: CreateUploadLocaltionParams) {
+  public createUploadLocation(param: CreateUploadLocaltionParam) {
     return this.client.post<UploadLocation>(`${this.resource}/upload`, param)
   }
 
