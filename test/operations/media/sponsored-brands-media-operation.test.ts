@@ -1,4 +1,8 @@
-import { CreateUploadLocaltionParams, SponsoredBrandsMediaOperation } from '../../../src'
+import {
+  CompleteMediaParam,
+  CreateUploadLocaltionParams,
+  SponsoredBrandsMediaOperation,
+} from '../../../src'
 import { OperationProvider } from '../../../src/operations/operation-provider'
 import { httpClientFactory } from '../../http-client-factory'
 
@@ -20,6 +24,22 @@ describe('SponsoredBrandsMediaOperation', () => {
         creativeType: 'Video',
       }
       const res = await operation.createUploadLocation(param)
+
+      expect(res).toBeDefined()
+    })
+  })
+
+  /**
+   * TODO: Need check on Production API again. Sandbox API return an error:
+   * ResourceNotFoundError: Could not find resource for full path: https://advertising-api-test.amazon.com/v1/media/complete
+   */
+  describe.skip('completeMedia', () => {
+    it(`should retrieve media id`, async () => {
+      const param: CompleteMediaParam = {
+        uploadLocation: 'string',
+        version: 'string',
+      }
+      const res = await operation.completeMedia(param)
 
       expect(res).toBeDefined()
     })
