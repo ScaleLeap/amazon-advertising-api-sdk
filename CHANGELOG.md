@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.0.0...v3.0.1) (2021-02-10)
+
+
+### Bug Fixes
+
+* added ADVERTISER_PAYMENT_FAILURE in serving status ([ba3a427](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/ba3a4273cf6c46a9859fc80c6a06e76e360f9a2c))
+
 # [3.0.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v2.0.0...v3.0.0) (2021-02-02)
 
 
