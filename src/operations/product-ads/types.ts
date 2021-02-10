@@ -30,6 +30,7 @@ export const ProductAdServingStatus = t.union([
   t.literal('ACCOUNT_OUT_OF_BUDGET'),
   t.literal('MISSING_DECORATION'),
   t.literal('PORTFOLIO_ENDED'),
+  t.literal('ADVERTISER_PAYMENT_FAILURE'),
 ])
 export type ProductAdServingStatus = t.TypeOf<typeof ProductAdServingStatus>
 

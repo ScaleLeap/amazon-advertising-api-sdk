@@ -76,6 +76,7 @@ export const TargetingClauseServingStatus = t.union([
   t.literal('CAMPAIGN_PAUSED'),
   t.literal('CAMPAIGN_ARCHIVED'),
   t.literal('ACCOUNT_OUT_OF_BUDGET'),
+  t.literal('ADVERTISER_PAYMENT_FAILURE'),
   t.literal('PORTFOLIO_ENDED'), // the docs don't mention to this type
 ])
 export type TargetingClauseServingStatus = t.TypeOf<typeof TargetingClauseServingStatus>

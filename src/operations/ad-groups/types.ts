@@ -45,6 +45,7 @@ export const AdGroupServingStatus = t.union([
   t.literal('CAMPAIGN_ARCHIVED'),
   t.literal('CAMPAIGN_INCOMPLETE'),
   t.literal('ACCOUNT_OUT_OF_BUDGET'),
+  t.literal('ADVERTISER_PAYMENT_FAILURE'),
   t.literal('PORTFOLIO_PENDING_START_DATE'), // The docs don't mention about this type
   t.literal('PORTFOLIO_ENDED'), // The docs don't mention about this type
 ])
