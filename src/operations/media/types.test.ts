@@ -52,3 +52,30 @@ describe('CompleteMediaParam', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('MediaResource', () => {
+  it('should pass', () => {
+    const res = t.MediaResource.decode({
+      mediaId: 'string',
+      status: 'Processing',
+      statusMetadata: [
+        {
+          code: 'string',
+          message: 'string',
+        },
+      ],
+      publishedMediaUrl: 'string',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+
+  it('should pass without optional paramaters', () => {
+    const res = t.MediaResource.decode({
+      mediaId: 'string',
+      status: 'Processing',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
