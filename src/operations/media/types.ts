@@ -34,3 +34,64 @@ export type CompleteMediaParam = t.TypeOf<typeof CompleteMediaParam>
  */
 export const MediaId = t.string
 export type MediaId = t.TypeOf<typeof MediaId>
+
+export const MediaStatus = t.union([
+  /**
+   * The media is being processed.
+   */
+  t.literal('Processing'),
+
+  /**
+   * The media is pending additional validation carried out during media conversion.
+   */
+  t.literal('PendingDeepValidation'),
+
+  /**
+   * Media has successfully finished validation and conversion and the media is published.
+   */
+  t.literal('Available'),
+
+  /**
+   * Media processing failed.
+   */
+  t.literal('Failed'),
+])
+export type MediaStatus = t.TypeOf<typeof MediaStatus>
+
+export const MediaStatusMetadata = t.type({
+  code: t.string,
+  message: t.string,
+})
+export type MediaStatusMetadata = t.TypeOf<typeof MediaStatusMetadata>
+
+/**
+ * Media Resource.
+ */
+export const MediaResource = t.intersection([
+  t.type({
+    /**
+     * The Media identifier.
+     */
+    mediaId: MediaId,
+
+    /**
+     * Media status.
+     */
+    status: MediaStatus,
+  }),
+  t.partial({
+    /**
+     * Additional status metadata.
+     * It is only available when status is Failed and statusMetadata provides additional detail on why media status is Failed.
+     * statusMetadata is comprised of code and message.
+     */
+    statusMetadata: t.array(MediaStatusMetadata),
+
+    /**
+     * The preview URL of the media.
+     * It is only available when status is Available.
+     */
+    publishedMediaUrl: t.string,
+  }),
+])
+export type MediaResource = t.TypeOf<typeof MediaResource>

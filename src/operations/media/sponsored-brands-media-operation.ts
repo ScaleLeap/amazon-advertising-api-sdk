@@ -1,5 +1,11 @@
 import { Operation } from '../operation'
-import { CompleteMediaParam, CreateUploadLocaltionParam, MediaId, UploadLocation } from './types'
+import {
+  CompleteMediaParam,
+  CreateUploadLocaltionParam,
+  MediaId,
+  MediaResource,
+  UploadLocation,
+} from './types'
 import { Decode } from '../../decorators'
 
 export class SponsoredBrandsMediaOperation extends Operation {
@@ -29,5 +35,17 @@ export class SponsoredBrandsMediaOperation extends Operation {
   @Decode(MediaId)
   public completeMedia(param: CompleteMediaParam) {
     return this.client.put<MediaId>(`${this.resource}/complete`, param)
+  }
+
+  /**
+   * API to poll for media status.
+   * In order to attach media to campaign, media should be in either PendingDeepValidation or Available status.
+   * Available status guarantees that media has completed processing and published for usage.
+   * Though media can be attached to campaign once the status of the media transitions to PendingDeepValidation, media could still fail additional validation and transition to Failed status.
+   * For example in the context of SBV, SBV campaign can be created when status transitions to PendingDeepValidation, it could result in SBV campaign to be rejected later if media transitions to Failed status.
+   */
+  @Decode(MediaResource)
+  public describeMedia(mediaId: MediaId) {
+    return this.client.get<MediaResource>(this.paramsFilterTransformer('/describe', { mediaId }))
   }
 }
