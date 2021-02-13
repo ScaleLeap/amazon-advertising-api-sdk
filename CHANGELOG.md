@@ -3,6 +3,16 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.0.4...v3.1.0) (2021-02-13)
+
+
+### Features
+
+* implement complete media method ([6d195f7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/6d195f7aafc9112da70e3ad171cc6a4a7742518c))
+* implement create upload location method ([3f510bf](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/3f510bf209b1bb02163fa5c145054c1573e0ba23))
+* implement describeMedia method ([17d4ae5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/17d4ae59270aa615ad912fc57490f177b880bf04))
+* implement types for create upload location method ([75c4014](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/75c4014bb096b43b23370838d7382414aff3503c))
+
 ## [3.0.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.0.3...v3.0.4) (2021-02-11)
 
 
