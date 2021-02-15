@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.0...v3.1.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io-ts-types to v0.5.14 ([422a70e](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/422a70eb77888e993139639c7075bcb1c2c6d386))
+
 # [3.1.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.0.4...v3.1.0) (2021-02-13)
 
 
