@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.4...v3.1.5) (2021-02-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash to v4.17.21 ([c4abab8](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c4abab895455b03637fe3b5e4714365d3577e691))
+
 ## [3.1.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.3...v3.1.4) (2021-02-19)
 
 
