@@ -6,6 +6,7 @@
 [![Snyk](https://img.shields.io/snyk/vulnerabilities/github/scaleleap/amazon-advertising-api-sdk)](https://snyk.io/test/github/scaleleap/amazon-advertising-api-sdk)
 [![Codecov](https://img.shields.io/codecov/c/github/scaleleap/amazon-advertising-api-sdk)](https://codecov.io/gh/ScaleLeap/amazon-advertising-api-sdk)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleLeap%2Famazon-advertising-api-sdk.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleLeap%2Famazon-advertising-api-sdk?ref=badge_shield)
 
 ---
 
@@ -87,3 +88,6 @@ const res = await profileOperation.listProfiles()
 ## License
 
 This project is licensed under the MIT License.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleLeap%2Famazon-advertising-api-sdk.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleLeap%2Famazon-advertising-api-sdk?ref=badge_large)
