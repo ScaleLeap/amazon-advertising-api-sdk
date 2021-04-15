@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.12](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.11...v3.1.12) (2021-04-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fp-ts to v2.10.2 ([4a6a943](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/4a6a94375f91358ab6b697dbf368666f8baff6fc))
+
 ## [3.1.11](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.10...v3.1.11) (2021-04-15)
 
 
