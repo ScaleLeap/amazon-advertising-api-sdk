@@ -312,153 +312,163 @@ export const CampaignExtended = t.intersection([
 ])
 export type CampaignExtended = t.TypeOf<typeof CampaignExtended>
 
-export const SponsoredBrandsCampaign = t.strict({
-  /**
-   * The ID of the portfolio.
-   */
-  portfolioId: PortfolioId,
-
-  /**
-   * The ID of the campaign.
-   */
-  campaignId: t.readonly(CampaignId),
-
-  /**
-   * Campaign name limit is 128 characters.
-   * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
-   */
-  name: CampaignName,
-
-  /**
-   * The Budget of the campaign.
-   */
-  budget: t.number,
-
-  /**
-   * Lifetime budget type requires startDate and endDate specified.
-   * For most marketplaces, lifetime budget range is 100 to 20,000,000, and daily budget range is 1 to 1,000,000 by default.
-   * For JP marketplace, lifetime budget range is 10,000 to 2,000,000,000, and daily budget range is 100 to 21,000,000.
-   */
-  budgetType: t.union([t.literal('lifetime'), t.literal('daily')]),
-
-  /**
-   * startDate must be today or in the future. Format YYYYMMDD. If startDate is not set, it will be the current date by default.
-   */
-  startDate: t.string,
-
-  /**
-   * endDate must be greater than startDate. Format YYYYMMDD.
-   * If endDate is not set, campaign will run forever. endDate must be used with startDate. endDate is required for lifetime budget option.
-   */
-  endDate: t.string,
-
-  /**
-   * The state of the campaign.
-   */
-  state: CampaignState,
-
-  /**
-   * asinNotBuyable: associated ASIN cannot be purchased due to eligibility or availability.
-   * billingError: billing information needs correction.
-   * ended: specified endDate in campaign object has passed.
-   * landingPageNotAvailable: associated landing page is not available (e.g. page path no longer exists) or valid (must have 3 valid ASINs on landing page).
-   * outOfBudget: campaign has run out of budget.
-   * paused: campaign state set to paused by the user.
-   * pendingReview: default status after campaign creation, cleared once moderation review has occurred, which completes within 72 hours.
-   * ready: the campaign is scheduled for a future date.
-   * rejected: moderation denied campaign approval.
-   * running: campaign is enabled and serving.
-   * scheduled: a transitive state between ready and running, where serving has not begun as child entities move to running state.
-   * terminated: campaign is deleted.
-   */
-  servingStatus: t.readonly(
-    t.union([
-      t.literal('asinNotBuyable'),
-      t.literal('billingError'),
-      t.literal('ended'),
-      t.literal('landingPageNotAvailable'),
-      t.literal('outOfBudget'),
-      t.literal('paused'),
-      t.literal('pendingReview'),
-      t.literal('ready'),
-      t.literal('rejected'),
-      t.literal('running'),
-      t.literal('scheduled'),
-      t.literal('terminated'),
-    ]),
-  ),
-
-  /**
-   * Required for sellers. brandEntityId is defined in the seller profile. Used in campaign creation and asset registration.
-   */
-  brandEntityId: t.string,
-
-  /**
-   * Allow Amazon to automatically optimize bids for placements below top of search.
-   * Default to true if not set in campaign creation request.
-   */
-  bidOptimization: t.boolean,
-
-  /**
-   * This field can be set when 'bidOptimization' is set to false. Value is a percentage with two decimal places and range is -99.00 to +99.99.
-   * Example: A -30.00 decrease on a $5.00 bid will become $3.00.
-   */
-  bidMultiplier: t.number,
-
-  creative: t.strict({
+export const SponsoredBrandsCampaign = t.intersection([
+  t.type({
     /**
-     * Name of brand to be displayed. Max length 30 characters.
+     * The ID of the campaign.
      */
-    brandName: t.string,
+    campaignId: t.readonly(CampaignId),
 
     /**
-     * Asset ID of brand logo in Store Assets Library.
-     * If the campaigns were created in advertising console before Store Assets Library launch, the brandLogoAssetID will not be populated in the API response.
+     * Campaign name limit is 128 characters.
+     * Duplicate campaign names are not allowed. Campaigns with zero positive keywords are not allowed.
      */
-    brandLogoAssetID: t.string,
+    name: CampaignName,
 
     /**
-     * URL of the hosted image. This is a readOnly field returned in the response.
+     * The Budget of the campaign.
      */
-    brandLogoUrl: t.readonly(t.string),
+    budget: t.number,
 
     /**
-     * Headline text. Max length 50 characters, except JP market, which is maxlength 35 characters.
+     * Lifetime budget type requires startDate and endDate specified.
+     * For most marketplaces, lifetime budget range is 100 to 20,000,000, and daily budget range is 1 to 1,000,000 by default.
+     * For JP marketplace, lifetime budget range is 10,000 to 2,000,000,000, and daily budget range is 100 to 21,000,000.
      */
-    headline: t.string,
+    budgetType: t.union([t.literal('lifetime'), t.literal('daily')]),
 
     /**
-     * List of ASINs shown on the creative. Min 0, max 3
+     * startDate must be today or in the future. Format YYYYMMDD. If startDate is not set, it will be the current date by default.
      */
-    asins: t.array(t.string),
+    startDate: t.string,
+
+    /**
+     * The state of the campaign.
+     */
+    state: CampaignState,
+
+    /**
+     * asinNotBuyable: associated ASIN cannot be purchased due to eligibility or availability.
+     * billingError: billing information needs correction.
+     * ended: specified endDate in campaign object has passed.
+     * landingPageNotAvailable: associated landing page is not available (e.g. page path no longer exists) or valid (must have 3 valid ASINs on landing page).
+     * outOfBudget: campaign has run out of budget.
+     * paused: campaign state set to paused by the user.
+     * pendingReview: default status after campaign creation, cleared once moderation review has occurred, which completes within 72 hours.
+     * ready: the campaign is scheduled for a future date.
+     * rejected: moderation denied campaign approval.
+     * running: campaign is enabled and serving.
+     * scheduled: a transitive state between ready and running, where serving has not begun as child entities move to running state.
+     * terminated: campaign is deleted.
+     */
+    servingStatus: t.readonly(
+      t.union([
+        t.literal('asinNotBuyable'),
+        t.literal('billingError'),
+        t.literal('ended'),
+        t.literal('landingPageNotAvailable'),
+        t.literal('outOfBudget'),
+        t.literal('paused'),
+        t.literal('pendingReview'),
+        t.literal('ready'),
+        t.literal('rejected'),
+        t.literal('running'),
+        t.literal('scheduled'),
+        t.literal('terminated'),
+      ]),
+    ),
+
+    /**
+     * Landing page type is required. The presence of other fields depends on the landing page type. This property may not be modified after campaign creation.
+     */
+    landingPage: t.strict({
+      pageType: t.union([t.literal('store'), t.literal('detailPage')]),
+      url: t.string,
+    }),
   }),
+  t.partial({
+    /**
+     * The ID of the portfolio.
+     */
+    portfolioId: PortfolioId,
 
-  /**
-   * Landing page type is required. The presence of other fields depends on the landing page type. This property may not be modified after campaign creation.
-   */
-  landingPage: t.union([t.literal('productList'), t.literal('store'), t.literal('customUrl')]),
+    /**
+     * endDate must be greater than startDate. Format YYYYMMDD.
+     * If endDate is not set, campaign will run forever. endDate must be used with startDate. endDate is required for lifetime budget option.
+     */
+    endDate: t.string,
 
-  keywords: t.intersection([
-    t.strict({
-      /**
-       * The text for the positive or negative keyword. Maximum length is ten words.
-       */
-      keywordText: t.string,
+    /**
+     * Required for sellers. brandEntityId is defined in the seller profile. Used in campaign creation and asset registration.
+     */
+    brandEntityId: t.string,
 
-      /**
-       * The match type for the positive or negative keyword.
-       */
-      matchType: t.union([t.literal('broad'), t.literal('exact'), t.literal('phrase')]),
-    }),
-    t.partial({
-      /**
-       * Market threshold specifics can be found at our external docs page, under Supported Features \> Keyword bid constraints by marketplace.
-       * Bid should not be larger than budget.
-       */
-      bid: t.number,
-    }),
-  ]),
-})
+    /**
+     * This field can be set when 'bidOptimization' is set to false. Value is a percentage with two decimal places and range is -99.00 to +99.99.
+     * Example: A -30.00 decrease on a $5.00 bid will become $3.00.
+     */
+    bidMultiplier: t.number,
+
+    /**
+     * Allow Amazon to automatically optimize bids for placements below top of search.
+     * Default to true if not set in campaign creation request.
+     */
+    bidOptimization: t.boolean,
+
+    creative: t.intersection([
+      t.strict({
+        /**
+         * List of ASINs shown on the creative. Min 0, max 3
+         */
+        asins: t.array(t.string),
+      }),
+      t.partial({
+        /**
+         * Headline text. Max length 50 characters, except JP market, which is maxlength 35 characters.
+         */
+        headline: t.string,
+
+        /**
+         * URL of the hosted image. This is a readOnly field returned in the response.
+         */
+        brandLogoUrl: t.readonly(t.string),
+
+        /**
+         * Name of brand to be displayed. Max length 30 characters.
+         */
+        brandName: t.string,
+
+        /**
+         * Asset ID of brand logo in Store Assets Library.
+         * If the campaigns were created in advertising console before Store Assets Library launch, the brandLogoAssetID will not be populated in the API response.
+         */
+        brandLogoAssetID: t.string,
+      }),
+    ]),
+
+    keywords: t.intersection([
+      t.strict({
+        /**
+         * The text for the positive or negative keyword. Maximum length is ten words.
+         */
+        keywordText: t.string,
+
+        /**
+         * The match type for the positive or negative keyword.
+         */
+        matchType: t.union([t.literal('broad'), t.literal('exact'), t.literal('phrase')]),
+      }),
+      t.partial({
+        /**
+         * Market threshold specifics can be found at our external docs page, under Supported Features \> Keyword bid constraints by marketplace.
+         * Bid should not be larger than budget.
+         */
+        bid: t.number,
+      }),
+    ]),
+  }),
+])
+
 export type SponsoredBrandsCampaign = t.TypeOf<typeof SponsoredBrandsCampaign>
 
 export const CampaignResponse = t.intersection([
