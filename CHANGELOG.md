@@ -3,6 +3,13 @@
           All notable changes to this project will be documented in this file.
           See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.15](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.14...v3.1.15) (2021-04-21)
+
+
+### Bug Fixes
+
+* sponsored brands campaigns types ([bfad866](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/bfad8665994ee4941385b3662e7062872840a9f2))
+
 ## [3.1.14](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.13...v3.1.14) (2021-04-20)
 
 
