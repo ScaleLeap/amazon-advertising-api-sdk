@@ -1,0 +1,200 @@
+[
+  {
+    "name": "[brand] Store.Image",
+    "budget": 200.0,
+    "bidOptimization": true,
+    "portfolioId": 111,
+    "adFormat": "productCollection",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20210309",
+    "state": "enabled",
+    "servingStatus": "running",
+    "creative": {
+      "brandName": "brand",
+      "brandLogoAssetID": "amzn1.assetlibrary.asset1.edbceb790b7a538eb4ec2509b7e14fa5:version_v1",
+      "headline": "headline",
+      "shouldOptimizeAsins": false,
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "brandLogoUrl": "--brandLogoUrl--"
+    },
+    "landingPage": {
+      "pageType": "store",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "[brand] Store.Product",
+    "budget": 800.0,
+    "bidOptimization": false,
+    "bidMultiplier": -95.0,
+    "portfolioId": 111,
+    "adFormat": "productCollection",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20210312",
+    "state": "enabled",
+    "servingStatus": "running",
+    "creative": {
+      "brandName": "brand",
+      "brandLogoAssetID": "amzn1.assetlibrary.asset1.edbceb790b7a538eb4ec2509b7e14fa5:version_v1",
+      "headline": "headline",
+      "shouldOptimizeAsins": false,
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "brandLogoUrl": "--brandLogoUrl--"
+    },
+    "landingPage": {
+      "pageType": "store",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "[brand] Store.Image_DEV",
+    "budget": 50.0,
+    "bidOptimization": true,
+    "portfolioId": 111,
+    "adFormat": "productCollection",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20210402",
+    "state": "paused",
+    "servingStatus": "paused",
+    "creative": {
+      "brandName": "brand",
+      "brandLogoAssetID": "amzn1.assetlibrary.asset1.edbceb790b7a538eb4ec2509b7e14fa5:version_v1",
+      "headline": "headline",
+      "shouldOptimizeAsins": false,
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "brandLogoUrl": "--brandLogoUrl--"
+    },
+    "landingPage": {
+      "pageType": "store",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "Brand Video Campaign",
+    "budget": 40.0,
+    "adFormat": "video",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20200729",
+    "state": "paused",
+    "servingStatus": "paused",
+    "creative": {
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "videoMediaIds": [
+        "amzn1.adex.media1.b93c1a17-d818-4eb3-90fd-3713580c7c5f"
+      ],
+      "type": "video"
+    },
+    "landingPage": {
+      "pageType": "detailPage",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "Campaign - 9/23/2020 15:26:16",
+    "budget": 150.0,
+    "portfolioId": 111,
+    "adFormat": "video",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20200923",
+    "state": "paused",
+    "servingStatus": "paused",
+    "creative": {
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "videoMediaIds": [
+        "amzn1.adex.media1.18f85b0c-5c32-4320-9b58-d4aa9a252d1b"
+      ],
+      "type": "video"
+    },
+    "landingPage": {
+      "pageType": "detailPage",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "Video",
+    "budget": 150.0,
+    "portfolioId": 111,
+    "adFormat": "video",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20210305",
+    "state": "paused",
+    "servingStatus": "paused",
+    "creative": {
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "videoMediaIds": [
+        "amzn1.adex.media1.18f85b0c-5c32-4320-9b58-d4aa9a252d1b"
+      ],
+      "type": "video"
+    },
+    "landingPage": {
+      "pageType": "detailPage",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "Video v2",
+    "budget": 200.0,
+    "portfolioId": 111,
+    "adFormat": "video",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20210319",
+    "state": "enabled",
+    "servingStatus": "running",
+    "creative": {
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "videoMediaIds": [
+        "amzn1.adex.media1.65782f90-9b18-4400-9b09-45d22d7a2fb3"
+      ],
+      "type": "video"
+    },
+    "landingPage": {
+      "pageType": "detailPage",
+      "url": "--landingPageUrl--"
+    }
+  },
+  {
+    "name": "Video v3",
+    "budget": 400.0,
+    "portfolioId": 111,
+    "adFormat": "video",
+    "campaignId": 222,
+    "budgetType": "daily",
+    "startDate": "20210330",
+    "state": "enabled",
+    "servingStatus": "running",
+    "creative": {
+      "asins": [
+        "B07H8NS5MS"
+      ],
+      "videoMediaIds": [
+        "amzn1.adex.media1.d0938098-2c53-4c53-84fe-d66e80564f57"
+      ],
+      "type": "video"
+    },
+    "landingPage": {
+      "pageType": "detailPage",
+      "url": "--landingPageUrl--"
+    }
+  }
+]
