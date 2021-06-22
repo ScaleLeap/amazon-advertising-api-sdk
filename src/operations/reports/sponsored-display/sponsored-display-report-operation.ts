@@ -4,6 +4,7 @@ import { BaseReportOperation } from '../base-report-operation'
 import { ReportResponse } from '../report-response'
 import {
   SponsoredDisplayAdGroupReportParams,
+  SponsoredDisplayAsinReportParams,
   SponsoredDisplayCampaignReportParams,
   SponsoredDisplayProductAdsReportParams,
   SponsoredDisplayTargetReportParams,
@@ -11,6 +12,7 @@ import {
 
 export type SponsoredDisplayReportParams =
   | SponsoredDisplayAdGroupReportParams
+  | SponsoredDisplayAsinReportParams
   | SponsoredDisplayCampaignReportParams
   | SponsoredDisplayProductAdsReportParams
   | SponsoredDisplayTargetReportParams
