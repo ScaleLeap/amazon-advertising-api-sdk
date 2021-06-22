@@ -127,6 +127,23 @@ describe('SponsoredDisplayCampaign', () => {
   })
 })
 
+describe('Campaign Edge Case', () => {
+  it('should allow a non-existent strategy when parsing the bidding parameter', () => {
+    const edgecaseFragment = t.Campaign.decode({
+      campaignId: 108971111858080,
+      name: 'test',
+      campaignType: 'sponsoredProducts',
+      targetingType: 'auto',
+      premiumBidAdjustment: false,
+      dailyBudget: 1,
+      startDate: '20161024',
+      state: 'archived',
+      bidding: { adjustments: [] }
+    });
+    expect(isRight(edgecaseFragment)).toBeTruthy();
+  });
+});
+
 /**
  * TODO: Update test script:
  * SponsoredBrandsCampaign should pass listCampaigns response
