@@ -43,10 +43,14 @@ export const CampaignState = t.union([
 ])
 export type CampaignState = t.TypeOf<typeof CampaignState>
 
-export const CampaignBidding = t.type({
-  strategy: CampaignBiddingStrategy,
-  adjustments: CampaignBiddingAdjustments,
-})
+export const CampaignBidding = t.intersection([
+  t.type({
+    adjustments: CampaignBiddingAdjustments
+  }),
+  t.partial({
+    strategy: CampaignBiddingStrategy
+  })
+])
 export type CampaignBidding = t.TypeOf<typeof CampaignBidding>
 
 export const Campaign = t.intersection([
