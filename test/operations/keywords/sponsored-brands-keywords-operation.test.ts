@@ -62,7 +62,7 @@ describe('SponsoredBrandsKeywordsOperation', () => {
     })
   })
 
-  describe.skip('createKeywords', () => {
+  describe('createKeywords', () => {
     it(`should create one or more sb keywords`, async () => {
       const params: CreateSponsoredBrandsKeywordParams[] = [
         {
