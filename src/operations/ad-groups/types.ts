@@ -37,6 +37,7 @@ export type AdGroupResponseStatus = t.TypeOf<typeof AdGroupResponseStatus>
  */
 export const AdGroupServingStatus = t.union([
   t.literal('AD_GROUP_ARCHIVED'),
+  t.literal('AD_GROUP_INCOMPLETE'), // The docs don't mention about this type
   t.literal('AD_GROUP_PAUSED'),
   t.literal('AD_GROUP_STATUS_ENABLED'),
   t.literal('AD_POLICING_SUSPENDED'),
@@ -48,6 +49,7 @@ export const AdGroupServingStatus = t.union([
   t.literal('ADVERTISER_PAYMENT_FAILURE'),
   t.literal('PORTFOLIO_PENDING_START_DATE'), // The docs don't mention about this type
   t.literal('PORTFOLIO_ENDED'), // The docs don't mention about this type
+  t.literal('ENDED'), // The docs don't mention about this type
 ])
 export type AdGroupServingStatus = t.TypeOf<typeof AdGroupServingStatus>
 
