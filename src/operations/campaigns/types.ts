@@ -287,6 +287,7 @@ export const CampaignServingStatus = t.union([
   t.literal('PORTFOLIO_ENDED'), // The docs don't say about this type
   t.literal('CAMPAIGN_INCOMPLETE'), // The docs don't say about this type
   t.literal('PENDING_START_DATE'), // The docs don't say about this type
+  t.literal('ENDED'), // The docs don't say about this type
 ])
 export type CampaignServingStatus = t.TypeOf<typeof CampaignServingStatus>
 
