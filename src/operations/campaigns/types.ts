@@ -45,11 +45,11 @@ export type CampaignState = t.TypeOf<typeof CampaignState>
 
 export const CampaignBidding = t.intersection([
   t.type({
-    adjustments: CampaignBiddingAdjustments
+    adjustments: CampaignBiddingAdjustments,
   }),
   t.partial({
-    strategy: CampaignBiddingStrategy
-  })
+    strategy: CampaignBiddingStrategy,
+  }),
 ])
 export type CampaignBidding = t.TypeOf<typeof CampaignBidding>
 
