@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.20](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.19...v3.1.20) (2021-07-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @scaleleap/amazon-marketplaces to v11.1.0 ([7fedb14](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7fedb144f810b106845bb3d2ca3125bf28668268))
+
 ## [3.1.19](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.18...v3.1.19) (2021-07-30)
 
 
