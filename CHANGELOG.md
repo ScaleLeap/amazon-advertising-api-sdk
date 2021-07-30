@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.19](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.18...v3.1.19) (2021-07-30)
+
+
+### Bug Fixes
+
+* adds ENDED AdGroup status ([#803](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/803)) ([e56f46b](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e56f46b16de52c6fc875c99d0b408fbdab827d78))
+
 ## [3.1.18](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.17...v3.1.18) (2021-06-22)
 
 
