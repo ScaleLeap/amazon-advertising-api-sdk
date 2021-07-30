@@ -34,7 +34,7 @@
     "@scaleleap/amazon-marketplaces": "11.1.0",
     "axios": "0.21.1",
     "client-oauth2": "4.3.3",
-    "fp-ts": "2.10.5",
+    "fp-ts": "2.11.1",
     "http-status-codes": "2.1.4",
     "io-ts": "2.2.16",
     "io-ts-promise": "2.0.2",
