@@ -138,11 +138,29 @@ describe('Campaign Edge Case', () => {
       dailyBudget: 1,
       startDate: '20161024',
       state: 'archived',
-      bidding: { adjustments: [] }
-    });
-    expect(isRight(edgecaseFragment)).toBeTruthy();
-  });
-});
+      bidding: { adjustments: [] },
+    })
+    expect(isRight(edgecaseFragment)).toBeTruthy()
+  })
+})
+
+describe('Campaign Extended Edge Case', () => {
+  it('should pass getCampaignEx when servingStatus is "ENDED"', () => {
+    const edgecaseFragment = t.CampaignExtended.decode({
+      campaignId: 108971111858080,
+      name: 'test',
+      campaignType: 'sponsoredProducts',
+      targetingType: 'auto',
+      premiumBidAdjustment: false,
+      dailyBudget: 1,
+      startDate: '20161024',
+      state: 'archived',
+      servingStatus: 'ENDED',
+      bidding: { adjustments: [] },
+    })
+    expect(isRight(edgecaseFragment)).toBeTruthy()
+  })
+})
 
 /**
  * TODO: Update test script:
