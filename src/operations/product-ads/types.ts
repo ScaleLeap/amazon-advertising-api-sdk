@@ -31,6 +31,7 @@ export const ProductAdServingStatus = t.union([
   t.literal('MISSING_DECORATION'),
   t.literal('PORTFOLIO_ENDED'),
   t.literal('ADVERTISER_PAYMENT_FAILURE'),
+  t.literal('NOT_BUYABLE'), // The docs don't mention about this type
 ])
 export type ProductAdServingStatus = t.TypeOf<typeof ProductAdServingStatus>
 
