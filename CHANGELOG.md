@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.27](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.26...v3.1.27) (2021-09-14)
+
+
+### Bug Fixes
+
+* API endpoints for negative targeting clause ([#839](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/839)) ([d17da88](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d17da88759f5172664a9063fe17bf9bcd3b47fbe))
+
 ## [3.1.26](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.1.25...v3.1.26) (2021-09-13)
 
 
