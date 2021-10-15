@@ -28,7 +28,6 @@ export class HttpClient {
   private get headers(): Headers {
     const headers: Headers = {
       'Content-Type': JSON_CONTENT_TYPE,
-      Accept: JSON_CONTENT_TYPE,
       Authorization: `Bearer ${this.auth.accessToken}`,
       'Amazon-Advertising-API-ClientId': this.auth.clientId,
       'User-Agent': USER_AGENT,
