@@ -1,10 +1,10 @@
 import ClientOAuth2 from 'client-oauth2'
 import { Options } from 'client-oauth2'
-import axios, { Method } from 'axios'
 import { defaultsDeep } from 'lodash'
 import { USER_AGENT } from './constants'
 import { Marketplace } from './maketplace'
 import type { Headers } from './http-client'
+import { axios, Method } from './axios'
 
 const request: ClientOAuth2.Request = async (
   method,
