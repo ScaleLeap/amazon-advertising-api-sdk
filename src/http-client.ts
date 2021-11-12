@@ -1,7 +1,7 @@
-import axios, { Method, AxiosResponse } from 'axios'
+import { axios, Method, AxiosResponse } from './axios'
 import HttpStatus from 'http-status-codes'
 
-import { USER_AGENT, JSON_CONTENT_TYPE } from './constants'
+import { JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
 import gunzip from './gunzip'
 import { inspect } from 'util'
@@ -30,7 +30,6 @@ export class HttpClient {
       'Content-Type': JSON_CONTENT_TYPE,
       Authorization: `Bearer ${this.auth.accessToken}`,
       'Amazon-Advertising-API-ClientId': this.auth.clientId,
-      'User-Agent': USER_AGENT,
     }
 
     if (this.auth.scope) {
@@ -193,9 +192,6 @@ export class HttpClient {
 
     const download = await axios.get<ArrayBuffer>(location, {
       responseType: 'arraybuffer',
-      headers: {
-        'User-Agent': USER_AGENT,
-      },
     })
 
     if (download.status !== this.httpStatus.OK) {
