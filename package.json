@@ -31,7 +31,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@scaleleap/amazon-marketplaces": "12.0.1",
+    "@scaleleap/amazon-marketplaces": "13.0.0",
     "agentkeepalive": "4.1.4",
     "axios": "0.24.0",
     "client-oauth2": "4.3.3",
