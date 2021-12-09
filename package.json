@@ -50,7 +50,7 @@
     "@scaleleap/config": "2.0.8",
     "@scaleleap/jest-polly": "1.5.27",
     "@types/jest": "27.0.3",
-    "@types/lodash": "4.14.177",
+    "@types/lodash": "4.14.178",
     "@types/node": "14.17.34",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
