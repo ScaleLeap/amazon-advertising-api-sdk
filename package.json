@@ -36,7 +36,7 @@
     "axios": "0.25.0",
     "client-oauth2": "4.3.3",
     "fp-ts": "2.11.8",
-    "http-status-codes": "2.1.4",
+    "http-status-codes": "2.2.0",
     "io-ts": "2.2.16",
     "io-ts-promise": "2.0.2",
     "io-ts-reporters": "1.2.2",
