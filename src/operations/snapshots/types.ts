@@ -25,6 +25,18 @@ export type SponsoredProductsRecordType = t.TypeOf<typeof SponsoredProductsRecor
 export const SponsoredBrandsRecordType = t.union([t.literal('campaigns'), t.literal('keywords')])
 export type SponsoredBrandsRecordType = t.TypeOf<typeof SponsoredBrandsRecordType>
 
+export const SponsoredDisplayRecordType = t.union([
+  t.literal('campaigns'),
+  t.literal('adGroups'),
+  t.literal('productAds'),
+  t.literal('keywords'),
+  t.literal('negativeKeywords'),
+  t.literal('campaignNegativeKeywords'),
+  t.literal('targets'),
+  t.literal('negativeTargets'),
+])
+export type SponsoredDisplayRecordType = t.TypeOf<typeof SponsoredDisplayRecordType>
+
 export const RecordTypeResponse = t.union([
   t.literal('campaign'),
   t.literal('adGroup'),
