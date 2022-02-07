@@ -11,7 +11,7 @@ import {
 } from './types'
 
 export class SponsoredDisplaySnapshotOperation extends Operation {
-  protected resource = `${this.version}/${AmazonAdTypeURIPrefix.SponsoredDisplay}/`
+  protected resource = `${AmazonAdTypeURIPrefix.SponsoredDisplay}/`
 
   /**
    * Downloads the snapshot corresponding to the success snapshot response specified
@@ -22,7 +22,7 @@ export class SponsoredDisplaySnapshotOperation extends Operation {
   public async downloadSnapshot<T extends SnapshotResultType[]>(
     snapshot: SuccessSnapshotResponse,
   ): Promise<T> {
-    return this.client.download(`${this.version}/snapshots/${snapshot.snapshotId}/download`)
+    return this.client.download(`snapshots/${snapshot.snapshotId}/download`)
   }
 
   /**
