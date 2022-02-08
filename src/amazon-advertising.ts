@@ -33,6 +33,7 @@ import { SponsoredDisplayReportOperation } from './operations/reports/sponsored-
 import { SponsoredProductsReportOperation } from './operations/reports/sponsored-products/sponsored-products-report-operation'
 import { SponsoredBrandsSnapshotOperation } from './operations/snapshots/sponsored-brands-snapshot-operation'
 import { SponsoredProductsSnapshotOperation } from './operations/snapshots/sponsored-products-snapshot-operation'
+import { SponsoredDisplaySnapshotOperation } from './operations/snapshots/sponsored-display-snapshot-operation'
 import { SponsoredBrandsStoresInfoOperation } from './operations/stores/sponsored-brands-stores-info-operation'
 import { SponsoredDisplaySuggestedProductsOperation } from './operations/suggested-products/sponsored-display-suggested-products-operation'
 import { SponsoredBrandsMediaOperation } from './operations/media/sponsored-brands-media-operation'
@@ -199,6 +200,11 @@ export class AmazonAdvertising {
   @LazyGetter()
   get sponsoredProductsSnapshot() {
     return this.operationProvider.create(SponsoredProductsSnapshotOperation)
+  }
+
+  @LazyGetter()
+  get sponsoredDisplaySnapshot() {
+    return this.operationProvider.create(SponsoredDisplaySnapshotOperation)
   }
 
   @LazyGetter()
