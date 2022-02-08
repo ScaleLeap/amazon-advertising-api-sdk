@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.6...v3.3.7) (2022-02-08)
+
+
+### Bug Fixes
+
+* added SponsoredDisplaySnapshotOperation  in amazon-advertising.ts ([#923](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/923)) ([8de367f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/8de367f1b00581bb3ad60b7cf397b7d3c8712699))
+
 ## [3.3.6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.5...v3.3.6) (2022-02-07)
 
 
