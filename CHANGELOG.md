@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.8...v3.3.9) (2022-02-15)
+
+
+### Bug Fixes
+
+* expose sponsored display snapshot operation ([c68fed9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/c68fed9647e70661608284327f33f702a009c96a))
+
 ## [3.3.8](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.7...v3.3.8) (2022-02-14)
 
 
