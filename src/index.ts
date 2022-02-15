@@ -32,6 +32,7 @@ export * from './operations/reports/sponsored-products/sponsored-products-report
 export * from './operations/snapshots/sponsored-products-snapshot-operation'
 export * from './operations/drafts/sponsored-brands-drafts-operation'
 export * from './operations/snapshots/sponsored-brands-snapshot-operation'
+export * from './operations/snapshots/sponsored-display-snapshot-operation'
 export * from './operations/stores/sponsored-brands-stores-info-operation'
 export * from './operations/suggested-products/sponsored-display-suggested-products-operation'
 export * from './operations/amazon-ad-type-uri-prefix'
