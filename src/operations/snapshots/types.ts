@@ -46,6 +46,14 @@ export const RecordTypeResponse = t.union([
   t.literal('campaignNegativeKeyword'),
   t.literal('target'),
   t.literal('negativeTarget'),
+  t.literal('campaigns'),
+  t.literal('adGroups'),
+  t.literal('productAds'),
+  t.literal('keywords'),
+  t.literal('negativeKeywords'),
+  t.literal('campaignNegativeKeywords'),
+  t.literal('targets'),
+  t.literal('negativeTargets'),
 ])
 export type RecordTypeResponse = t.TypeOf<typeof RecordTypeResponse>
 
