@@ -22,7 +22,7 @@ export class SponsoredDisplaySnapshotOperation extends Operation {
   public async downloadSnapshot<T extends SnapshotResultType[]>(
     snapshot: SuccessSnapshotResponse,
   ): Promise<T> {
-    return this.client.download(`snapshots/${snapshot.snapshotId}/download`)
+    return this.client.download(`${this.resource}snapshots/${snapshot.snapshotId}/download`)
   }
 
   /**
