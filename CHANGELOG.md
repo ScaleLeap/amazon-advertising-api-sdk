@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.12](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.11...v3.3.12) (2022-02-24)
+
+
+### Bug Fixes
+
+* adds `CAMPAIGN_INCOMPLETE` ([0a38fc6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/0a38fc6a7edd991b99eac04dbe8f46d6659ecbac))
+
 ## [3.3.11](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.10...v3.3.11) (2022-02-16)
 
 
