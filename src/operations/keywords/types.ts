@@ -44,6 +44,7 @@ export const KeywordServingStatus = t.union([
   t.literal('AD_GROUP_ARCHIVED'),
   t.literal('CAMPAIGN_PAUSED'),
   t.literal('CAMPAIGN_ARCHIVED'),
+  t.literal('CAMPAIGN_INCOMPLETE'),
   t.literal('ACCOUNT_OUT_OF_BUDGET'),
   t.literal('ADVERTISER_PAYMENT_FAILURE'),
 ])
