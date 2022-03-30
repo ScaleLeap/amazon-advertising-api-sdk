@@ -49,7 +49,7 @@ function fixRecordTypeResponse(res: ReportResponse): ReportResponse {
 }
 
 export class SponsoredProductsReportOperation<
-  ReportParams extends SponsoredProductsReportParams
+  ReportParams extends SponsoredProductsReportParams,
 > extends BaseReportOperation {
   private type = 'sp'
 

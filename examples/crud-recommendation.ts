@@ -43,9 +43,10 @@ sponsoredBrandsTargetingRecommendationsOperation.getBrandRecommendations(
 )
 
 // Gets a list of recommended categories for targeting.
-const sponsoredBrandsCategoryRecommendationsRequest: SponsoredBrandsCategoryRecommendationsRequest = {
-  asins: ASINS,
-}
+const sponsoredBrandsCategoryRecommendationsRequest: SponsoredBrandsCategoryRecommendationsRequest =
+  {
+    asins: ASINS,
+  }
 sponsoredBrandsTargetingRecommendationsOperation.getCategoryRecommendations(
   sponsoredBrandsCategoryRecommendationsRequest,
 )

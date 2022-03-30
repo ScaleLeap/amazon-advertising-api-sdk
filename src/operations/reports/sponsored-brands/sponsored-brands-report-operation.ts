@@ -16,7 +16,7 @@ export type SponsoredBrandsReportParams =
   | SponsoredBrandsTargetReportParams
 
 export class SponsoredBrandsReportOperation<
-  ReportParams extends SponsoredBrandsReportParams
+  ReportParams extends SponsoredBrandsReportParams,
 > extends BaseReportOperation {
   private type = 'hsa'
 

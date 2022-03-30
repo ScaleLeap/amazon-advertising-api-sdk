@@ -96,7 +96,8 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
 
   describe('listCampaignNegativeKeywordsExtended', () => {
     it(`should return an array of campaign negative keywords extendeds`, async () => {
-      const res: CampaignNegativeKeywordExtended[] = await operation.listCampaignNegativeKeywordsExtended()
+      const res: CampaignNegativeKeywordExtended[] =
+        await operation.listCampaignNegativeKeywordsExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
     })
