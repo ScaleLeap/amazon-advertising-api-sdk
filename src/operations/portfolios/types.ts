@@ -22,12 +22,12 @@ export const PortfolioBudget = t.partial({
   /**
    * The policy of the portfolio.
    */
-  policy: t.literal('dateRange'),
+  policy: t.union([t.literal('dateRange'), t.literal('MonthlyRecurring')]),
 
   /**
    * The start date of the portfolio.
    */
-  startDate: t.string,
+  startDate: t.union([t.string, t.null]),
 
   /**
    * The end date of the portfolio.
