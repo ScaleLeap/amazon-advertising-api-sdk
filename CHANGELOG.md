@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.1...v3.4.2) (2022-03-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to v0.26.1 ([d593c98](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/d593c98b8bdd38fd401b203bc280208f6ed40216))
+
 ## [3.4.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.0...v3.4.1) (2022-03-30)
 
 
