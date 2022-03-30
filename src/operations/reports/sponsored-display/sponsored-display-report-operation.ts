@@ -16,7 +16,7 @@ export type SponsoredDisplayReportParams =
   | SponsoredDisplayTargetReportParams
 
 export class SponsoredDisplayReportOperation<
-  ReportParams extends SponsoredDisplayReportParams
+  ReportParams extends SponsoredDisplayReportParams,
 > extends BaseReportOperation {
   private type = 'sd'
 

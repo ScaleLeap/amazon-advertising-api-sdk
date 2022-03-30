@@ -23,23 +23,20 @@ export class EnumType<A> extends t.Type<A> {
 // simple helper function
 export const createEnumType = <T>(e: object, name?: string) => new EnumType<T>(e, name)
 
-export const AmazonMarketplaceAdvertisingCountryCodeType = createEnumType<
-  AmazonMarketplaceAdvertisingCountryCode
->(AmazonMarketplaceAdvertisingCountryCode)
+export const AmazonMarketplaceAdvertisingCountryCodeType =
+  createEnumType<AmazonMarketplaceAdvertisingCountryCode>(AmazonMarketplaceAdvertisingCountryCode)
 export type AmazonMarketplaceAdvertisingCountryCodeType = t.TypeOf<
   typeof AmazonMarketplaceAdvertisingCountryCodeType
 >
 
-export const AmazonMarketplaceAdvertisingCurrencyType = createEnumType<
-  AmazonMarketplaceAdvertisingCurrency
->(AmazonMarketplaceAdvertisingCurrency)
+export const AmazonMarketplaceAdvertisingCurrencyType =
+  createEnumType<AmazonMarketplaceAdvertisingCurrency>(AmazonMarketplaceAdvertisingCurrency)
 export type AmazonMarketplaceAdvertisingCurrencyType = t.TypeOf<
   typeof AmazonMarketplaceAdvertisingCurrencyType
 >
 
-export const AmazonMarketplaceAdvertisingTimeZoneType = createEnumType<
-  AmazonMarketplaceAdvertisingTimeZone
->(AmazonMarketplaceAdvertisingTimeZone)
+export const AmazonMarketplaceAdvertisingTimeZoneType =
+  createEnumType<AmazonMarketplaceAdvertisingTimeZone>(AmazonMarketplaceAdvertisingTimeZone)
 export type AmazonMarketplaceAdvertisingTimeZoneType = t.TypeOf<
   typeof AmazonMarketplaceAdvertisingTimeZoneType
 >
