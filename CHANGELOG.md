@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.0...v3.4.1) (2022-03-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency agentkeepalive to v4.2.1 ([30d5c68](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/30d5c684992418cae561a3cdbb58d3db2720db21))
+
 # [3.4.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.12...v3.4.0) (2022-03-30)
 
 

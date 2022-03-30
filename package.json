@@ -1,6 +1,6 @@
 {
   "name": "@scaleleap/amazon-advertising-api-sdk",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "Amazon Advertising API TypeScript and Node.js Unofficial SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
