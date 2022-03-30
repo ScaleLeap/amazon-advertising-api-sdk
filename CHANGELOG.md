@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.12...v3.4.0) (2022-03-30)
+
+
+### Features
+
+* modified PortfolioBudget type ([#938](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/938)) ([7857161](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/785716152dab2f94887045ea29f8a30544f3ce33))
+
 ## [3.3.12](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.3.11...v3.3.12) (2022-02-24)
 
 
