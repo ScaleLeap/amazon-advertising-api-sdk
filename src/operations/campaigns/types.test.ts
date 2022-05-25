@@ -107,6 +107,20 @@ describe('CampaignResponse', () => {
     })
     expect(isRight(res)).toBeTruthy()
   })
+
+  it('should pass error response of createCampaigns, updateCampaigns and archiveCampaign', () => {
+    const oldError = t.CampaignResponse.decode({
+      code: 'INVALID_ARGUMENT',
+      details: 'Campaign name is too long',
+    })
+    expect(isRight(oldError)).toBeTruthy()
+
+    const newError = t.CampaignResponse.decode({
+      code: 'INVALID_ARGUMENT',
+      description: ' An entity with that name already exist',
+    })
+    expect(isRight(newError)).toBeTruthy()
+  })
 })
 
 describe('SponsoredDisplayCampaign', () => {
