@@ -479,20 +479,22 @@ export type SponsoredBrandsCampaign = t.TypeOf<typeof SponsoredBrandsCampaign>
 export const CampaignResponse = t.intersection([
   t.type({
     /**
-     * The ID of the campaign.
-     */
-    campaignId: CampaignId,
-
-    /**
      * An enumerated success or error code for machine use.
      */
     code: t.string,
   }),
   t.partial({
     /**
+     * The ID of the campaign. Available if code is SUCCESS.
+     */
+    campaignId: CampaignId,
+
+    /**
      * A human-readable description of the error, if unsuccessful.
+     * Ads API inconsistently returns details or description between APIs
      */
     details: t.string,
+    description: t.string,
   }),
 ])
 export type CampaignResponse = t.TypeOf<typeof CampaignResponse>
