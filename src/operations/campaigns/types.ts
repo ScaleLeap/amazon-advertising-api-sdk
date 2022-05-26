@@ -485,18 +485,15 @@ export const CampaignResponse = t.intersection([
   }),
   t.partial({
     /**
-     * The ID of the campaign.
+     * The ID of the campaign. Available if code is SUCCESS.
      */
     campaignId: CampaignId,
 
     /**
      * A human-readable description of the error, if unsuccessful.
+     * Ads API inconsistently returns details or description between APIs
      */
     details: t.string,
-
-    /**
-     * A human-readable description of the error, if unsuccessful.
-     */
     description: t.string,
   }),
 ])

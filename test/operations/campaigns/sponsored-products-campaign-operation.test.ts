@@ -93,7 +93,10 @@ describe('SponsoredProductsCampaignOperation', () => {
 
       expect(createdCampaignResponse.code).toBe('SUCCESS')
 
-      if (createdCampaignResponse.code === 'SUCCESS') {
+      if (
+        createdCampaignResponse.code === 'SUCCESS' &&
+        createdCampaignResponse.campaignId != null
+      ) {
         const res = await campaignOperation.getCampaign(createdCampaignResponse.campaignId)
         expect(res.bidding).toMatchObject(bidding)
       }
@@ -116,6 +119,9 @@ describe('SponsoredProductsCampaignOperation', () => {
           dailyBudget,
         },
       ])
+      if (updateCampaignResponse.code !== 'SUCCESS' || updateCampaignResponse.campaignId == null) {
+        throw new Error('updateCampaign must be successful.')
+      }
       const campaign = await campaignOperation.getCampaign(updateCampaignResponse.campaignId)
 
       expect(campaign.portfolioId).toBe(portfolioId)
