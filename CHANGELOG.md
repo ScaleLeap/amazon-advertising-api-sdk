@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.4...v3.4.5) (2022-05-26)
+
+
+### Bug Fixes
+
+* error response of createCampaign cannot be parsed ([#952](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/952)) ([1ebb28a](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/1ebb28a562a258b9822e970719130674696ecc87))
+
 ## [3.4.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.3...v3.4.4) (2022-04-20)
 
 
