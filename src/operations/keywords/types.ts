@@ -312,19 +312,21 @@ export type NegativeKeywordExtended = t.TypeOf<typeof NegativeKeywordExtended>
 export const NegativeKeywordResponse = t.intersection([
   t.type({
     /**
-     * The ID of the keyword that was created/updated, if successful
-     */
-    keywordId: KeywordId,
-
-    /**
      * An enumerated success or error code for machine use.
      */
     code: NegativeKeywordResponseStatus,
   }),
   t.partial({
     /**
-     * A human-readable description of the error, if unsuccessful.
+     * The ID of the keyword that was created/updated, if successful
      */
+    keywordId: KeywordId,
+
+    /**
+     * A human-readable description of the error, if unsuccessful.
+     * Ads API returns either description or details.
+     */
+    description: t.string,
     details: t.string,
   }),
 ])
