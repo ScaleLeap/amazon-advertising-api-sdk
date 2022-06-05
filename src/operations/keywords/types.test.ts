@@ -80,3 +80,33 @@ describe('SponsoredBrandsKeywordRecommendation', () => {
     expect(isRight(res)).toBeTruthy()
   })
 })
+
+describe('NegativeKeywordResponse', () => {
+  it('should pass SUCCESS createNegativeKeywords response', () => {
+    const res = t.NegativeKeywordResponse.decode({
+      code: 'SUCCESS',
+      keywordId: 59796344109969,
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+
+  it('should pass INVALID_ARGUMENT createNegativeKeywords response with description', () => {
+    const res = t.NegativeKeywordResponse.decode({
+      code: 'INVALID_ARGUMENT',
+      description: 'Targetingclause (keyword) is invalid',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+
+  it('should pass INVALID_ARGUMENT createNegativeKeywords response with details', () => {
+    const res = t.NegativeKeywordResponse.decode({
+      code: 'INVALID_ARGUMENT',
+      details:
+        'The request input is invalid. Targetingclause (keyword) name is empty Targetingclause (keyword) is invalid',
+    })
+
+    expect(isRight(res)).toBeTruthy()
+  })
+})
