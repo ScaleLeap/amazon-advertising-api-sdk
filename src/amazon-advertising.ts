@@ -26,6 +26,7 @@ import { SponsoredDisplayNegativeTargetingOperation } from './operations/negativ
 import { SponsoredProductsNegativeTargetingOperation } from './operations/negative-targeting/sponsored-products-negative-targeting-operation'
 import { SponsoredProductsProductTargetingOperation } from './operations/product-targeting/sponsored-products-product-targeting-operation'
 import { ProfileOperation } from './operations/profiles/profile-operation'
+import { AccountOperation } from './operations/test-accounts/test-account-operation'
 import { SponsoredBrandsBidRecommendationsOperation } from './operations/recommendations/sponsored-brands-bid-recommendations-operation'
 import { SponsoredBrandsTargetingRecommendationsOperation } from './operations/recommendations/sponsored-brands-targeting-recommendations-operation'
 import { SponsoredBrandsReportOperation } from './operations/reports/sponsored-brands/sponsored-brands-report-operation'
@@ -165,6 +166,11 @@ export class AmazonAdvertising {
   @LazyGetter()
   get profile() {
     return this.operationProvider.create(ProfileOperation)
+  }
+
+  @LazyGetter()
+  get testAccount() {
+    return this.operationProvider.create(AccountOperation)
   }
 
   @LazyGetter()
