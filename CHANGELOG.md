@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.8](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.7...v3.4.8) (2022-07-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to v0.27.2 ([8576802](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/85768026e37177e7412aad684c20d410233254a8))
+* **deps:** update dependency fp-ts to v2.12.1 ([b29a60d](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b29a60d46a6d20ef9cfbd907759ae474dc274c90))
+
 ## [3.4.7](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.4.6...v3.4.7) (2022-06-07)
 
 
