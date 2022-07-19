@@ -4,7 +4,7 @@ import * as t from './types'
 describe('CreateAccountResponse', () => {
   it('should pass', () => {
     const res = t.CreateAccountResponse.decode({
-      requestId: 'VMTZD2V14R745AHA5C4S'
+      requestId: 'VMTZD2V14R745AHA5C4S',
     })
 
     expect(isRight(res)).toBeTruthy()
@@ -19,14 +19,13 @@ describe('CreateAccountResponse', () => {
 
 describe('Account', () => {
   it('should pass', () => {
-    const res = t.Account.decode(
-      {
-        countryCode: "IT",
-        asins: [],
-        accountType: "VENDOR",
-        id: "ENTITY2TQYXTN0FH5DK",
-        status: "COMPLETED"
-      },)
+    const res = t.Account.decode({
+      countryCode: 'IT',
+      asins: [],
+      accountType: 'VENDOR',
+      id: 'ENTITY2TQYXTN0FH5DK',
+      status: 'COMPLETED',
+    })
 
     expect(isRight(res)).toBeTruthy()
   })
@@ -41,11 +40,11 @@ describe('Account', () => {
 describe('CreateAccount', () => {
   it('should pass', () => {
     const res = t.CreateAccount.decode({
-      countryCode: "IT",
+      countryCode: 'IT',
       accountMetaData: {
-        vendorCode: "ABCDE"
+        vendorCode: 'ABCDE',
       },
-      accountType: "VENDOR"
+      accountType: 'VENDOR',
     })
 
     expect(isRight(res)).toBeTruthy()

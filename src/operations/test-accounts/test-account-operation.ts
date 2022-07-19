@@ -1,10 +1,5 @@
 import { Operation } from '../operation'
-import {
-  Account,
-  RequestId,
-  CreateAccount,
-  CreateAccountResponse
-} from './types'
+import { Account, RequestId, CreateAccount, CreateAccountResponse } from './types'
 import { Decode, DecodeArray } from '../../decorators'
 
 export class AccountOperation extends Operation {
@@ -31,7 +26,6 @@ export class AccountOperation extends Operation {
     return this.client.get<Account>(`${this.resource}/?requestId=${requestId}`)
   }
 
-
   /**
    * Create a test account
    * @returns
@@ -39,7 +33,7 @@ export class AccountOperation extends Operation {
   @Decode(CreateAccountResponse)
   public createTestAccount(CreateAccount: CreateAccount) {
     return this.client.post<CreateAccountResponse>(`${this.resource}`, {
-      CreateAccount
+      CreateAccount,
     })
   }
 }
