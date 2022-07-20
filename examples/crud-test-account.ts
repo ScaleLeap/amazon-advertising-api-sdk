@@ -1,4 +1,6 @@
 import { amazonAdvertising } from './auth'
+import { AmazonMarketplaceAdvertisingCountryCode } from '@scaleleap/amazon-marketplaces'
+import { CreateAccount } from '../src/operations/test-accounts/types'
 
 const testAccountOperation = amazonAdvertising.testAccount
 const REQUEST_ID = 'VMTZD2V14R745AHA5C4S'
@@ -10,11 +12,11 @@ testAccountOperation.getTestAccount(REQUEST_ID)
 testAccountOperation.listTestAccounts()
 
 // Registers a brand in the sandbox environment.
-const createTestAccountParam = {
-  countryCode: "IT",
+const createTestAccount: CreateAccount = {
+  countryCode: AmazonMarketplaceAdvertisingCountryCode.IT,
+  accountType: 'VENDOR',
   accountMetaData: {
-    vendorCode: "ABCDE"
+    vendorCode: 'ABCDE',
   },
-  accountType: "VENDOR"
 }
-testAccountOperation.createTestAccount(createTestAccountParam)
+testAccountOperation.createTestAccount(createTestAccount)

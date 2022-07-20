@@ -2,7 +2,7 @@ import { Operation } from '../operation'
 import { Account, RequestId, CreateAccount, CreateAccountResponse } from './types'
 import { Decode, DecodeArray } from '../../decorators'
 
-export class AccountOperation extends Operation {
+export class TestAccountOperation extends Operation {
   protected resource = 'testAccounts'
 
   /**
@@ -28,12 +28,13 @@ export class AccountOperation extends Operation {
 
   /**
    * Create a test account
+   * @param createAccount
    * @returns
    */
   @Decode(CreateAccountResponse)
-  public createTestAccount(CreateAccount: CreateAccount) {
+  public createTestAccount(createAccount: CreateAccount) {
     return this.client.post<CreateAccountResponse>(`${this.resource}`, {
-      CreateAccount,
+      createAccount,
     })
   }
 }
