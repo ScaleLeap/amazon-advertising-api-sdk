@@ -23,7 +23,7 @@ import { SponsoredBrandsProductTargetingOperation } from '../src/operations/prod
 import { SponsoredDisplayNegativeTargetingOperation } from '../src/operations/negative-targeting/sponsored-display-negative-targeting-operation'
 import { SponsoredProductsProductTargetingOperation } from '../src/operations/product-targeting/sponsored-products-product-targeting-operation'
 import { ProfileOperation } from '../src/operations/profiles/profile-operation'
-import { AccountOperation } from '../src/operations/test-accounts/test-account-operation'
+import { TestAccountOperation } from '../src/operations/test-accounts/test-account-operation'
 import { SponsoredBrandsBidRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-bid-recommendations-operation'
 import { SponsoredBrandsTargetingRecommendationsOperation } from '../src/operations/recommendations/sponsored-brands-targeting-recommendations-operation'
 import { SponsoredBrandsReportOperation } from '../src/operations/reports/sponsored-brands/sponsored-brands-report-operation'
@@ -148,9 +148,9 @@ describe('AmazonAdvertising', () => {
     expect(operation).toBeInstanceOf(ProfileOperation)
   })
 
-  it('should return AccountOperation', () => {
+  it('should return TestAccountOperation', () => {
     const operation = amazonAdvertising.profile
-    expect(operation).toBeInstanceOf(AccountOperation)
+    expect(operation).toBeInstanceOf(TestAccountOperation)
   })
 
   it('should return SponsoredBrandsBidRecommendationsOperation', () => {

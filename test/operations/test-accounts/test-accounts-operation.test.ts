@@ -1,5 +1,5 @@
 import { OperationProvider } from '../../../src/operations/operation-provider'
-import { AccountOperation } from '../../../src/operations/test-accounts/test-account-operation'
+import { TestAccountOperation } from '../../../src/operations/test-accounts/test-account-operation'
 import { httpClientFactory } from '../../http-client-factory'
 import { Account } from '../../../src/operations/test-accounts/types'
 import { AmazonMarketplaceAdvertisingCountryCode } from '@scaleleap/amazon-marketplaces'
@@ -7,10 +7,10 @@ import { delay } from '../../test-utils'
 
 jest.setTimeout(15000)
 
-describe('AccountOperation', () => {
+describe('TestAccountOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
-  const accountOperation = operationProvider.create(AccountOperation)
+  const accountOperation = operationProvider.create(TestAccountOperation)
   const TEST_PROFILE_ID = 2984328618318898
 
   describe('listAccounts', () => {
