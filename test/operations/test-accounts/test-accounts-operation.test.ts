@@ -7,7 +7,7 @@ import { delay } from '../../test-utils'
 
 jest.setTimeout(15000)
 
-describe('TestAccountOperation', () => {
+describe.skip('TestAccountOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const accountOperation = operationProvider.create(TestAccountOperation)
@@ -23,7 +23,6 @@ describe('TestAccountOperation', () => {
 
   describe('getAccount', () => {
     it(`should return a account object`, async () => {
-      expect.assertions(2)
       const account = await accountOperation.getTestAccount(REQUEST_ID)
 
       expect(account).toBeTruthy()
@@ -32,8 +31,6 @@ describe('TestAccountOperation', () => {
 
   describe('createTestAccount', () => {
     it(`should create the test account`, async () => {
-      expect.assertions(5)
-
       const res = await accountOperation.createTestAccount({
         countryCode: AmazonMarketplaceAdvertisingCountryCode.IT,
         accountType: 'VENDOR',

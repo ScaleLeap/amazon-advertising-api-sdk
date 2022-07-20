@@ -149,7 +149,7 @@ describe('AmazonAdvertising', () => {
   })
 
   it('should return TestAccountOperation', () => {
-    const operation = amazonAdvertising.profile
+    const operation = amazonAdvertising.testAccount
     expect(operation).toBeInstanceOf(TestAccountOperation)
   })
 
