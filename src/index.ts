@@ -25,6 +25,7 @@ export * from './operations/product-ads/sponsored-products-product-ads-operation
 export * from './operations/product-targeting/sponsored-brands-product-targeting-operation'
 export * from './operations/product-targeting/sponsored-products-product-targeting-operation'
 export * from './operations/profiles/profile-operation'
+export * from './operations/test-accounts/test-account-operation'
 export * from './operations/recommendations/sponsored-brands-bid-recommendations-operation'
 export * from './operations/recommendations/sponsored-brands-targeting-recommendations-operation'
 export * from './operations/reports/sponsored-brands/sponsored-brands-report-operation'
