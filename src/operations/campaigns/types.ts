@@ -387,10 +387,13 @@ export const SponsoredBrandsCampaign = t.intersection([
     /**
      * Landing page type is required. The presence of other fields depends on the landing page type. This property may not be modified after campaign creation.
      */
-    landingPage: t.union([t.strict({
-      pageType: t.union([t.literal('store'), t.literal('detailPage')]),
-      url: t.string,
-    }), t.undefined]),
+    landingPage: t.union([
+      t.strict({
+        pageType: t.union([t.literal('store'), t.literal('detailPage')]),
+        url: t.string,
+      }),
+      t.undefined,
+    ]),
   }),
   t.partial({
     /**
