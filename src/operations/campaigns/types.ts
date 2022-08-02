@@ -380,16 +380,20 @@ export const SponsoredBrandsCampaign = t.intersection([
         t.literal('running'),
         t.literal('scheduled'),
         t.literal('terminated'),
+        t.literal('portfolioEnded'),
       ]),
     ),
 
     /**
      * Landing page type is required. The presence of other fields depends on the landing page type. This property may not be modified after campaign creation.
      */
-    landingPage: t.strict({
-      pageType: t.union([t.literal('store'), t.literal('detailPage')]),
-      url: t.string,
-    }),
+    landingPage: t.union([
+      t.strict({
+        pageType: t.union([t.literal('store'), t.literal('detailPage')]),
+        url: t.string,
+      }),
+      t.undefined,
+    ]),
   }),
   t.partial({
     /**
@@ -603,7 +607,7 @@ export const SponsoredDisplayCampaign = t.intersection([
     /**
      * The docs don't metion these fields
      */
-    costType: t.literal('cpc'),
+    costType: t.union([t.literal('cpc'), t.literal('vcpm')]),
     deliveryProfile: t.literal('as_soon_as_possible'),
   }),
 ])
