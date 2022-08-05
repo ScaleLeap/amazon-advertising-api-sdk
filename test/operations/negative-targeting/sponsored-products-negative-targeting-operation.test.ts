@@ -11,8 +11,8 @@ describe('SponsoredProductsNegativeTargetingOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsNegativeTargetingOperation)
-  const CAMPAIGN_ID = 164069484151709
-  const AD_GROUP_ID = 202694745498469
+  const CAMPAIGN_ID = '164069484151709'
+  const AD_GROUP_ID = '202694745498469'
   const NEGATIVE_TARGET_ID = 160145133562783
   const ASIN = 'B07663Z46Z'
 

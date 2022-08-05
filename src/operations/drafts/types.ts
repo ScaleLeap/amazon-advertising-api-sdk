@@ -7,7 +7,7 @@ import {
   SponsoredBrandsKeywordResponse,
 } from '../keywords/types'
 
-export const SponsoredBrandsDraftCampaignId = t.number
+export const SponsoredBrandsDraftCampaignId = t.string
 export type SponsoredBrandsDraftCampaignId = t.TypeOf<typeof SponsoredBrandsDraftCampaignId>
 
 export const SponsoredBrandsDraftCampaignName = t.string

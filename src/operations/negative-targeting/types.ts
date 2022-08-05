@@ -19,7 +19,7 @@ import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { ListPagination } from '../commons/types'
 
-export const NegativeTargetId = t.number
+export const NegativeTargetId = t.string
 export type NegativeTargetId = t.TypeOf<typeof NegativeTargetId>
 
 export const SponsoredDisplayNegativeTargetingExpressionQueryType = t.union([

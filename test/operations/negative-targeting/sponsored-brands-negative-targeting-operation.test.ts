@@ -16,8 +16,8 @@ describe.skip('SponsoredBrandsNegativeTargetingOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsNegativeTargetingOperation)
-  const CAMPAIGN_ID = 164069484151709
-  const AD_GROUP_ID = 202694745498469
+  const CAMPAIGN_ID = '164069484151709'
+  const AD_GROUP_ID = '202694745498469'
   const NEGATIVE_TARGET_ID = 256247845256441
 
   describe('listNegativeTargets', () => {

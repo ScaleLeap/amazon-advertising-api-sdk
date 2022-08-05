@@ -4,7 +4,7 @@ import { AdGroupId, AdGroupIds } from '../ad-groups/types'
 import { ListPagination } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
-export const AdId = t.number
+export const AdId = t.string
 export type AdId = t.TypeOf<typeof AdId>
 
 export const AdIds = t.array(AdId)

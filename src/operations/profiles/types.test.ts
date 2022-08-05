@@ -21,7 +21,7 @@ describe('ProfileResponse', () => {
 describe('Profile', () => {
   it('should pass', () => {
     const res = t.Profile.decode({
-      profileId: 2984328618318898,
+      profileId: '2984328618318898',
       countryCode: 'US',
       currencyCode: 'USD',
       dailyBudget: 340,

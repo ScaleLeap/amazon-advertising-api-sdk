@@ -2,7 +2,7 @@ import * as t from 'io-ts'
 import { AmazonMarketplaceAdvertisingCurrencyType } from '../commons/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
-export const PortfolioId = t.number
+export const PortfolioId = t.string
 export type PortfolioId = t.TypeOf<typeof PortfolioId>
 
 const PortfolioName = t.string

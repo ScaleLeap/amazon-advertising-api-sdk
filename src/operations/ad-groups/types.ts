@@ -3,7 +3,7 @@ import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { CampaignId, CampaignIds } from '../campaigns/types'
 import { ListPagination } from '../commons/types'
 
-export const AdGroupId = t.number
+export const AdGroupId = t.string
 export type AdGroupId = t.TypeOf<typeof AdGroupId>
 
 export const AdGroupIds = t.array(AdGroupId)

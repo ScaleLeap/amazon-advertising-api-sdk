@@ -4,7 +4,7 @@ import { CampaignId, CampaignIds } from '../campaigns/types'
 import { AdGroupId, AdGroupIds } from '../ad-groups/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 
-export const TargetId = t.number
+export const TargetId = t.string
 export type TargetId = t.TypeOf<typeof TargetId>
 
 export const TargetIds = t.array(TargetId)
@@ -187,7 +187,7 @@ export const ProductRecommendationResponse = t.strict({
 })
 export type ProductRecommendationResponse = t.TypeOf<typeof ProductRecommendationResponse>
 
-export const CategoryId = t.number
+export const CategoryId = t.string
 export type CategoryId = t.TypeOf<typeof CategoryId>
 
 export const CategoryResponse = t.strict({
@@ -227,7 +227,7 @@ export const AgeRange = t.strict({
 export type AgeRange = t.TypeOf<typeof AgeRange>
 export const AgeRanges = t.array(AgeRange)
 
-export const BrandId = t.number
+export const BrandId = t.string
 export type BrandId = t.TypeOf<typeof BrandId>
 
 export const BrandResponse = t.strict({
