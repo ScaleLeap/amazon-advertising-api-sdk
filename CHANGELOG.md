@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.6.1...v3.7.0) (2022-09-02)
+
+
+### Features
+
+* enables passing of extra headers to HTTP client ([#978](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/978)) ([92a48f6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/92a48f65c7d15ff44857301bc95d5cd1e8a87b5d))
+
 ## [3.6.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.6.0...v3.6.1) (2022-08-02)
 
 
