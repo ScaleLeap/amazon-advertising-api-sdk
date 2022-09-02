@@ -139,46 +139,54 @@ export class HttpClient {
       await this.request({
         ...params,
         uri: this.apiUri(params.uri),
-        headers: this.headers,
+        headers: { ...this.headers, ...params.headers },
       }),
     )
   }
 
-  public async get<T>(resource: string): Promise<T> {
+  public async get<T>(resource: string, extraHeaders: Headers = {}): Promise<T> {
     return this.apiRequest<T>({
       method: 'GET',
       uri: resource,
+      headers: extraHeaders,
     })
   }
 
-  public async put<T>(resource: string, body: RequestBody): Promise<T> {
+  public async put<T>(resource: string, body: RequestBody, extraHeaders: Headers = {}): Promise<T> {
     return this.apiRequest<T>({
       method: 'PUT',
       uri: resource,
       body: JSON.stringify(body),
+      headers: extraHeaders,
     })
   }
 
-  public async post<T>(resource: string, body: RequestBody): Promise<T> {
+  public async post<T>(
+    resource: string,
+    body: RequestBody,
+    extraHeaders: Headers = {},
+  ): Promise<T> {
     return this.apiRequest<T>({
       method: 'POST',
       uri: resource,
       body: JSON.stringify(body),
+      headers: extraHeaders,
     })
   }
 
-  public async delete<T>(resource: string): Promise<T> {
+  public async delete<T>(resource: string, extraHeaders: Headers = {}): Promise<T> {
     return this.apiRequest<T>({
       method: 'DELETE',
       uri: resource,
+      headers: extraHeaders,
     })
   }
 
-  public async download<T>(resource: string): Promise<T> {
+  public async download<T>(resource: string, headers: Headers = {}): Promise<T> {
     const res = await this.request({
       method: 'GET',
       uri: this.apiUri(resource),
-      headers: this.headers,
+      headers: { ...this.headers, ...headers },
     })
 
     // checks for common errors, we don't care about the result, as we expect it to throw
