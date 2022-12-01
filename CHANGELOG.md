@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.7.0...v3.8.0) (2022-12-01)
+
+
+### Features
+
+* added `ruleBased` bidding strategy ([#979](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/979)) ([b6765fc](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/b6765fc9a611d5a2a54087292b2bc45fce5a11e8))
+
 # [3.7.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.6.1...v3.7.0) (2022-09-02)
 
 
