@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.1](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.8.0...v3.8.1) (2022-12-01)
+
+
+### Bug Fixes
+
+* npm audit ([84c6776](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/84c677650e28e87416471ec87e44dee0baacf47f))
+* use caret for `@scaleleap/amazon-marketplaces` ([7022925](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/70229257923d38c9c2369dfd4f4e44ca93e316b1))
+
 # [3.8.0](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.7.0...v3.8.0) (2022-12-01)
 
 
