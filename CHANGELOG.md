@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.8.2...v3.8.3) (2022-12-01)
+
+
+### Bug Fixes
+
+* adds a test for SA ([2fdbca6](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/2fdbca6cfaad767cf19e68306e354f6c34cbbc36))
+
 ## [3.8.2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.8.1...v3.8.2) (2022-12-01)
 
 
