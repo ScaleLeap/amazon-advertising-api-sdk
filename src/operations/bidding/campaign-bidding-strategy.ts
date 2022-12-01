@@ -23,5 +23,10 @@ export const CampaignBiddingStrategy = t.union([
    * bidding.
    */
   t.literal('manual'),
+  /**
+   * Rule-based bidding takes the guesswork out of adjusting bids to achieve your marketing
+   * strategy
+   */
+  t.literal('ruleBased'),
 ])
 export type CampaignBiddingStrategy = t.TypeOf<typeof CampaignBiddingStrategy>
