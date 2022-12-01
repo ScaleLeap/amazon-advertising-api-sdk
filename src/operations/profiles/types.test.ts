@@ -33,7 +33,23 @@ describe('Profile', () => {
       },
     })
 
+    const resSA = t.Profile.decode({
+      profileId: 2984328618318898,
+      countryCode: 'SA',
+      currencyCode: 'SAR',
+      dailyBudget: 9.99999999e8,
+      timezone: 'Asia/Riyadh',
+      accountInfo: {
+        marketplaceStringId: 'A17E79C6D8DWNP',
+        id: 'AUZWHWR0590BC',
+        type: 'seller',
+        name: 'foo',
+        validPaymentMethod: true,
+      },
+    })
+
     expect(isRight(res)).toBeTruthy()
+    expect(isRight(resSA)).toBeTruthy()
   })
 
   it('should fail', () => {
