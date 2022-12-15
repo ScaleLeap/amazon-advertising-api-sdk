@@ -85,6 +85,6 @@ export class ProfileOperation extends Operation {
    */
   @DecodeArray(Brand)
   public getBrands() {
-    return this.client.get<Brand[]>(`${this.version}/brands`)
+    return this.client.get<Brand[]>('brands')
   }
 }
