@@ -5,7 +5,7 @@ import {
   AmazonMarketplaceAdvertisingCountryCodeType,
 } from '../commons/types'
 
-export const ProfileId = t.number
+export const ProfileId = t.string
 export type ProfileId = t.TypeOf<typeof ProfileId>
 
 export const ProfileResponse = t.intersection([

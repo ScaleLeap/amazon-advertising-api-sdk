@@ -11,7 +11,7 @@ describe('ProfileOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const profileOperation = operationProvider.create(ProfileOperation)
-  const TEST_PROFILE_ID = 2984328618318898
+  const TEST_PROFILE_ID = '2984328618318898'
 
   describe('listProfiles', () => {
     it(`should return an array or profiles`, async () => {

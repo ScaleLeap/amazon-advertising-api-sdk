@@ -23,9 +23,9 @@ describe('SponsoredProductsSnapshotOperation', () => {
 
       const [res] = await operation.downloadSnapshot<Keyword[]>(param)
 
-      expect(res.adGroupId).toEqual(149522344269714)
-      expect(res.campaignId).toEqual(164069484151709)
-      expect(res.keywordId).toEqual(239748696088896)
+      expect(res.adGroupId).toEqual('149522344269714')
+      expect(res.campaignId).toEqual('164069484151709')
+      expect(res.keywordId).toEqual('239748696088896')
       expect(res.keywordText).toEqual('Apple')
       expect(res.matchType).toEqual<KeywordMatchType>('broad')
       expect(res.state).toEqual<KeywordState>('paused')

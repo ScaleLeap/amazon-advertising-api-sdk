@@ -4,7 +4,7 @@ import { CampaignId, CampaignIds } from '../campaigns/types'
 import { DateFromNumber } from 'io-ts-types/lib/DateFromNumber'
 import { AdGroupId, AdGroupIds, AdGroupState } from '../ad-groups/types'
 
-export const KeywordId = t.number
+export const KeywordId = t.string
 export type KeywordId = t.TypeOf<typeof KeywordId>
 
 export const KeywordIds = t.array(KeywordId)

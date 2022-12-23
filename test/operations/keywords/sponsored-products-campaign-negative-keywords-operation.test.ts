@@ -14,8 +14,8 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredProductsCampaignNegativeKeywordsOperation)
-  const MANUAL_CAMPAIGN_ID = 164069484151709
-  const KEYWORD_ID = 271800073719731
+  const MANUAL_CAMPAIGN_ID = '164069484151709'
+  const KEYWORD_ID = '271800073719731'
   const KEYWORD_TEXT = 'banana'
 
   describe('createCampaignNegativeKeywords', () => {
@@ -96,8 +96,7 @@ describe('SponsoredProductsCampaignNegativeKeywordsOperation', () => {
 
   describe('listCampaignNegativeKeywordsExtended', () => {
     it(`should return an array of campaign negative keywords extendeds`, async () => {
-      const res: CampaignNegativeKeywordExtended[] =
-        await operation.listCampaignNegativeKeywordsExtended()
+      const res: CampaignNegativeKeywordExtended[] = await operation.listCampaignNegativeKeywordsExtended()
 
       expect(Array.isArray(res)).toBeTruthy()
     })

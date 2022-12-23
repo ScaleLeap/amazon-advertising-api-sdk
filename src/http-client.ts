@@ -1,5 +1,6 @@
 import { axios, Method, AxiosResponse } from './axios'
 import HttpStatus from 'http-status-codes'
+import jsonBigInt from 'json-bigint'
 
 import { JSON_CONTENT_TYPE } from './constants'
 import { apiErrorFactory, NullError, InvalidProgramStateError } from './errors'
@@ -22,6 +23,19 @@ interface HttpClientRequestParams {
   uri: string
   body?: unknown
   headers?: Headers
+}
+
+interface BigInt {
+  /** Convert to BigInt to string form in JSON.stringify */
+  toJSON: () => string
+}
+
+if (typeof BigInt !== 'undefined') {
+  Object.assign(BigInt.prototype, {
+    toJSON: function () {
+      return jsonBigInt().stringify(this)
+    },
+  })
 }
 
 export class HttpClient {
@@ -49,6 +63,12 @@ export class HttpClient {
 
   public readonly httpStatus = HttpStatus
 
+  private readonly json = jsonBigInt({
+    alwaysParseAsBig: true,
+    storeAsString: true,
+    useNativeBigInt: true,
+  })
+
   public constructor(
     private readonly uri: string,
     private readonly auth: HttpClientAuth,
@@ -64,6 +84,24 @@ export class HttpClient {
       data: params.body,
       maxRedirects: 0,
       validateStatus: () => true,
+      transformResponse: (res) => {
+        if (typeof res === 'string') {
+          try {
+            return this.json.parse(res)
+          } catch {
+            return res
+          }
+        }
+
+        return res
+      },
+      transformRequest: (req) => {
+        if (typeof req === 'object') {
+          return this.json.stringify(req)
+        }
+
+        return req
+      },
     })
   }
 

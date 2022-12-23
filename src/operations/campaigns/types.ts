@@ -9,7 +9,7 @@ import { CampaignBiddingAdjustments } from '../bidding/campaign-bidding-adjustme
 /**
  * The ID of the campaign.
  */
-export const CampaignId = t.number
+export const CampaignId = t.string
 export type CampaignId = t.TypeOf<typeof CampaignId>
 
 export const CampaignIds = t.array(CampaignId)
@@ -516,7 +516,7 @@ export const SponsoredBrandsCampaignResponse = t.intersection([
           /**
            * The identifier of the ad group.
            */
-          adGroupId: t.number,
+          adGroupId: t.string,
         }),
         ResponseStatus,
       ]),
@@ -528,7 +528,7 @@ export const SponsoredBrandsCampaignResponse = t.intersection([
           /**
            * The identifier of the keyword.
            */
-          keywordId: t.number,
+          keywordId: t.string,
         }),
         ResponseStatus,
       ]),

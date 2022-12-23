@@ -66,7 +66,7 @@ export type SponsoredBrandsCategoryRecommendationsRequest = t.TypeOf<
   typeof SponsoredBrandsCategoryRecommendationsRequest
 >
 
-export const SponsoredBrandsCategoryId = t.number
+export const SponsoredBrandsCategoryId = t.string
 export type SponsoredBrandsCategoryId = t.TypeOf<typeof SponsoredBrandsCategoryId>
 
 const SponsoredBrandsCategoryResponse = t.strict({

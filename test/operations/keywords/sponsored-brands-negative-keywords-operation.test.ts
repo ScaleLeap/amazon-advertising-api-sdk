@@ -15,8 +15,8 @@ describe('SponsoredBrandsNegativeKeywordsOperation', () => {
   const client = httpClientFactory()
   const operationProvider = new OperationProvider(client)
   const operation = operationProvider.create(SponsoredBrandsNegativeKeywordsOperation)
-  const MANUAL_CAMPAIGN_ID = 164069484151709
-  const MANUAL_AD_GROUP_ID = 149522344269714
+  const MANUAL_CAMPAIGN_ID = '164069484151709'
+  const MANUAL_AD_GROUP_ID = '149522344269714'
   const KEYWORD_ID = 123
   const KEYWORD_TEXT = 'green apple'
 
