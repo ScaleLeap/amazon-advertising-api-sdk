@@ -1,35 +1,44 @@
 import * as t from 'io-ts'
-import { SponsoredDisplayCommonReportMetrics } from './sponsored-display-common-report-metrics'
 
 /**
  * These metrics are specific to T00020 tactic targeting reports:
  */
 export const SponsoredDisplayTargetReportMetrics = t.union([
-  SponsoredDisplayCommonReportMetrics,
-
-  t.union([
-    /**
-     * The identifier of the targeting expression used in a bid.
-     */
-    t.literal('targetId'),
-
-    /**
-     * The string representation of your expression object in targeting clauses.
-     */
-    t.literal('targetingExpression'),
-
-    /**
-     * The resolved string representation of your expression object in targeting clauses.
-     */
-    t.literal('targetingText'),
-
-    /**
-     * The type of match for the targeting expression used in bid.
-     * For manually created expressions, this value is TARGETING_EXPRESSION.
-     * For auto-targeting expressions this value is TARGETING_EXPRESSION_PREDEFINED.
-     */
-    t.literal('targetingType'),
-  ]),
+  t.literal('campaignName'),
+  t.literal('campaignId'),
+  t.literal('adGroupName'),
+  t.literal('adGroupId'),
+  t.literal('targetId'),
+  t.literal('targetingExpression'),
+  t.literal('targetingText'),
+  t.literal('targetingType'),
+  t.literal('impressions'),
+  t.literal('clicks'),
+  t.literal('cost'),
+  t.literal('currency'),
+  t.literal('attributedConversions1d'),
+  t.literal('attributedConversions7d'),
+  t.literal('attributedConversions14d'),
+  t.literal('attributedConversions30d'),
+  t.literal('attributedConversions1dSameSKU'),
+  t.literal('attributedConversions7dSameSKU'),
+  t.literal('attributedConversions14dSameSKU'),
+  t.literal('attributedConversions30dSameSKU'),
+  t.literal('attributedUnitsOrdered1d'),
+  t.literal('attributedUnitsOrdered7d'),
+  t.literal('attributedUnitsOrdered14d'),
+  t.literal('attributedUnitsOrdered30d'),
+  t.literal('attributedSales1d'),
+  t.literal('attributedSales7d'),
+  t.literal('attributedSales14d'),
+  t.literal('attributedSales30d'),
+  t.literal('attributedSales1dSameSKU'),
+  t.literal('attributedSales7dSameSKU'),
+  t.literal('attributedSales14dSameSKU'),
+  t.literal('attributedSales30dSameSKU'),
+  t.literal('attributedOrdersNewToBrand14d'),
+  t.literal('attributedSalesNewToBrand14d'),
+  t.literal('attributedUnitsOrderedNewToBrand14d'),
 ])
 
 export type SponsoredDisplayTargetReportMetrics = t.TypeOf<
