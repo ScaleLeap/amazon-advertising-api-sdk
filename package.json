@@ -39,7 +39,7 @@
     "http-status-codes": "2.2.0",
     "io-ts": "2.2.16",
     "io-ts-promise": "2.0.2",
-    "io-ts-reporters": "1.2.2",
+    "io-ts-reporters": "2.0.1",
     "io-ts-types": "0.5.16",
     "lazy-get-decorator": "2.2.0",
     "lodash": "4.17.21",
