@@ -40,7 +40,7 @@
     "io-ts": "2.2.16",
     "io-ts-promise": "2.0.2",
     "io-ts-reporters": "1.2.2",
-    "io-ts-types": "0.5.16",
+    "io-ts-types": "0.5.19",
     "lazy-get-decorator": "2.2.0",
     "lodash": "4.17.21",
     "ts-error": "1.0.6"
