@@ -37,7 +37,7 @@
     "client-oauth2": "4.3.3",
     "fp-ts": "2.12.1",
     "http-status-codes": "2.2.0",
-    "io-ts": "2.2.16",
+    "io-ts": "2.2.21",
     "io-ts-promise": "2.0.2",
     "io-ts-reporters": "1.2.2",
     "io-ts-types": "0.5.16",
