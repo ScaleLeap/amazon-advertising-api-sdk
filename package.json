@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@scaleleap/amazon-marketplaces": "^17.1.0",
-    "agentkeepalive": "4.2.1",
+    "agentkeepalive": "4.5.0",
     "axios": "0.27.2",
     "client-oauth2": "4.3.3",
     "fp-ts": "2.12.1",
