@@ -13,7 +13,7 @@ export type WithOperationParameterKeys<T extends OperationParameter> = {
   [K in keyof T]: OperationParameterValues
 }
 
-export type OperationParameterTransformer<T> = (
+export type OperationParameterTransformer<T extends OperationParameter> = (
   // eslint-disable-next-line no-unused-vars
   originalQuery: T,
   // eslint-disable-next-line no-unused-vars
@@ -50,11 +50,11 @@ export class Operation {
     return `${resource}?${stringify(transformer(originalQuery, clonedQuery))}`
   }
 
-  private hasKey<T>(obj: T, key: string | number | symbol): key is keyof T {
+  private hasKey<T extends object>(obj: T, key: string | number | symbol): key is keyof T {
     return key in obj
   }
 
-  protected paramsFilterTransformerReal<T>(
+  protected paramsFilterTransformerReal<T extends OperationParameter>(
     params: T,
     keys?: string[],
   ): WithOperationParameterKeys<T> {

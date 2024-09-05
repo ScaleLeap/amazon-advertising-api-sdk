@@ -42,12 +42,12 @@ export class SnapshotDownloadError extends ExtendableError {
 export class GenericError extends ExtendableError {
   public code: string
 
-  public requestId: string
+  public requestId: unknown;
 
   public constructor(err: ErrorObject, headers: Headers) {
     super(err.details)
     this.code = err.code
-    this.requestId = headers['x-amz-request-id'] || headers['x-amz-rid'] || ''
+    this.requestId = headers['x-amz-request-id'] ?? headers['x-amz-rid'] ?? ''
   }
 }
 
