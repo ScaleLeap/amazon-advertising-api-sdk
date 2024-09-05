@@ -31,13 +31,14 @@ describe('ResponseStatus', () => {
 })
 
 describe('EnumType', () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let FruitItem: any
   beforeEach(() => {
+    /* eslint-disable no-unused-vars */
     enum FRUIT {
       APPLE = 'APPLE',
       BANANA = 'BANANA',
     }
+    /* eslint-enable no-unused-vars */
 
     FruitItem = t2.type({
       fruit: t.createEnumType<FRUIT>(FRUIT),

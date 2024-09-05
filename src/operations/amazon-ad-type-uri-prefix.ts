@@ -7,8 +7,10 @@
  *
  * @example "sp"
  */
+/* eslint-disable no-unused-vars */
 export enum AmazonAdTypeURIPrefix {
   SponsoredBrands = 'hsa',
   SponsoredDisplay = 'sd',
   SponsoredProducts = 'sp',
 }
+/* eslint-enable no-unused-vars */

@@ -2,7 +2,6 @@ import { HttpClient } from '../http-client'
 import { stringify } from 'querystring'
 import { isEmpty, endsWith, cloneDeep } from 'lodash'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type OperationParameterValues = any
 
 export interface OperationParameter {
@@ -10,11 +9,14 @@ export interface OperationParameter {
 }
 
 export type WithOperationParameterKeys<T extends OperationParameter> = {
+  // eslint-disable-next-line no-unused-vars
   [K in keyof T]: OperationParameterValues
 }
 
 export type OperationParameterTransformer<T> = (
+  // eslint-disable-next-line no-unused-vars
   originalQuery: T,
+  // eslint-disable-next-line no-unused-vars
   clonedQuery: WithOperationParameterKeys<T>,
 ) => WithOperationParameterKeys<T>
 
@@ -22,6 +24,7 @@ export class Operation {
   protected version = 'v2'
   protected resource = ''
 
+  // eslint-disable-next-line no-unused-vars
   constructor(protected client: HttpClient) {}
 
   public static create<T extends typeof Operation>(
@@ -31,7 +34,6 @@ export class Operation {
     return new this(httpClient) as InstanceType<T>
   }
 
-  // eslint-disable-next-line class-methods-use-this
   protected query<T extends OperationParameter>(
     resource: string,
     originalQuery?: T,
@@ -48,7 +50,6 @@ export class Operation {
     return `${resource}?${stringify(transformer(originalQuery, clonedQuery))}`
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private hasKey<T>(obj: T, key: string | number | symbol): key is keyof T {
     return key in obj
   }

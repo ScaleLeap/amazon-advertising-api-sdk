@@ -43,7 +43,7 @@ export class OAuthClient {
       scopes: ['cpc_advertising:campaign_management'],
     }
 
-    this.client = new ClientOAuth2(defaultsDeep({}, this.opts, amazonOptions), request)
+    this.client = new ClientOAuth2(defaultsDeep({}, opts, amazonOptions), request)
   }
 
   public get getUri() {

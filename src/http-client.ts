@@ -50,9 +50,11 @@ export class HttpClient {
   public readonly httpStatus = HttpStatus
 
   public constructor(
+    /* eslint-disable no-unused-vars */
     private readonly uri: string,
     private readonly auth: HttpClientAuth,
     private readonly sandbox = false,
+    /* eslint-enable no-unused-vars */
   ) {}
 
   private async request<T>(params: HttpClientRequestParams) {

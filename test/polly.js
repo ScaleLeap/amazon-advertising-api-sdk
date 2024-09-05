@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { jestPollyConfigService, jestPollyContext } = require('@scaleleap/jest-polly')
-const { resolve } = require('path')
+import { jestPollyConfigService, jestPollyContext } from '@scaleleap/jest-polly'
+import { resolve } from 'path'
 
+// eslint-disable-next-line no-undef
 beforeAll(() => {
   jestPollyConfigService.config = {
     persisterOptions: {
       fs: {
+        // eslint-disable-next-line no-undef
         recordingsDir: resolve(__dirname, '__recordings__'),
       },
     },
@@ -15,6 +16,7 @@ beforeAll(() => {
   }
 })
 
+// eslint-disable-next-line no-undef
 beforeEach(() => {
   // removes secrets from stored recordings
   jestPollyContext.polly.server.any().on('beforePersist', (req, rec) => {
