@@ -43,7 +43,10 @@ import { Marketplace } from './maketplace'
 export class AmazonAdvertising {
   private operationProvider: OperationProvider
 
-  constructor(private marketplace: Marketplace, private auth: HttpClientAuth) {
+  constructor(
+    private marketplace: Marketplace,
+    private auth: HttpClientAuth,
+  ) {
     const httpClient: HttpClient = new HttpClient(marketplace.advertising.region.endpoint, auth)
     this.operationProvider = new OperationProvider(httpClient)
   }

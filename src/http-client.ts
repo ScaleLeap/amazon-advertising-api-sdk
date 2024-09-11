@@ -1,4 +1,4 @@
-import { axios, Method, AxiosResponse } from './axios'
+import { axios, Method, AxiosResponse, AxiosResponseHeaders } from './axios'
 import HttpStatus from 'http-status-codes'
 
 import { JSON_CONTENT_TYPE } from './constants'
@@ -15,7 +15,7 @@ export interface HttpClientAuth {
 
 export type RequestBody = object | object[]
 
-export type Headers = Record<string, string>
+export type Headers = AxiosResponseHeaders
 
 interface HttpClientRequestParams {
   method: Method
@@ -193,7 +193,7 @@ export class HttpClient {
     // if any failures are detected
     this.handleApiResponse(res)
 
-    const location: string | null = res.headers['location']
+    const location: string | undefined = res.headers['location']
     if (res.status !== this.httpStatus.TEMPORARY_REDIRECT || !location) {
       throw new InvalidProgramStateError(['Expected a signed URL.', res.statusText].join(' '))
     }
@@ -207,7 +207,7 @@ export class HttpClient {
     }
 
     const buffer = Buffer.from(download.data)
-    const contentType: string = download.headers['content-type']
+    const contentType: string | undefined = download.headers['content-type']
 
     const bufferToJson = (buf: Buffer): T => {
       return JSON.parse(buf.toString())
