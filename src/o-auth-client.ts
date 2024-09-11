@@ -36,7 +36,10 @@ export class OAuthClient {
 
   private client: ClientOAuth2
 
-  public constructor(private readonly opts: Options, marketplace: Marketplace) {
+  public constructor(
+    private readonly opts: Options,
+    marketplace: Marketplace,
+  ) {
     const amazonOptions = {
       accessTokenUri: marketplace.advertising.region.accessTokenUri,
       authorizationUri: marketplace.advertising.region.authorizationUri,

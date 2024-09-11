@@ -11,7 +11,7 @@ import { Operation } from './operations/operation'
 type Descriptor = TypedPropertyDescriptor<any>
 type Decoder = t.Mixed
 
-export function Decode(decoder: Decoder): Function {
+export function Decode(decoder: Decoder) {
   return (target: Operation, propertyKey: string, descriptor: Descriptor) => {
     const originalMethod = descriptor.value
 
@@ -26,6 +26,6 @@ export function Decode(decoder: Decoder): Function {
   }
 }
 
-export function DecodeArray(decoder: Decoder): Function {
+export function DecodeArray(decoder: Decoder) {
   return Decode(t.array(decoder))
 }

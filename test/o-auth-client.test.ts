@@ -28,7 +28,7 @@ describe(OAuthClient.name, () => {
     jestPollyContext.polly.server
       .post('https://api.amazon.com/auth/o2/token')
       .on('beforeResponse', (req, res) => {
-        /* eslint-disable @typescript-eslint/camelcase */
+        /* eslint-disable camelcase */
         req.body = stringify(
           Object.assign(parse(req.body), {
             refresh_token: PLACEHOLDER,
@@ -43,7 +43,7 @@ describe(OAuthClient.name, () => {
             refresh_token: PLACEHOLDER,
           }),
         )
-        /* eslint-enable @typescript-eslint/camelcase */
+        /* eslint-enable camelcase */
       })
   })
 
