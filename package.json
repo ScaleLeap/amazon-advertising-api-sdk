@@ -35,7 +35,7 @@
     "agentkeepalive": "4.5.0",
     "axios": "0.28.1",
     "client-oauth2": "4.3.3",
-    "fp-ts": "2.16.8",
+    "fp-ts": "2.16.9",
     "http-status-codes": "2.3.0",
     "io-ts": "2.2.21",
     "io-ts-promise": "2.0.2",
