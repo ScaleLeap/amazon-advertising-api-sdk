@@ -44,7 +44,7 @@ export class SponsoredBrandsCampaignOperation extends Operation {
    */
   @DecodeArray(CampaignResponse)
   public createCampaigns(campaigns: SponsoredBrandsCampaignCreateParams[]) {
-    return this.client.post<CampaignResponse[]>(this.resource, campaigns)
+    return this.client.post<CampaignResponse[]>('sb/campaigns', campaigns)
   }
 
   /**
