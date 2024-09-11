@@ -76,6 +76,22 @@ describe('HttpClient', () => {
         expect(err.retryAfter).toBe(42)
       })
     })
+
+    it('should throw an exception base on http status when request return object without code ', async () => {
+      const server = jestPollyContext.polly.server
+      const details = 'Request was rate-limited. Retry later.'
+
+      server.get(SANDBOX_URI + '/foobar').on('beforeResponse', (req, res) => {
+        res.status(HttpStatus.TOO_MANY_REQUESTS)
+        res.send({
+          details,
+        })
+      })
+
+      await client.get('foobar').catch((err: ThrottlingError) => {
+        expect(err.message).toContain(details)
+      })
+    })
   })
 
   describe('download', () => {
