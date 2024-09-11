@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.4](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.8.3...v3.8.4) (2024-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @scaleleap/amazon-marketplaces to v17.3.1 ([#1001](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1001)) ([7fcbed5](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/7fcbed5ca5dc7246a06cf5d93372dad0f7dc40ca))
+* **deps:** update dependency agentkeepalive to v4.5.0 ([#1002](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1002)) ([37b5662](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/37b5662bf15c10cafab374a617bc140abe790671))
+* **deps:** update dependency axios to v0.28.1 ([#1003](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1003)) ([ecfff0f](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/ecfff0f84b36d415e29d3a11b405518089a5fd45))
+* **deps:** update dependency fp-ts to v2.16.6 ([#1004](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1004)) ([3a89683](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/3a89683f4e440f934b841c6ba7f8bc3bd4a9bf6e))
+* **deps:** update dependency fp-ts to v2.16.8 ([#1014](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1014)) ([0028c2c](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/0028c2cb2b628eeae62360b3fab426cba58fe749))
+* **deps:** update dependency fp-ts to v2.16.9 ([#1021](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1021)) ([499e865](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/499e865a2f6a6c2c77cb58253e21f7d240ca9d02))
+* **deps:** update dependency http-status-codes to v2.3.0 ([#1005](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1005)) ([134a848](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/134a84861ba7389dd01fbf9a3b75f5d756376d61))
+* **deps:** update dependency io-ts to v2.2.21 ([#994](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/994)) ([128f0ee](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/128f0eeaf46c3508fe1420d470dabca59fc1fbb8))
+* **deps:** update dependency io-ts-types to v0.5.19 ([#995](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/995)) ([0f589a2](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/0f589a24eed8d17af73d06740aca4f8e8c48a774))
+* **deps:** update dependency lazy-get-decorator to v2.2.1 ([#996](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/996)) ([e208f84](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/e208f84a7bfe7f4e61281031c51eeb964e33dc18))
+* module not found in @scaleleap/amazon-marketplaces ([#1025](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1025)) ([251bdf9](https://github.com/ScaleLeap/amazon-advertising-api-sdk/commit/251bdf98975254028eb8aad0a1eb918779ef0361)), closes [#1023](https://github.com/ScaleLeap/amazon-advertising-api-sdk/issues/1023)
+
 ## [3.8.3](https://github.com/ScaleLeap/amazon-advertising-api-sdk/compare/v3.8.2...v3.8.3) (2022-12-01)
 
 
