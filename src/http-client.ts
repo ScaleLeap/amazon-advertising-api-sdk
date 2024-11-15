@@ -102,23 +102,6 @@ export class HttpClient {
       )
     }
 
-    // We don't have a body, so it's an unpredictable error, but let's try to structure it
-    // anyways for completeness sake
-    if (badRequest && !data) {
-      throw apiErrorFactory(
-        {
-          code: status.toString(),
-          details: res.statusText,
-        },
-        headers,
-      )
-    }
-
-    // should not happen, but a catch all just in case
-    if (badRequest) {
-      throw new InvalidProgramStateError(data)
-    }
-
     if (status < this.httpStatus.MULTIPLE_CHOICES && data) {
       return data
     }
