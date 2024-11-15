@@ -25,7 +25,7 @@ describe('SponsoredBrandsCampaignOperation', () => {
   })
 
   // Return an error: No resource method found for POST, return 405 with Allow header
-  describe.skip('createCampaigns', () => {
+  describe('createCampaigns', () => {
     it(`should create a campaign`, async () => {
       const res = await campaignOperation.createCampaigns([
         {
