@@ -130,6 +130,41 @@ describe('SponsoredDisplayReportOperation', () => {
     })
 
     /**
+     * TODO: "BadRequestError: Unsupported record type asins" error in Sandbox API.
+     * Need to check again on Production API.
+     */
+    it.skip(`should return a in progress status and metrics specific to T00020 tactic asin report`, async () => {
+      const res = await reportOperation.requestReport({
+        recordType: 'asins',
+        reportDate: '20210520',
+        tactic: 'T00020',
+        metrics: [
+          'campaignName',
+          'campaignId',
+          'adGroupName',
+          'adGroupId',
+          'asin',
+          'otherAsin',
+          'sku',
+          'currency',
+          'attributedUnitsOrdered1dOtherSKU',
+          'attributedUnitsOrdered7dOtherSKU',
+          'attributedUnitsOrdered14dOtherSKU',
+          'attributedUnitsOrdered30dOtherSKU',
+          'attributedSales1dOtherSKU',
+          'attributedSales7dOtherSKU',
+          'attributedSales14dOtherSKU',
+          'attributedSales30dOtherSKU',
+        ],
+      })
+
+      expect(res.reportId).toBeDefined()
+      expect(res.recordType).toStrictEqual('asins')
+      expect(res.status).toBe<ReportResponseStatus>('IN_PROGRESS')
+      expect(res.statusDetails).toBeDefined()
+    })
+
+    /**
      * TODO: error in Sandbox API without error message.
      * Need to check again on Production API.
      */
